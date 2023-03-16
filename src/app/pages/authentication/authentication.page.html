@@ -1,0 +1,100 @@
+<ion-header>
+  
+</ion-header>
+
+<ion-content class="">
+
+
+  <img src="assets/header.png" alt="">
+
+  <div class="segment-container">
+    <ion-segment mode="ios" value="si" [(ngModel)]="selectTabs">
+      <ion-segment-button class="login"  value="si" >
+        Sign In
+      </ion-segment-button>
+      <ion-segment-button value="su" >
+        Sign Up
+      </ion-segment-button>
+    </ion-segment>
+    </div>
+
+
+<!-- SignIn Segment -->
+  <div *ngIf ="selectTabs === 'si'">
+    <form [formGroup]="credentials" (ngSubmit)="login()">
+      <ion-card >
+        <ion-card-title>Login Here!</ion-card-title>
+        <ion-card-content>
+          <ion-list fill="solid">
+            <ion-item fill="solid">
+              <ion-label position="floating"> Email</ion-label>
+              <ion-input formControlName="email" type="text"></ion-input>
+            </ion-item>
+                <ion-item fill="solid">
+                  <ion-label position="floating"> Password</ion-label>
+                  <ion-input formControlName="password" type="password"></ion-input>
+                </ion-item>
+            </ion-list>
+            
+            <ion-list>
+              <ion-button [disabled]="!credentials.valid" type="submit" class="btnlog" shape="round"  color="primary">
+                Log In
+              </ion-button>
+              <ion-button style="align-items: center;display: block;" fill="clear"  [routerLink]="">
+                FORGOT PASSWORD?
+              </ion-button>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+  
+  
+    
+  
+  
+    </form>
+              
+            
+      
+   
+
+  </div>
+
+
+  <!-- SignUp Segment -->
+<div *ngIf ="selectTabs === 'su'">
+
+  <form [formGroup]="credentials" (ngSubmit)="signup()">
+    <ion-card >
+      <ion-card-title>Create your account!</ion-card-title>
+      <ion-card-content>
+        <ion-list fill="solid">
+          <ion-item fill="solid">
+            <ion-label position="floating"> Email</ion-label>
+            <ion-input formControlName="email" type="text"></ion-input>
+          </ion-item>
+              <ion-item fill="solid">
+                <ion-label position="floating"> Password</ion-label>
+                <ion-input formControlName="password" type="password"></ion-input>
+              </ion-item>
+          </ion-list>
+          
+          <ion-list>
+            <ion-item lines="none">
+              <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" shape="round" class="btnreg" color="success">
+                Register
+              </ion-button>
+            </ion-item>
+          </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+
+  
+
+
+  </form>
+</div>
+
+
+
+</ion-content>
