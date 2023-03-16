@@ -12,8 +12,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'signin',
-    loadChildren: () => import('./pages/signin/signin.module').then( m => m.SigninPageModule)
+    path: 'authentication',
+    loadChildren: () => import('./pages/authentication/authentication.module').then( m => m.AuthenticationPageModule)
   },
 ];
 
