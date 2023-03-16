@@ -21,31 +21,37 @@
 
 <!-- SignIn Segment -->
   <div *ngIf ="selectTabs === 'si'">
-  <ion-card >
-    <ion-card-title>Welcome Back!</ion-card-title>
-    <ion-card-content>
-      <ion-list fill="solid">
-        <ion-item fill="solid">
-          <ion-label position="floating"> Email</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
+    <form [formGroup]="credentials" (ngSubmit)="login()">
+      <ion-card >
+        <ion-card-title>Login Here!</ion-card-title>
+        <ion-card-content>
+          <ion-list fill="solid">
             <ion-item fill="solid">
-              <ion-label position="floating"> Password</ion-label>
-              <ion-input type="password"></ion-input>
+              <ion-label position="floating"> Email</ion-label>
+              <ion-input formControlName="email" type="text"></ion-input>
             </ion-item>
-        </ion-list>
-        
-        <ion-list>
-            <ion-button type="submit" class="btnlog" shape="round"  color="primary">
-              Log In
-            </ion-button>
-            <ion-button style="align-items: center;display: block;" fill="clear"  [routerLink]="">
-              FORGOT PASSWORD?
-            </ion-button>
-        </ion-list>
-    </ion-card-content>
-  </ion-card>
+                <ion-item fill="solid">
+                  <ion-label position="floating"> Password</ion-label>
+                  <ion-input formControlName="password" type="password"></ion-input>
+                </ion-item>
+            </ion-list>
+            
+            <ion-list>
+              <ion-button [disabled]="!credentials.valid" type="submit" class="btnlog" shape="round"  color="primary">
+                Log In
+              </ion-button>
+              <ion-button style="align-items: center;display: block;" fill="clear"  [routerLink]="">
+                FORGOT PASSWORD?
+              </ion-button>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+  
+  
     
+  
+  
+    </form>
               
             
       
@@ -57,24 +63,24 @@
   <!-- SignUp Segment -->
 <div *ngIf ="selectTabs === 'su'">
 
-
+  <form [formGroup]="credentials" (ngSubmit)="signup()">
     <ion-card >
       <ion-card-title>Create your account!</ion-card-title>
       <ion-card-content>
         <ion-list fill="solid">
           <ion-item fill="solid">
             <ion-label position="floating"> Email</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input formControlName="email" type="text"></ion-input>
           </ion-item>
               <ion-item fill="solid">
                 <ion-label position="floating"> Password</ion-label>
-                <ion-input type="password"></ion-input>
+                <ion-input formControlName="password" type="password"></ion-input>
               </ion-item>
           </ion-list>
           
           <ion-list>
             <ion-item lines="none">
-              <ion-button type="submit" expand="block" shape="round" class="btnreg" color="success">
+              <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" shape="round" class="btnreg" color="success">
                 Register
               </ion-button>
             </ion-item>
@@ -86,7 +92,7 @@
   
 
 
-
+  </form>
 </div>
 
 
