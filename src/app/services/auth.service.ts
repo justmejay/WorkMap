@@ -70,4 +70,16 @@ export class AuthService {
     return signOut(this.auth);
   }
 
+
+  async forgot({email}: {email: any}){
+    try {
+      const uemail = email;
+      const user = await sendPasswordResetEmail(this.auth, uemail);
+      return user;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
 }

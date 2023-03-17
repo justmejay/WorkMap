@@ -27,7 +27,7 @@ export class AuthenticationPage implements OnInit {
    get email() {
     return this.credentials.get('email');
   }
-  get passsword() {
+  get password() {
     return this.credentials.get('password');
   }
 
