@@ -9,8 +9,10 @@ import {
   updateProfile,
   signOut,
   getAuth,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  sendEmailVerification
 } from '@angular/fire/auth';
+import { send } from 'process';
 
 export interface User{
   //id is optional and not required
@@ -48,6 +50,7 @@ export class AuthService {
       const imageUrl = ""
       const userDocRef = doc(this.firestore, `users/${userget}`);
       await setDoc(userDocRef, {email, uid: userget});
+      await sendEmailVerification(this.auth.currentUser);
      
       return user;
     } catch (e) {
@@ -68,6 +71,23 @@ export class AuthService {
 
   logout() {
     return signOut(this.auth);
+  }
+
+
+  async forgot({email}: {email: any}){
+    try {
+      const uemail = email;
+      const user = await sendPasswordResetEmail(this.auth, uemail);
+      return user;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
+
+  async resend(){
+    return sendEmailVerification(this.auth.currentUser)
   }
 
 }

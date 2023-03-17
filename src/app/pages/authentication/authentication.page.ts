@@ -27,7 +27,7 @@ export class AuthenticationPage implements OnInit {
    get email() {
     return this.credentials.get('email');
   }
-  get passsword() {
+  get password() {
     return this.credentials.get('password');
   }
 
@@ -52,7 +52,7 @@ export class AuthenticationPage implements OnInit {
     if (user) {
       
       this.router.navigateByUrl('/authentication', { replaceUrl: true });
-      this.showAlert('Success', `You can now login!`);    
+      this.showAlert('Success', `Please verify your account before logging in!`);    
         } else {
       this.showAlert('Registration failed', 'Please try again!');
     }
@@ -72,8 +72,16 @@ export class AuthenticationPage implements OnInit {
     await loading.dismiss();
 
     if (user) {
-      this.auth.logout;
-      this.showAlert("Success", "Login Success");        
+      if (user.user.emailVerified == false){
+        await this.auth.resend();
+        this.auth.logout;
+          this.showAlert("Verify Email", "Please verify your email! A new activation link is sent on your email!");     
+        
+      }
+      else{
+        this.showAlert("Success", "Login Success");     
+
+      }
 
     } else {
       this.showAlert('Login failed', 'Incorrect Email/Password!');

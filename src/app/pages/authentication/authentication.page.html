@@ -29,10 +29,12 @@
             <ion-item fill="solid">
               <ion-label position="floating"> Email</ion-label>
               <ion-input formControlName="email" type="text"></ion-input>
+              <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
             </ion-item>
                 <ion-item fill="solid">
                   <ion-label position="floating"> Password</ion-label>
                   <ion-input formControlName="password" type="password"></ion-input>
+                  <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
                 </ion-item>
             </ion-list>
             
@@ -40,7 +42,7 @@
               <ion-button [disabled]="!credentials.valid" type="submit" class="btnlog" shape="round"  color="primary">
                 Log In
               </ion-button>
-              <ion-button style="align-items: center;display: block;" fill="clear"  [routerLink]="">
+              <ion-button style="align-items: center;display: block;" fill="clear"  [routerLink]="['/forgot']" >
                 FORGOT PASSWORD?
               </ion-button>
           </ion-list>
@@ -71,10 +73,14 @@
           <ion-item fill="solid">
             <ion-label position="floating"> Email</ion-label>
             <ion-input formControlName="email" type="text"></ion-input>
+            <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
+
           </ion-item>
               <ion-item fill="solid">
                 <ion-label position="floating"> Password</ion-label>
                 <ion-input formControlName="password" type="password"></ion-input>
+                <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
+
               </ion-item>
           </ion-list>
           
