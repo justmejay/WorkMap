@@ -42,7 +42,8 @@ export class ForgotPage implements OnInit {
     await loading.present();
     const user = await this.authService.forgot(this.credentials.value); 
     await loading.dismiss();
-      this.showAlert("Success", "You should recieve a email reset link if you're registered");
+    this.router.navigateByUrl('/resetpage', { replaceUrl: true });
+
      this.credentials.get('email')?.reset();
   }
 

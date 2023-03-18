@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'forgot',
     loadChildren: () => import('./pages/forgot/forgot.module').then( m => m.ForgotPageModule)
   },
+  {
+    path: 'resetpage',
+    loadChildren: () => import('./pages/resetpage/resetpage.module').then( m => m.ResetpagePageModule)
+  },
 ];
 
 @NgModule({
