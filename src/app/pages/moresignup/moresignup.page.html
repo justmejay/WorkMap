@@ -1,0 +1,187 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button color="#2855A1">
+      <ion-icon name="arrow-back-outline" size="large"></ion-icon>
+    </ion-button>
+    <ion-title>Setup your account details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+   <!-- MOre SignUp Page -->
+<div >
+  <form>
+    <ion-card-title>What's your name?</ion-card-title>
+    <ion-card class="custom-card">
+      <ion-card-content>
+        <ion-list  class="custom-card">
+          <ion-item>
+            <ion-label position="floating">First Name:</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+
+          <ion-item >
+              <ion-label position="floating">Middle Name:</ion-label>
+              <ion-input type="text"></ion-input>
+          </ion-item>
+
+          <ion-item >
+            <ion-label position="floating">Last Name:</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card-title>When were you born and where do you currently live?</ion-card-title>
+    <ion-card class="custom-card">
+      <ion-card-content>
+        <ion-list class="custom-card" >
+          <ion-item >
+              <ion-label position="fixed">Birthdate:</ion-label>
+              <ion-datetime-button datetime="date"></ion-datetime-button>
+
+                <ion-modal [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-datetime id="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+
+              <!-- <ion-icon name="calendar-outline" slot="end"></ion-icon> -->
+          </ion-item>
+
+
+
+          <ion-item >
+              <ion-label position="floating">Home Address:</ion-label>
+              <ion-input type="text"></ion-input>
+          </ion-item>
+
+          <ion-item >
+            <ion-label position="floating">Current Address:</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+        </ion-list>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card-title>What is your education history and job experiences?</ion-card-title>
+    <ion-card class="custom-card">
+      <ion-card-content>
+        <ion-list class="custom-card">
+          <ion-item >
+            <ion-label>School:</ion-label>
+            <ion-input [disabled]="!isInputEnabled" type="text"></ion-input>
+            <ion-toggle (ionChange)="toggleInput($event)" slot="end"></ion-toggle>
+          </ion-item>
+
+          <ion-item >
+            <ion-label>Work:</ion-label>
+            <ion-input [disabled]="!isInput2Enabled" type="text"></ion-input>
+            <ion-toggle (ionChange)="toggleInput2($event)" slot="end"></ion-toggle>
+          </ion-item>
+        </ion-list>
+        </ion-card-content>
+    </ion-card>
+  
+    <ion-card-title>What job specialization are you in?</ion-card-title>
+    <ion-card class="custom-card">
+        <ion-card-content>
+          <ion-list class="custom-card">
+            <ion-radio-group [allowEmptySelection]="false">
+              <ion-item >
+                <ion-label>Accounting/Finance</ion-label>
+                <ion-radio slot="end" value="accounting"></ion-radio>
+              </ion-item>
+              
+              <ion-item >
+                <ion-label>Admin/Human Resources</ion-label>
+                <ion-radio slot="end" value="admin"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Sales/Marketing</ion-label>
+                <ion-radio slot="end" value="sales"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Arts/Media/Communication</ion-label>
+                <ion-radio slot="end" value="arts"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Services</ion-label>
+                <ion-radio slot="end" value="services"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Hotel/Restaurant</ion-label>
+                <ion-radio slot="end" value="hotel"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Education/Training</ion-label>
+                <ion-radio slot="end" value="education"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Computer/Information Technology</ion-label>
+                <ion-radio slot="end" value="computer"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Engineering</ion-label>
+                <ion-radio slot="end" value="engineering"></ion-radio>
+              </ion-item>
+
+               <ion-item >
+                <ion-label>Manufacturing</ion-label>
+                <ion-radio slot="end" value="manufacturing"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Building/Construction</ion-label>
+                <ion-radio slot="end" value="building"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Sciences</ion-label>
+                <ion-radio slot="end" value="sciences"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Healthcare</ion-label>
+                <ion-radio slot="end" value="healthcare"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Others</ion-label>
+                <ion-radio slot="end" value="others"></ion-radio>
+              </ion-item>
+
+            </ion-radio-group>
+        </ion-list>
+
+
+
+      <ion-list>
+        <ion-item lines="none">
+          <ion-button type="submit" expand="block" class="btnreg">
+            Finish
+          </ion-button>
+        </ion-item>
+    </ion-list>
+  </ion-card-content>
+    </ion-card>
+
+
+  
+
+
+  </form>
+</div>
+
+
+
+</ion-content>
