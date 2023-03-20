@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'resetpage',
     loadChildren: () => import('./pages/resetpage/resetpage.module').then( m => m.ResetpagePageModule)
   },
+  {
+    path: 'forgotconfirm',
+    loadChildren: () => import('./pages/forgotconfirm/forgotconfirm.module').then( m => m.ForgotconfirmPageModule)
+  },
 ];
 
 @NgModule({
