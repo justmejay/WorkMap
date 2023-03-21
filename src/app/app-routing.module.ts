@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'moresignup',
     loadChildren: () => import('./pages/moresignup/moresignup.module').then( m => m.MoresignupPageModule)
   },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
 
 ];
 
