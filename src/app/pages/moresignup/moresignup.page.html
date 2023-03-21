@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-button color="#2855A1">
-      <ion-icon name="arrow-back-outline" size="large"></ion-icon>
-    </ion-button>
-    <ion-title>Setup your account details</ion-title>
+  <ion-toolbar style="height: 100%;">
+      <ion-buttons [routerLink]="['/authentication']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title style="text-align: left;">Setup your account</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,27 +12,55 @@
    <!-- MOre SignUp Page -->
 <div >
   <form>
-    <ion-card-title>What's your name?</ion-card-title>
-    <ion-card class="custom-card">
+
+      <h4>Personal Information</h4>
+    <ion-card>
       <ion-card-content>
-        <ion-list  class="custom-card">
+        <ion-list>
           <ion-item>
-            <ion-label position="floating">First Name:</ion-label>
+            <ion-label position="floating">First Name</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Middle Name</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Last Name</ion-label>
             <ion-input type="text"></ion-input>
           </ion-item>
 
-          <ion-item >
-              <ion-label position="floating">Middle Name:</ion-label>
-              <ion-input type="text"></ion-input>
-          </ion-item>
-
-          <ion-item >
-            <ion-label position="floating">Last Name:</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
         </ion-list>
       </ion-card-content>
     </ion-card>
+
+    <h4>Birthday and Address</h4>
+    <ion-card>
+      
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">Home Address</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label position="floating">Current Address</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+    
+          <ion-item>
+            <ion-label>Birthday</ion-label>
+            <ion-input type="date"></ion-input>
+          </ion-item>
+          
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+  
 
     <ion-card-title>When were you born and where do you currently live?</ion-card-title>
     <ion-card class="custom-card">
