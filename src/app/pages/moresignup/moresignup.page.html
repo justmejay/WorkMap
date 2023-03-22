@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar style="height: 100%;">
+  <ion-toolbar>
       <ion-buttons [routerLink]="['/authentication']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
-      <ion-title style="text-align: left;">Setup your account</ion-title>
+      <ion-title>Setup your account</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,75 +12,78 @@
    <!-- MOre SignUp Page -->
 <div >
   <form>
-
-      <h4>Personal Information</h4>
+    <div class="personalinfo">
+    <h3>Personal Information</h3>
     <ion-card>
       <ion-card-content>
-        <ion-list>
           <ion-item>
-            <ion-label position="floating">First Name</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label position="stacked">First Name:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
           </ion-item>
     
           <ion-item>
-            <ion-label position="floating">Middle Name</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label position="stacked">Middle Name:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
           </ion-item>
     
           <ion-item>
-            <ion-label position="floating">Last Name</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label position="stacked">Last Name:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
           </ion-item>
 
-        </ion-list>
+          <ion-item>
+            <ion-label position="stacked">Suffix (optional):</ion-label>
+            <ion-list>
+              <ion-item class="suffix"  lines="none">
+                <ion-select interface="popover" placeholder="Select suffix" expand="block">
+                  <ion-select-option value="apples">Jr.</ion-select-option>
+                  <ion-select-option value="oranges">Sr.</ion-select-option>
+                  <ion-select-option value="bananas">I</ion-select-option>
+                  <ion-select-option value="bananas">II</ion-select-option>
+                  <ion-select-option value="bananas">III</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+          <ion-item >
+            <ion-label position="fixed">Birthdate:</ion-label>
+            <ion-datetime-button datetime="date"></ion-datetime-button>
+
+              <ion-modal [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-icon name="calendar-number-outline"></ion-icon>
+                  <ion-datetime id="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
+                </ng-template>
+              </ion-modal>
+
+            <!-- <ion-icon name="calendar-outline" slot="end"></ion-icon> -->
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Barangay</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Town</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Province</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Country</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+
       </ion-card-content>
     </ion-card>
+    </div>
 
-    <h4>Birthday and Address</h4>
-    <ion-card>
-      
-      <ion-card-content>
-        <ion-list>
-          <ion-item>
-            <ion-label position="floating">Home Address</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-    
-          <ion-item>
-            <ion-label position="floating">Current Address</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-    
-          <ion-item>
-            <ion-label>Birthday</ion-label>
-            <ion-input type="date"></ion-input>
-          </ion-item>
-          
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
-
-  
-
-    <ion-card-title>When were you born and where do you currently live?</ion-card-title>
+    <!-- <ion-card-title>When were you born and where do you currently live?</ion-card-title>
     <ion-card class="custom-card">
       <ion-card-content>
         <ion-list class="custom-card" >
-          <ion-item >
-              <ion-label position="fixed">Birthdate:</ion-label>
-              <ion-datetime-button datetime="date"></ion-datetime-button>
-
-                <ion-modal [keepContentsMounted]="true">
-                  <ng-template>
-                    <ion-datetime id="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
-                  </ng-template>
-                </ion-modal>
-
-              <!-- <ion-icon name="calendar-outline" slot="end"></ion-icon> -->
-          </ion-item>
-
-
-
+          
           <ion-item >
               <ion-label position="floating">Home Address:</ion-label>
               <ion-input type="text"></ion-input>
@@ -92,9 +95,9 @@
           </ion-item>
         </ion-list>
         </ion-card-content>
-    </ion-card>
+    </ion-card> -->
 
-    <ion-card-title>What is your education history and job experiences?</ion-card-title>
+    <!-- <ion-card-title>What is your education history and job experiences?</ion-card-title>
     <ion-card class="custom-card">
       <ion-card-content>
         <ion-list class="custom-card">
@@ -111,12 +114,11 @@
           </ion-item>
         </ion-list>
         </ion-card-content>
-    </ion-card>
+    </ion-card> -->
   
-    <ion-card-title>What job specialization are you in?</ion-card-title>
+    <h3>What job specialization are you in?</h3>
     <ion-card class="custom-card">
         <ion-card-content>
-          <ion-list class="custom-card">
             <ion-radio-group [allowEmptySelection]="false">
               <ion-item >
                 <ion-label>Accounting/Finance</ion-label>
@@ -128,6 +130,11 @@
                 <ion-radio slot="end" value="admin"></ion-radio>
               </ion-item>
 
+              <ion-item >
+                <ion-label>Armed Forces</ion-label>
+                <ion-radio slot="end" value="armedforces"></ion-radio>
+              </ion-item>
+              
               <ion-item >
                 <ion-label>Sales/Marketing</ion-label>
                 <ion-radio slot="end" value="sales"></ion-radio>
@@ -141,6 +148,21 @@
               <ion-item >
                 <ion-label>Services</ion-label>
                 <ion-radio slot="end" value="services"></ion-radio>
+              </ion-item>
+              
+              <ion-item >
+                <ion-label>Plant & Machine Operators & Assemblers</ion-label>
+                <ion-radio slot="end" value="plantandmachine"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Craft & Related Trade Workers</ion-label>
+                <ion-radio slot="end" value="craftandtrade"></ion-radio>
+              </ion-item>
+
+              <ion-item >
+                <ion-label>Agriculture, Forestry & Fishery</ion-label>
+                <ion-radio slot="end" value="agriculture"></ion-radio>
               </ion-item>
 
               <ion-item >
@@ -183,30 +205,12 @@
                 <ion-radio slot="end" value="healthcare"></ion-radio>
               </ion-item>
 
-              <ion-item >
-                <ion-label>Others</ion-label>
-                <ion-radio slot="end" value="others"></ion-radio>
-              </ion-item>
-
             </ion-radio-group>
-        </ion-list>
   </ion-card-content>
     </ion-card>
 
-  <ion-item lines="none">
-    <ion-button type="submit" expand="block" class="btnreg">
-      Finish
-    </ion-button>
-  </ion-item>
-  
-
-
-  
-
-
+    <ion-button type="submit" expand="block" class="btnreg">Finish</ion-button>
   </form>
 </div>
-
-
 
 </ion-content>

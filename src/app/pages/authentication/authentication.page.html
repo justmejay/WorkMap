@@ -23,84 +23,66 @@
   <div *ngIf ="selectTabs === 'si'">
     <form [formGroup]="credentials" (ngSubmit)="login()">
       <ion-card >
-        <ion-card-title>Login Here!</ion-card-title>
+        <!-- <ion-card-title>Login Here!</ion-card-title> -->
         <ion-card-content>
-          <ion-list fill="solid">
-            <ion-item fill="solid">
+          <ion-list lines="none">
+            <ion-item fill="outline">
               <ion-label position="floating"> Email</ion-label>
               <ion-input formControlName="email" type="text"></ion-input>
               <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
             </ion-item>
-                <ion-item fill="solid">
+                <ion-item fill="outline">
                   <ion-label position="floating"> Password</ion-label>
                   <ion-input formControlName="password" type="password"></ion-input>
                   <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
                 </ion-item>
             </ion-list>
-            
-            <ion-list>
-              <ion-button [disabled]="!credentials.valid" type="submit" class="btnlog" shape="round"  color="primary">
-                Log In
-              </ion-button>
-              <ion-button style="align-items: center;display: block;" fill="clear"  [routerLink]="['/forgot']" >
-                FORGOT PASSWORD?
-              </ion-button>
-          </ion-list>
+            <ion-list lines="none" class="action">
+              <ion-item>
+                <ion-button [disabled]="!credentials.valid" type="submit" class="btnlog" expand="block">
+                  Log In
+                </ion-button>
+              </ion-item>
+              <ion-item>
+                <ion-button fill="clear"  [routerLink]="['/forgot']" expand="block">
+                  FORGOT PASSWORD?
+                </ion-button>
+              </ion-item>
+            </ion-list>
         </ion-card-content>
       </ion-card>
-  
-  
-    
-  
-  
+
     </form>
-              
-            
-      
-   
-
   </div>
-
 
   <!-- SignUp Segment -->
 <div *ngIf ="selectTabs === 'su'">
 
   <form [formGroup]="credentials" (ngSubmit)="signup()">
     <ion-card >
-      <ion-card-title>Create your account!</ion-card-title>
       <ion-card-content>
         <ion-list fill="solid">
-          <ion-item fill="solid">
-            <ion-label position="floating"> Email</ion-label>
-            <ion-input formControlName="email" type="text"></ion-input>
-            <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
-
-          </ion-item>
-              <ion-item fill="solid">
+            <ion-item fill="outline" lines="none">
+              <ion-label position="floating"> Email</ion-label>
+              <ion-input formControlName="email" type="text"></ion-input>
+              <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
+            </ion-item>
+              <ion-item fill="outline" lines="none">
                 <ion-label position="floating"> Password</ion-label>
                 <ion-input formControlName="password" type="password"></ion-input>
                 <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
-
               </ion-item>
           </ion-list>
           
           <ion-list>
             <ion-item lines="none">
-              <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" shape="round" class="btnreg" color="success">
+              <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">
                 Register
               </ion-button>
             </ion-item>
           </ion-list>
       </ion-card-content>
     </ion-card>
-
-
-  
-
-
   </form>
 </div>
-
-
-
 </ion-content>
