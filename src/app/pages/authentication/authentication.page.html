@@ -76,8 +76,13 @@
           
           <ion-list>
             <ion-item lines="none">
-              <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">
+              <ion-button type="button"   [disabled]="!credentials.valid" (click)="signup()" expand="block" class="btnreg">
                 Register
+              </ion-button>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-button type="button"  [disabled]="!credentials.valid" (click)="signupc()" expand="block" class="btncompany">
+                Register as Company
               </ion-button>
             </ion-item>
           </ion-list>
