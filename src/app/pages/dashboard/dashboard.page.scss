@@ -1,0 +1,52 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+}
+
+.uppertool{
+    --background:  #2855A1;
+}
+
+.lowertool{
+    --background:#ffffff;
+}
+
+ion-content{
+    --background:#E5EBEE;
+} 
+
+.btn{
+    font-size: 40px;
+    color: #ffffff;  
+}
+ion-tabs{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    contain: layout size style;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+ion-tab-bar{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+ion-tab-button{
+    color: #000000;
+}
+

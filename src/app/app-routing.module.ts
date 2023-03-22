@@ -19,6 +19,22 @@ const routes: Routes = [
     path: 'forgot',
     loadChildren: () => import('./pages/forgot/forgot.module').then( m => m.ForgotPageModule)
   },
+  {
+    path: 'resetpage',
+    loadChildren: () => import('./pages/resetpage/resetpage.module').then( m => m.ResetpagePageModule)
+  },
+  {
+    path: 'forgotconfirm',
+    loadChildren: () => import('./pages/forgotconfirm/forgotconfirm.module').then( m => m.ForgotconfirmPageModule)
+  },  {
+    path: 'moresignup',
+    loadChildren: () => import('./pages/moresignup/moresignup.module').then( m => m.MoresignupPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+
 ];
 
 @NgModule({
