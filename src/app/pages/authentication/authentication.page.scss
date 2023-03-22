@@ -25,53 +25,44 @@ img{
     .segment-container{
         display: flex;
         justify-content: center;
-        padding-bottom: 30px;
-        height: 70px;
-        
+        padding-bottom: 0.5rem;
+        height: 60px;
         }
 
-
     ion-segment{
-        border-radius: 60px;
-        width: 80%;
+        margin-top: 3%;
+        width: 60%;
         background: #83a6e3;
-
       }      
-
       ion-segment-button{
         color: white;
-        --indicator-color: #2855A1 !important;
+        --indicator-color: #2F7EF5 !important;
         --indicator-color-checked: transparent !important;
       }
 
-//#####################################
-
 // Forms auth
-
-
-ion-item{
-    padding: 5px;
+ion-input{
+    padding: 5%;
+    border: #83a6e3 solid 2px;
 }
-
 ion-label{
-    font-size: 8px;
+    margin-left: 4%;
 }
-
+ion-list.action{
+    margin-top: 5%;
+}
 .btnlog{
+    background-color: #2F7EF5;
     width: 100%;
     height: 50px;
 }
 
 .btnreg{
+    background-color: #2F7EF5;
     width: 100%;
     height: 50px;
+    margin-top: 5%;
 }
-
-ion-card-title{
-    margin-left: 25px;
-    margin-top: 10px;
-}
- 
 
 
  

@@ -75,7 +75,7 @@ export class AuthenticationPage implements OnInit {
       if (user.user.emailVerified == false){
         await this.auth.resend();
         this.auth.logout;
-          this.showAlert("Verify Email", "Please verify your email! A new activation link is sent on your email!");     
+          this.showAlert("Verify Email", "Please verify your email! A new activation link is sent to your email!");     
         
       }
       else{
