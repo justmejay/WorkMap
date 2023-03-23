@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>Personal Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ">
+
+
+<div >
+  <form>
+    <div class="personalinfo">
+    <ion-card>
+      <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">First Name:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
+          </ion-item>
+      
+          <ion-item>
+            <ion-label position="stacked">Middle Name:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Last Name:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label  position="stacked">Suffix (optional):</ion-label>
+            <ion-list class="suffix">
+              <ion-item class="suffix"  lines="none">
+                <ion-select interface="popover" placeholder="Select suffix" expand="block">
+                  <ion-select-option value="Jr">Jr.</ion-select-option>
+                  <ion-select-option value="Sr">Sr.</ion-select-option>
+                  <ion-select-option value="I">I</ion-select-option>
+                  <ion-select-option value="II">II</ion-select-option>
+                  <ion-select-option value="III">III</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+
+          <ion-item >
+            <ion-label position="fixed">Birthdate:</ion-label>
+            <ion-input type="date"></ion-input>
+          
+
+              <ion-modal [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-icon name="calendar-number-outline"></ion-icon>
+                  <ion-datetime id="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
+                </ng-template>
+              </ion-modal>
+
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Age:</ion-label>
+          <ion-input type="Number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label  position="stacked">Sex:</ion-label>
+          <ion-list class="dropdown" slot="end">
+            <ion-item class="dropdown"  lines="none">
+              <ion-select interface="popover" placeholder="Select" expand="block">
+                <ion-select-option value="female">Female</ion-select-option>
+                <ion-select-option value="male">Male</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Email:</ion-label>
+          <ion-input type="Email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Contact Number:</ion-label>
+          <ion-input type="Number"></ion-input>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+    </div>
+
+    
+  
+    
+
+    <ion-button type="submit" expand="block" class="btnreg">Save</ion-button>
+  </form>
+</div>
+
+
+
+</ion-content>
