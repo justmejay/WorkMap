@@ -38,7 +38,8 @@ const routes: Routes = [
   {
     path: 'moresignupc',
     loadChildren: () => import('./pages/moresignupc/moresignupc.module').then( m => m.MoresignupcPageModule)
-  },  {
+  },
+  {
     path: 'editexperience',
     loadChildren: () => import('./pages/editexperience/editexperience.module').then( m => m.EditexperiencePageModule)
   },
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'editschool',
     loadChildren: () => import('./pages/editschool/editschool.module').then( m => m.EditschoolPageModule)
+  },
+  {
+    path: 'editpersonalinfo',
+    loadChildren: () => import('./pages/editpersonalinfo/editpersonalinfo.module').then( m => m.EditpersonalinfoPageModule)
   },
 
 ];
