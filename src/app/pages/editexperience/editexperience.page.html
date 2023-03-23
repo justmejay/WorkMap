@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>Work Experience</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ">
+
+
+<div >
+  <form >
+    <div>
+    <ion-card>
+      <ion-card-content>
+        <ion-button class="add" fill="clear">
+          <ion-icon name="add-outline" size="large"> </ion-icon>
+         </ion-button>
+          <ion-item>
+            <ion-label position="stacked">Company Name:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Company Address:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Job Title:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Specialization:</ion-label>
+            <ion-input type="text" class="custominput"></ion-input>
+          </ion-item>
+          <ion-item >
+            <ion-label position="fixed">Date From:</ion-label>
+            <ion-input type="date"></ion-input>
+          
+
+              <ion-modal [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-icon name="calendar-number-outline"></ion-icon>
+                  <ion-datetime id="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
+                </ng-template>
+              </ion-modal>
+
+        </ion-item>
+        <ion-item >
+          <ion-label position="fixed">Date From:</ion-label>
+          <ion-input type="date" ></ion-input>
+        
+
+            <ion-modal [keepContentsMounted]="true">
+              <ng-template>
+                <ion-icon name="calendar-number-outline"></ion-icon>
+                <ion-datetime id="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
+              </ng-template>
+            </ion-modal>
+
+      </ion-item>
+
+
+      </ion-card-content>
+    </ion-card>
+    </div>
+
+    
+  
+    
+ 
+
+    <ion-button type="submit" expand="block" class="btnreg">Save</ion-button>
+  </form>
+</div>
+
+
+
+</ion-content>
