@@ -54,7 +54,11 @@ const routes: Routes = [
   {
     path: 'editpersonalinfo',
     loadChildren: () => import('./pages/editpersonalinfo/editpersonalinfo.module').then( m => m.EditpersonalinfoPageModule)
+  },  {
+    path: 'applicantprofile',
+    loadChildren: () => import('./pages/applicantprofile/applicantprofile.module').then( m => m.ApplicantprofilePageModule)
   },
+
 
 ];
 

@@ -1,0 +1,151 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="avatar">
+      <ion-avatar class="image">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <div>
+      <span class="caption">John I. Doe Jr.</span>
+      </div>
+    </div>
+
+    <div>
+      
+      <!-- Work Experience -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Work Experience</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item lines="none">
+                <ion-label>Company Name: </ion-label>
+                <ion-input placeholder="cname" [readonly]="true"></ion-input>
+              </ion-item>
+        
+              <ion-item lines="none">
+                <ion-label>Company Address: </ion-label>
+                <ion-input placeholder="caddress" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>Job Title: </ion-label>
+                <ion-input placeholder="jtitle" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>Specialization: </ion-label>
+                <ion-input placeholder="specialization" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>From: </ion-label>
+                <ion-input placeholder="from" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>To: </ion-label>
+                <ion-input placeholder="to" [readonly]="true"></ion-input>
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
+        
+        <!-- Personal Information -->
+        <ion-card >
+          <ion-card-header>
+            <ion-card-title>Personal Information</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label>Name: </ion-label>
+              <ion-input placeholder="name" [readonly]="true"></ion-input>
+            </ion-item>
+      
+            <ion-item lines="none">
+              <ion-label>Birthday: </ion-label>
+              <ion-input placeholder="bday" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Age: </ion-label>
+              <ion-input placeholder="age" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Sex: </ion-label>
+              <ion-input placeholder="sex" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Contact Number: </ion-label>
+              <ion-input placeholder="cnumber" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Email Address: </ion-label>
+              <ion-input placeholder="email" [readonly]="true"></ion-input>
+            </ion-item>
+
+          </ion-card-content>
+        </ion-card>
+
+        <!--Address -->
+        <ion-card >
+          <ion-card-header>
+            <ion-card-title>Address:</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label>Home Address: </ion-label>
+              <ion-input placeholder="haddress" [readonly]="true"></ion-input>
+            </ion-item>
+      
+            <ion-item lines="none">
+              <ion-label>Current Address: </ion-label>
+              <ion-input placeholder="caddress" [readonly]="true"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+
+        <!--Educational Background -->
+        <ion-card >
+          <ion-card-header>
+            <ion-card-title>Educational Background:</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label>School: </ion-label>
+              <ion-input placeholder="school" [readonly]="true"></ion-input>
+            </ion-item>
+      
+            <ion-item lines="none">
+              <ion-label>Course: </ion-label>
+              <ion-input placeholder="course" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Level: </ion-label>
+              <ion-input placeholder="level" [readonly]="true"></ion-input>
+            </ion-item>
+      
+            <ion-item lines="none">
+              <ion-label>Ongoing: </ion-label>
+              <ion-input placeholder="ongoing" [readonly]="true"></ion-input>
+            </ion-item>
+            
+            <ion-item lines="none">
+              <ion-label>Year Graduated: </ion-label>
+              <ion-input placeholder="ygraduated" [readonly]="true"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </div> 
+  </div>
+</ion-content>
