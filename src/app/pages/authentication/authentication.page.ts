@@ -73,6 +73,8 @@ export class AuthenticationPage implements OnInit {
         
       }
       else{
+        this.router.navigate(['dashboard']);
+
         this.showAlert("Success", "Login Success");     
 
       }

@@ -6,14 +6,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
   <div class="container">
-    <div class="avatar">
+    <div class="avatar" >
       <ion-avatar class="image">
           <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       </ion-avatar>
-      <div>
-      <span class="caption">John I. Doe Jr.</span>
+      <div *ngIf="profile[0]">
+      <span  class="caption">{{profile[0].fname}} {{profile[0].mname}} {{profile[0].lname}} {{profile[0].suffix}}</span>
       </div>
     </div>
 
@@ -58,59 +58,112 @@
         </ion-card>
         
         <!-- Personal Information -->
-        <ion-card >
+        <ion-card *ngIf="profile[0]" >
           <ion-card-header>
             <ion-card-title>Personal Information</ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <ion-item lines="none">
-              <ion-label>Name: </ion-label>
-              <ion-input placeholder="name" [readonly]="true"></ion-input>
+              <ion-label>Name:   </ion-label>
+              <ion-input value="{{profile[0].fname}} {{profile[0].mname}} {{profile[0].lname}} {{profile[0].suffix}}" [readonly]="true"></ion-input>
             </ion-item>
       
             <ion-item lines="none">
-              <ion-label>Birthday: </ion-label>
-              <ion-input placeholder="bday" [readonly]="true"></ion-input>
+              <ion-label>Birthday:</ion-label>
+              <ion-input value=" {{profile[0].bday}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
-              <ion-label>Age: </ion-label>
-              <ion-input placeholder="age" [readonly]="true"></ion-input>
+              <ion-label>Age:  </ion-label>
+                <ion-input value="{{profile[0].age}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
-              <ion-label>Sex: </ion-label>
-              <ion-input placeholder="sex" [readonly]="true"></ion-input>
+              <ion-label>Sex:  </ion-label>
+              <ion-input value="{{profile[0].sex}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Contact Number: </ion-label>
-              <ion-input placeholder="cnumber" [readonly]="true"></ion-input>
+              <ion-input value="{{profile[0].contact}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Email Address: </ion-label>
-              <ion-input placeholder="email" [readonly]="true"></ion-input>
+              <ion-input value=" {{profile[0].email}}" [readonly]="true"></ion-input>
             </ion-item>
 
           </ion-card-content>
         </ion-card>
 
         <!--Address -->
-        <ion-card >
+        <ion-card *ngIf="address" >
           <ion-card-header>
-            <ion-card-title>Address:</ion-card-title>
+            <ion-card-title>Home Address:</ion-card-title>
           </ion-card-header>
           <ion-card-content>
-            <ion-item lines="none">
-              <ion-label>Home Address: </ion-label>
-              <ion-input placeholder="haddress" [readonly]="true"></ion-input>
-            </ion-item>
-      
-            <ion-item lines="none">
-              <ion-label>Current Address: </ion-label>
-              <ion-input placeholder="caddress" [readonly]="true"></ion-input>
-            </ion-item>
+           
+              <ion-item>
+                <ion-label>House No/Street: </ion-label>
+                <ion-input value="{{address[0].hstreet}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Barangay</ion-label>
+              <ion-input value="{{address[0].hbarangay}}" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Town</ion-label>
+                <ion-input value="{{address[0].htown}}" [readonly]="true"></ion-input>
+              </ion-item>
+              
+              <ion-item>
+                <ion-label>Province</ion-label>
+              <ion-input value="{{address[0].hprovince}}" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Country</ion-label>
+              <ion-input value="{{address[0].hcountry}}" [readonly]="true"></ion-input>
+           
+              </ion-item>
+
+
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="address" >
+          <ion-card-header>
+            <ion-card-title> Current Address:</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+           
+              <ion-item>
+                <ion-label>House No/Street: </ion-label>
+                <ion-input value="{{address[0].street}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label>Barangay</ion-label>
+              <ion-input value="{{address[0].barangay}}" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Town</ion-label>
+                <ion-input value="{{address[0].town}}" [readonly]="true"></ion-input>
+              </ion-item>
+              
+              <ion-item>
+                <ion-label>Province</ion-label>
+              <ion-input value="{{address[0].province}}" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Country</ion-label>
+              <ion-input value="{{address[0].country}}" [readonly]="true"></ion-input>
+           
+              </ion-item>
+
+
           </ion-card-content>
         </ion-card>
 

@@ -50,7 +50,26 @@
               </ion-item>
             </ion-list>
           </ion-item>
-          <ion-note slot="error" *ngIf="(suffix.dirty || suffix.touched) && suffix.errors">Required</ion-note>
+
+
+
+          <ion-item>
+            <ion-label  position="stacked">Sex:</ion-label>
+            <ion-list class="suffix">
+              <ion-item class="suffix"  lines="none">
+                <ion-select formControlName="sex" interface="popover" expand="block">
+                  <ion-select-option value="male">Male</ion-select-option>
+                  <ion-select-option value="female">Female</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+          <ion-note slot="error" *ngIf="(sex.dirty || sex.touched) && sex.errors">Required</ion-note>
+
+
+
+
+
 
           <ion-item >
             <ion-label position="fixed">Birthdate:</ion-label>
@@ -75,6 +94,58 @@
         <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
 
 
+
+      </ion-card-content>
+    </ion-card>
+    </div>
+
+      <h3>Home Address</h3>
+    <ion-card>
+      <ion-card-content>
+
+        
+        <ion-item>
+          <ion-label position="stacked">House No./Street</ion-label>
+          <ion-input formControlName="hstreet" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(hstreet.dirty || hstreet.touched) && hstreet.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Barangay</ion-label>
+          <ion-input formControlName="hbarangay" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(hbarangay.dirty || hbarangay.touched) && hbarangay.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Town</ion-label>
+          <ion-input formControlName="htown" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(htown.dirty || htown.touched) && htown.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Province</ion-label>
+          <ion-input  formControlName="hprovince" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(hprovince.dirty || hprovince.touched) && hprovince.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Country</ion-label>
+          <ion-input formControlName="hcountry" type="text"></ion-input>
+        </ion-item>
+
+        <ion-note slot="error" *ngIf="(hcountry.dirty || hcountry.touched) && hcountry.errors">Required</ion-note>
+
+        
+        
+      </ion-card-content>
+    </ion-card>
+
+
+    <h3>Current Address</h3>
+    <ion-card>
+      <ion-card-content>
+
+        
         <ion-item>
           <ion-label position="stacked">House No./Street</ion-label>
           <ion-input formControlName="street" type="text"></ion-input>
@@ -106,10 +177,12 @@
 
         <ion-note slot="error" *ngIf="(country.dirty || country.touched) && country.errors">Required</ion-note>
 
-
+        
+        
       </ion-card-content>
     </ion-card>
-    </div>
+
+    
 
     
   

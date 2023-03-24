@@ -36,9 +36,11 @@ export class AuthService {
 
 
   async signup({fname, mname, lname, suffix, 
-    bday, age, street, barangay, town, country, province, specialization, }: 
+    bday, age, street, barangay, town, country, province, specialization,sex,hstreet, hbarangay, htown, hcountry, hprovince  }: 
     {fname: any, mname: any, lname: any, suffix: any, bday: any, age: any, street: any, barangay: any, 
-    town: any, country:any, province: any, specialization: any, email: any, password: any}, email: any, password: any ){
+    town: any, country:any, province: any, specialization: any, sex : any ,hstreet : any, hbarangay : any, htown : any, hcountry : any, 
+    hprovince : any }, email: any, 
+    password: any,  ){
 
     try {
       console.log
@@ -53,15 +55,15 @@ export class AuthService {
       console.log(userget);
       const imageUrl = ""
       
-      const userDocRef = doc(this.firestore, `users/${userget}`);
-      await setDoc(userDocRef, {uid: userget, specialization, profileimg: "",});
+      
 
       const userDocRef1 = collection(this.firestore, `users/${userget}/profile`);
-      await addDoc(userDocRef1, {fname, mname, lname, suffix, gender: "", contact: "", bday, age, email });
+      await addDoc(userDocRef1, {uid: userget, specialization, profileimg: "",  fname, mname, lname, suffix, sex, contact: "", bday, age, email });
       
 
       const userDocRef2 = collection(this.firestore, `users/${userget}/address`);
-      await addDoc(userDocRef2, {street, barangay, town, province, country});
+      await addDoc(userDocRef2, {street, barangay, town, province, country, hstreet, hbarangay , 
+    htown, hprovince, hcountry});
 
       const userDocRef3 = collection(this.firestore, `users/${userget}/experience`);
       await addDoc(userDocRef3, {cname: "", caddress: "", jtitle: "", specialization: "", datef: "", datet:""});
@@ -85,6 +87,7 @@ export class AuthService {
     }
   }
 
+ 
   async signupc({fname, mname, lname, contact, 
     cname, ccontact, street, barangay, town, province,  country }: 
     {fname: any, mname: any, lname: any, contact: any, cname: any, ccontact: any, street: any, barangay: any
@@ -126,6 +129,14 @@ export class AuthService {
       return null;
     }
   }
+
+  async getid(){
+
+    const id = this.auth.currentUser.uid;
+    return id;
+
+  }
+
 
 
   async login({ email, password }: {email:any, password: any}) {
