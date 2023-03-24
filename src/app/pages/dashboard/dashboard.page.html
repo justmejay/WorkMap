@@ -17,7 +17,7 @@
         <ion-button type="">
           <ion-icon class="btn" name="search" slot="icon-only"></ion-icon>
         </ion-button>
-        <ion-button type="">
+        <ion-button [routerLink]="['/applicantprofile']" type="">
           <ion-icon class="btn" name="person-circle" slot="icon-only"></ion-icon>
         </ion-button>
       </ion-buttons>
@@ -25,6 +25,7 @@
   </ion-header>
 
   <ion-content class="ion-padding">
+    <ion-button (click)="logout()">Logout</ion-button>
   </ion-content>
 
   <ion-footer>

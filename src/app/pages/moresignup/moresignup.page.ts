@@ -62,20 +62,39 @@ export class MoresignupPage implements OnInit {
     return this.credentials.get('town');
   }
   get province() {
-    return this.credentials.get('town');
+    return this.credentials.get('province');
   }
   get country() {
-    return this.credentials.get('town');
+    return this.credentials.get('country');
   }
   get specialization() {
     return this.credentials.get('specialization'); 
+  }
+  get hstreet() {
+    return this.credentials.get('hstreet');
+  }
+  get hbarangay() {
+    return this.credentials.get('hbarangay');
+  }
+  get htown() {
+    return this.credentials.get('htown');
+  }
+  get hprovince() {
+    return this.credentials.get('hprovince');
+  }
+  get hcountry() {
+    return this.credentials.get('hcountry');
+  }
+
+  get sex() {
+    return this.credentials.get('sex'); 
   }
 
   ngOnInit() {
 
     this.credentials = this.fb.group({
       fname: ['', [Validators.required]],
-      mname: ['', []],
+      mname: ['', ],
       lname: ['', [Validators.required]],
       suffix: ['', ],
       bday: ['', [Validators.required]],
@@ -86,6 +105,13 @@ export class MoresignupPage implements OnInit {
       province: ['', [Validators.required]],
       country: ['', [Validators.required]],
       specialization: ['', [Validators.required]],
+      sex: ['', [Validators.required]],
+      hstreet: ['', [Validators.required]],
+      hbarangay: ['', [Validators.required]],
+      htown: ['', [Validators.required]],
+      hprovince: ['', [Validators.required]],
+      hcountry: ['', [Validators.required]],
+
       
     });
 
@@ -96,7 +122,7 @@ export class MoresignupPage implements OnInit {
 
     const loading = await this.loadingController.create({
       spinner: "dots",
-      message: "Signing un!"
+      message: "Signing up!"
     });    await loading.present();
 
     const user = await this.auth.signup(this.credentials.value, this.authdetails.email, this.authdetails.password);
