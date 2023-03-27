@@ -54,10 +54,21 @@ const routes: Routes = [
   {
     path: 'editpersonalinfo',
     loadChildren: () => import('./pages/editpersonalinfo/editpersonalinfo.module').then( m => m.EditpersonalinfoPageModule)
-  },  {
+  },
+  {
     path: 'applicantprofile',
     loadChildren: () => import('./pages/applicantprofile/applicantprofile.module').then( m => m.ApplicantprofilePageModule)
   },
+  {
+    path: 'editcompanydetails',
+    loadChildren: () => import('./pages/editcompanydetails/editcompanydetails.module').then( m => m.EditcompanydetailsPageModule)
+  },
+  {
+    path: 'editaboutcompany',
+    loadChildren: () => import('./pages/editaboutcompany/editaboutcompany.module').then( m => m.EditaboutcompanyPageModule)
+  },
+
+
 
 
 ];

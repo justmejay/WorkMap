@@ -1,0 +1,175 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>About Company</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ">
+
+
+<div >
+  <form >
+    <div>
+    <h3>About Company</h3>
+    <ion-card>
+      <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">Company Overview:</ion-label>
+            <ion-textarea autogrow="true" class="custominput"></ion-textarea>
+          </ion-item>
+      </ion-card-content>
+    </ion-card>
+
+    <h3>Additional Company Information</h3>
+    <ion-card>
+      <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">Company Size (number of employees):</ion-label>
+            <ion-input type="number" class="custominput"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label  position="stacked">Average Processing Time:</ion-label>
+            <ion-list class="dropdown">
+              <ion-item class="dropdown"  lines="none">
+                <ion-select interface="popover" placeholder="Select" expand="block">
+                  <ion-select-option value="day/s">Day/s</ion-select-option>
+                  <ion-select-option value="week/s">Week/s</ion-select-option>
+                  <ion-select-option value="month/s">Month/s</ion-select-option>
+                  <ion-select-option value="year/s">Year/s</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+
+            <ion-list class="dropdown">
+              <ion-item class="dropdown"  lines="none">
+                <ion-select interface="popover" placeholder="Select" expand="block">
+                  <ion-select-option value="1">1</ion-select-option>
+                  <ion-select-option value="2">2</ion-select-option>
+                  <ion-select-option value="3">3</ion-select-option>
+                  <ion-select-option value="4">4</ion-select-option>
+                  <ion-select-option value="5">5</ion-select-option>
+                  <ion-select-option value="6">6</ion-select-option>
+                  <ion-select-option value="7">7</ion-select-option>
+                  <ion-select-option value="8">8</ion-select-option>
+                  <ion-select-option value="9">9</ion-select-option>
+                  <ion-select-option value="10">10</ion-select-option>
+                  <ion-select-option value="11">11</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+
+         
+          <h3>Industry Type:</h3>
+          <ion-radio-group [allowEmptySelection]="false">
+            <ion-item >
+              <ion-label>Accounting/Finance</ion-label>
+              <ion-radio slot="end" value="accounting"></ion-radio>
+            </ion-item>
+            
+            <ion-item >
+              <ion-label>Admin/Human Resources</ion-label>
+              <ion-radio slot="end" value="admin"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Armed Forces</ion-label>
+              <ion-radio slot="end" value="armedforces"></ion-radio>
+            </ion-item>
+            
+            <ion-item >
+              <ion-label>Sales/Marketing</ion-label>
+              <ion-radio slot="end" value="sales"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Arts/Media/Communication</ion-label>
+              <ion-radio slot="end" value="arts"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Services</ion-label>
+              <ion-radio slot="end" value="services"></ion-radio>
+            </ion-item>
+            
+            <ion-item >
+              <ion-label>Plant & Machine Operators & Assemblers</ion-label>
+              <ion-radio slot="end" value="plantandmachine"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Craft & Related Trade Workers</ion-label>
+              <ion-radio slot="end" value="craftandtrade"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Agriculture, Forestry & Fishery</ion-label>
+              <ion-radio slot="end" value="agriculture"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Hotel/Restaurant</ion-label>
+              <ion-radio slot="end" value="hotel"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Education/Training</ion-label>
+              <ion-radio slot="end" value="education"></ion-radio> 
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Computer/Information Technology</ion-label>
+              <ion-radio slot="end" value="computer"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Engineering</ion-label>
+              <ion-radio slot="end" value="engineering"></ion-radio>
+            </ion-item>
+
+             <ion-item >
+              <ion-label>Manufacturing</ion-label>
+              <ion-radio slot="end" value="manufacturing"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Building/Construction</ion-label>
+              <ion-radio slot="end" value="building"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Sciences</ion-label>
+              <ion-radio slot="end" value="sciences"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Healthcare</ion-label>
+              <ion-radio slot="end" value="healthcare"></ion-radio>
+            </ion-item>
+
+
+          </ion-radio-group>
+
+
+          <ion-item>
+            <ion-label position="stacked">Benefits & Others:</ion-label>
+            <ion-textarea autogrow="true" class="custominput"></ion-textarea>
+          </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+    </div>
+
+    
+
+    <ion-button type="submit" expand="block" class="btnreg">Save</ion-button>
+  </form>
+</div>
+
+
+
+</ion-content>

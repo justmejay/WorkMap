@@ -36,6 +36,7 @@ ion-input.custominput{
 
 }
 
+
 ion-label{
     font-size: 8px;
 }
@@ -48,8 +49,13 @@ ion-label{
     margin-top: 5%;
 }
 
+h3{
+    margin-left: 3%;
+}
+
 .dropdown{
     width: 75%;
+    margin-top: 2%;
 }
 
 ion-item.dropdown{
@@ -57,14 +63,13 @@ ion-item.dropdown{
     flex-direction: row;
 }
 
-.dropdown{
-    margin-top: 2%;
-    width: 75%;
+
+h3{
+    margin-left: 5%;
+    color:  black;
 }
 
-.add{
-    color: #044DA3;
-}
+
 
   
 
