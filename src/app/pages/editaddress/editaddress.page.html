@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons [routerLink]="" slot="start">
+      <ion-buttons [routerLink]="['/applicantprofile']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-title>Address</ion-title>
@@ -11,30 +11,30 @@
 
 
 <div >
-  <form >
+  <form [formGroup]="credentials" (ngSubmit)="editadd()" >
     <div>
     <h3>Home Address</h3>
     <ion-card>
-      <ion-card-content>
+      <ion-card-content *ngIf="address">
           <ion-item>
             <ion-label position="stacked">House Number/Street:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="hstreet" value="{{address.hstreet}}" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Barangay:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="hbarangay"  value="{{address.hbarangay}}" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Town:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="htown"  value="{{address.htown}}" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Province:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="hprovince"  value="{{address.hprovince}}" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Country:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="hcountry"  value="{{address.hcountry}}" class="custominput"></ion-input>
           </ion-item>
           
 
@@ -46,23 +46,23 @@
       <ion-card-content>
           <ion-item>
             <ion-label position="stacked">House Number/Street:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="street"  value="{{address.street}}" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Barangay:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="barangay"  value="{{address.barangay}}" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Town:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="town"  value="{{address.town}}" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Province:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="province"  value="{{address.province}}" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Country:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="country"  value="{{address.country}}" class="custominput"></ion-input>
           </ion-item>
           
 
@@ -70,12 +70,8 @@
     </ion-card>
     </div>
 
-    
-  
-    
- 
 
-    <ion-button type="submit" expand="block" class="btnreg">Save</ion-button>
+    <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">Save</ion-button>
   </form>
 </div>
 
