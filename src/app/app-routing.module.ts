@@ -78,6 +78,10 @@ const routes: Routes = [
     path: 'editaboutcompany',
     loadChildren: () => import('./pages/editaboutcompany/editaboutcompany.module').then( m => m.EditaboutcompanyPageModule)
   },
+  {
+    path: 'resumebuilder',
+    loadChildren: () => import('./resumebuilder/resumebuilder.module').then( m => m.ResumebuilderPageModule)
+  },
 
 
 ];
