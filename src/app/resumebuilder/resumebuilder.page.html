@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons [routerLink]="['/dashboard']" slot="start">
+    <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+    </ion-buttons> 
+    Resume Builder
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="avatar" >
+      <ion-avatar class="image">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <div>
+      <span  class="caption" placeholder="caption"></span>
+      </div>
+    </div>
+  </div>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Personal Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label>Name: </ion-label>
+        <ion-input placeholder="Joe D. Bohn III" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Date of Birth: </ion-label>
+        <ion-input placeholder="mm/dd/yy" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Age: </ion-label>
+        <ion-input placeholder="20" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Home Address: </ion-label>
+        <ion-input placeholder="House/Street No, Barangay, Town, Province" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Current Address: </ion-label>
+        <ion-input placeholder="House/Street No, Barangay, Town, Province" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Civil Status: </ion-label>
+        <ion-input placeholder="Single" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Religion: </ion-label>
+        <ion-input placeholder="RC" [readonly]="true"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Character Reference</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label>Name of Mother: </ion-label>
+        <ion-input placeholder="Joe Mama"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Contact No: </ion-label>
+        <ion-input placeholder="09xx-xxx-xxxx"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Name of Mother: </ion-label>
+        <ion-input placeholder="Joe Papa"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Contact No: </ion-label>
+        <ion-input placeholder="09xx-xxx-xxxx"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Educational Background</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label>Primary: </ion-label>
+        <ion-input placeholder="Elementary School"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Secondary: </ion-label>
+        <ion-input placeholder="High School - Senior High"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>College: </ion-label>
+        <ion-input placeholder="University School"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Reason for Applying Job</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-item lines="none">
+          <ion-label position="stacked">Enter input here: </ion-label>
+          <ion-input fill="outline" placeholder="I want to apply to this job because..."></ion-input>
+        </ion-item>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Attachments</ion-label>
+        <ion-button>+</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <div class="buttondiv"> 
+    <ion-button class="action" expand="block">Confirm Resume</ion-button>
+  </div>
+</ion-content>
