@@ -18,14 +18,13 @@
     </div>
 
     <div>
-      
       <!-- Work Experience -->
         <ion-card>
-              <ion-card-header>
-                <ion-item lines="none">
-                  <ion-card-title>Work Experience</ion-card-title>
-                  <ion-icon [routerLink]="['/experience']" class="edit" name="create"></ion-icon>
-                </ion-item>
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Work Experience</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/experience']"></ion-icon>
+            </div>
           </ion-card-header>
           <ion-card-content>
               <ion-item lines="none">
@@ -63,8 +62,11 @@
         <!-- Personal Information -->
         <ion-card *ngIf="profile" >
           <ion-card-header>
-            <ion-card-title>Personal Information</ion-card-title>
-            <ion-icon [routerLink]="['/editpersonalinfo']" class="edit" name="create"></ion-icon>
+
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Personal Information</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon>
+            </div>
 
           </ion-card-header>
           <ion-card-content>
@@ -104,107 +106,91 @@
         <!--Address -->
         <ion-card *ngIf="address[0]" >
           <ion-card-header>
-            <ion-card-title>Home Address:</ion-card-title>
-            <ion-icon class="edit" name="create"></ion-icon>
-
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Home Address</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon>
+            </div>
           </ion-card-header>
-
           <ion-card-content>
-           
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>House No/Street: </ion-label>
                 <ion-input value="{{address[0].hstreet}}" [readonly]="true"></ion-input>
               </ion-item>
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>Barangay</ion-label>
-              <ion-input value="{{address[0].hbarangay}}" [readonly]="true"></ion-input>
+                <ion-input value="{{address[0].hbarangay}}" [readonly]="true"></ion-input>
               </ion-item>
-
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>Town</ion-label>
                 <ion-input value="{{address[0].htown}}" [readonly]="true"></ion-input>
               </ion-item>
-              
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>Province</ion-label>
-              <ion-input value="{{address[0].hprovince}}" [readonly]="true"></ion-input>
+                <ion-input value="{{address[0].hprovince}}" [readonly]="true"></ion-input>
               </ion-item>
-
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>Country</ion-label>
-              <ion-input value="{{address[0].hcountry}}" [readonly]="true"></ion-input>
-           
+                <ion-input value="{{address[0].hcountry}}" [readonly]="true"></ion-input>         
               </ion-item>
-
-
           </ion-card-content>
         </ion-card>
 
         <ion-card *ngIf="address[0]" >
           <ion-card-header>
-            <ion-card-title> Current Address:</ion-card-title>
-            <ion-icon class="edit" name="create"></ion-icon>
-
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Current Address</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon>
+            </div>
           </ion-card-header>
           <ion-card-content>
-           
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>House No/Street: </ion-label>
                 <ion-input value="{{address[0].street}}" [readonly]="true"></ion-input>
               </ion-item>
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>Barangay</ion-label>
-              <ion-input value="{{address[0].barangay}}" [readonly]="true"></ion-input>
+                <ion-input value="{{address[0].barangay}}" [readonly]="true"></ion-input>
               </ion-item>
-
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>Town</ion-label>
                 <ion-input value="{{address[0].town}}" [readonly]="true"></ion-input>
               </ion-item>
-              
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>Province</ion-label>
               <ion-input value="{{address[0].province}}" [readonly]="true"></ion-input>
               </ion-item>
-
-              <ion-item>
+              <ion-item lines="none">
                 <ion-label>Country</ion-label>
               <ion-input value="{{address[0].country}}" [readonly]="true"></ion-input>
-           
               </ion-item>
-
-
           </ion-card-content>
         </ion-card>
 
         <!--Educational Background -->
         <ion-card >
           <ion-card-header>
-            <ion-card-title>Educational Background:</ion-card-title>
-            <ion-icon class="edit" name="create"></ion-icon>
-
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Educational Background</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon>
+            </div>
           </ion-card-header>
           <ion-card-content>
             <ion-item lines="none">
               <ion-label>School: </ion-label>
               <ion-input placeholder="school" [readonly]="true"></ion-input>
             </ion-item>
-      
             <ion-item lines="none">
               <ion-label>Course: </ion-label>
               <ion-input placeholder="course" [readonly]="true"></ion-input>
             </ion-item>
-
             <ion-item lines="none">
               <ion-label>Level: </ion-label>
               <ion-input placeholder="level" [readonly]="true"></ion-input>
             </ion-item>
-      
             <ion-item lines="none">
               <ion-label>Ongoing: </ion-label>
               <ion-input placeholder="ongoing" [readonly]="true"></ion-input>
             </ion-item>
-            
             <ion-item lines="none">
               <ion-label>Year Graduated: </ion-label>
               <ion-input placeholder="ygraduated" [readonly]="true"></ion-input>
