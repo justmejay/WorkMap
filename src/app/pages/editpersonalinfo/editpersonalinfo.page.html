@@ -19,16 +19,19 @@
             <ion-label position="stacked">First Name:</ion-label>
             <ion-input type="text" formControlName="fname" value="{{profile.fname}}" class="custominput"></ion-input>
           </ion-item>
+          <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
       
           <ion-item>
             <ion-label position="stacked">Middle Name:</ion-label>
             <ion-input type="text" formControlName="mname" value="{{profile.mname}}" class="custominput"></ion-input>
           </ion-item>
+          
 
           <ion-item>
             <ion-label position="stacked">Last Name:</ion-label>
             <ion-input type="text" formControlName="lname" value="{{profile.lname}}" class="custominput"></ion-input>
           </ion-item>
+          <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
 
           <ion-item>
             <ion-label  position="stacked">Suffix (optional):</ion-label>
@@ -58,15 +61,18 @@
               </ion-modal>
 
         </ion-item>
+        <ion-note slot="error" *ngIf="(bday.dirty || bday.touched) && bday.errors">Required</ion-note>
+
 
         <ion-item>
           <ion-label position="stacked">Age:</ion-label>
           <ion-input formControlName="age" value="{{profile.age}}" type="Number"></ion-input>
         </ion-item>
+        <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
 
         <ion-item>
           <ion-label  position="stacked">Sex:</ion-label>
-          <ion-list class="dropdown" slot="end">
+          <ion-list class="dropdown">
             <ion-item class="dropdown"  lines="none">
               <ion-select formControlName="sex" value="{{profile.sex}}" interface="popover" placeholder="Select" expand="block">
                 <ion-select-option value="female">Female</ion-select-option>
@@ -75,6 +81,7 @@
             </ion-item>
           </ion-list>
         </ion-item>
+        <ion-note slot="error" *ngIf="(sex.dirty || sex.touched) && sex.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Email:</ion-label>
@@ -85,8 +92,9 @@
           <ion-label position="stacked">Contact Number:</ion-label>
           <ion-input formControlName="contact" value="{{profile.contact}}" type="Number"></ion-input>
         </ion-item>
+        <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
 
-        <ion-item>
+        <h3>Industry Type:</h3>
           <ion-radio-group value="{{profile.specialization}}" formControlName="specialization">
             <ion-item >
               <ion-label>Accounting/Finance</ion-label>
@@ -173,11 +181,8 @@
               <ion-radio slot="end" value="healthcare"></ion-radio>
             </ion-item>
 
-
-
           </ion-radio-group>
-        </ion-item>
-
+       
       </ion-card-content>
     </ion-card>
     </div>

@@ -53,7 +53,8 @@ ion-label{
 }
 
 h3{
-    margin-left: 3%;
+    margin-left: 5%;
+    color:  black;
 }
 
 .suffix{
@@ -62,11 +63,17 @@ h3{
 
 .dropdown{
     width: 75%;
+    margin-top: 2%;
 }
 
 ion-item.dropdown{
     border: none;
     flex-direction: row;
+}
+
+ion-note{
+    margin-left: 6%;
+    color: #930808;
 }
 
 
