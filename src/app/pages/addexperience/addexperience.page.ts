@@ -1,18 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
-  selector: 'app-editexperience',
-  templateUrl: './editexperience.page.html',
-  styleUrls: ['./editexperience.page.scss'],
+  selector: 'app-addexperience',
+  templateUrl: './addexperience.page.html',
+  styleUrls: ['./addexperience.page.scss'],
 })
-export class EditexperiencePage implements OnInit {
-  experience: any;
-  exdetails: any = [];
+export class AddexperiencePage implements OnInit {
   credentials: FormGroup;
+
+  constructor(
+    private fb: FormBuilder,
+    private loadingController: LoadingController,
+    private alertController: AlertController,
+    private profile: ProfilingService,
+    private router: Router
+  ) { }
 
   get cname() {
     return this.credentials.get('cname');
@@ -30,27 +36,6 @@ export class EditexperiencePage implements OnInit {
     return this.credentials.get('jtitle ');
   }
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private profile:  ProfilingService,
-    private fb: FormBuilder,
-    private loadingController: LoadingController,
-    private alertController: AlertController,
-    private router: Router
-  ) {
-    this.activatedRoute.queryParams.subscribe((params) =>{
-      this.experience = params['cid'];
-      console.log(this.experience)
-
-      this.profile.getExpbyID(this.experience).subscribe(res => {
-        this.exdetails = res;
-        console.log(this.exdetails);
-      });
-
-
-      });
-   }
-
   ngOnInit() {
 
     this.credentials = this.fb.group({
@@ -63,24 +48,24 @@ export class EditexperiencePage implements OnInit {
 
   }
 
-  
-  async editex() {
+
+  async adde() {
 
     const loading = await this.loadingController.create({
       spinner: "dots",
       message: "Adding up!"
     });    await loading.present();
 
-    const user = await this.profile.editex(this.credentials.value, this.experience);
+    const user = await this.profile.addex(this.credentials.value);
     await loading.dismiss();
 
     if (user) {
       this.router.navigateByUrl('/experience', { replaceUrl: true });
-      this.showAlert('Edit success', 'Data updated!');
+      this.showAlert('Add success', 'Great job building your profile!');
 
 
         } else {
-      this.showAlert('Edit failed', 'Please try again!');
+      this.showAlert('Add failed', 'Please try again!');
     }
   }
 
@@ -98,5 +83,6 @@ export class EditexperiencePage implements OnInit {
     });
     await alert.present();
   }
+
 
 }

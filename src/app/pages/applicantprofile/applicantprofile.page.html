@@ -1,6 +1,6 @@
 <ion-header >
   <ion-toolbar>
-      <ion-buttons slot="start">
+      <ion-buttons [routerLink]="['/dashboard']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
   </ion-toolbar>
@@ -21,8 +21,11 @@
       
       <!-- Work Experience -->
         <ion-card>
-          <ion-card-header>
-            <ion-card-title>Work Experience</ion-card-title>
+              <ion-card-header>
+                <ion-item lines="none">
+                  <ion-card-title>Work Experience</ion-card-title>
+                  <ion-icon [routerLink]="['/experience']" class="edit" name="create"></ion-icon>
+                </ion-item>
           </ion-card-header>
           <ion-card-content>
               <ion-item lines="none">
@@ -61,6 +64,8 @@
         <ion-card *ngIf="profile[0]" >
           <ion-card-header>
             <ion-card-title>Personal Information</ion-card-title>
+            <ion-icon class="edit" name="create"></ion-icon>
+
           </ion-card-header>
           <ion-card-content>
             <ion-item lines="none">
@@ -97,10 +102,13 @@
         </ion-card>
 
         <!--Address -->
-        <ion-card *ngIf="address" >
+        <ion-card *ngIf="address[0]" >
           <ion-card-header>
             <ion-card-title>Home Address:</ion-card-title>
+            <ion-icon class="edit" name="create"></ion-icon>
+
           </ion-card-header>
+
           <ion-card-content>
            
               <ion-item>
@@ -132,9 +140,11 @@
           </ion-card-content>
         </ion-card>
 
-        <ion-card *ngIf="address" >
+        <ion-card *ngIf="address[0]" >
           <ion-card-header>
             <ion-card-title> Current Address:</ion-card-title>
+            <ion-icon class="edit" name="create"></ion-icon>
+
           </ion-card-header>
           <ion-card-content>
            
@@ -171,6 +181,8 @@
         <ion-card >
           <ion-card-header>
             <ion-card-title>Educational Background:</ion-card-title>
+            <ion-icon class="edit" name="create"></ion-icon>
+
           </ion-card-header>
           <ion-card-content>
             <ion-item lines="none">

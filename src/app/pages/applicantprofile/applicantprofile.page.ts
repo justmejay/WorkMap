@@ -22,7 +22,6 @@ export class ApplicantprofilePage implements OnInit {
 
     this.firestore.getprofile().subscribe(res=>{
       this.profile = res;
-      console.log(this.profile)
 
     })
     this.firestore.getaddress().subscribe(res=>{
@@ -32,19 +31,16 @@ export class ApplicantprofilePage implements OnInit {
     })
     this.firestore.getcertification().subscribe(res=>{
       this.certifications = res;
-      console.log(this.certifications)
 
     })
 
     this.firestore.getexperience().subscribe(res=>{
       this.experience = res;
-      console.log(this.experience)
 
     })
 
     this.firestore.getschool().subscribe(res=>{
       this.school = res;
-      console.log(this.school)
 
     })
 
