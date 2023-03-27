@@ -77,15 +77,15 @@ export class ProfilingService {
   getprofile(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   
-    const cakesRef = doc(this.firestore, `users/${id}/profile/${id}`)
+    const cakesRef = doc(this.firestore, `users/${id}/profile/${id}/`)
     return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
 
   getaddress(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   
-    const cakesRef = collection(this.firestore, `users/${id}/address`)
-    return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
+    const cakesRef = doc(this.firestore, `users/${id}/address/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
 
   getcertification(): Observable<User[]>{
