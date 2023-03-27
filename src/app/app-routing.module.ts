@@ -58,6 +58,14 @@ const routes: Routes = [
     path: 'applicantprofile',
     loadChildren: () => import('./pages/applicantprofile/applicantprofile.module').then( m => m.ApplicantprofilePageModule)
   },
+  {
+    path: 'experience',
+    loadChildren: () => import('./pages/experience/experience.module').then( m => m.ExperiencePageModule)
+  },
+  {
+    path: 'addexperience',
+    loadChildren: () => import('./pages/addexperience/addexperience.module').then( m => m.AddexperiencePageModule)
+  },
 
 
 ];
