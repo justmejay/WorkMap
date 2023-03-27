@@ -115,4 +115,43 @@ export class ProfilingService {
     const cakesRef = collection(this.firestore, `users/${id}/experience`)
     return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
+
+
+
+  async addex({cname, caddress, jtitle, datet, datef }: 
+    {cname: any, caddress: any, jtitle: any, datet: any, datef: any } ){
+
+    try {
+      
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = collection(this.firestore, `users/${userget}/experience`);
+      const user = await addDoc(userDocRef3, {cname, caddress, jtitle, datef, datet});
+     
+      return user;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  getExpbyID(id:any):Observable<User>{
+    const  uid =  this.auth.currentUser.uid;
+    const cakesByIdRef = doc(this.firestore, `users/${uid}/experience/${id}`)
+    return docData(cakesByIdRef, {idField: 'id'}) as Observable <User>
+  }
+
+  async editex({cname, caddress, jtitle, datet, datef }: 
+    {cname: any, caddress: any, jtitle: any, datet: any, datef: any }, experience: any ){
+
+    try {
+      console.log("exp: id" + experience)
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/experience/${experience}`);
+      const user = await updateDoc(userDocRef3, {cname, caddress, jtitle, datef, datet});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
 }

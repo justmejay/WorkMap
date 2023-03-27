@@ -18,7 +18,6 @@ export class AuthenticationPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private auth: AuthService,
-    // private authService:,
     private router: Router
   ) {
     

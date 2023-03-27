@@ -25,6 +25,8 @@ export class MoresignupcPage implements OnInit {
       this.authdetails = params;
       console.log(this.authdetails)
 
+      
+
       });
   }
 

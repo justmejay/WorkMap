@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditexperiencePageRoutingModule } from './editexperience-routing.module';
+import { AddexperiencePageRoutingModule } from './addexperience-routing.module';
 
-import { EditexperiencePage } from './editexperience.page';
+import { AddexperiencePage } from './addexperience.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditexperiencePageRoutingModule,
+    AddexperiencePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [EditexperiencePage]
+  declarations: [AddexperiencePage]
 })
-export class EditexperiencePageModule {}
+export class AddexperiencePageModule {}
