@@ -44,10 +44,23 @@ ion-toolbar{
 
 ion-card {
     --background: #E5EBEE;
-    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.25);
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
     margin: 8%;
-    padding: 2%;
+    border-radius: 15px;
+    border: solid 3px  rgb(53, 66, 125);
+}
+ion-card-header{
+    --background: #2F7EF5;
+    color: whitesmoke;
+    margin: 0%;
+}
+ion-card-title{
+    color: whitesmoke;
 }
 ion-item {
     --background: #E5EBEE;
+}
+ion-icon{
+    height: 21px;
+    width: 21px;
 }
