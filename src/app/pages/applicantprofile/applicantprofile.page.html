@@ -60,42 +60,44 @@
         </ion-card>
         
         <!-- Personal Information -->
-        <ion-card *ngIf="profile[0]" >
+        <ion-card *ngIf="profile" >
           <ion-card-header>
+
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>Personal Information</ion-card-title>
               <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon>
             </div>
+
           </ion-card-header>
           <ion-card-content>
             <ion-item lines="none">
               <ion-label>Name:   </ion-label>
-              <ion-input value="{{profile[0].fname}} {{profile[0].mname}} {{profile[0].lname}} {{profile[0].suffix}}" [readonly]="true"></ion-input>
+              <ion-input value="{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}" [readonly]="true"></ion-input>
             </ion-item>
       
             <ion-item lines="none">
               <ion-label>Birthday:</ion-label>
-              <ion-input value=" {{profile[0].bday}}" [readonly]="true"></ion-input>
+              <ion-input value=" {{profile.bday}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Age:  </ion-label>
-                <ion-input value="{{profile[0].age}}" [readonly]="true"></ion-input>
+                <ion-input value="{{profile.age}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Sex:  </ion-label>
-              <ion-input value="{{profile[0].sex}}" [readonly]="true"></ion-input>
+              <ion-input value="{{profile.sex}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Contact Number: </ion-label>
-              <ion-input value="{{profile[0].contact}}" [readonly]="true"></ion-input>
+              <ion-input value="{{profile.contact}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Email Address: </ion-label>
-              <ion-input value=" {{profile[0].email}}" [readonly]="true"></ion-input>
+              <ion-input value=" {{profile.email}}" [readonly]="true"></ion-input>
             </ion-item>
 
           </ion-card-content>
