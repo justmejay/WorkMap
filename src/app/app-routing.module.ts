@@ -66,6 +66,10 @@ const routes: Routes = [
     path: 'addexperience',
     loadChildren: () => import('./pages/addexperience/addexperience.module').then( m => m.AddexperiencePageModule)
   },
+  {
+    path: 'companyprofile',
+    loadChildren: () => import('./pages/companyprofile/companyprofile.module').then( m => m.CompanyprofilePageModule)
+  },
 
 
 ];
