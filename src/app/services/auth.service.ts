@@ -57,12 +57,12 @@ export class AuthService {
       
       
 
-      const userDocRef1 = collection(this.firestore, `users/${userget}/profile`);
-      await addDoc(userDocRef1, {uid: userget, specialization, profileimg: "",  fname, mname, lname, suffix, sex, contact: "", bday, age, email });
+      const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
+      await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "",  fname, mname, lname, suffix, sex, contact: "", bday, age, email });
       
 
-      const userDocRef2 = collection(this.firestore, `users/${userget}/address`);
-      await addDoc(userDocRef2, {street, barangay, town, province, country, hstreet, hbarangay , 
+      const userDocRef2 = doc(this.firestore, `users/${userget}/address/${userget}`);
+      await setDoc(userDocRef2, {street, barangay, town, province, country, hstreet, hbarangay , 
     htown, hprovince, hcountry});
 
       const userDocRef3 = collection(this.firestore, `users/${userget}/experience`);
@@ -110,7 +110,7 @@ export class AuthService {
       const userDocRef = doc(this.firestore, `employers/${userget}`);
       await setDoc(userDocRef, {uid: userget, profileimg: "",});
 
-      const userDocRef1 = collection(this.firestore, `employers/${userget}/profile`);
+      const userDocRef1 = collection(this.firestore, `employers/${userget}/profile/${userget}`);
       await addDoc(userDocRef1, {fname, mname, lname, contact});
       
 

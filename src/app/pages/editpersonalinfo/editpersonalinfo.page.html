@@ -1,40 +1,40 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons [routerLink]="" slot="start">
+      <ion-buttons [routerLink]="['/applicantprofile']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-title>Personal Information</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding ">
+<ion-content  *ngIf="profile" class="ion-padding ">
 
 
 <div >
-  <form>
+  <form [formGroup]="credentials" (ngSubmit)="editprofile()">
     <div class="personalinfo">
     <ion-card>
       <ion-card-content>
           <ion-item>
             <ion-label position="stacked">First Name:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="fname" value="{{profile.fname}}" class="custominput"></ion-input>
           </ion-item>
       
           <ion-item>
             <ion-label position="stacked">Middle Name:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="mname" value="{{profile.mname}}" class="custominput"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label position="stacked">Last Name:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="lname" value="{{profile.lname}}" class="custominput"></ion-input>
           </ion-item>
 
           <ion-item>
             <ion-label  position="stacked">Suffix (optional):</ion-label>
             <ion-list class="suffix">
               <ion-item class="suffix"  lines="none">
-                <ion-select interface="popover" placeholder="Select suffix" expand="block">
+                <ion-select formControlName="suffix" value="{{profile.suffix}}" interface="popover" placeholder="Select suffix" expand="block">
                   <ion-select-option value="Jr">Jr.</ion-select-option>
                   <ion-select-option value="Sr">Sr.</ion-select-option>
                   <ion-select-option value="I">I</ion-select-option>
@@ -47,7 +47,7 @@
 
           <ion-item >
             <ion-label position="fixed">Birthdate:</ion-label>
-            <ion-input type="date"></ion-input>
+            <ion-input formControlName="bday" value="{{profile.bday}}" type="date"></ion-input>
           
 
               <ion-modal [keepContentsMounted]="true">
@@ -61,14 +61,14 @@
 
         <ion-item>
           <ion-label position="stacked">Age:</ion-label>
-          <ion-input type="Number"></ion-input>
+          <ion-input formControlName="age" value="{{profile.age}}" type="Number"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label  position="stacked">Sex:</ion-label>
           <ion-list class="dropdown" slot="end">
             <ion-item class="dropdown"  lines="none">
-              <ion-select interface="popover" placeholder="Select" expand="block">
+              <ion-select formControlName="sex" value="{{profile.sex}}" interface="popover" placeholder="Select" expand="block">
                 <ion-select-option value="female">Female</ion-select-option>
                 <ion-select-option value="male">Male</ion-select-option>
               </ion-select>
@@ -78,12 +78,104 @@
 
         <ion-item>
           <ion-label position="stacked">Email:</ion-label>
-          <ion-input type="Email"></ion-input>
+          <ion-input  value="{{profile.email}}" [readonly]="true" type="Email"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">Contact Number:</ion-label>
-          <ion-input type="Number"></ion-input>
+          <ion-input formControlName="contact" value="{{profile.contact}}" type="Number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-radio-group value="{{profile.specialization}}" formControlName="specialization">
+            <ion-item >
+              <ion-label>Accounting/Finance</ion-label>
+              <ion-radio slot="end" value="accounting"></ion-radio>
+            </ion-item>
+            
+            <ion-item >
+              <ion-label>Admin/Human Resources</ion-label>
+              <ion-radio slot="end" value="admin"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Armed Forces</ion-label>
+              <ion-radio slot="end" value="armedforces"></ion-radio>
+            </ion-item>
+            
+            <ion-item >
+              <ion-label>Sales/Marketing</ion-label>
+              <ion-radio slot="end" value="sales"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Arts/Media/Communication</ion-label>
+              <ion-radio slot="end" value="arts"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Services</ion-label>
+              <ion-radio slot="end" value="services"></ion-radio>
+            </ion-item>
+            
+            <ion-item >
+              <ion-label>Plant & Machine Operators & Assemblers</ion-label>
+              <ion-radio slot="end" value="plantandmachine"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Craft & Related Trade Workers</ion-label>
+              <ion-radio slot="end" value="craftandtrade"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Agriculture, Forestry & Fishery</ion-label>
+              <ion-radio slot="end" value="agriculture"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Hotel/Restaurant</ion-label>
+              <ion-radio slot="end" value="hotel"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Education/Training</ion-label>
+              <ion-radio slot="end" value="education"></ion-radio> 
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Computer/Information Technology</ion-label>
+              <ion-radio slot="end" value="computer"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Engineering</ion-label>
+              <ion-radio slot="end" value="engineering"></ion-radio>
+            </ion-item>
+
+             <ion-item >
+              <ion-label>Manufacturing</ion-label>
+              <ion-radio slot="end" value="manufacturing"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Building/Construction</ion-label>
+              <ion-radio slot="end" value="building"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Sciences</ion-label>
+              <ion-radio slot="end" value="sciences"></ion-radio>
+            </ion-item>
+
+            <ion-item >
+              <ion-label>Healthcare</ion-label>
+              <ion-radio slot="end" value="healthcare"></ion-radio>
+            </ion-item>
+
+
+
+          </ion-radio-group>
         </ion-item>
 
       </ion-card-content>
@@ -94,7 +186,7 @@
   
     
 
-    <ion-button type="submit" expand="block" class="btnreg">Save</ion-button>
+    <ion-button type="submit"  expand="block" class="btnreg">Save</ion-button>
   </form>
 </div>
 
