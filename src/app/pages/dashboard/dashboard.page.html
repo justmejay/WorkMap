@@ -1,35 +1,9 @@
 <ion-menu contentId="main-content">
   <ion-header collapse="fade">
-    <ion-toolbar class="hamburgermenu">
-      <ion-label class="ion-padding hamburgtitle">Menu</ion-label>
+    <ion-toolbar class="uppertool">
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
-    <ion-card class="hamburgcard">
-      <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="bookmarks-outline" style="color: #0b549c;"></ion-icon>
-        Saved</ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="information-circle-outline"></ion-icon>
-        About Us</ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="shield-half-outline" style="color: #0d71d5;"></ion-icon>
-        Privacy Policy</ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="diamond-outline" style="color: #ba8929;"></ion-icon>
-        Get Premium</ion-button>
-    </ion-card>
-    <ion-card class="hamburgcard">
-      <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="settings" style="color: #42505d;"></ion-icon>
-        Settings</ion-button>
-    </ion-card>
-    <ion-card class="hamburgcard">
-      <ion-button fill="clear" class="card1menu" expand="block" (click)="logout()">
-        <ion-icon slot="start" name="log-out-outline" style="color:#042f9c;"></ion-icon>
-        Logout</ion-button>
-    </ion-card>
-  </ion-content>
+  <ion-content class="ion-padding"></ion-content>
 </ion-menu>
 
 <div class="ion-page" id="main-content">
@@ -49,6 +23,10 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-button (click)="logout()">Logout</ion-button>
+  </ion-content>
 
   <ion-footer>
     <ion-toolbar>
