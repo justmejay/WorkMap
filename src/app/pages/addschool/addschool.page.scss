@@ -25,11 +25,7 @@ ion-item{
     border: solid 1px #044DA3;
     margin: 5%; 
 }
-ion-item.suffix{
-    border: none;
-    display: flex;
-    flex-direction: row;
-}
+
 ion-input.custominput{
 //   --background: #fff;
   --color: black;
@@ -52,18 +48,8 @@ ion-label{
     margin-top: 5%;
 }
 
-h3{
-    margin-left: 5%;
-    color:  black;
-}
-
-.suffix{
-    margin-top: 2%;
-}
-
 .dropdown{
     width: 75%;
-    margin-top: 2%;
 }
 
 ion-item.dropdown{
@@ -71,13 +57,13 @@ ion-item.dropdown{
     flex-direction: row;
 }
 
-ion-note{
-    margin-left: 6%;
-    color: #930808;
+.dropdown{
+    width: 75%;
 }
 
-
-
+.add{
+    color: #044DA3;
+}
 
   
 

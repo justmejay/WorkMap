@@ -21,11 +21,14 @@
       </div>
     </div>
 
-    <div class="ion-padding">
+      <div class="ion-padding">
         <!-- Company Details-->
         <ion-card >
           <ion-card-header>
-            <ion-card-title>Company Details</ion-card-title>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Company Details</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit"></ion-icon>
+            </div>
           </ion-card-header>
           <ion-card-content>
             <ion-item lines="none">
@@ -37,45 +40,40 @@
               <ion-label>Company Contact: </ion-label>
               <ion-input  placeholder="employernumber" [readonly]="true"></ion-input>
             </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Street: </ion-label>
+              <ion-input placeholder="cstreet" [readonly]="true"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Barangay: </ion-label>
+            <ion-input  placeholder="cbarangay" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Town: </ion-label>
+              <ion-input placeholder="ctown" [readonly]="true"></ion-input>
+            </ion-item>
+            
+            <ion-item lines="none">
+              <ion-label>Province: </ion-label>
+            <ion-input placeholder="cprovince" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Country: </ion-label>
+            <ion-input placeholder="cprovince" [readonly]="true"></ion-input>
+            </ion-item>
           </ion-card-content>
         </ion-card>     
-
-      <!-- Company Address -->
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Company Address</ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-              <ion-item lines="none">
-                <ion-label>Street: </ion-label>
-                <ion-input placeholder="cstreet" [readonly]="true"></ion-input>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-label>Barangay: </ion-label>
-              <ion-input  placeholder="cbarangay" [readonly]="true"></ion-input>
-              </ion-item>
-
-              <ion-item lines="none">
-                <ion-label>Town: </ion-label>
-                <ion-input placeholder="ctown" [readonly]="true"></ion-input>
-              </ion-item>
-              
-              <ion-item lines="none">
-                <ion-label>Province: </ion-label>
-              <ion-input placeholder="cprovince" [readonly]="true"></ion-input>
-              </ion-item>
-
-              <ion-item lines="none">
-                <ion-label>Country: </ion-label>
-              <ion-input placeholder="cprovince" [readonly]="true"></ion-input>
-              </ion-item>
-          </ion-card-content>
-        </ion-card>
         
         <!-- About Company -->
         <ion-card>
           <ion-card-header>
-            <ion-card-title>About Company</ion-card-title>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>About Company</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit"></ion-icon>
+            </div>
           </ion-card-header>
 
           <ion-card-content>
@@ -84,37 +82,27 @@
             Here's a small text description for the card content. Nothing more, nothing less.
             Here's a small text description for the card content. Nothing more, nothing less.
             </ion-input>
-          </ion-card-content>
-        </ion-card>
 
-        <!-- About Company -->
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>Additional Company Information</ion-card-title>
-          </ion-card-header>
-
-          <ion-card-content>
-            <ion-item lines="none">
-              <ion-label>Company Size: </ion-label>
-              <ion-input placeholder="csize" [readonly]="true"></ion-input>
-            </ion-item>
-
-            <ion-item lines="none">
-              <ion-label>Average Processing Time: </ion-label>
-              <ion-input placeholder="cprocesstime" [readonly]="true"></ion-input>
-            </ion-item>
-
-            <ion-item lines="none">
-              <ion-label>Industry Type: </ion-label>
-              <ion-input placeholder="industrytype" [readonly]="true"></ion-input>
-            </ion-item>
-
-            <ion-item lines="none">
-              <ion-label>Benefits and Others: </ion-label>
-              <ion-input placeholder="cbenefits" [readonly]="true"></ion-input>
-            </ion-item>
-
-          </ion-card-content>
+              <ion-item lines="none">
+                <ion-label>Company Size: </ion-label>
+                <ion-input placeholder="csize" [readonly]="true"></ion-input>
+              </ion-item>
+  
+              <ion-item lines="none">
+                <ion-label>Average Processing Time: </ion-label>
+                <ion-input placeholder="cprocesstime" [readonly]="true"></ion-input>
+              </ion-item>
+  
+              <ion-item lines="none">
+                <ion-label>Industry Type: </ion-label>
+                <ion-input placeholder="industrytype" [readonly]="true"></ion-input>
+              </ion-item>
+  
+              <ion-item lines="none">
+                <ion-label>Benefits and Others: </ion-label>
+                <ion-input placeholder="cbenefits" [readonly]="true"></ion-input>
+              </ion-item>
+            </ion-card-content>
         </ion-card>
 
       </div> 
