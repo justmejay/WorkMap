@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons [routerLink]="['/school']" slot="start">
+      <ion-buttons [routerLink]="" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
-      <ion-title>Edit Educational Background</ion-title>
+      <ion-title>Add Educational Background</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,23 +11,25 @@
   
 
 <div >
-  <form  [formGroup]="credentials" (ngSubmit)="editsc()">
+  <form  [formGroup]="credentials" (ngSubmit)="addsc()">
     <div>
 
+     
+
     <ion-card>
-      <ion-card-content *ngIf="sch">
+      <ion-card-content>
        
           <ion-item>
             <ion-label position="stacked">School Name:</ion-label>
-            <ion-input value="{{sch.schoolname}}" formControlName="schoolname" type="text" class="custominput"></ion-input>
+            <ion-input formControlName="schoolname" type="text" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Course:</ion-label>
-            <ion-input value="{{sch.course}}"  formControlName="course" type="text" class="custominput"></ion-input>
+            <ion-input  formControlName="course" type="text" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Level:</ion-label>
-            <ion-select  value="{{sch.level}}" formControlName="level" placeholder="Select Level">
+            <ion-select  formControlName="level" placeholder="Select Level">
               <ion-select-option value="Primary">Primary</ion-select-option>
               <ion-select-option value="Secondary">Secondary</ion-select-option>
               <ion-select-option value="College">College</ion-select-option>
@@ -35,7 +37,7 @@
           </ion-item>
           <ion-item >
             <ion-label>Year Graduated:</ion-label>
-            <ion-input value="{{sch.yearg}}" formControlName="yearg" type="date"></ion-input>
+            <ion-input formControlName="yearg" type="date"></ion-input>
           
 
               <ion-modal [keepContentsMounted]="true">

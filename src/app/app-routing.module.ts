@@ -70,6 +70,14 @@ const routes: Routes = [
     path: 'companyprofile',
     loadChildren: () => import('./pages/companyprofile/companyprofile.module').then( m => m.CompanyprofilePageModule)
   },
+  {
+    path: 'school',
+    loadChildren: () => import('./pages/school/school.module').then( m => m.SchoolPageModule)
+  },
+  {
+    path: 'addschool',
+    loadChildren: () => import('./pages/addschool/addschool.module').then( m => m.AddschoolPageModule)
+  },
 
 
 ];

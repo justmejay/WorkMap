@@ -42,7 +42,7 @@ export class AuthenticationPage implements OnInit {
 
     this.router.navigate(['moresignup'], {queryParams:{email: this.email.value, password: this.password.value}});
 
-    }
+    } 
 
     async signupc(){
 

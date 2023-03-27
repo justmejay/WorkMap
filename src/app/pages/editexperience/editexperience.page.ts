@@ -66,7 +66,7 @@ export class EditexperiencePage implements OnInit {
   
   async editex() {
 
-    const loading = await this.loadingController.create({
+    const loading = await this.loadingController.create({ 
       spinner: "dots",
       message: "Adding up!"
     });    await loading.present();

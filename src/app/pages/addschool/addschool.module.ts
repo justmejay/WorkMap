@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EditschoolPageRoutingModule } from './editschool-routing.module';
+import { AddschoolPageRoutingModule } from './addschool-routing.module';
 
-import { EditschoolPage } from './editschool.page';
+import { AddschoolPage } from './addschool.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditschoolPageRoutingModule,
+    AddschoolPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [EditschoolPage]
+  declarations: [AddschoolPage]
 })
-export class EditschoolPageModule {}
+export class AddschoolPageModule {}

@@ -168,4 +168,56 @@ export class ProfilingService {
     }
   }
 
+  async editaddress({street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry}: 
+    {street: any, barangay: any, town: any, province: any, country: any, hstreet: any, hbarangay: any, htown: any, hprovince: any, hcountry: any}){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/address/${userget}`);
+      const user = await updateDoc(userDocRef3, {street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+
+  async addsc({schoolname, yearg, level, course }: 
+    {schoolname: any, yearg: any, level: any, course: any } ){
+
+    try {
+      
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = collection(this.firestore, `users/${userget}/school`);
+      const user = await addDoc(userDocRef3, {schoolname, yearg, level, course});
+     
+      return user;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  getscbyID(id:any):Observable<User>{
+    const  uid =  this.auth.currentUser.uid;
+    const cakesByIdRef = doc(this.firestore, `users/${uid}/school/${id}`)
+    return docData(cakesByIdRef, {idField: 'id'}) as Observable <User>
+  }
+
+
+  
+  async editschool({schoolname, yearg, level, course}: 
+    {schoolname: any, yearg: any, level: any, course: any}, schoold: any){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/school/${schoold}`);
+      const user = await updateDoc(userDocRef3, {schoolname, yearg, level, course});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
 }
