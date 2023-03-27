@@ -77,8 +77,8 @@ export class ProfilingService {
   getprofile(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   
-    const cakesRef = collection(this.firestore, `users/${id}/profile`)
-    return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
+    const cakesRef = doc(this.firestore, `users/${id}/profile/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
 
   getaddress(): Observable<User[]>{
@@ -147,6 +147,20 @@ export class ProfilingService {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/experience/${experience}`);
       const user = await updateDoc(userDocRef3, {cname, caddress, jtitle, datef, datet});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async editprofile({fname, mname, lname, suffix, bday,contact, age, specialization,sex}: 
+    {fname: any, mname: any, lname: any, suffix: any, contact: any, bday: any, age: any, specialization: any,sex: any}){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/profile/${userget}`);
+      const user = await updateDoc(userDocRef3, {fname, lname, mname,suffix, bday, contact, age , specialization, sex});
      
       return true;
     } catch (e) {
