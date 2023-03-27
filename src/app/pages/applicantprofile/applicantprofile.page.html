@@ -1,0 +1,200 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/dashboard']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  <div class="container">
+    <div class="avatar" >
+      <ion-avatar class="image">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <div *ngIf="profile[0]">
+      <span  class="caption">{{profile[0].fname}} {{profile[0].mname}} {{profile[0].lname}} {{profile[0].suffix}}</span>
+      </div>
+    </div>
+
+    <div>
+      <!-- Work Experience -->
+        <ion-card>
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Work Experience</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/experience']"></ion-icon>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item lines="none">
+                <ion-label>Company Name: </ion-label>
+                <ion-input placeholder="cname" [readonly]="true"></ion-input>
+              </ion-item>
+        
+              <ion-item lines="none">
+                <ion-label>Company Address: </ion-label>
+                <ion-input placeholder="caddress" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>Job Title: </ion-label>
+                <ion-input placeholder="jtitle" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>Specialization: </ion-label>
+                <ion-input placeholder="specialization" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>From: </ion-label>
+                <ion-input placeholder="from" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>To: </ion-label>
+                <ion-input placeholder="to" [readonly]="true"></ion-input>
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
+        
+        <!-- Personal Information -->
+        <ion-card *ngIf="profile[0]" >
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Personal Information</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label>Name:   </ion-label>
+              <ion-input value="{{profile[0].fname}} {{profile[0].mname}} {{profile[0].lname}} {{profile[0].suffix}}" [readonly]="true"></ion-input>
+            </ion-item>
+      
+            <ion-item lines="none">
+              <ion-label>Birthday:</ion-label>
+              <ion-input value=" {{profile[0].bday}}" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Age:  </ion-label>
+                <ion-input value="{{profile[0].age}}" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Sex:  </ion-label>
+              <ion-input value="{{profile[0].sex}}" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Contact Number: </ion-label>
+              <ion-input value="{{profile[0].contact}}" [readonly]="true"></ion-input>
+            </ion-item>
+
+            <ion-item lines="none">
+              <ion-label>Email Address: </ion-label>
+              <ion-input value=" {{profile[0].email}}" [readonly]="true"></ion-input>
+            </ion-item>
+
+          </ion-card-content>
+        </ion-card>
+
+        <!--Address -->
+        <ion-card *ngIf="address[0]" >
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Home Address</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item lines="none">
+                <ion-label>House No/Street: </ion-label>
+                <ion-input value="{{address[0].hstreet}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Barangay</ion-label>
+                <ion-input value="{{address[0].hbarangay}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Town</ion-label>
+                <ion-input value="{{address[0].htown}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Province</ion-label>
+                <ion-input value="{{address[0].hprovince}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Country</ion-label>
+                <ion-input value="{{address[0].hcountry}}" [readonly]="true"></ion-input>         
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="address[0]" >
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Current Address</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item lines="none">
+                <ion-label>House No/Street: </ion-label>
+                <ion-input value="{{address[0].street}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Barangay</ion-label>
+                <ion-input value="{{address[0].barangay}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Town</ion-label>
+                <ion-input value="{{address[0].town}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Province</ion-label>
+              <ion-input value="{{address[0].province}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Country</ion-label>
+              <ion-input value="{{address[0].country}}" [readonly]="true"></ion-input>
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
+
+        <!--Educational Background -->
+        <ion-card >
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Educational Background</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label>School: </ion-label>
+              <ion-input placeholder="school" [readonly]="true"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Course: </ion-label>
+              <ion-input placeholder="course" [readonly]="true"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Level: </ion-label>
+              <ion-input placeholder="level" [readonly]="true"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Ongoing: </ion-label>
+              <ion-input placeholder="ongoing" [readonly]="true"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Year Graduated: </ion-label>
+              <ion-input placeholder="ygraduated" [readonly]="true"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </div> 
+  </div>
+</ion-content>

@@ -4,18 +4,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MoresignupPageRoutingModule } from './moresignup-routing.module';
+import { EditexperiencePageRoutingModule } from './editexperience-routing.module';
 
-import { MoresignupPage } from './moresignup.page';
+import { EditexperiencePage } from './editexperience.page';
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     FormsModule,
     IonicModule,
-    MoresignupPageRoutingModule
+    EditexperiencePageRoutingModule,
+    ReactiveFormsModule
   ],
-  declarations: [MoresignupPage]
+  declarations: [EditexperiencePage]
 })
-export class MoresignupPageModule {}
+export class EditexperiencePageModule {}

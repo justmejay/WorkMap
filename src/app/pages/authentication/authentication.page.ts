@@ -18,7 +18,6 @@ export class AuthenticationPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private auth: AuthService,
-    // private authService:,
     private router: Router
   ) {
     
@@ -41,25 +40,19 @@ export class AuthenticationPage implements OnInit {
   
   async signup(){
 
-    const loading = await this.loadingController.create({
-      spinner: "dots",
-      message: "Creating Account"
-    });
-    await loading.present();
-    const user = await this.auth.signup(this.credentials.value); 
-    await loading.dismiss();
+    this.router.navigate(['moresignup'], {queryParams:{email: this.email.value, password: this.password.value}});
 
-    if (user) {
-      
-      this.router.navigateByUrl('/authentication', { replaceUrl: true });
-      this.showAlert('Success', `Please verify your account before logging in!`);    
-        } else {
-      this.showAlert('Registration failed', 'Please try again!');
     }
 
+    async signupc(){
+
+      this.router.navigate(['moresignupc'], {queryParams:{email: this.email.value, password: this.password.value}});
+  
+      }
 
 
-  }
+
+  
 
 
   async login() {
@@ -75,10 +68,12 @@ export class AuthenticationPage implements OnInit {
       if (user.user.emailVerified == false){
         await this.auth.resend();
         this.auth.logout;
-          this.showAlert("Verify Email", "Please verify your email! A new activation link is sent to your email!");     
+          this.showAlert("Please Verify Email", "A new activation link is sent to your email!");     
         
       }
       else{
+        this.router.navigate(['dashboard']);
+
         this.showAlert("Success", "Login Success");     
 
       }

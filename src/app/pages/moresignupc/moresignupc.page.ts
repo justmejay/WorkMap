@@ -4,15 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
-
 @Component({
-  selector: 'app-moresignup',
-  templateUrl: './moresignup.page.html',
-  styleUrls: ['./moresignup.page.scss'],
+  selector: 'app-moresignupc',
+  templateUrl: './moresignupc.page.html',
+  styleUrls: ['./moresignupc.page.scss'],
 })
-export class MoresignupPage implements OnInit {
-  isInputEnabled = false;
-  isInput2Enabled = false;
+export class MoresignupcPage implements OnInit {
   authdetails: any = [];
   credentials: FormGroup;
 
@@ -23,18 +20,17 @@ export class MoresignupPage implements OnInit {
     private alertController: AlertController,
     private auth: AuthService,
     private router: Router
-  ) {
+  ) { 
     this.activatedRoute.queryParams.subscribe((params) =>{
       this.authdetails = params;
       console.log(this.authdetails)
 
+      
+
       });
+  }
 
-
-
-   }
-
-   get fname() {
+  get fname() {
     return this.credentials.get('fname');
   }
   get mname() {
@@ -43,14 +39,14 @@ export class MoresignupPage implements OnInit {
   get lname() {
     return this.credentials.get('lname');
   }
-  get suffix() {
-    return this.credentials.get('suffix');
+  get contact() {
+    return this.credentials.get('lname');
   }
-  get bday() {
-    return this.credentials.get('bday');
+  get cname() {
+    return this.credentials.get('lname');
   }
-  get age() {
-    return this.credentials.get('age');
+  get ccontact() {
+    return this.credentials.get('lname');
   }
   get street() {
     return this.credentials.get('street');
@@ -62,70 +58,40 @@ export class MoresignupPage implements OnInit {
     return this.credentials.get('town');
   }
   get province() {
-    return this.credentials.get('province');
+    return this.credentials.get('town');
   }
   get country() {
-    return this.credentials.get('country');
-  }
-  get specialization() {
-    return this.credentials.get('specialization'); 
-  }
-  get hstreet() {
-    return this.credentials.get('hstreet');
-  }
-  get hbarangay() {
-    return this.credentials.get('hbarangay');
-  }
-  get htown() {
-    return this.credentials.get('htown');
-  }
-  get hprovince() {
-    return this.credentials.get('hprovince');
-  }
-  get hcountry() {
-    return this.credentials.get('hcountry');
-  }
-
-  get sex() {
-    return this.credentials.get('sex'); 
+    return this.credentials.get('town');
   }
 
   ngOnInit() {
-
     this.credentials = this.fb.group({
       fname: ['', [Validators.required]],
-      mname: ['', ],
+      mname: ['', []],
       lname: ['', [Validators.required]],
-      suffix: ['', ],
-      bday: ['', [Validators.required]],
-      age: ['', [Validators.required]],
+      contact: ['', [Validators.required]],
+      ccontact: ['', [Validators.required]],
+      cname: ['', [Validators.required]],
       street: ['', [Validators.required]],
       barangay: ['', [Validators.required]],
       town: ['', [Validators.required]],
       province: ['', [Validators.required]],
       country: ['', [Validators.required]],
-      specialization: ['', [Validators.required]],
-      sex: ['', [Validators.required]],
-      hstreet: ['', [Validators.required]],
-      hbarangay: ['', [Validators.required]],
-      htown: ['', [Validators.required]],
-      hprovince: ['', [Validators.required]],
-      hcountry: ['', [Validators.required]],
-
       
     });
+    
 
   }
 
 
-  async signup() {
+  async signupc() {
 
     const loading = await this.loadingController.create({
       spinner: "dots",
       message: "Signing up!"
     });    await loading.present();
 
-    const user = await this.auth.signup(this.credentials.value, this.authdetails.email, this.authdetails.password);
+    const user = await this.auth.signupc(this.credentials.value, this.authdetails.email, this.authdetails.password);
     await loading.dismiss();
 
     if (user) {
@@ -138,17 +104,6 @@ export class MoresignupPage implements OnInit {
   }
 
 
-
-
-  toggleInput(event: any) {
-    this.isInputEnabled = event.detail.checked;
-  }
-
-  toggleInput2(event: any) {
-    this.isInput2Enabled = event.detail.checked;
-  }
-
-  
   async showAlert(header: any, message: any) {
     const alert = await this.alertController.create({
       header,
@@ -157,6 +112,6 @@ export class MoresignupPage implements OnInit {
     });
     await alert.present();
   }
-  
+
 
 }

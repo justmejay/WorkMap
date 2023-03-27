@@ -26,7 +26,8 @@ const routes: Routes = [
   {
     path: 'forgotconfirm',
     loadChildren: () => import('./pages/forgotconfirm/forgotconfirm.module').then( m => m.ForgotconfirmPageModule)
-  },  {
+  },
+  {
     path: 'moresignup',
     loadChildren: () => import('./pages/moresignup/moresignup.module').then( m => m.MoresignupPageModule)
   },
@@ -34,6 +35,38 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
+  {
+    path: 'moresignupc',
+    loadChildren: () => import('./pages/moresignupc/moresignupc.module').then( m => m.MoresignupcPageModule)
+  },
+  {
+    path: 'editexperience',
+    loadChildren: () => import('./pages/editexperience/editexperience.module').then( m => m.EditexperiencePageModule)
+  },
+  {
+    path: 'editaddress',
+    loadChildren: () => import('./pages/editaddress/editaddress.module').then( m => m.EditaddressPageModule)
+  },
+  {
+    path: 'editschool',
+    loadChildren: () => import('./pages/editschool/editschool.module').then( m => m.EditschoolPageModule)
+  },
+  {
+    path: 'editpersonalinfo',
+    loadChildren: () => import('./pages/editpersonalinfo/editpersonalinfo.module').then( m => m.EditpersonalinfoPageModule)
+  },  {
+    path: 'applicantprofile',
+    loadChildren: () => import('./pages/applicantprofile/applicantprofile.module').then( m => m.ApplicantprofilePageModule)
+  },
+  {
+    path: 'experience',
+    loadChildren: () => import('./pages/experience/experience.module').then( m => m.ExperiencePageModule)
+  },
+  {
+    path: 'addexperience',
+    loadChildren: () => import('./pages/addexperience/addexperience.module').then( m => m.AddexperiencePageModule)
+  },
+
 
 ];
 

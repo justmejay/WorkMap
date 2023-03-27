@@ -60,10 +60,15 @@ h3{
     margin-top: 2%;
 }
 
-ion-note{
-    margin-left: 6%;
-    color: #930808;
+.dropdown{
+    width: 75%;
 }
+
+ion-item.dropdown{
+    border: none;
+    flex-direction: row;
+}
+
 
 
 

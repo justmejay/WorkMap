@@ -7,47 +7,74 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding ">
 
-   <!-- MOre SignUp Page -->
+
 <div >
-  <form>
+  <form [formGroup]="credentials" (ngSubmit)="signup()">
     <div class="personalinfo">
     <h3>Personal Information</h3>
     <ion-card>
       <ion-card-content>
           <ion-item>
             <ion-label position="stacked">First Name:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="fname" class="custominput"></ion-input>
           </ion-item>
+          <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
+
     
           <ion-item>
             <ion-label position="stacked">Middle Name:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="mname" class="custominput"></ion-input>
           </ion-item>
+
     
           <ion-item>
             <ion-label position="stacked">Last Name:</ion-label>
-            <ion-input type="text" class="custominput"></ion-input>
+            <ion-input type="text" formControlName="lname" class="custominput"></ion-input>
           </ion-item>
+          <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
+
 
           <ion-item>
-            <ion-label position="stacked">Suffix (optional):</ion-label>
-            <ion-list>
+            <ion-label  position="stacked">Suffix (optional):</ion-label>
+            <ion-list class="suffix">
               <ion-item class="suffix"  lines="none">
-                <ion-select interface="popover" placeholder="Select suffix" expand="block">
-                  <ion-select-option value="apples">Jr.</ion-select-option>
-                  <ion-select-option value="oranges">Sr.</ion-select-option>
-                  <ion-select-option value="bananas">I</ion-select-option>
-                  <ion-select-option value="bananas">II</ion-select-option>
-                  <ion-select-option value="bananas">III</ion-select-option>
+                <ion-select formControlName="suffix" interface="popover" placeholder="Select suffix" expand="block">
+                  <ion-select-option value="Jr">Jr.</ion-select-option>
+                  <ion-select-option value="Sr">Sr.</ion-select-option>
+                  <ion-select-option value="I">I</ion-select-option>
+                  <ion-select-option value="II">II</ion-select-option>
+                  <ion-select-option value="III">III</ion-select-option>
                 </ion-select>
               </ion-item>
             </ion-list>
           </ion-item>
+
+
+
+          <ion-item>
+            <ion-label  position="stacked">Sex:</ion-label>
+            <ion-list class="suffix">
+              <ion-item class="suffix"  lines="none">
+                <ion-select formControlName="sex" interface="popover" expand="block">
+                  <ion-select-option value="male">Male</ion-select-option>
+                  <ion-select-option value="female">Female</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+          <ion-note slot="error" *ngIf="(sex.dirty || sex.touched) && sex.errors">Required</ion-note>
+
+
+
+
+
+
           <ion-item >
             <ion-label position="fixed">Birthdate:</ion-label>
-            <ion-datetime-button datetime="date"></ion-datetime-button>
+            <ion-input type="date" formControlName="bday"></ion-input>
+          
 
               <ion-modal [keepContentsMounted]="true">
                 <ng-template>
@@ -56,70 +83,113 @@
                 </ng-template>
               </ion-modal>
 
-            <!-- <ion-icon name="calendar-outline" slot="end"></ion-icon> -->
         </ion-item>
+
+        <ion-note slot="error" *ngIf="(bday.dirty || bday.touched) && bday.errors">Required</ion-note>
+
         <ion-item>
-          <ion-label position="stacked">Barangay</ion-label>
-          <ion-input type="text"></ion-input>
+          <ion-label position="stacked">Age</ion-label>
+          <ion-input formControlName="age" type="Number"></ion-input>
         </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Town</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Province</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label position="stacked">Country</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
+        <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
+
+
 
       </ion-card-content>
     </ion-card>
     </div>
 
-    <!-- <ion-card-title>When were you born and where do you currently live?</ion-card-title>
-    <ion-card class="custom-card">
+      <h3>Home Address</h3>
+    <ion-card>
       <ion-card-content>
-        <ion-list class="custom-card" >
-          
-          <ion-item >
-              <ion-label position="floating">Home Address:</ion-label>
-              <ion-input type="text"></ion-input>
-          </ion-item>
 
-          <ion-item >
-            <ion-label position="floating">Current Address:</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-        </ion-list>
-        </ion-card-content>
-    </ion-card> -->
+        
+        <ion-item>
+          <ion-label position="stacked">House No./Street</ion-label>
+          <ion-input formControlName="hstreet" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(hstreet.dirty || hstreet.touched) && hstreet.errors">Required</ion-note>
 
-    <!-- <ion-card-title>What is your education history and job experiences?</ion-card-title>
-    <ion-card class="custom-card">
+        <ion-item>
+          <ion-label position="stacked">Barangay</ion-label>
+          <ion-input formControlName="hbarangay" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(hbarangay.dirty || hbarangay.touched) && hbarangay.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Town</ion-label>
+          <ion-input formControlName="htown" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(htown.dirty || htown.touched) && htown.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Province</ion-label>
+          <ion-input  formControlName="hprovince" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(hprovince.dirty || hprovince.touched) && hprovince.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Country</ion-label>
+          <ion-input formControlName="hcountry" type="text"></ion-input>
+        </ion-item>
+
+        <ion-note slot="error" *ngIf="(hcountry.dirty || hcountry.touched) && hcountry.errors">Required</ion-note>
+
+        
+        
+      </ion-card-content>
+    </ion-card>
+
+
+    <h3>Current Address</h3>
+    <ion-card>
       <ion-card-content>
-        <ion-list class="custom-card">
-          <ion-item >
-            <ion-label>School:</ion-label>
-            <ion-input [disabled]="!isInputEnabled" type="text"></ion-input>
-            <ion-toggle (ionChange)="toggleInput($event)" slot="end"></ion-toggle>
-          </ion-item>
 
-          <ion-item >
-            <ion-label>Work:</ion-label>
-            <ion-input [disabled]="!isInput2Enabled" type="text"></ion-input>
-            <ion-toggle (ionChange)="toggleInput2($event)" slot="end"></ion-toggle>
-          </ion-item>
-        </ion-list>
-        </ion-card-content>
-    </ion-card> -->
+        
+        <ion-item>
+          <ion-label position="stacked">House No./Street</ion-label>
+          <ion-input formControlName="street" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(street.dirty || street.touched) && street.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Barangay</ion-label>
+          <ion-input formControlName="barangay" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(barangay.dirty || barangay.touched) && barangay.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Town</ion-label>
+          <ion-input formControlName="town" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(town.dirty || town.touched) && town.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Province</ion-label>
+          <ion-input  formControlName="province" type="text"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(province.dirty || province.touched) && province.errors">Required</ion-note>
+
+        <ion-item>
+          <ion-label position="stacked">Country</ion-label>
+          <ion-input formControlName="country" type="text"></ion-input>
+        </ion-item>
+
+        <ion-note slot="error" *ngIf="(country.dirty || country.touched) && country.errors">Required</ion-note>
+
+        
+        
+      </ion-card-content>
+    </ion-card>
+
+    
+
+    
   
     <h3>What job specialization are you in?</h3>
     <ion-card class="custom-card">
         <ion-card-content>
-            <ion-radio-group [allowEmptySelection]="false">
+            <ion-radio-group formControlName="specialization" [allowEmptySelection]="false">
               <ion-item >
                 <ion-label>Accounting/Finance</ion-label>
                 <ion-radio slot="end" value="accounting"></ion-radio>
@@ -172,7 +242,7 @@
 
               <ion-item >
                 <ion-label>Education/Training</ion-label>
-                <ion-radio slot="end" value="education"></ion-radio>
+                <ion-radio slot="end" value="education"></ion-radio> 
               </ion-item>
 
               <ion-item >
@@ -205,12 +275,17 @@
                 <ion-radio slot="end" value="healthcare"></ion-radio>
               </ion-item>
 
+              <ion-note slot="error" *ngIf="(specialization.dirty || specialization.touched) && specialization.errors">Required</ion-note>
+
+
             </ion-radio-group>
   </ion-card-content>
     </ion-card>
 
-    <ion-button type="submit" expand="block" class="btnreg">Finish</ion-button>
+    <ion-button type="submit" [disabled]="!credentials.valid" expand="block" class="btnreg">Finish</ion-button>
   </form>
 </div>
+
+
 
 </ion-content>
