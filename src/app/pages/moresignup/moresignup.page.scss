@@ -65,6 +65,15 @@ ion-note{
     color: #930808;
 }
 
+.dropdown{
+    width: 75%;
+    margin-top: 2%;
+}
+
+ion-item.dropdown{
+    border: none;
+    flex-direction: row;
+}
 
 
   

@@ -36,8 +36,8 @@ export class AuthService {
 
 
   async signup({fname, mname, lname, suffix, 
-    bday, age, street, barangay, town, country, province, specialization,sex,hstreet, hbarangay, htown, hcountry, hprovince  }: 
-    {fname: any, mname: any, lname: any, suffix: any, bday: any, age: any, street: any, barangay: any, 
+    bday, age, contact, street, barangay, town, country, province, specialization,sex,hstreet, hbarangay, htown, hcountry, hprovince  }: 
+    {fname: any, mname: any, lname: any, suffix: any, bday: any, age: any, contact:any, street: any, barangay: any, 
     town: any, country:any, province: any, specialization: any, sex : any ,hstreet : any, hbarangay : any, htown : any, hcountry : any, 
     hprovince : any }, email: any, 
     password: any,  ){
@@ -58,7 +58,7 @@ export class AuthService {
       
 
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
-      await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "",  fname, mname, lname, suffix, sex, contact: "", bday, age, email });
+      await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "",  fname, mname, lname, suffix, sex, contact, bday, age, email });
       
 
       const userDocRef2 = doc(this.firestore, `users/${userget}/address/${userget}`);

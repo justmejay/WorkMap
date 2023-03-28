@@ -154,13 +154,13 @@ export class ProfilingService {
     }
   }
 
-  async editprofile({fname, mname, lname, suffix, bday,contact, age, specialization,sex}: 
-    {fname: any, mname: any, lname: any, suffix: any, contact: any, bday: any, age: any, specialization: any,sex: any}){
+  async editprofile({fname, mname, lname, suffix, bday,contact, age,sex}: 
+    {fname: any, mname: any, lname: any, suffix: any, contact: any, bday: any, age: any, sex: any}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/profile/${userget}`);
-      const user = await updateDoc(userDocRef3, {fname, lname, mname,suffix, bday, contact, age , specialization, sex});
+      const user = await updateDoc(userDocRef3, {fname, lname, mname,suffix, bday, contact, age , sex});
      
       return true;
     } catch (e) {
