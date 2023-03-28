@@ -52,6 +52,9 @@ export class MoresignupPage implements OnInit {
   get age() {
     return this.credentials.get('age');
   }
+  get contact() {
+    return this.credentials.get('contact');
+  }
   get street() {
     return this.credentials.get('street');
   }
@@ -99,6 +102,7 @@ export class MoresignupPage implements OnInit {
       suffix: ['', ],
       bday: ['', [Validators.required]],
       age: ['', [Validators.required]],
+      contact: ['', [Validators.required]],
       street: ['', [Validators.required]],
       barangay: ['', [Validators.required]],
       town: ['', [Validators.required]],

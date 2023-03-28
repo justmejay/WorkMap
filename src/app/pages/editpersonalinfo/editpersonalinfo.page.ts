@@ -63,12 +63,11 @@ export class EditpersonalinfoPage implements OnInit {
     this.credentials = this.fb.group({
       fname: ['', [Validators.required]],
       contact: ['', [Validators.required]],
-      mname: ['', ],
+      mname: ['', []],
       lname: ['', [Validators.required]],
-      suffix: ['', ],
+      suffix: ['', []],
       bday: ['', [Validators.required]],
       age: ['', [Validators.required]],
-      specialization: ['', [Validators.required]],
       sex: ['', [Validators.required]],
     });
     

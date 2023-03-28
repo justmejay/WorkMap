@@ -55,9 +55,9 @@
 
           <ion-item>
             <ion-label  position="stacked">Sex:</ion-label>
-            <ion-list class="suffix">
-              <ion-item class="suffix"  lines="none">
-                <ion-select formControlName="sex" interface="popover" expand="block">
+            <ion-list class="dropdown">
+              <ion-item class="dropdown"  lines="none">
+                <ion-select formControlName="sex" interface="popover" placeholder="Select" expand="block">
                   <ion-select-option value="male">Male</ion-select-option>
                   <ion-select-option value="female">Female</ion-select-option>
                 </ion-select>
@@ -93,7 +93,11 @@
         </ion-item>
         <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
 
-
+        <ion-item>
+          <ion-label position="stacked">Contact</ion-label>
+          <ion-input formControlName="contact" type="Number"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
 
       </ion-card-content>
     </ion-card>
