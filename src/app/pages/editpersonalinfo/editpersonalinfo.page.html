@@ -15,6 +15,13 @@
     <div class="personalinfo">
     <ion-card>
       <ion-card-content>
+
+        <ion-item>
+          <ion-label position="stacked">Change Profile Picture:</ion-label>
+          <ion-input #myInput  type="file" (change)="upload($event)"></ion-input>
+
+        </ion-item>
+
           <ion-item>
             <ion-label position="stacked">First Name:</ion-label>
             <ion-input type="text" formControlName="fname" value="{{profile.fname}}" class="custominput"></ion-input>

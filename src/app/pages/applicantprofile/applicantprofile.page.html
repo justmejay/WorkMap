@@ -6,13 +6,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
+<ion-content *ngIf="profile" [fullscreen]="true" >
   <div class="container">
     <div class="avatar" >
       <ion-avatar class="image">
-          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img alt="N/A" src="{{profile.imageUrl}}" />
       </ion-avatar>
-      <div *ngIf="profile">
+      <div >
       <span  class="caption">{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}</span>
       </div>
     </div>

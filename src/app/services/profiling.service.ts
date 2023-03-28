@@ -220,4 +220,18 @@ export class ProfilingService {
     }
   }
 
+
+  async editprofiledp(imageUrl: any){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/profile/${userget}`);
+      const user = await updateDoc(userDocRef3, {imageUrl});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
 }
