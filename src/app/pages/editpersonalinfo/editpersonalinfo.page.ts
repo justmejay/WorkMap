@@ -1,9 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfilingService } from 'src/app/services/profiling.service';
+import {
+  getDownloadURL,
+  ref,
+  Storage,
+  uploadString,
+  uploadBytes,
+  deleteObject
+} from '@angular/fire/storage';
 
 @Component({
   selector: 'app-editpersonalinfo',
@@ -13,6 +21,14 @@ import { ProfilingService } from 'src/app/services/profiling.service';
 export class EditpersonalinfoPage implements OnInit {
   profile: any = [];
   credentials: FormGroup;
+  @ViewChild('myInput')
+  myInputVariable: ElementRef;
+  selected:any
+  files: any = []
+  selecteditemx:any
+  filename:any
+  filesize:any
+  fileevent:any
 
 
 
@@ -47,7 +63,9 @@ export class EditpersonalinfoPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private storage: Storage,
+
 
   ) {
     this.firestore.getprofile().subscribe(res=>{
@@ -63,12 +81,11 @@ export class EditpersonalinfoPage implements OnInit {
     this.credentials = this.fb.group({
       fname: ['', [Validators.required]],
       contact: ['', [Validators.required]],
-      mname: ['', ],
+      mname: ['', []],
       lname: ['', [Validators.required]],
-      suffix: ['', ],
+      suffix: ['', []],
       bday: ['', [Validators.required]],
       age: ['', [Validators.required]],
-      specialization: ['', [Validators.required]],
       sex: ['', [Validators.required]],
     });
     
@@ -80,8 +97,16 @@ export class EditpersonalinfoPage implements OnInit {
       spinner: "dots",
       message: "Adding up!"
     });    await loading.present();
+    await loading.present();
+    const generateunique = `${new Date().getTime()}_${this.filename}`;
+    const fileStoragePath = `filesStorage/${generateunique}`;
+    const storageRef = ref(this.storage, fileStoragePath);
+    const uploadfile = await uploadBytes(storageRef, this.selecteditemx);
+    const fileUrl = await getDownloadURL(storageRef);
 
     const user = await this.firestore.editprofile(this.credentials.value);
+     await this.firestore.editprofiledp(fileUrl);
+
     await loading.dismiss();
 
     if (user) {
@@ -92,6 +117,18 @@ export class EditpersonalinfoPage implements OnInit {
         } else {
       this.showAlert('Edit failed', 'Please try again!');
     }
+  }
+
+
+  async upload(event: any){
+
+    this.fileevent = event;
+    const selecteditem = event.target.files
+    this.selecteditemx = selecteditem.item(0)
+    this.filename  = this.selecteditemx.name
+    this.filesize  = this.selecteditemx.size;
+
+
   }
 
 
