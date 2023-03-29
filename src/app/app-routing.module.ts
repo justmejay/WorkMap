@@ -90,6 +90,10 @@ const routes: Routes = [
     path: 'addschool',
     loadChildren: () => import('./pages/addschool/addschool.module').then( m => m.AddschoolPageModule)
   },
+  {
+    path: 'aboutcompany',
+    loadChildren: () => import('./aboutcompany/aboutcompany.module').then( m => m.AboutcompanyPageModule)
+  },
 
 
 ];
