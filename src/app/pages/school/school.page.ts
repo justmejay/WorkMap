@@ -22,6 +22,7 @@ export class SchoolPage implements OnInit {
 
     this.profile.getschool().subscribe(res=>{
       this.school = res;
+      console.log(this.school)
 
     })
 

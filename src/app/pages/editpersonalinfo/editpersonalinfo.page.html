@@ -55,6 +55,29 @@
             </ion-list>
           </ion-item>
 
+          <ion-item>
+            <ion-label  position="stacked">Civil Status:</ion-label>
+            <ion-list class="suffix">
+              <ion-item class="suffix"  lines="none">
+                <ion-select formControlName="cs" value="{{profile.cs}}" interface="popover" placeholder="Select suffix" expand="block">
+                  <ion-select-option value="Single">Single.</ion-select-option>
+                  <ion-select-option value="Married">Married.</ion-select-option>
+                  <ion-select-option value="Separated">Separated</ion-select-option>
+                  <ion-select-option value="Widowed">Widowed</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+
+          <ion-note slot="error" *ngIf="(cs.dirty || cs.touched) && cs.errors">Required</ion-note>
+
+          <ion-item>
+            <ion-label position="stacked">Religion:</ion-label>
+            <ion-input type="text" value="{{profile.religion}}" formControlName="religion" class="custominput"></ion-input>
+          </ion-item>
+          <ion-note slot="error" *ngIf="(religion.dirty || religion.touched) && religion.errors">Required</ion-note>
+
+
           <ion-item >
             <ion-label position="fixed">Birthdate:</ion-label>
             <ion-input formControlName="bday" value="{{profile.bday}}" type="date"></ion-input>

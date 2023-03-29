@@ -53,6 +53,37 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-content>
+    <ion-card>
+      <ion-card-header>
+        <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
+        <ion-card-title>
+          Job Title Needed
+        </ion-card-title>
+        <ion-card-subtitle>
+          Company Name
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="companydetails">
+          <ion-label>Company Address</ion-label>
+          <ion-label>Starting Salary</ion-label>
+        </div>
+        <div class="jobdetails">
+          <div class="jobspecialization">
+            <ion-label>Job Specialization:</ion-label>
+            <ion-label>Computer Information</ion-label>
+          </div>
+          <div class="jobtype">
+            <ion-label>Full time/Hybrid/Work from Home</ion-label>
+          </div>
+        </div>
+      </ion-card-content>
+      <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
+    <ion-button size="large" class="jobcardinfo">Apply Now</ion-button>
+    </ion-card>
+  </ion-content>
+
   <ion-footer>
     <ion-toolbar>
       <ion-tabs>

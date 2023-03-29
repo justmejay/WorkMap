@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class ApplicantprofilePage implements OnInit {
   profile: any = [];
   address: any = [];
   resume: any = [];
-  certifications: any = [];
+  certifications: any = []; 
   school: any = [];
   experience: any = [];
  
@@ -18,6 +19,7 @@ export class ApplicantprofilePage implements OnInit {
 
   constructor(
     private firestore: ProfilingService,
+    private alertCtrl: AlertController,
   ) {
 
     this.firestore.getprofile().subscribe(res=>{
@@ -54,4 +56,31 @@ export class ApplicantprofilePage implements OnInit {
   ) {
   }
 
+  async about(){
+    const alert = await this.alertCtrl.create({
+      header: 'Tell me about yourself',
+      inputs: [
+        {
+          name: 'AboutMe',
+          type: 'textarea',
+          value:  `${this.profile.aboutme}`
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Update',
+          handler: (res) =>{
+            this.firestore.editaboutme(res.AboutMe)
+            //this.dataService.addNoteWithCustomId({title: res.title, text: res.text})
+          }
+        }
+      ]
+    });
+    await alert.present();
+
+  }
 }

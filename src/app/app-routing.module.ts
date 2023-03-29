@@ -54,7 +54,8 @@ const routes: Routes = [
   {
     path: 'editpersonalinfo',
     loadChildren: () => import('./pages/editpersonalinfo/editpersonalinfo.module').then( m => m.EditpersonalinfoPageModule)
-  },  {
+  },
+  {
     path: 'applicantprofile',
     loadChildren: () => import('./pages/applicantprofile/applicantprofile.module').then( m => m.ApplicantprofilePageModule)
   },
@@ -90,6 +91,11 @@ const routes: Routes = [
     path: 'addschool',
     loadChildren: () => import('./pages/addschool/addschool.module').then( m => m.AddschoolPageModule)
   },
+  {
+    path: 'aboutcompany',
+    loadChildren: () => import('./aboutcompany/aboutcompany.module').then( m => m.AboutcompanyPageModule)
+  },
+
 
 
 ];

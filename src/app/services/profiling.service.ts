@@ -8,7 +8,7 @@ import {
   uploadString,
 } from '@angular/fire/storage';
 import { Photo } from '@capacitor/camera';
-import { collectionGroup, CollectionReference, updateDoc, WhereFilterOp } from 'firebase/firestore';
+import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -92,28 +92,31 @@ export class ProfilingService {
     const id = this.auth.currentUser.uid;
   
     const cakesRef = collection(this.firestore, `users/${id}/certification`)
-    return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
+    
+        return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
 
   getschool(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   
     const cakesRef = collection(this.firestore, `users/${id}/school`)
-    return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
+    const q = query(cakesRef, where("schoolname", "!=", "" ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 
   getresume(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   
-    const cakesRef = collection(this.firestore, `users/${id}/resume`)
-    return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
+    const cakesRef = doc(this.firestore, `users/${id}/resume/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
 
   getexperience(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   
     const cakesRef = collection(this.firestore, `users/${id}/experience`)
-    return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
+    const q = query(cakesRef, where("cname", "!=", "" ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 
 
@@ -154,13 +157,13 @@ export class ProfilingService {
     }
   }
 
-  async editprofile({fname, mname, lname, suffix, bday,contact, age,sex}: 
-    {fname: any, mname: any, lname: any, suffix: any, contact: any, bday: any, age: any, sex: any}){
+  async editprofile({fname, mname,sex, lname, suffix, bday,contact, age, cs, religion}: 
+    {fname: any, mname: any, lname: any, suffix: any, contact: any, bday: any, cs: any, religion : any, age: any, sex: any}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/profile/${userget}`);
-      const user = await updateDoc(userDocRef3, {fname, lname, mname,suffix, bday, contact, age , sex});
+      const user = await updateDoc(userDocRef3, {fname, cs, religion, lname, mname,suffix, bday, contact, age , sex});
      
       return true;
     } catch (e) {
@@ -227,6 +230,36 @@ export class ProfilingService {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/profile/${userget}`);
       const user = await updateDoc(userDocRef3, {imageUrl});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+
+  async editaboutme(text: any){
+
+    try {
+      
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/profile/${userget}`);
+      const user = await updateDoc(userDocRef3, {aboutme: text});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+
+  async editref({mo, moc, fa, fac}: {mo: any, moc: any, fa: any, fac: any}){
+
+    try {
+      
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/resume/${userget}`);
+      const user = await updateDoc(userDocRef3, {mo, moc, fa, fac});
      
       return true;
     } catch (e) {

@@ -35,10 +35,10 @@ export class AuthService {
   ) { }
 
 
-  async signup({fname, mname, lname, suffix, 
-    bday, age, contact, street, barangay, town, country, province, specialization,sex,hstreet, hbarangay, htown, hcountry, hprovince  }: 
-    {fname: any, mname: any, lname: any, suffix: any, bday: any, age: any, contact:any, street: any, barangay: any, 
-    town: any, country:any, province: any, specialization: any, sex : any ,hstreet : any, hbarangay : any, htown : any, hcountry : any, 
+  async signup({fname, mname, lname, suffix,
+    bday, age, contact, street, barangay, town, country, province, cs, religion, specialization,sex,hstreet, hbarangay, htown, hcountry, hprovince  }: 
+    {fname: any, mname: any, lname: any, suffix: any, bday: any, cs: any, religion: any, age: any, contact:any, street: any, barangay: any, 
+    town: any, country:any,  province: any, specialization: any, sex : any ,hstreet : any, hbarangay : any, htown : any, hcountry : any, 
     hprovince : any }, email: any, 
     password: any,  ){
 
@@ -58,7 +58,7 @@ export class AuthService {
       
 
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
-      await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "",  fname, mname, lname, suffix, sex, contact, bday, age, email });
+      await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "", aboutme: "", cs,religion,  fname, mname, lname, suffix, sex, contact, bday, age, email });
       
 
       const userDocRef2 = doc(this.firestore, `users/${userget}/address/${userget}`);
@@ -75,8 +75,8 @@ export class AuthService {
       const userDocRef5 = collection(this.firestore, `users/${userget}/certifications`);
       await addDoc(userDocRef5, {name: "", orgn: "", year: "", fpath: "" });
 
-      const userDocRef6 = collection(this.firestore, `users/${userget}/resume`);
-      await addDoc(userDocRef6, {fpath: "" });
+      const userDocRef6 = doc(this.firestore, `users/${userget}/resume/${userget}`);
+      await setDoc(userDocRef6, {fpath: "" , mo: "", moc: "", fa: "", fac: ""});
 
       await sendEmailVerification(this.auth.currentUser);
 

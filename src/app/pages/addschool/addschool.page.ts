@@ -39,7 +39,7 @@ export class AddschoolPage implements OnInit {
     this.credentials = this.fb.group({
       schoolname: ['', [Validators.required,]],
       level: ['', [Validators.required,]],
-      yearg: ['', [Validators.required,]],
+      yearg: ['', []],
       course: ['', [Validators.required,]],
       
     });
