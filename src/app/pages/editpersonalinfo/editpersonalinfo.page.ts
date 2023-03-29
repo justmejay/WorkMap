@@ -57,6 +57,13 @@ export class EditpersonalinfoPage implements OnInit {
     return this.credentials.get('age');
   }
 
+  get cs() {
+    return this.credentials.get('cs');
+  }
+  get religion() {
+    return this.credentials.get('religion');
+  }
+
   constructor(
     private firestore: ProfilingService,
    private fb: FormBuilder,
@@ -87,6 +94,8 @@ export class EditpersonalinfoPage implements OnInit {
       bday: ['', [Validators.required]],
       age: ['', [Validators.required]],
       sex: ['', [Validators.required]],
+      cs: ['', [Validators.required]],
+      religion: ['', [Validators.required]],
     });
     
   }
@@ -98,15 +107,18 @@ export class EditpersonalinfoPage implements OnInit {
       message: "Adding up!"
     });    await loading.present();
     await loading.present();
-    const generateunique = `${new Date().getTime()}_${this.filename}`;
+
+    const user = await this.firestore.editprofile(this.credentials.value);
+
+    if (this.selecteditemx != null){
+      const generateunique = `${new Date().getTime()}_${this.filename}`;
     const fileStoragePath = `filesStorage/${generateunique}`;
     const storageRef = ref(this.storage, fileStoragePath);
     const uploadfile = await uploadBytes(storageRef, this.selecteditemx);
     const fileUrl = await getDownloadURL(storageRef);
-
-    const user = await this.firestore.editprofile(this.credentials.value);
-     await this.firestore.editprofiledp(fileUrl);
-
+    await this.firestore.editprofiledp(fileUrl);
+    }
+    
     await loading.dismiss();
 
     if (user) {

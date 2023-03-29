@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons [routerLink]="['/dashboard']" slot="start">
+    <ion-buttons [routerLink]="['/applicantprofile']" slot="start">
     <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
     </ion-buttons> 
     Resume Builder
@@ -8,95 +8,150 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
-    <div class="avatar" >
-      <ion-avatar class="image">
-          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
-      <div>
-      <span  class="caption" placeholder="caption"></span>
-      </div>
-    </div>
-  </div>
 
-  <ion-card>
+
+  <ion-card *ngIf="profile">
     <ion-card-header>
       <ion-card-title>Personal Information</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-item lines="none">
         <ion-label>Name: </ion-label>
-        <ion-input placeholder="Joe D. Bohn III" [readonly]="true"></ion-input>
+        <ion-input value="{{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label>Date of Birth: </ion-label>
-        <ion-input placeholder="mm/dd/yy" [readonly]="true"></ion-input>
+        <ion-input value="{{profile.bday}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label>Age: </ion-label>
-        <ion-input placeholder="20" [readonly]="true"></ion-input>
+        <ion-input value="{{profile.age}}" [readonly]="true"></ion-input>
       </ion-item>
-      <ion-item lines="none">
+      <ion-item lines="none" *ngIf="address">
         <ion-label>Home Address: </ion-label>
-        <ion-input placeholder="House/Street No, Barangay, Town, Province" [readonly]="true"></ion-input>
+        <ion-input value="{{address.hstreet}} {{address.hbarangay}}, {{address.htown}}, {{address.hprovince}}, {{address.hcountry}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label>Current Address: </ion-label>
-        <ion-input placeholder="House/Street No, Barangay, Town, Province" [readonly]="true"></ion-input>
+        <ion-input value="{{address.street}} {{address.barangay}}, {{address.town}}, {{address.province}}, {{address.country}}" placeholder="House/Street No, Barangay, Town, Province" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label>Civil Status: </ion-label>
-        <ion-input placeholder="Single" [readonly]="true"></ion-input>
+        <ion-input  value="{{profile.cs}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label>Religion: </ion-label>
-        <ion-input placeholder="RC" [readonly]="true"></ion-input>
+        <ion-input value="{{profile.religion}}" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Specialization: </ion-label>
+        <ion-input value="{{profile.specialization}}" [readonly]="true"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card *ngIf="resume">
     <ion-card-header>
-      <ion-card-title>Character Reference</ion-card-title>
+      <div style="display: flex; justify-content: space-between;">
+        <ion-card-title>Character Reference</ion-card-title>
+        <ion-icon style="float: right;" name="create" class="edit" (click)="ref()"></ion-icon>
+      </div>
     </ion-card-header>
     <ion-card-content>
       <ion-item lines="none">
         <ion-label>Name of Mother: </ion-label>
-        <ion-input placeholder="Joe Mama"></ion-input>
+        <ion-input value="{{resume.mo}} "></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label>Contact No: </ion-label>
-        <ion-input placeholder="09xx-xxx-xxxx"></ion-input>
+        <ion-input value="{{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Name of Mother: </ion-label>
-        <ion-input placeholder="Joe Papa"></ion-input>
+        <ion-label>Name of Father: </ion-label>
+        <ion-input value="{{resume.fa}}" ></ion-input>
       </ion-item>
       <ion-item lines="none">
         <ion-label>Contact No: </ion-label>
-        <ion-input placeholder="09xx-xxx-xxxx"></ion-input>
+        <ion-input value="{{resume.fac}}"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Educational Background</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item lines="none">
-        <ion-label>Primary: </ion-label>
-        <ion-input placeholder="Elementary School"></ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label>Secondary: </ion-label>
-        <ion-input placeholder="High School - Senior High"></ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label>College: </ion-label>
-        <ion-input placeholder="University School"></ion-input>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+
+  <!-- Educational Background -->
+        <ion-card >
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Educational Background</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/school']"></ion-icon>
+            </div>
+          </ion-card-header>
+          <ion-card-content *ngFor="let s of school" class="ion-padding">
+
+            <div style="border-style: solid; margin-top: 5%;"> 
+              <ion-item lines="none">
+                <ion-label>School Name: </ion-label>
+                <ion-input value="{{s.schoolname}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Course: </ion-label>
+                <ion-input value="{{s.course}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Level: </ion-label>
+                <ion-input value="{{s.level}}" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Year Graduated: </ion-label>
+                <ion-input value="{{s.yearg}}" [readonly]="true"></ion-input>
+              </ion-item>
+            </div>
+            
+          </ion-card-content>
+        </ion-card>
+
+  
+
+
+  <!-- Work Experience -->
+        <ion-card>
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Work Experience</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/experience']"></ion-icon>
+            </div >
+          </ion-card-header>
+          <ion-card-content *ngFor="let e of  experience">
+            <div style="border-style: solid; margin-top: 5%;">
+              <ion-item lines="none">
+                <ion-label>Company Name: </ion-label>
+                <ion-input value="{{e.cname}}" [readonly]="true"></ion-input>
+              </ion-item>
+        
+              <ion-item lines="none">
+                <ion-label>Company Address: </ion-label>
+                <ion-input value="{{e.address}}" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>Job Title: </ion-label>
+                <ion-input value="{{e.jtitle}}" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>From: </ion-label>
+                <ion-input value="{{e.datef}}" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>To: </ion-label>
+                <ion-input value="{{e.datet}}" [readonly]="true"></ion-input>
+              </ion-item>
+            </div>
+              
+          </ion-card-content>
+        </ion-card>
+
+
   <ion-card>
     <ion-card-header>
       <ion-card-title>Reason for Applying Job</ion-card-title>
@@ -114,7 +169,4 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
-  <div class="buttondiv"> 
-    <ion-button class="action" expand="block">Confirm Resume</ion-button>
-  </div>
 </ion-content>
