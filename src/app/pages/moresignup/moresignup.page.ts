@@ -92,6 +92,12 @@ export class MoresignupPage implements OnInit {
   get sex() {
     return this.credentials.get('sex'); 
   }
+  get cs() {
+    return this.credentials.get('cs'); 
+  }
+  get religion() {
+    return this.credentials.get('religion'); 
+  }
 
   ngOnInit() {
 
@@ -115,6 +121,9 @@ export class MoresignupPage implements OnInit {
       htown: ['', [Validators.required]],
       hprovince: ['', [Validators.required]],
       hcountry: ['', [Validators.required]],
+      cs: ['', [Validators.required]],
+      religion: ['', [Validators.required]],
+
 
       
     });

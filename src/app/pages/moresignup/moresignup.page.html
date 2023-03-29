@@ -51,6 +51,28 @@
             </ion-list>
           </ion-item>
 
+          <ion-item>
+            <ion-label  position="stacked">Civil Status:</ion-label>
+            <ion-list class="suffix">
+              <ion-item class="suffix"  lines="none">
+                <ion-select formControlName="cs" interface="popover" placeholder="Select suffix" expand="block">
+                  <ion-select-option value="Single">Single.</ion-select-option>
+                  <ion-select-option value="Married">Married.</ion-select-option>
+                  <ion-select-option value="Separated">Separated</ion-select-option>
+                  <ion-select-option value="Widowed">Widowed</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+
+          <ion-note slot="error" *ngIf="(cs.dirty || cs.touched) && cs.errors">Required</ion-note>
+
+          <ion-item>
+            <ion-label position="stacked">Religion:</ion-label>
+            <ion-input type="text" formControlName="religion" class="custominput"></ion-input>
+          </ion-item>
+          <ion-note slot="error" *ngIf="(religion.dirty || religion.touched) && religion.errors">Required</ion-note>
+
 
 
           <ion-item>
@@ -58,8 +80,8 @@
             <ion-list class="dropdown">
               <ion-item class="dropdown"  lines="none">
                 <ion-select formControlName="sex" interface="popover" placeholder="Select" expand="block">
-                  <ion-select-option value="male">Male</ion-select-option>
-                  <ion-select-option value="female">Female</ion-select-option>
+                  <ion-select-option value="Male">Male</ion-select-option>
+                  <ion-select-option value="Female">Female</ion-select-option>
                 </ion-select>
               </ion-item>
             </ion-list>
