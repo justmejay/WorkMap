@@ -159,18 +159,14 @@
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>About you</ion-card-title>
-              <ion-icon style="float: right;" name="create" class="edit" (click)="about()"></ion-icon>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editaboutme']"></ion-icon>
             </div>
           </ion-card-header>
           <ion-card-content>
             <ion-item lines="none" fill="outline" class="aboutself">
               <ion-label position="stacked">What can you say about yourself:</ion-label>
-              <ion-input value="{{profile.aboutme}}" color="primary"></ion-input>
+              <ion-textarea style="height: 50px;" autosize value="{{profile.aboutme}}" color="primary"></ion-textarea>
             </ion-item>
-            <!-- <ion-item lines="none">
-              <ion-label>Attachments</ion-label>
-              <ion-button>+</ion-button>
-            </ion-item> -->
           </ion-card-content>
         </ion-card>
       </div> 

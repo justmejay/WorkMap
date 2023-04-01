@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/experience']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>About Me</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding " *ngIf="profile">
+
+
+<div >
+  <form [formGroup]="credentials" (ngSubmit)="editabout()" > 
+    <div>
+    <ion-card>
+      <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked"> Tell me about yourself:</ion-label>
+            <ion-textarea  type="textarea autosize" formControlName="aboutme" value="{{profile.aboutme}}" class="custominput"></ion-textarea>
+          </ion-item>
+      </ion-card-content>
+    </ion-card>
+    </div>
+ 
+
+    <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">Save</ion-button>
+  </form>
+</div>
+
+
+
+</ion-content>
