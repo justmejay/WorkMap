@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/resumebuilder']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>Certifications</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-button [routerLink]="['/addcertification']">ADD</ion-button>
+
+
+    <ion-card class="ion-padding" *ngFor="let s of certification">
+      <ion-card-title>
+        {{ s.name }}
+      </ion-card-title>
+      <ion-card-subtitle>
+        {{s.orgn}}
+      </ion-card-subtitle>
+      <ion-card-content>
+        <p>{{s.year}}</p>
+        <ion-button type="button"  >Edit</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>

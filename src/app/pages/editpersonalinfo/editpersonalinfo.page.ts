@@ -22,7 +22,7 @@ export class EditpersonalinfoPage implements OnInit {
   profile: any = [];
   credentials: FormGroup;
   @ViewChild('myInput')
-  myInputVariable: ElementRef;
+  myInputVariable: ElementRef; 
   selected:any
   files: any = []
   selecteditemx:any
@@ -111,7 +111,7 @@ export class EditpersonalinfoPage implements OnInit {
     const user = await this.firestore.editprofile(this.credentials.value);
 
     if (this.selecteditemx != null){
-      const generateunique = `${new Date().getTime()}_${this.filename}`;
+    const generateunique = `${new Date().getTime()}_${this.filename}`;
     const fileStoragePath = `filesStorage/${generateunique}`;
     const storageRef = ref(this.storage, fileStoragePath);
     const uploadfile = await uploadBytes(storageRef, this.selecteditemx);

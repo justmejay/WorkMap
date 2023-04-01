@@ -27,6 +27,7 @@ export interface User{
   lname: string,
   mname: string,
   suffix: string,
+  aboutme: string,
 
   //address
   barangay: string,
@@ -91,7 +92,7 @@ export class ProfilingService {
   getcertification(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   
-    const cakesRef = collection(this.firestore, `users/${id}/certification`)
+    const cakesRef = collection(this.firestore, `users/${id}/certifications`)
     
         return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
@@ -238,13 +239,13 @@ export class ProfilingService {
   }
 
 
-  async editaboutme(text: any){
+  async editaboutme(aboutme: any){
 
     try {
       
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/profile/${userget}`);
-      const user = await updateDoc(userDocRef3, {aboutme: text});
+      const user = await updateDoc(userDocRef3, {aboutme});
      
       return true;
     } catch (e) {
@@ -267,4 +268,36 @@ export class ProfilingService {
     }
   }
 
+
+  async addcert({name, orgn, year}: 
+    { name: any, orgn: any, year: any} ){
+
+    try {
+      
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = collection(this.firestore, `users/${userget}/certifications`);
+      const user = await addDoc(userDocRef3, {name, orgn, year, fpath: ""});
+     
+      return user;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async editcertfile(fpath: any, id: any){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/certifications/${id}`);
+      const user = await updateDoc(userDocRef3, {fpath});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
 }
+
+
+

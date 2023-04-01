@@ -95,6 +95,19 @@ const routes: Routes = [
     path: 'aboutcompany',
     loadChildren: () => import('./aboutcompany/aboutcompany.module').then( m => m.AboutcompanyPageModule)
   },
+  {
+    path: 'editaboutme',
+    loadChildren: () => import('./pages/editaboutme/editaboutme.module').then( m => m.EditaboutmePageModule)
+  },  {
+    path: 'certifications',
+    loadChildren: () => import('./pages/certifications/certifications.module').then( m => m.CertificationsPageModule)
+  },
+  {
+    path: 'addcertification',
+    loadChildren: () => import('./pages/addcertification/addcertification.module').then( m => m.AddcertificationPageModule)
+  },
+
+  
 
 
 
