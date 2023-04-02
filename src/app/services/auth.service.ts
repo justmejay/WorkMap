@@ -66,14 +66,14 @@ export class AuthService {
     htown, hprovince, hcountry});
 
       const userDocRef3 = collection(this.firestore, `users/${userget}/experience`);
-      await addDoc(userDocRef3, {cname: "", caddress: "", jtitle: "", specialization: "", datef: "", datet:""});
+      await addDoc(userDocRef3, {cname: "", caddress: "", jtitle: "", datef: "", datet:""});
       
 
       const userDocRef4 = collection(this.firestore, `users/${userget}/school`);
       await addDoc(userDocRef4, {level: "", schoolname: "", course: "", yearg: "", ongoing: "" });
 
       const userDocRef5 = collection(this.firestore, `users/${userget}/certifications`);
-      await addDoc(userDocRef5, {name: "", orgn: "", year: "", fpath: "" });
+      await addDoc(userDocRef5, {name: "", orgn: "", year: "", fpath: "", filename: "" });
 
       const userDocRef6 = doc(this.firestore, `users/${userget}/resume/${userget}`);
       await setDoc(userDocRef6, {fpath: "" , mo: "", moc: "", fa: "", fac: ""});

@@ -12,6 +12,8 @@ import {
   uploadBytes,
   deleteObject
 } from '@angular/fire/storage';
+import { Auth } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-editpersonalinfo',
@@ -22,7 +24,7 @@ export class EditpersonalinfoPage implements OnInit {
   profile: any = [];
   credentials: FormGroup;
   @ViewChild('myInput')
-  myInputVariable: ElementRef;
+  myInputVariable: ElementRef; 
   selected:any
   files: any = []
   selecteditemx:any
@@ -72,6 +74,7 @@ export class EditpersonalinfoPage implements OnInit {
     private auth: AuthService,
     private router: Router,
     private storage: Storage,
+    private authd: Auth
 
 
   ) {
@@ -111,8 +114,8 @@ export class EditpersonalinfoPage implements OnInit {
     const user = await this.firestore.editprofile(this.credentials.value);
 
     if (this.selecteditemx != null){
-      const generateunique = `${new Date().getTime()}_${this.filename}`;
-    const fileStoragePath = `filesStorage/${generateunique}`;
+    const generateunique = `${new Date().getTime()}_${this.filename}`;
+    const fileStoragePath = `filesStorage/profile/${this.authd.currentUser.uid}/profile.png`;
     const storageRef = ref(this.storage, fileStoragePath);
     const uploadfile = await uploadBytes(storageRef, this.selecteditemx);
     const fileUrl = await getDownloadURL(storageRef);

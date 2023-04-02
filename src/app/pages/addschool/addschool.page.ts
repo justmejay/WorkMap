@@ -17,7 +17,7 @@ export class AddschoolPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private firestore: ProfilingService,
-    private router: Router
+    private router: Router 
   ) { }
 
   get schoolname() {

@@ -1,10 +1,21 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+  canActivate,
+} from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/authentication']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['/dashboard']);
+
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    ...canActivate(redirectLoggedInToHome),
+
   },
   {
     path: '',
@@ -13,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'authentication',
-    loadChildren: () => import('./pages/authentication/authentication.module').then( m => m.AuthenticationPageModule)
+    loadChildren: () => import('./pages/authentication/authentication.module').then( m => m.AuthenticationPageModule),
+
   },
   {
     path: 'forgot',
@@ -33,7 +45,9 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule),
+    ...canActivate(redirectUnauthorizedToLogin),
+
   },
   {
     path: 'moresignupc',
@@ -95,6 +109,24 @@ const routes: Routes = [
     path: 'aboutcompany',
     loadChildren: () => import('./aboutcompany/aboutcompany.module').then( m => m.AboutcompanyPageModule)
   },
+  {
+    path: 'editaboutme',
+    loadChildren: () => import('./pages/editaboutme/editaboutme.module').then( m => m.EditaboutmePageModule)
+  },
+  {
+    path: 'certifications',
+    loadChildren: () => import('./pages/certifications/certifications.module').then( m => m.CertificationsPageModule)
+  },
+  {
+    path: 'addcertification',
+    loadChildren: () => import('./pages/addcertification/addcertification.module').then( m => m.AddcertificationPageModule)
+  },  {
+    path: 'editcertifications',
+    loadChildren: () => import('./pages/editcertifications/editcertifications.module').then( m => m.EditcertificationsPageModule)
+  },
+
+
+  
 
 
 

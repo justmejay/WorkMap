@@ -10,12 +10,20 @@
   <div class="container">
     <div class="avatar" >
       <ion-avatar class="image">
-          <img alt="N/A" src="{{profile.imageUrl}}" />
+        <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
+
+          <ng-template #placeholder_avatar>
+            <div class="fallback">
+              <p>Update avatar</p>
+            </div>
+          </ng-template>
+
+
+
       </ion-avatar>
       <div >
       <span  class="caption">{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}</span>
-
-
+      <ion-button class="resume" [routerLink]="['/resumebuilder']" color="success">Resume Builder</ion-button>
     </div>
      
 
@@ -142,35 +150,21 @@
           </ion-card-content>
         </ion-card>
 
-        
-
-
-        <ion-card>
-          <ion-card-header>
-            <div style="display: flex; justify-content: space-between;">
-              <ion-card-title>Upload or Complete your resume here</ion-card-title>
-              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/resumebuilder']"></ion-icon>
-            </div>
-          </ion-card-header>
-        </ion-card>
+      
 
         <!-- Certification -->
         <ion-card *ngIf="profile">
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>About you</ion-card-title>
-              <ion-icon style="float: right;" name="create" class="edit" (click)="about()"></ion-icon>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editaboutme']"></ion-icon>
             </div>
           </ion-card-header>
           <ion-card-content>
             <ion-item lines="none" fill="outline" class="aboutself">
               <ion-label position="stacked">What can you say about yourself:</ion-label>
-              <ion-input value="{{profile.aboutme}}" color="primary"></ion-input>
+              <ion-textarea style="height: 50px;" autosize value="{{profile.aboutme}}" color="primary" [readonly]="true"></ion-textarea>
             </ion-item>
-            <!-- <ion-item lines="none">
-              <ion-label>Attachments</ion-label>
-              <ion-button>+</ion-button>
-            </ion-item> -->
           </ion-card-content>
         </ion-card>
       </div> 
