@@ -60,8 +60,8 @@
             <ion-list class="suffix">
               <ion-item class="suffix"  lines="none">
                 <ion-select formControlName="cs" value="{{profile.cs}}" interface="popover" placeholder="Select suffix" expand="block">
-                  <ion-select-option value="Single">Single.</ion-select-option>
-                  <ion-select-option value="Married">Married.</ion-select-option>
+                  <ion-select-option value="Single">Single</ion-select-option>
+                  <ion-select-option value="Married">Married</ion-select-option>
                   <ion-select-option value="Separated">Separated</ion-select-option>
                   <ion-select-option value="Widowed">Widowed</ion-select-option>
                 </ion-select>
@@ -101,12 +101,12 @@
         <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
 
         <ion-item>
-          <ion-label  position="stacked">Sex:</ion-label>
+          <ion-label  position="stacked">Sex:</ion-label> 
           <ion-list class="dropdown">
             <ion-item class="dropdown"  lines="none">
               <ion-select formControlName="sex" value="{{profile.sex}}" interface="popover" placeholder="Select" expand="block">
-                <ion-select-option value="Female">Female</ion-select-option>
                 <ion-select-option value="Male">Male</ion-select-option>
+                  <ion-select-option value="Female">Female</ion-select-option> 
               </ion-select>
             </ion-item>
           </ion-list>

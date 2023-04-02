@@ -93,8 +93,8 @@ export class ProfilingService {
     const id = this.auth.currentUser.uid;
   
     const cakesRef = collection(this.firestore, `users/${id}/certifications`)
-    
-        return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
+    const q = query(cakesRef, where("name", "!=", "" ))
+        return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 
   getschool(): Observable<User[]>{

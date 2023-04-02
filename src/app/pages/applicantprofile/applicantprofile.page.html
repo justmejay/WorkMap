@@ -10,7 +10,16 @@
   <div class="container">
     <div class="avatar" >
       <ion-avatar class="image">
-          <img alt="N/A" src="{{profile.imageUrl}}" />
+        <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
+
+          <ng-template #placeholder_avatar>
+            <div class="fallback">
+              <p>Update avatar</p>
+            </div>
+          </ng-template>
+
+
+
       </ion-avatar>
       <div >
       <span  class="caption">{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}</span>
@@ -165,7 +174,7 @@
           <ion-card-content>
             <ion-item lines="none" fill="outline" class="aboutself">
               <ion-label position="stacked">What can you say about yourself:</ion-label>
-              <ion-textarea style="height: 50px;" autosize value="{{profile.aboutme}}" color="primary"></ion-textarea>
+              <ion-textarea style="height: 50px;" autosize value="{{profile.aboutme}}" color="primary" [readonly]="true"></ion-textarea>
             </ion-item>
           </ion-card-content>
         </ion-card>

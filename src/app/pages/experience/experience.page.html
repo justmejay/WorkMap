@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons [routerLink]="['/applicantprofile']" slot="start">
+      <ion-buttons [routerLink]="['/resumebuilder']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-title>Work Experience</ion-title>
@@ -9,8 +9,9 @@
 
 <ion-content class="ion-padding">
 
+
     <ion-button [routerLink]="['/addexperience']">ADD</ion-button>
-    <ion-card class="ion-padding" *ngFor="let e of experience">
+    <ion-card  *ngFor="let e of experience">
       <ion-card-title>
         {{ e.cname }}
       </ion-card-title>
@@ -24,30 +25,6 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card >
-      <ion-card-content>
-        <ion-item lines="none">
-          <ion-label>Company Name: </ion-label>
-          <ion-input placeholder="school" [readonly]="true"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label>Company Adress: </ion-label>
-          <ion-input placeholder="course" [readonly]="true"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label>Job Title: </ion-label>
-          <ion-input placeholder="level" [readonly]="true"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label>From: </ion-label>
-          <ion-input placeholder="ongoing" [readonly]="true"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label>To: </ion-label>
-          <ion-input placeholder="ygraduated" [readonly]="true"></ion-input>
-        </ion-item>
-      </ion-card-content>
-        <ion-button shape="round" [routerLink]="">Confirm</ion-button>
-    </ion-card>
+
 
 </ion-content>
