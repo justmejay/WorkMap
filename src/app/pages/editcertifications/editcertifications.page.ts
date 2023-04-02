@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Auth } from '@angular/fire/auth';
+import { FormBuilder , FormGroup, Validators} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
-import { ProfilingService } from 'src/app/services/profiling.service'; 
+import { ProfilingService } from 'src/app/services/profiling.service';
 import {
   getDownloadURL,
   ref,
@@ -10,16 +11,16 @@ import {
   uploadString,
   uploadBytes,
 } from '@angular/fire/storage';
-import { Auth } from '@angular/fire/auth';
 
 
 @Component({
-  selector: 'app-addcertification',
-  templateUrl: './addcertification.page.html',
-  styleUrls: ['./addcertification.page.scss'],
+  selector: 'app-editcertifications',
+  templateUrl: './editcertifications.page.html',
+  styleUrls: ['./editcertifications.page.scss'],
 })
-export class AddcertificationPage implements OnInit {
-  certifications: any =[];
+export class EditcertificationsPage implements OnInit {
+  cid: any;
+  certifications: any = [];
   credentials: FormGroup;
 
   @ViewChild('myInput')
@@ -31,8 +32,6 @@ export class AddcertificationPage implements OnInit {
   filesize:any
   fileevent:any
 
-
-
   get name() {
     return this.credentials.get('name');
   }
@@ -42,30 +41,32 @@ export class AddcertificationPage implements OnInit {
   get year() {
     return this.credentials.get('year');
   }
- 
 
   constructor(
-    private profile: ProfilingService,
+    private activatedRoute: ActivatedRoute,
+    private firestore: ProfilingService,
+    private profile:  ProfilingService,
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private alertController: AlertController,
-    private firestore: ProfilingService,
     private router: Router,
+    private auth: Auth,
     private storage: Storage,
-    private auth: Auth
- 
-  ) {
+  ) { 
+    this.activatedRoute.queryParams.subscribe((params) =>{
+      this.cid = params['cid'];
+      console.log(this.cid)
 
-    
-    this.profile.getcertification().subscribe(res=>{
-      this.certifications = res;
-      console.log(this.certifications)
+      this.firestore.getcertbyID(this.cid).subscribe(res => {
+        this.certifications = res;
+        console.log(this.certifications);
+      });
 
-    });
 
-   }
+      });
+  }
 
-   async upload(event: any){
+  async upload(event: any){
 
     this.fileevent = event;
     const selecteditem = event.target.files
@@ -76,36 +77,37 @@ export class AddcertificationPage implements OnInit {
 
   }
 
-
   ngOnInit() {
     this.credentials = this.fb.group({
       name: ['', [Validators.required,]],
       orgn: ['', [Validators.required,]],
       year: ['', [Validators.required,]],
     });
-  }
+  } 
 
 
-
-  async addcert() {
+  async editcert() {
 
     const loading = await this.loadingController.create({
       spinner: "dots",
       message: "Adding up!"
     });    await loading.present();
 
-    const user = await this.firestore.addcert(this.credentials.value);
+    const user = await this.firestore.editcert(this.credentials.value, this.cid);
 
-   
-    if (user) {
-    
+
       if (this.selecteditemx != null){
-        const id = user.id;
+        const id = this.cid;
+        const fname = this.certifications.filename;
+        await this.profile.deletecertfile(id, fname);
+
+
         const generateunique = `${new Date().getTime()}_${this.filename}`;
         const fileStoragePath = `filesStorage/certifications/${this.auth.currentUser.uid}/${id}/${generateunique}`;
         const storageRef = ref(this.storage, fileStoragePath);
         const uploadfile = await uploadBytes(storageRef, this.selecteditemx);
         const fileUrl = await getDownloadURL(storageRef);
+
         await this.firestore.editcertfile(fileUrl,id,generateunique);
         }
 
@@ -114,9 +116,7 @@ export class AddcertificationPage implements OnInit {
         await this.router.navigateByUrl('/certifications', { replaceUrl: true });
       this.showAlert('Add success', 'Great job building your profile!');
 
-        } else {
-      this.showAlert('Add failed', 'Please try again!');
-    }
+        
   }
 
 

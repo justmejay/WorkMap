@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>Edit Certification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ">
+  
+
+<div >
+  <form  [formGroup]="credentials" (ngSubmit)="editcert()">
+    <div>
+
+     
+
+    <ion-card>
+      <ion-card-content *ngIf="certifications">
+       
+          <ion-item>
+            <ion-label position="stacked">Certification Name:</ion-label>
+            <ion-input value="{{certifications.name}}" formControlName="name" type="text" class="custominput"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Organization:</ion-label>
+            <ion-input value="{{certifications.orgn}}"  formControlName="orgn" type="text" class="custominput"></ion-input>
+          </ion-item>
+          <ion-item >
+            <ion-label>Year Obtained:</ion-label>
+            <ion-input value="{{certifications.year}}" formControlName="year" type="date"></ion-input>
+          
+
+              <ion-modal [keepContentsMounted]="true">
+                <ng-template>
+                  <ion-icon name="calendar-number-outline"></ion-icon>
+                  <ion-datetime id="date" datetime="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
+                </ng-template>
+              </ion-modal>
+
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Attachment: (docx, pdf, pdf, png, jpeg)</ion-label>
+          <ion-input #myInput  type="file" (change)="upload($event)"></ion-input>
+        </ion-item>
+
+        
+      </ion-card-content>
+    </ion-card>
+    </div>
+
+    
+  
+    
+ 
+
+    <ion-button type="submit" [disabled]="!credentials.valid" expand="block" class="btnreg">Save</ion-button>
+  </form>
+</div>
+
+
+
+</ion-content>

@@ -120,7 +120,11 @@ const routes: Routes = [
   {
     path: 'addcertification',
     loadChildren: () => import('./pages/addcertification/addcertification.module').then( m => m.AddcertificationPageModule)
+  },  {
+    path: 'editcertifications',
+    loadChildren: () => import('./pages/editcertifications/editcertifications.module').then( m => m.EditcertificationsPageModule)
   },
+
 
   
 
