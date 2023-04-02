@@ -23,8 +23,7 @@
       </ion-avatar>
       <div >
       <span  class="caption">{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}</span>
-
-
+      <ion-button class="resume" [routerLink]="['/resumebuilder']" color="success">Resume Builder</ion-button>
     </div>
      
 
@@ -151,17 +150,7 @@
           </ion-card-content>
         </ion-card>
 
-        
-
-
-        <ion-card>
-          <ion-card-header>
-            <div style="display: flex; justify-content: space-between;">
-              <ion-card-title>Upload or Complete your resume here</ion-card-title>
-              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/resumebuilder']"></ion-icon>
-            </div>
-          </ion-card-header>
-        </ion-card>
+      
 
         <!-- Certification -->
         <ion-card *ngIf="profile">

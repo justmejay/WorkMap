@@ -6,7 +6,7 @@ import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
   selector: 'app-editschool',
-  templateUrl: './editschool.page.html',
+  templateUrl: './editschool.page.html', 
   styleUrls: ['./editschool.page.scss'],
 })
 export class EditschoolPage implements OnInit {

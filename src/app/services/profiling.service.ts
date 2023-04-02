@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where } from '@angular/fire/firestore';
 import {
+  deleteObject,
   getDownloadURL,
   ref,
   Storage,
@@ -71,6 +72,7 @@ export class ProfilingService {
   constructor(
     private firestore: Firestore,
     private auth: Auth,
+    private storage: Storage,
   ) { }
 
 
@@ -284,17 +286,46 @@ export class ProfilingService {
     }
   }
 
-  async editcertfile(fpath: any, id: any){
+  async editcertfile(fpath: any, id: any, filename: any){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/certifications/${id}`);
-      const user = await updateDoc(userDocRef3, {fpath});
+      const user = await updateDoc(userDocRef3, {fpath, filename});
      
       return true;
     } catch (e) {
       return null;
     }
+  }
+
+  getcertbyID(id:any):Observable<User>{
+    const  uid =  this.auth.currentUser.uid;
+    const cakesByIdRef = doc(this.firestore, `users/${uid}/certifications/${id}`)
+    return docData(cakesByIdRef, {idField: 'id'}) as Observable <User>
+  }
+
+  async editcert({name, orgn, year}: 
+    { name: any, orgn: any, year: any}, id: any ){
+
+    try {
+      
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/certifications/${id}`);
+      const user = await updateDoc(userDocRef3, {name, orgn, year});
+     
+      return user;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async deletecertfile(id: any, fname: any){
+    const userget = this.auth.currentUser?.uid;
+
+    const fileStoragePath = `filesStorage/certifications/${this.auth.currentUser.uid}/${id}/${fname}`;
+    const storageRef = ref(this.storage, fileStoragePath);
+    await deleteObject(storageRef);
   }
 
 }

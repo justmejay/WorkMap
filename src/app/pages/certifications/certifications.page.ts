@@ -27,4 +27,11 @@ export class CertificationsPage implements OnInit {
   ngOnInit() {
   }
 
+  async editcert(e: any){
+
+    const id = e.id;
+    this.router.navigate(['/editcertifications'], {queryParams:{cid: id}});
+
+  }
+
 }
