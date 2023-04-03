@@ -18,20 +18,20 @@
       <ion-card-content>
           <ion-item>
             <ion-label position="stacked">First Name:</ion-label>
-            <ion-input type="text" formControlName="fname" class="custominput"></ion-input>
+            <ion-input position="stacked" type="text" formControlName="fname" class="custominput"></ion-input>
           </ion-item>
           <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
 
     
           <ion-item>
             <ion-label position="stacked">Middle Name:</ion-label>
-            <ion-input type="text" formControlName="mname" class="custominput"></ion-input>
+            <ion-input position="stacked" type="text" formControlName="mname" class="custominput"></ion-input>
           </ion-item>
 
     
           <ion-item>
             <ion-label position="stacked">Last Name:</ion-label>
-            <ion-input type="text" formControlName="lname" class="custominput"></ion-input>
+            <ion-input position="stacked" type="text" formControlName="lname" class="custominput"></ion-input>
           </ion-item>
           <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
 
@@ -70,7 +70,7 @@
 
           <ion-item>
             <ion-label position="stacked">Religion:</ion-label>
-            <ion-input type="text" formControlName="religion" class="custominput"></ion-input>
+            <ion-input position="stacked" type="text" formControlName="religion" class="custominput"></ion-input>
           </ion-item>
           <ion-note slot="error" *ngIf="(religion.dirty || religion.touched) && religion.errors">Required</ion-note>
 
@@ -96,7 +96,7 @@
 
           <ion-item >
             <ion-label position="fixed">Birthdate:</ion-label>
-            <ion-input type="date" formControlName="bday"></ion-input>
+            <ion-input position="stacked" type="date" formControlName="bday"></ion-input>
           
 
               <ion-modal [keepContentsMounted]="true">
@@ -112,13 +112,13 @@
 
         <ion-item>
           <ion-label position="stacked">Age</ion-label>
-          <ion-input formControlName="age" type="Number"></ion-input>
+          <ion-input position="stacked" formControlName="age" type="Number"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Contact</ion-label>
-          <ion-input formControlName="contact" type="Number"></ion-input>
+          <ion-input position="stacked" formControlName="contact" type="Number"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
 
@@ -133,31 +133,31 @@
         
         <ion-item>
           <ion-label position="stacked">House No./Street</ion-label>
-          <ion-input formControlName="hstreet" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="hstreet" type="text"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(hstreet.dirty || hstreet.touched) && hstreet.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Barangay</ion-label>
-          <ion-input formControlName="hbarangay" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="hbarangay" type="text"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(hbarangay.dirty || hbarangay.touched) && hbarangay.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Town</ion-label>
-          <ion-input formControlName="htown" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="htown" type="text"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(htown.dirty || htown.touched) && htown.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Province</ion-label>
-          <ion-input  formControlName="hprovince" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="hprovince" type="text"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(hprovince.dirty || hprovince.touched) && hprovince.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Country</ion-label>
-          <ion-input formControlName="hcountry" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="hcountry" type="text"></ion-input>
         </ion-item>
 
         <ion-note slot="error" *ngIf="(hcountry.dirty || hcountry.touched) && hcountry.errors">Required</ion-note>
@@ -175,31 +175,31 @@
         
         <ion-item>
           <ion-label position="stacked">House No./Street</ion-label>
-          <ion-input formControlName="street" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="street" type="text"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(street.dirty || street.touched) && street.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Barangay</ion-label>
-          <ion-input formControlName="barangay" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="barangay" type="text"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(barangay.dirty || barangay.touched) && barangay.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Town</ion-label>
-          <ion-input formControlName="town" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="town" type="text"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(town.dirty || town.touched) && town.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Province</ion-label>
-          <ion-input  formControlName="province" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="province" type="text"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(province.dirty || province.touched) && province.errors">Required</ion-note>
 
         <ion-item>
           <ion-label position="stacked">Country</ion-label>
-          <ion-input formControlName="country" type="text"></ion-input>
+          <ion-input position="stacked" formControlName="country" type="text"></ion-input>
         </ion-item>
 
         <ion-note slot="error" *ngIf="(country.dirty || country.touched) && country.errors">Required</ion-note>
