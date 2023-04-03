@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons [routerLink]="" slot="start">
+      <ion-buttons [routerLink]="['/companyprofile']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-title>Company Details</ion-title>
@@ -21,9 +21,56 @@
             <ion-input position="stacked" type="text" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label position="stacked">Company Contact:</ion-label>
+            <ion-label position="stacked">Company Contact Number:</ion-label>
             <ion-input position="stacked" type="number" class="custominput"></ion-input>
           </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Company Email Address:</ion-label>
+            <ion-input position="stacked" type="text" class="custominput"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Company Size (number of employees):</ion-label>
+            <ion-input position="stacked" type="number" class="custominput"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label  position="stacked">Average Processing Time:</ion-label>
+            <ion-list class="dropdown">
+              <ion-item class="dropdown"  lines="none">
+                <ion-select interface="popover" placeholder="Select" expand="block">
+                  <ion-select-option value="day/s">Day/s</ion-select-option>
+                  <ion-select-option value="week/s">Week/s</ion-select-option>
+                  <ion-select-option value="month/s">Month/s</ion-select-option>
+                  <ion-select-option value="year/s">Year/s</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+
+            <ion-list class="dropdown">
+              <ion-item class="dropdown"  lines="none">
+                <ion-select interface="popover" placeholder="Select" expand="block">
+                  <ion-select-option value="1">1</ion-select-option>
+                  <ion-select-option value="2">2</ion-select-option>
+                  <ion-select-option value="3">3</ion-select-option>
+                  <ion-select-option value="4">4</ion-select-option>
+                  <ion-select-option value="5">5</ion-select-option>
+                  <ion-select-option value="6">6</ion-select-option>
+                  <ion-select-option value="7">7</ion-select-option>
+                  <ion-select-option value="8">8</ion-select-option>
+                  <ion-select-option value="9">9</ion-select-option>
+                  <ion-select-option value="10">10</ion-select-option>
+                  <ion-select-option value="11">11</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-list>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Benefits:</ion-label>
+            <ion-textarea autogrow="true" class="custominput"></ion-textarea>
+          </ion-item>
+
       </ion-card-content>
     </ion-card>
 
@@ -50,8 +97,16 @@
             <ion-label position="stacked">Country:</ion-label>
             <ion-input position="stacked" type="text" class="custominput"></ion-input>
           </ion-item>
-          
+      </ion-card-content>
+    </ion-card>
 
+    <h3>About Company</h3>
+    <ion-card>
+      <ion-card-content>
+          <ion-item>
+            <ion-label position="stacked">Company Overview:</ion-label>
+            <ion-textarea autogrow="true" class="custominput"></ion-textarea>
+          </ion-item>
       </ion-card-content>
     </ion-card>
     </div>
