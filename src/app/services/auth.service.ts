@@ -89,9 +89,9 @@ export class AuthService {
 
  
   async signupc({fname, mname, lname, contact, 
-    cname, ccontact, street, barangay, town, province,  country }: 
+    cname, ccontact, street, barangay, town, province,  country, cemail }: 
     {fname: any, mname: any, lname: any, contact: any, cname: any, ccontact: any, street: any, barangay: any
-    , town: any, province: any, country: any }, email: any, 
+    , town: any, province: any, country: any, cemail: any }, email: any, 
     password: any ){
 
     try {
@@ -107,20 +107,17 @@ export class AuthService {
       console.log(userget);
       const imageUrl = ""
       
-      const userDocRef = doc(this.firestore, `employers/${userget}`);
-      await setDoc(userDocRef, {uid: userget, profileimg: "",});
 
-      const userDocRef1 = collection(this.firestore, `employers/${userget}/profile/${userget}`);
-      await addDoc(userDocRef1, {fname, mname, lname, contact});
+      const userDocRef1 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
+      await setDoc(userDocRef1, {fname, mname, lname, contact, uid: userget, profileimg: ""});
       
 
-      const userDocRef2 = collection(this.firestore, `employers/${userget}/company`);
-      await addDoc(userDocRef2, {cname, ccontact, street, barangay, town, province, country, imageurl: ""});
+      const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);
+      await setDoc(userDocRef2, {cname, ccontact, street, barangay, town, province, country, imageurl: "", 
+      cemail, cdetails: "", processingtime: "", benefits: ""});
 
-      const userDocRef3 = collection(this.firestore, `employers/${userget}/experience`);
-      await addDoc(userDocRef3, {cname: "", caddress: "", jtitle: "", specialization: "", datef: "", datet:""});
-      
 
+  
       await sendEmailVerification(this.auth.currentUser);
 
      
