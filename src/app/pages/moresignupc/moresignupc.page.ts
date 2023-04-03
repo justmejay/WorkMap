@@ -63,6 +63,9 @@ export class MoresignupcPage implements OnInit {
   get country() {
     return this.credentials.get('town');
   }
+  get cemail() {
+    return this.credentials.get('cemail');
+  }
 
   ngOnInit() {
     this.credentials = this.fb.group({
@@ -77,6 +80,8 @@ export class MoresignupcPage implements OnInit {
       town: ['', [Validators.required]],
       province: ['', [Validators.required]],
       country: ['', [Validators.required]],
+      cemail: ['', [Validators.required, Validators.email]],
+
       
     });
     
