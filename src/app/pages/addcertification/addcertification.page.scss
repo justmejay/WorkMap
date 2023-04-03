@@ -10,11 +10,20 @@ ion-toolbar{
         text-align: left;
     }
 }
-ion-card{
-    --background: #E5EBEE;
-    box-shadow: 10px 10px 5px rgb(208, 210, 211);
-    margin-bottom: 10%;
+
+ion-card {
+    --background: #ffffff;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    margin: 8%;
+    border-radius: 15px;
+    border: solid 3px  rgb(53, 66, 125);
 }
+ion-card-content{
+    color: black;
+    margin: auto;
+}
+
+
 ion-label{
     padding-left: 3%;
 }

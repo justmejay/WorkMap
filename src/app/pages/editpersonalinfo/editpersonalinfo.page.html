@@ -18,25 +18,25 @@
 
         <ion-item>
           <ion-label position="stacked">Change Profile Picture:</ion-label>
-          <ion-input #myInput  type="file" (change)="upload($event)"></ion-input>
+          <ion-input position="stacked" #myInput  type="file" (change)="upload($event)"></ion-input>
 
         </ion-item>
 
           <ion-item>
             <ion-label position="stacked">First Name:</ion-label>
-            <ion-input type="text" formControlName="fname" value="{{profile.fname}}" class="custominput"></ion-input>
+            <ion-input position="stacked" type="text" formControlName="fname" value="{{profile.fname}}" class="custominput"></ion-input>
           </ion-item>
           <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
       
           <ion-item>
             <ion-label position="stacked">Middle Name:</ion-label>
-            <ion-input type="text" formControlName="mname" value="{{profile.mname}}" class="custominput"></ion-input>
+            <ion-input position="stacked" type="text" formControlName="mname" value="{{profile.mname}}" class="custominput"></ion-input>
           </ion-item>
           
 
           <ion-item>
             <ion-label position="stacked">Last Name:</ion-label>
-            <ion-input type="text" formControlName="lname" value="{{profile.lname}}" class="custominput"></ion-input>
+            <ion-input position="stacked" type="text" formControlName="lname" value="{{profile.lname}}" class="custominput"></ion-input>
           </ion-item>
           <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
 
@@ -79,7 +79,7 @@
 
 
           <ion-item >
-            <ion-label position="fixed">Birthdate:</ion-label>
+            <ion-label position="stacked">Birthdate:</ion-label>
             <ion-input formControlName="bday" value="{{profile.bday}}" type="date"></ion-input>
           
 
@@ -96,7 +96,7 @@
 
         <ion-item>
           <ion-label position="stacked">Age:</ion-label>
-          <ion-input formControlName="age" value="{{profile.age}}" type="Number"></ion-input>
+          <ion-input position="stacked" formControlName="age" value="{{profile.age}}" type="Number"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
 
@@ -115,12 +115,12 @@
 
         <ion-item>
           <ion-label position="stacked">Email:</ion-label>
-          <ion-input  value="{{profile.email}}" [readonly]="true" type="Email"></ion-input>
+          <ion-input position="stacked" value="{{profile.email}}" [readonly]="true" type="Email"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label position="stacked">Contact Number:</ion-label>
-          <ion-input formControlName="contact" value="{{profile.contact}}" type="Number"></ion-input>
+          <ion-input position="stacked" formControlName="contact" value="{{profile.contact}}" type="Number"></ion-input>
         </ion-item>
         <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
        

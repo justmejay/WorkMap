@@ -17,9 +17,6 @@
               <p>Update avatar</p>
             </div>
           </ng-template>
-
-
-
       </ion-avatar>
       <div >
       <span  class="caption">{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}</span>
@@ -45,43 +42,43 @@
           </ion-card-header>
           <ion-card-content>
             <ion-item lines="none">
-              <ion-label>Name:   </ion-label>
-              <ion-input value="{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked">Name:   </ion-label>
+              <ion-input position="stacked" value="{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}" [readonly]="true"></ion-input>
 
             </ion-item>
       
             <ion-item lines="none">
-              <ion-label>Birthday:</ion-label>
-              <ion-input value=" {{profile.bday}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked">Birthday:</ion-label>
+              <ion-input position="stacked" value=" {{profile.bday}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
-              <ion-label>Age:  </ion-label>
-                <ion-input value="{{profile.age}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked">Age:  </ion-label>
+                <ion-input position="stacked" value="{{profile.age}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
-              <ion-label>Sex:  </ion-label>
-              <ion-input value="{{profile.sex}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked">Sex:  </ion-label>
+              <ion-input position="stacked" value="{{profile.sex}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
-              <ion-label>Contact Number: </ion-label>
-              <ion-input value="{{profile.contact}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked">Contact Number: </ion-label>
+              <ion-input position="stacked" value="{{profile.contact}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
-              <ion-label>Email Address: </ion-label>
-              <ion-input value=" {{profile.email}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked">Email Address: </ion-label>
+              <ion-input position="stacked" value=" {{profile.email}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
-              <ion-label>Civil Status: </ion-label>
-              <ion-input  value="{{profile.cs}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked">Civil Status: </ion-label>
+              <ion-input position="stacked" value="{{profile.cs}}" [readonly]="true"></ion-input>
             </ion-item>
             <ion-item lines="none">
-              <ion-label>Religion: </ion-label>
-              <ion-input value="{{profile.religion}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked">Religion: </ion-label>
+              <ion-input position="stacked" value="{{profile.religion}}" [readonly]="true"></ion-input>
             </ion-item>
 
           </ion-card-content>
@@ -97,24 +94,24 @@
           </ion-card-header>
           <ion-card-content>
               <ion-item lines="none">
-                <ion-label>House No/Street: </ion-label>
-                <ion-input value="{{address.hstreet}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">House No/Street: </ion-label>
+                <ion-input position="stacked" value="{{address.hstreet}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Barangay:</ion-label>
-                <ion-input value="{{address.hbarangay}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Barangay:</ion-label>
+                <ion-input position="stacked" value="{{address.hbarangay}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Town:</ion-label>
-                <ion-input value="{{address.htown}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Town:</ion-label>
+                <ion-input position="stacked" value="{{address.htown}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Province:</ion-label>
-                <ion-input value="{{address.hprovince}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Province:</ion-label>
+                <ion-input position="stacked" value="{{address.hprovince}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Country:</ion-label>
-                <ion-input value="{{address.hcountry}}" [readonly]="true"></ion-input>         
+                <ion-label position="stacked">Country:</ion-label>
+                <ion-input position="stacked" value="{{address.hcountry}}" [readonly]="true"></ion-input>         
               </ion-item>
           </ion-card-content>
         </ion-card>
@@ -128,31 +125,31 @@
           </ion-card-header>
           <ion-card-content>
               <ion-item lines="none">
-                <ion-label>House No/Street: </ion-label>
-                <ion-input value="{{address.street}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">House No/Street: </ion-label>
+                <ion-input position="stacked" value="{{address.street}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Barangay:</ion-label>
-                <ion-input value="{{address.barangay}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Barangay:</ion-label>
+                <ion-input position="stacked" value="{{address.barangay}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Town:</ion-label>
-                <ion-input value="{{address.town}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Town:</ion-label>
+                <ion-input position="stacked" value="{{address.town}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Province:</ion-label>
-              <ion-input value="{{address.province}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Province:</ion-label>
+                <ion-input position="stacked" value="{{address.province}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Country:</ion-label>
-              <ion-input value="{{address.country}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Country:</ion-label>
+              <ion-input position="stacked" value="{{address.country}}" [readonly]="true"></ion-input>
               </ion-item>
           </ion-card-content>
         </ion-card>
 
       
 
-        <!-- Certification -->
+        <!-- About You -->
         <ion-card *ngIf="profile">
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
@@ -163,7 +160,7 @@
           <ion-card-content>
             <ion-item lines="none" fill="outline" class="aboutself">
               <ion-label position="stacked">What can you say about yourself:</ion-label>
-              <ion-textarea style="height: 50px;" autosize value="{{profile.aboutme}}" color="primary" [readonly]="true"></ion-textarea>
+              <ion-textarea style="height: 50px; color:black" autosize value="{{profile.aboutme}}" color="primary" [readonly]="true"></ion-textarea>
             </ion-item>
           </ion-card-content>
         </ion-card>
