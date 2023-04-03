@@ -124,6 +124,10 @@ const routes: Routes = [
     path: 'editcertifications',
     loadChildren: () => import('./pages/editcertifications/editcertifications.module').then( m => m.EditcertificationsPageModule)
   },
+  {
+    path: 'editemployerprofile',
+    loadChildren: () => import('./pages/editemployerprofile/editemployerprofile.module').then( m => m.EditemployerprofilePageModule)
+  },
 
 
   
