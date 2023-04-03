@@ -10,24 +10,34 @@ ion-header{
         color: white;
     }
 }
+
 ion-card {
-    --background: #E5EBEE;
+    --background: #ffffff;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
     margin: 8%;
     border-radius: 15px;
-    border: solid 3px  rgb(6, 90, 26);
+    border: solid 3px  rgb(53, 66, 125);
 }
 ion-card-header{
-    --background: #eebc33;
+    --background: #5e2ee4;
     color: whitesmoke;
     margin: 0%;
 }
 ion-card-title{
     color: whitesmoke;
 }
-ion-item {
-    --background: #E5EBEE;
+ion-card-subtitle{
+    color: whitesmoke;
 }
+ion-card-content{
+    color: black;
+    margin: auto;
+}
+
+ion-item {
+    --background: #ffffff;
+}
+
 .aboutcompany{
     margin: 5%;
     text-align: justify;

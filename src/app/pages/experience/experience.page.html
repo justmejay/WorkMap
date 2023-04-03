@@ -11,7 +11,7 @@
 
 
     <ion-button [routerLink]="['/addexperience']">ADD</ion-button>
-    <ion-card  *ngFor="let e of experience">
+    <ion-card class="ion-padding" *ngFor="let e of experience">
       <ion-card-title>
         {{ e.cname }}
       </ion-card-title>

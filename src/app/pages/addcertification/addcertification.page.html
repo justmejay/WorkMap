@@ -21,15 +21,15 @@
        
           <ion-item>
             <ion-label position="stacked">Certification Name:</ion-label>
-            <ion-input formControlName="name" type="text" class="custominput"></ion-input>
+            <ion-input  position="stacked" formControlName="name" type="text" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Organization:</ion-label>
-            <ion-input  formControlName="orgn" type="text" class="custominput"></ion-input>
+            <ion-input  position="stacked" formControlName="orgn" type="text" class="custominput"></ion-input>
           </ion-item>
           <ion-item >
-            <ion-label>Year Obtained:</ion-label>
-            <ion-input formControlName="year" type="date"></ion-input>
+            <ion-label position="stacked">Year Obtained:</ion-label>
+            <ion-input position="stacked" formControlName="year" type="date"></ion-input>
           
 
               <ion-modal [keepContentsMounted]="true">
@@ -43,7 +43,7 @@
 
         <ion-item>
           <ion-label position="stacked">Attachment: (docx, pdf, pdf, png, jpeg)</ion-label>
-          <ion-input #myInput  type="file" (change)="upload($event)"></ion-input>
+          <ion-input #myInput  type="file" (change)="upload($event)" position="stacked"></ion-input>
         </ion-item>
 
         

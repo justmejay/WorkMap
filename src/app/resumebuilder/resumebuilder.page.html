@@ -16,36 +16,36 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item lines="none">
-        <ion-label>Name: </ion-label>
-        <ion-input value="{{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
+        <ion-label position="stacked">Name: </ion-label>
+        <ion-input position="stacked" value="{{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Date of Birth: </ion-label>
-        <ion-input value="{{profile.bday}}" [readonly]="true"></ion-input>
+        <ion-label position="stacked">Date of Birth: </ion-label>
+        <ion-input position="stacked" value="{{profile.bday}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Age: </ion-label>
-        <ion-input value="{{profile.age}}" [readonly]="true"></ion-input>
+        <ion-label position="stacked">Age: </ion-label>
+        <ion-input position="stacked" value="{{profile.age}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none" *ngIf="address">
-        <ion-label>Home Address: </ion-label>
-        <ion-input value="{{address.hstreet}} {{address.hbarangay}}, {{address.htown}}, {{address.hprovince}}, {{address.hcountry}}" [readonly]="true"></ion-input>
+        <ion-label position="stacked">Home Address: </ion-label>
+        <ion-input position="stacked" value="{{address.hstreet}} {{address.hbarangay}}, {{address.htown}}, {{address.hprovince}}, {{address.hcountry}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Current Address: </ion-label>
-        <ion-input value="{{address.street}} {{address.barangay}}, {{address.town}}, {{address.province}}, {{address.country}}" placeholder="House/Street No, Barangay, Town, Province" [readonly]="true"></ion-input>
+        <ion-label position="stacked">Current Address: </ion-label>
+        <ion-input position="stacked" value="{{address.street}} {{address.barangay}}, {{address.town}}, {{address.province}}, {{address.country}}" placeholder="House/Street No, Barangay, Town, Province" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Civil Status: </ion-label>
-        <ion-input  value="{{profile.cs}}" [readonly]="true"></ion-input>
+        <ion-label position="stacked">Civil Status: </ion-label>
+        <ion-input position="stacked" value="{{profile.cs}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Religion: </ion-label>
-        <ion-input value="{{profile.religion}}" [readonly]="true"></ion-input>
+        <ion-label position="stacked">Religion: </ion-label>
+        <ion-input position="stacked" value="{{profile.religion}}" [readonly]="true"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Specialization: </ion-label>
-        <ion-input value="{{profile.specialization}}" [readonly]="true"></ion-input>
+        <ion-label position="stacked">Specialization: </ion-label>
+        <ion-input position="stacked" value="{{profile.specialization}}" [readonly]="true"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -59,20 +59,20 @@
     </ion-card-header>
     <ion-card-content>
       <ion-item lines="none">
-        <ion-label>Name of Mother: </ion-label>
-        <ion-input value="{{resume.mo}} "></ion-input>
+        <ion-label position="stacked">Name of Mother: </ion-label>
+        <ion-input position="stacked" value="{{resume.mo}} "></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Contact No: </ion-label>
-        <ion-input value="{{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
+        <ion-label position="stacked">Contact No: </ion-label>
+        <ion-input position="stacked" value="{{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Name of Father: </ion-label>
-        <ion-input value="{{resume.fa}}" ></ion-input>
+        <ion-label position="stacked">Name of Father: </ion-label>
+        <ion-input position="stacked" value="{{resume.fa}}" ></ion-input>
       </ion-item>
       <ion-item lines="none">
-        <ion-label>Contact No: </ion-label>
-        <ion-input value="{{resume.fac}}"></ion-input>
+        <ion-label position="stacked">Contact No: </ion-label>
+        <ion-input position="stacked" value="{{resume.fac}}"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -89,20 +89,20 @@
 
             <div style="border-style: solid; margin-top: 5%;"> 
               <ion-item lines="none">
-                <ion-label>School Name: </ion-label>
-                <ion-input value="{{s.schoolname}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">School Name: </ion-label>
+                <ion-input position="stacked" value="{{s.schoolname}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Course: </ion-label>
-                <ion-input value="{{s.course}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Course: </ion-label>
+                <ion-input position="stacked" value="{{s.course}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Level: </ion-label>
-                <ion-input value="{{s.level}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Level: </ion-label>
+                <ion-input position="stacked" value="{{s.level}}" [readonly]="true"></ion-input>
               </ion-item>
               <ion-item lines="none">
-                <ion-label>Year Graduated: </ion-label>
-                <ion-input value="{{s.yearg}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Year Graduated: </ion-label>
+                <ion-input position="stacked" value="{{s.yearg}}" [readonly]="true"></ion-input>
               </ion-item>
             </div>
             
@@ -123,28 +123,28 @@
           <ion-card-content *ngFor="let e of  experience">
             <div style="border-style: solid; margin-top: 5%;">
               <ion-item lines="none">
-                <ion-label>Company Name: </ion-label>
-                <ion-input value="{{e.cname}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Company Name: </ion-label>
+                <ion-input position="stacked" value="{{e.cname}}" [readonly]="true"></ion-input>
               </ion-item>
         
               <ion-item lines="none">
-                <ion-label>Company Address: </ion-label>
-                <ion-input value="{{e.caddress}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Company Address: </ion-label>
+                <ion-input position="stacked"value="{{e.caddress}}" [readonly]="true"></ion-input>
               </ion-item>
 
               <ion-item lines="none">
-                <ion-label>Job Title: </ion-label>
-                <ion-input value="{{e.jtitle}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">Job Title: </ion-label>
+                <ion-input position="stacked" value="{{e.jtitle}}" [readonly]="true"></ion-input>
               </ion-item>
 
               <ion-item lines="none">
-                <ion-label>From: </ion-label>
-                <ion-input value="{{e.datef}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">From: </ion-label>
+                <ion-input position="stacked" value="{{e.datef}}" [readonly]="true"></ion-input>
               </ion-item>
 
               <ion-item lines="none">
-                <ion-label>To: </ion-label>
-                <ion-input value="{{e.datet}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked">To: </ion-label>
+                <ion-input position="stacked" value="{{e.datet}}" [readonly]="true"></ion-input>
               </ion-item>
             </div>
               
@@ -163,19 +163,19 @@
         <ion-item lines="none">
           <ion-item lines="none">
             <ion-label position="stacked">Certification Name: </ion-label>
-            <ion-input value="{{c.name}}" fill="outline" [readonly]="true"></ion-input>
+            <ion-input position="stacked" value="{{c.name}}" fill="outline" [readonly]="true"></ion-input>
           </ion-item>
         </ion-item>
         <ion-item lines="none">
           <ion-item lines="none">
             <ion-label position="stacked">Organization: </ion-label>
-            <ion-input fill="outline" [readonly]="true" value="{{c.orgn}}"></ion-input>
+            <ion-input position="stacked" fill="outline" [readonly]="true" value="{{c.orgn}}"></ion-input>
           </ion-item>
         </ion-item>
         <ion-item lines="none">
           <ion-item lines="none">
             <ion-label position="stacked">Date Obtained: </ion-label>
-            <ion-input fill="outline" [readonly]="true" value="{{c.year}}"></ion-input>
+            <ion-input position="stacked" fill="outline" [readonly]="true" value="{{c.year}}"></ion-input>
           </ion-item>
         </ion-item>
         <ion-item lines="none">
