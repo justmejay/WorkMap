@@ -128,6 +128,14 @@ const routes: Routes = [
     path: 'editemployerprofile',
     loadChildren: () => import('./pages/editemployerprofile/editemployerprofile.module').then( m => m.EditemployerprofilePageModule)
   },
+  {
+    path: 'editchar',
+    loadChildren: () => import('./pages/editchar/editchar.module').then( m => m.EditcharPageModule)
+  },
+  {
+    path: 'editresume',
+    loadChildren: () => import('./pages/editresume/editresume.module').then( m => m.EditresumePageModule)
+  },
 
 
   

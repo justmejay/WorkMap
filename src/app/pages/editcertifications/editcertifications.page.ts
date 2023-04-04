@@ -99,7 +99,10 @@ export class EditcertificationsPage implements OnInit {
       if (this.selecteditemx != null){
         const id = this.cid;
         const fname = this.certifications.filename;
-        await this.profile.deletecertfile(id, fname);
+
+        if (fname != ""){
+          await this.profile.deletecertfile(id, fname);
+        }
 
 
         const generateunique = `${new Date().getTime()}_${this.filename}`;
