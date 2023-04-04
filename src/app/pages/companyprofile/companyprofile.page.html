@@ -22,7 +22,7 @@
 
       <div class="ion-padding">
         <!-- Employer Profile-->
-        <ion-card >
+        <ion-card *ngIf="employer">
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>Employer Profile</ion-card-title>
@@ -32,23 +32,23 @@
           <ion-card-content>
             <ion-item lines="none">
               <ion-label>Name: </ion-label>
-              <ion-input placeholder="employername"[readonly]="true"></ion-input>
+              <ion-input value="{{employer.ename}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Contact Number: </ion-label>
-              <ion-input  placeholder="employernumber" [readonly]="true"></ion-input>
+              <ion-input  value="{{employer.econtact}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Email Address: </ion-label>
-              <ion-input placeholder="eaddress" [readonly]="true"></ion-input>
+              <ion-input  value="{{employer.eemail}}" [readonly]="true"></ion-input>
             </ion-item>
           </ion-card-content>
         </ion-card> 
 
         <!-- Company Details-->
-        <ion-card >
+        <ion-card *ngIf="company">
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>Company Details</ion-card-title>
@@ -58,41 +58,41 @@
           <ion-card-content>
             <ion-item lines="none">
               <ion-label>Company Name: </ion-label>
-              <ion-input placeholder="cname"[readonly]="true"></ion-input>
+              <ion-input value="{{company.cname}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Company Address: </ion-label>
-              <ion-input placeholder="caddress" [readonly]="true"></ion-input>
+              <ion-input value="{{company.cstreet}} {{company.cbarangay}} {{company.ctown}} {{company.cprovince}} {{company.ccountry}}" [readonly]="true"></ion-input>
             </ion-item>
             <ion-item lines="none">
               <ion-label>Company Contact Number: </ion-label>
-              <ion-input  placeholder="cnumber" [readonly]="true"></ion-input>
+              <ion-input  value="{{company.ccontact}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Company Email Address: </ion-label>
-              <ion-input placeholder="cemail" [readonly]="true"></ion-input>
+              <ion-input value="{{company.cemail}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Company Size: </ion-label>
-              <ion-input placeholder="100 employees" [readonly]="true"></ion-input>
+              <ion-input value="{{company.csize}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Average Processing Time: </ion-label>
-              <ion-input placeholder="cprocesstime" [readonly]="true"></ion-input>
+              <ion-input value="{{company.caverage}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Benefits: </ion-label>
-              <ion-textarea style="height: 50px; color:black" placeholder="cbenefits" autosize color="primary" [readonly]="true"></ion-textarea>
+              <ion-textarea style="height: 50px; color:black" value="{{company.cbenefits}}" autosize color="primary" [readonly]="true"></ion-textarea>
             </ion-item>
 
             <ion-item lines="none">
               <ion-label>Additional Information: </ion-label>
-              <ion-textarea style="height: 50px; color:black" placeholder="cadditionalinfo" autosize color="primary" [readonly]="true"></ion-textarea>
+              <ion-textarea style="height: 50px; color:black" value="{{company.cadddinfo}}" autosize color="primary" [readonly]="true"></ion-textarea>
             </ion-item>
 
           </ion-card-content>
