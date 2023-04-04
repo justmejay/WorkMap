@@ -54,7 +54,7 @@
     <ion-card-header>
       <div style="display: flex; justify-content: space-between;">
         <ion-card-title>Character Reference</ion-card-title>
-        <ion-icon style="float: right;" name="create" class="edit" (click)="ref()"></ion-icon>
+        <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editchar']"></ion-icon>
       </div>
     </ion-card-header>
     <ion-card-content>
@@ -186,6 +186,22 @@
 
         </div>
       
+    </ion-card-content>
+  </ion-card>
+
+
+
+  
+  <ion-card>
+    <ion-card-header>
+      <div style="display: flex; justify-content: space-between;">
+        <ion-card-title>Resume Attachment</ion-card-title>
+        <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editresume']"></ion-icon>
+      </div >
+        </ion-card-header>
+    <ion-card-content class="ion-padding" *ngIf="resume">
+     <ion-label>Resume Attachment</ion-label>
+     <a href="{{resume.fpath}}"> <ion-button color=success>Download</ion-button></a>
     </ion-card-content>
   </ion-card>
 </ion-content>

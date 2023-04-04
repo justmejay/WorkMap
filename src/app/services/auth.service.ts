@@ -76,7 +76,7 @@ export class AuthService {
       await addDoc(userDocRef5, {name: "", orgn: "", year: "", fpath: "", filename: "" });
 
       const userDocRef6 = doc(this.firestore, `users/${userget}/resume/${userget}`);
-      await setDoc(userDocRef6, {fpath: "" , mo: "", moc: "", fa: "", fac: ""});
+      await setDoc(userDocRef6, {filename: "" ,fpath: "" , mo: "", moc: "", fa: "", fac: ""});
 
       await sendEmailVerification(this.auth.currentUser);
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
@@ -14,7 +15,9 @@ export class SchoolPage implements OnInit {
   constructor(
     private profile: ProfilingService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private loadingController: LoadingController,
+    private alertController: AlertController
   ) { 
 
 
@@ -38,6 +41,33 @@ export class SchoolPage implements OnInit {
     this.router.navigate(['editschool'], {queryParams:{cid: id}});
 
 
+  }
+
+  async deletesc(e: any){
+    const loading = await this.loadingController.create({
+      spinner: "dots",
+      message: "Deleting up!"
+    });    await loading.present();
+
+    const id = e.id;
+    await this.profile.deletesdoc(id);
+
+    await loading.dismiss();
+    this.showAlert('Delete success', 'Data Updated');
+
+
+
+  
+
+  }
+
+  async showAlert(header: any, message: any) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
 }

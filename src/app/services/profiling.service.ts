@@ -328,6 +328,46 @@ export class ProfilingService {
     await deleteObject(storageRef);
   }
 
+  async editresumefile(fileUrl: any, generateunique: any){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/resume/${userget}`);
+      const user = await updateDoc(userDocRef3, {fpath: fileUrl, filename: generateunique});
+     
+      return user;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async deleterfile(fname: any){
+    const userget = this.auth.currentUser?.uid;
+
+    const fileStoragePath = `filesStorage/resume/${this.auth.currentUser.uid}/${fname}`;
+    const storageRef = ref(this.storage, fileStoragePath);
+    await deleteObject(storageRef);
+  }
+
+  deletecdoc(id: any){
+    const userget = this.auth.currentUser.uid;
+    const cakeRef = doc(this.firestore, `users/${userget}/certifications/${id}`)
+    return deleteDoc(cakeRef)
+  }
+
+  deleteedoc(id: any){
+    const userget = this.auth.currentUser.uid;
+    const cakeRef = doc(this.firestore, `users/${userget}/experience/${id}`)
+    return deleteDoc(cakeRef)
+  }
+
+  deletesdoc(id: any){
+    const userget = this.auth.currentUser.uid;
+    const cakeRef = doc(this.firestore, `users/${userget}/school/${id}`)
+    return deleteDoc(cakeRef)
+  }
+
+
 }
 
 

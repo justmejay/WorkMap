@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
-import { ProfilingService } from 'src/app/services/profiling.service';
+import { ProfilingService } from 'src/app/services/profiling.service'; 
 import {
   getDownloadURL,
   ref,
