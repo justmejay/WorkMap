@@ -20,7 +20,7 @@
       </ion-avatar>
       <div >
       <span  class="caption">{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}</span>
-      <ion-button class="resume" [routerLink]="['/resumebuilder']" color="success">Resume Builder</ion-button>
+      <ion-button class="resume" [routerLink]="['/resumebuilder']">Resume Builder</ion-button>
     </div>
      
 
@@ -31,7 +31,7 @@
       
         
         <!-- Personal Information -->
-        <ion-card *ngIf="profile" >
+        <ion-card *ngIf="profile" class="cardcontainer">
           <ion-card-header>
 
             <div style="display: flex; justify-content: space-between;">
@@ -85,7 +85,7 @@
         </ion-card>
 
         <!--Address -->
-        <ion-card *ngIf="address" >
+        <ion-card *ngIf="address" class="cardcontainer">
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>Home Address</ion-card-title>
@@ -116,7 +116,7 @@
           </ion-card-content>
         </ion-card>
 
-        <ion-card *ngIf="address" >
+        <ion-card *ngIf="address" class="cardcontainer">
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>Current Address</ion-card-title>
@@ -150,7 +150,7 @@
       
 
         <!-- About You -->
-        <ion-card *ngIf="profile">
+        <ion-card *ngIf="profile" class="cardcontainer">
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>About you</ion-card-title>
@@ -158,7 +158,7 @@
             </div>
           </ion-card-header>
           <ion-card-content>
-            <ion-item lines="none" fill="outline" class="aboutself">
+            <ion-item lines="none" class="aboutself">
               <ion-label position="stacked">What can you say about yourself:</ion-label>
               <ion-textarea style="height: 50px; color:black" autosize value="{{profile.aboutme}}" color="primary" [readonly]="true"></ion-textarea>
             </ion-item>
