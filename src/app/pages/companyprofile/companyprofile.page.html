@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" >
+<ion-content  *ngIf="employer" [fullscreen]="true" >
   <div class="container">
     <div class="avatar">
       <div class="avatar-container">
@@ -16,7 +16,7 @@
         </ion-avatar>
       </div>
       <div>   
-        <span class="caption">John I. Doe Jr.</span>
+        <span class="caption">{{employer.fname}} {{employer.mname}} {{employer.lname}}</span>
       </div>
     </div>
 
@@ -82,7 +82,7 @@
 
             <ion-item lines="none">
               <ion-label>Average Processing Time: </ion-label>
-              <ion-input value="{{company.cprocessingtime}}" [readonly]="true"></ion-input>
+              <ion-input value="{{company.cprocessingtime2}} {{company.cprocessingtime1}}" [readonly]="true"></ion-input>
             </ion-item>
 
             <ion-item lines="none">

@@ -7,26 +7,42 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding ">
+<ion-content  *ngIf="employer" class="ion-padding ">
 
 
 <div >
-  <form >
+  <form [formGroup]="credentials" (ngSubmit)="editemployer()">
     <div>
     <h3>Employer Profile</h3>
     <ion-card>
       <ion-card-content>
           <ion-item>
-            <ion-label position="stacked">Name:</ion-label>
-            <ion-input position="stacked" type="text" class="custominput"></ion-input>
+            <ion-label position="stacked">First Name:</ion-label>
+            <ion-input position="stacked" type="text" formControlName="fname" value="{{employer.fname}}" class="custominput"></ion-input>
           </ion-item>
+          <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
+
+          <ion-item>
+            <ion-label position="stacked">Middle Name:</ion-label>
+            <ion-input position="stacked" type="text" formControlName="mname" value="{{employer.mname}}" class="custominput"></ion-input>
+          </ion-item>
+          <ion-note slot="error" *ngIf="(mname.dirty || mname.touched) && mname.errors">Required</ion-note>
+
+          <ion-item>
+            <ion-label position="stacked">Last Name:</ion-label>
+            <ion-input position="stacked" type="text" formControlName="lname" value="{{employer.lname}}" class="custominput"></ion-input>
+          </ion-item>
+          <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
+
           <ion-item>
             <ion-label position="stacked">Contact Number:</ion-label>
-            <ion-input position="stacked" type="number" class="custominput"></ion-input>
+            <ion-input position="stacked" type="number" formControlName="contact" value="{{employer.contact}}" class="custominput"></ion-input>
           </ion-item>
+          <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+
           <ion-item>
             <ion-label position="stacked">Email Address:</ion-label>
-            <ion-input position="stacked" type="text" class="custominput"></ion-input>
+            <ion-input position="stacked" type="text" formControlName="email" value="{{employer.email}}" [readonly]="true" class="custominput"></ion-input>
           </ion-item>
       </ion-card-content>
     </ion-card> 
