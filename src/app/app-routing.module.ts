@@ -152,6 +152,14 @@ const routes: Routes = [
     path: 'messageview',
     loadChildren: () => import('./messageview/messageview.module').then( m => m.MessageviewPageModule)
   },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'viewnotification',
+    loadChildren: () => import('./pages/viewnotification/viewnotification.module').then( m => m.ViewnotificationPageModule)
+  },
 
 
 
