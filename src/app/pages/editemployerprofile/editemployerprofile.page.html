@@ -16,6 +16,11 @@
     <h3>Employer Profile</h3>
     <ion-card>
       <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">Change Profile Picture:</ion-label>
+          <ion-input position="stacked" #myInput  type="file" (change)="upload($event)"></ion-input>
+        </ion-item>
+
           <ion-item>
             <ion-label position="stacked">First Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="fname" value="{{employer.fname}}" class="custominput"></ion-input>

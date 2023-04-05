@@ -7,15 +7,18 @@
 </ion-header>
 
 <ion-content  *ngIf="employer" [fullscreen]="true" >
-  <div class="container">
-    <div class="avatar">
-      <div class="avatar-container">
-        <ion-avatar (click)="presentActionSheet()">
-          <code *ngIf="result"> </code>
-          <ion-icon name="camera" class="avatar-overlay"></ion-icon>
+    <div class="container">
+      <div class="avatar" >
+        <ion-avatar class="image">
+          <img *ngIf="employer?.imageUrl; else placeholder_avatar;" [src]="employer.imageUrl" />
+
+            <ng-template #placeholder_avatar>
+              <div class="fallback">
+                <p>Update avatar</p>
+              </div>
+            </ng-template>
         </ion-avatar>
-      </div>
-      <div>   
+        <div >
         <span class="caption">{{employer.fname}} {{employer.mname}} {{employer.lname}}</span>
       </div>
     </div>

@@ -23,6 +23,15 @@ import { Auth } from '@angular/fire/auth';
 export class EditemployerprofilePage implements OnInit {
   employer: any = [];
   credentials: FormGroup;
+  @ViewChild('myInput')
+  myInputVariable: ElementRef; 
+  selected:any
+  files: any = []
+  selecteditemx:any
+  filename:any
+  filesize:any
+  fileevent:any
+
 
   get fname() {
     return this.credentials.get('fname');
@@ -82,6 +91,15 @@ export class EditemployerprofilePage implements OnInit {
 
     const employer = await this.firestore.editemployer(this.credentials.value);
 
+    if (this.selecteditemx != null){
+      const generateunique = `${new Date().getTime()}_${this.filename}`;
+      const fileStoragePath = `filesStorage/employer/${this.authd.currentUser.uid}/profile.png`;
+      const storageRef = ref(this.storage, fileStoragePath);
+      const uploadfile = await uploadBytes(storageRef, this.selecteditemx);
+      const fileUrl = await getDownloadURL(storageRef);
+      await this.firestore.editprofiledp(fileUrl);
+      }
+
     
     await loading.dismiss();
 
@@ -93,6 +111,18 @@ export class EditemployerprofilePage implements OnInit {
         } else {
       this.showAlert('Edit failed', 'Please try again!');
     }
+  }
+
+
+  async upload(event: any){
+
+    this.fileevent = event;
+    const selecteditem = event.target.files
+    this.selecteditemx = selecteditem.item(0)
+    this.filename  = this.selecteditemx.name
+    this.filesize  = this.selecteditemx.size;
+
+
   }
 
 

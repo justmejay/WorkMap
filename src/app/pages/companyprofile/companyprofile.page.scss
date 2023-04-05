@@ -11,48 +11,63 @@ ion-toolbar{
     --background:  #2855A1;
 }
 
-//////profile pic
+.container{
+    // border: 2px solid #3AB3C1;
+    padding-bottom: 3%;
+}
+
 .avatar{
+    vertical-align: top;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 40px;
+    // padding-bottom: 5%;
+    flex-direction: column;
     background:  #2855A1;
-
 }
 
-
-.avatar-container {
-    position: relative;
-    display: inline-block;
-    margin-top: 2%;
+.image{
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    height: 35%;
+    width: 35%;
 }
 
-
-.avatar-overlay{
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    // background-color: rgba(0, 0, 0, 0.2);
+.preview {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .fallback {
+    width: 128px;
+    height: 128px;
     border-radius: 50%;
-    // padding: 15%;
-    // font-size: 150%;
-    color: #fff;
-    opacity: 0.5;
-}
+    background: #bfbfbf;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+  }
 
 .caption {
     color: #ffffff;
-    margin: 2% 0;
+    margin: 10% 0;
     display: block;
     font-weight: bold;
     font-size: 20px;
 }
 
-ion-card {
+ion-card.cardcontainer {
     --background: #ffffff;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-    margin: 8%;
     border-radius: 15px;
     border: solid 3px  rgb(53, 66, 125);
+    margin: 0.5rem;
 }
 ion-card-header{
     --background: #5e2ee4;
@@ -62,10 +77,12 @@ ion-card-header{
 ion-card-title{
     color: whitesmoke;
 }
+
 ion-card-content{
     color: black;
     margin: auto;
 }
+
 
 ion-item {
     --background: #ffffff;
@@ -74,4 +91,17 @@ ion-icon{
     height: 21px;
     width: 21px;
 }
+ion-item.aboutself{
+    // border-style: solid 3px #2F7EF5 ;
+    border-radius: 15px;
+}
+.aboutself{
+    margin-top: 3%;
+    --background: #d3d3d3;
+}
 
+ion-button.resume{
+    margin-bottom: 10%;
+    --background: #70AFFA;
+    --border-style: solid 2px #2855A1;
+}
