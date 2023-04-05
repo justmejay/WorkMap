@@ -10,7 +10,7 @@
 <ion-content  *ngIf="profile" class="ion-padding ">
 
 
-<div >
+<div>
   <form [formGroup]="credentials" (ngSubmit)="editprofile()">
     <div class="personalinfo">
     <ion-card>
@@ -41,10 +41,9 @@
           <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
 
           <ion-item>
-            <ion-label  position="stacked">Suffix (optional):</ion-label>
-            <ion-list class="suffix">
-              <ion-item class="suffix"  lines="none">
-                <ion-select formControlName="suffix" value="{{profile.suffix}}" interface="popover" placeholder="Select suffix" expand="block">
+            <ion-label>Suffix (optional):</ion-label>
+              <ion-item lines="none" class="selectitem">
+                <ion-select justify="space-between" label="Space Between" formControlName="suffix" value="{{profile.suffix}}" interface="popover" placeholder="Select suffix">
                   <ion-select-option value="Jr">Jr.</ion-select-option>
                   <ion-select-option value="Sr">Sr.</ion-select-option>
                   <ion-select-option value="I">I</ion-select-option>
@@ -52,21 +51,18 @@
                   <ion-select-option value="III">III</ion-select-option>
                 </ion-select>
               </ion-item>
-            </ion-list>
           </ion-item>
 
           <ion-item>
-            <ion-label  position="stacked">Civil Status:</ion-label>
-            <ion-list class="suffix">
-              <ion-item class="suffix"  lines="none">
-                <ion-select formControlName="cs" value="{{profile.cs}}" interface="popover" placeholder="Select suffix" expand="block">
+            <ion-label>Civil Status:</ion-label>
+              <ion-item lines="none" class="selectitem">
+                <ion-select formControlName="cs" value="{{profile.cs}}" interface="popover" placeholder="Select suffix">
                   <ion-select-option value="Single">Single</ion-select-option>
                   <ion-select-option value="Married">Married</ion-select-option>
                   <ion-select-option value="Separated">Separated</ion-select-option>
                   <ion-select-option value="Widowed">Widowed</ion-select-option>
                 </ion-select>
               </ion-item>
-            </ion-list>
           </ion-item>
 
           <ion-note slot="error" *ngIf="(cs.dirty || cs.touched) && cs.errors">Required</ion-note>
@@ -101,10 +97,10 @@
         <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
 
         <ion-item>
-          <ion-label  position="stacked">Sex:</ion-label> 
-          <ion-list class="dropdown">
-            <ion-item class="dropdown"  lines="none">
-              <ion-select formControlName="sex" value="{{profile.sex}}" interface="popover" placeholder="Select" expand="block">
+          <ion-label>Sex:</ion-label> 
+          <ion-list>
+            <ion-item lines="none"  class="selectitem">
+              <ion-select formControlName="sex" value="{{profile.sex}}" interface="popover" placeholder="Select">
                 <ion-select-option value="Male">Male</ion-select-option>
                   <ion-select-option value="Female">Female</ion-select-option> 
               </ion-select>
@@ -128,11 +124,7 @@
     </ion-card>
     </div>
 
-    
-  
-    
-
-    <ion-button type="submit" expand="block" class="btnreg">Save</ion-button>
+    <ion-button expand="block" type="submit" class="btnreg">Save</ion-button>
   </form>
 </div>
 
