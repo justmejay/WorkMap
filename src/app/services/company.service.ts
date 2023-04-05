@@ -9,22 +9,24 @@ export interface Company{
   //company
   id?: string,
   cname:string,
-  cstreet:string,
-  cbarangay:string,
-  ctown:string,
-  cprovince:string,
-  ccountry:string,
+  street:string,
+  barangay:string,
+  town:string,
+  province:string,
+  country:string,
   ccontact:number,
   cemaill:string,
   csize:number,
-  caverage:string,
+  cprocessingtime:string,
   cbenefits:string,
-  caddinfo:string,
+  cdetails:string,
 
   //profile
-  ename:string,
-  econtact:number,
-  eemail:string,
+  fname:string,
+  mname:string,
+  lname:string,
+  contact:number,
+  email:string,
 
   
 }

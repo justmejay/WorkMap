@@ -90,7 +90,7 @@ export class AuthService {
  
   async signupc({fname, mname, lname, contact, 
     cname, ccontact, street, barangay, town, province,  country, cemail }: 
-    {fname: any, mname: any, lname: any, contact: any, cname: any, ccontact: any, street: any, barangay: any
+    {fname: any, mname: any, lname: any, contact: any, email:any, cname: any, ccontact: any, street: any, barangay: any
     , town: any, province: any, country: any, cemail: any }, email: any, 
     password: any ){
 
@@ -109,12 +109,12 @@ export class AuthService {
       
 
       const userDocRef1 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
-      await setDoc(userDocRef1, {fname, mname, lname, contact, uid: userget, profileimg: ""});
+      await setDoc(userDocRef1, {fname, mname, lname, contact, email, uid: userget, profileimg: ""});
       
 
       const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);
       await setDoc(userDocRef2, {cname, ccontact, street, barangay, town, province, country, imageurl: "", 
-      cemail, cdetails: "", processingtime: "", benefits: ""});
+      cemail, csize: "", cdetails: "", cprocessingtime: "", cbenefits: ""});
 
 
   
