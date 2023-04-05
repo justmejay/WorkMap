@@ -1,0 +1,97 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+}
+ion-menu::part(backdrop) {
+    background-color: rgba(18, 102, 237, 0.5);
+  }
+  ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+  
+    box-shadow: 4px 0px 16px rgba(1, 31, 105, 0.18);
+  }
+  .hamburgtitle{
+    font-size: larger;
+  }
+.hamburger{
+    --background:#E5EBEE;
+}
+.hamburgcard{
+    border-radius: 15px;
+    box-shadow: 4px 5px 16px;
+    margin-bottom: 3%;
+}
+.card1menu{
+    --background: #FFFFFF;
+    color: #000000;
+}
+.uppertool{
+    --background:#2855A1;
+}
+
+.lowertool{
+    --background:#70AFFA;
+}
+
+ion-content{
+    --background:#ffffff;
+} 
+
+.btn{
+    font-size: 40px;
+    color: #ffffff;  
+}
+
+
+ion-card {
+    --background: #70AFFA;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    margin: 8%;
+    border-radius: 15px;
+}
+ion-card-header{
+    padding:0%;
+}
+ion-card-content{
+    color: black;
+    margin: auto;
+}
+
+ion-item{
+    --background: #70AFFA;
+}
+
+.profilepic{
+    display: flex;
+    align-items: center;
+    height: 20%;
+    width: 20%;
+    margin-right: 5%;
+}
+.profilepicimage{
+    border-radius: 50%;
+}
+
+.my-card {
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.5;
+    color: black;
+}
+
+.review{
+    --background:#2F7EF5;
+    --border-color: #2855A1;
+    --border-style: solid;
+    --border-width: 2px;
+    color: #FFFFFF;
+    margin-top: 4%;
+}
+
+
