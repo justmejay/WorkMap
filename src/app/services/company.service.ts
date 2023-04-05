@@ -3,6 +3,7 @@ import { Auth } from '@angular/fire/auth';
 import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
 
 export interface Company{
   //id is optional and not required
@@ -18,6 +19,7 @@ export interface Company{
   cemaill:string,
   csize:number,
   cprocessingtime:string,
+  cprocessingtime2:number,
   cbenefits:string,
   cdetails:string,
 
@@ -57,4 +59,36 @@ export class CompanyService {
     const cakesRef = doc(this.firestore, `employers/${userget}/profile/${userget}`)
     return docData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
   }
+
+
+  async editemployer({fname, mname, lname, contact}: 
+    {fname: any, mname: any, lname: any, contact: any,}){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
+      const user = await updateDoc(userDocRef3, {fname, mname, lname, contact});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+
+
+  async editcompany({cname, ccontact, cemail, csize, cprocessingtime1, cprocessingtime2, cbenefits, street, barangay, town, province, country, cdetails}: 
+    {cname: any, ccontact: any, cemail: any, csize: any,  cprocessingtime1: any,  cprocessingtime2: any,  cbenefits: any,  street: any,  barangay: any,  town: any,  province: any,  country: any,  cdetails: any,}){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `employers/${userget}/company/${userget}`);
+      const user = await updateDoc(userDocRef3, {cname, ccontact, cemail, csize, cprocessingtime1, cprocessingtime2, cbenefits, street, barangay, town, province, country, cdetails});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
 }
