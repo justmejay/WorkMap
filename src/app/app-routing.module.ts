@@ -120,7 +120,8 @@ const routes: Routes = [
   {
     path: 'addcertification',
     loadChildren: () => import('./pages/addcertification/addcertification.module').then( m => m.AddcertificationPageModule)
-  },  {
+  },
+  {
     path: 'editcertifications',
     loadChildren: () => import('./pages/editcertifications/editcertifications.module').then( m => m.EditcertificationsPageModule)
   },
@@ -136,6 +137,23 @@ const routes: Routes = [
     path: 'editresume',
     loadChildren: () => import('./pages/editresume/editresume.module').then( m => m.EditresumePageModule)
   },
+  {
+    path: 'dashboardcompany',
+    loadChildren: () => import('./dashboardcompany/dashboardcompany.module').then( m => m.DashboardcompanyPageModule)
+  },
+  {
+    path: 'messagespage',
+    loadChildren: () => import('./messagespage/messagespage.module').then( m => m.MessagespagePageModule)
+  },  {
+    path: 'messagecreate',
+    loadChildren: () => import('./messagecreate/messagecreate.module').then( m => m.MessagecreatePageModule)
+  },
+  {
+    path: 'messageview',
+    loadChildren: () => import('./messageview/messageview.module').then( m => m.MessageviewPageModule)
+  },
+
+
 
 
   

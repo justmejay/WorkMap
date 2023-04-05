@@ -1,0 +1,39 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+    ion-toolbar{
+        --background:  #2855A1;
+        color: white;
+    }
+}
+.addrecipient{
+    display: flex;
+    flex-direction: row;
+}
+.recipient{
+    border-radius: 15px;
+    margin-top: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    --background: #D9D9D9;
+}
+.messageinput{
+    border-radius: 15px;
+    margin-top: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    --background: #D9D9D9;
+}
+.message{
+    display: flex;
+    flex-direction: row;
+}
+ion-button{
+    margin-top: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
