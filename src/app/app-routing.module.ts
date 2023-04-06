@@ -160,6 +160,10 @@ const routes: Routes = [
     path: 'viewnotification',
     loadChildren: () => import('./pages/viewnotification/viewnotification.module').then( m => m.ViewnotificationPageModule)
   },
+  {
+    path: 'searchengine',
+    loadChildren: () => import('./searchengine/searchengine.module').then( m => m.SearchenginePageModule)
+  },
 
 
 
