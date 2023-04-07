@@ -164,6 +164,18 @@ const routes: Routes = [
     path: 'searchengine',
     loadChildren: () => import('./searchengine/searchengine.module').then( m => m.SearchenginePageModule)
   },
+  {
+    path: 'employees',
+    loadChildren: () => import('./pages/employees/employees.module').then( m => m.EmployeesPageModule)
+  },
+  {
+    path: 'viewemployee',
+    loadChildren: () => import('./pages/viewemployee/viewemployee.module').then( m => m.ViewemployeePageModule)
+  },
+  {
+    path: 'rateemployee',
+    loadChildren: () => import('./pages/rateemployee/rateemployee.module').then( m => m.RateemployeePageModule)
+  },
 
 
 

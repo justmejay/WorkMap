@@ -1,0 +1,74 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/employees']"slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline" >  </ion-icon>
+      </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card >
+    <ion-card-header>
+      <div style="display: flex; align-items: center;">
+        <ion-thumbnail slot="start">
+          <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+        <ion-card-title>John Doe</ion-card-title>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-item lines="none">
+          <ion-label position="stacked">Age: </ion-label>
+          <ion-input placeholder="22" [readonly]="true"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="stacked">Sex:</ion-label>
+          <ion-input placeholder="Male" [readonly]="true"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="stacked">Address:</ion-label>
+          <ion-input placeholder="address" [readonly]="true"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label position="stacked">Job Specialization:</ion-label>
+          <ion-input [readonly]="true">Computer Information Technology</ion-input>         
+        </ion-item>
+
+        <!--Ratings -->
+        <ion-card class="cardcontainer">
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Ratings</ion-card-title>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item lines="none">
+                <ion-label position="stacked">Customer Satisfaction: </ion-label>
+                <ion-input position="stacked" placeholder="Very Satisfactory" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Work Quality:</ion-label>
+                <ion-input position="stacked" placeholder="Satisfactory"[readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Professionalism:</ion-label>
+                <ion-input position="stacked" placeholder="Fair" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Technical Skills:</ion-label>
+                <ion-input position="stacked" placeholder="Poor" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label position="stacked">Comments:</ion-label>
+                <ion-textarea style="height: 50px; color:black; text-align: justify;" autosize color="primary" [readonly]="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</ion-textarea>        
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-buttons fill="solid" class="btns">
+          <ion-button class="add" type="Submit"  expand="block" fill="solid" shape="round" [routerLink]="['/rateemployee']">Add Ratings</ion-button>
+        </ion-buttons>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
