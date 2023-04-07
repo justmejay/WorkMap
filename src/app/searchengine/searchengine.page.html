@@ -1,0 +1,75 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label class="title">Search</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="searchengine">
+    <ion-searchbar animated="true" placeholder="Job Title"></ion-searchbar>
+    <div class="location">
+      <ion-icon name="location-outline"></ion-icon>
+      <ion-select class="selectlocation" placeholder="Select Place">
+        <ion-select-option value="">Manila</ion-select-option>
+        <ion-select-option value="">Tuguegarao</ion-select-option>
+        <ion-select-option value="">Isabela</ion-select-option>
+      </ion-select>
+    </div>
+    <div class="jobspecialization">
+      <ion-icon name="briefcase-outline"></ion-icon>
+      <ion-select class="selectjobspecialization" placeholder="Job Specialization">
+        <ion-select-option value="">Accounting/Finance</ion-select-option>
+        <ion-select-option value="">Admin/Human Resources</ion-select-option>
+        <ion-select-option value="">Agriculture, Forestry & Fishery</ion-select-option>
+        <ion-select-option value="">Armed Forces</ion-select-option>
+        <ion-select-option value="">Arts/Media/Communication</ion-select-option>
+        <ion-select-option value="">Building/Construction</ion-select-option>
+        <ion-select-option value="">Computer/Information Technology</ion-select-option>
+        <ion-select-option value="">Craft & Related Trade Workers</ion-select-option>
+        <ion-select-option value="">Education/Training</ion-select-option>
+        <ion-select-option value="">Engineering</ion-select-option>
+        <ion-select-option value="">Healthcare</ion-select-option>
+        <ion-select-option value="">Hotel/Restaurant</ion-select-option>
+        <ion-select-option value="">Manufacturing</ion-select-option>
+        <ion-select-option value="">Plant & Machine Operators & Assemblers</ion-select-option>
+        <ion-select-option value="">Sales/Marketing</ion-select-option>
+        <ion-select-option value="">Sciences</ion-select-option>
+      </ion-select>
+    </div>
+    <ion-button expand="block" class="searchbutton">Search Job Listing</ion-button>
+  </div>
+  <div class="results">
+    <ion-card class="joblisting">
+      <ion-card-header>
+        <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
+        <ion-card-title>
+          Job Title Needed
+        </ion-card-title>
+        <ion-card-subtitle>
+          Company Name
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="companydetails">
+          <ion-label>Company Address</ion-label>
+          <ion-label>Starting Salary</ion-label>
+        </div>
+        <div class="jobdetails">
+          <div class="jobspecialization">
+            <ion-label>Job Specialization:</ion-label>
+            <ion-label>Computer Information</ion-label>
+          </div>
+          <div class="jobtype">
+            <ion-label>Full time/Hybrid/Work from Home</ion-label>
+          </div>
+        </div>
+      </ion-card-content>
+      <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
+    <ion-button size="large" class="jobcardinfo">Apply Now</ion-button>
+    </ion-card>
+  </div>
+</ion-content>

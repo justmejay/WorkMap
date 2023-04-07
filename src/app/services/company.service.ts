@@ -24,6 +24,7 @@ export interface Company{
   cdetails:string,
 
   //profile
+  profileimg: string,
   fname:string,
   mname:string,
   lname:string,
@@ -84,6 +85,19 @@ export class CompanyService {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `employers/${userget}/company/${userget}`);
       const user = await updateDoc(userDocRef3, {cname, ccontact, cemail, csize, cprocessingtime1, cprocessingtime2, cbenefits, street, barangay, town, province, country, cdetails});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async editprofiledp(imageUrl: any){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
+      const user = await updateDoc(userDocRef3, {imageUrl});
      
       return true;
     } catch (e) {
