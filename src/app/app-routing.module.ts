@@ -107,7 +107,7 @@ const routes: Routes = [
   },
   {
     path: 'aboutcompany',
-    loadChildren: () => import('./aboutcompany/aboutcompany.module').then( m => m.AboutcompanyPageModule)
+    loadChildren: () => import('./pages/aboutcompany/aboutcompany.module').then( m => m.AboutcompanyPageModule)
   },
   {
     path: 'editaboutme',
@@ -139,12 +139,13 @@ const routes: Routes = [
   },
   {
     path: 'dashboardcompany',
-    loadChildren: () => import('./dashboardcompany/dashboardcompany.module').then( m => m.DashboardcompanyPageModule)
+    loadChildren: () => import('./companysidepages/dashboardcompany/dashboardcompany.module').then( m => m.DashboardcompanyPageModule)
   },
   {
     path: 'messagespage',
     loadChildren: () => import('./messagespage/messagespage.module').then( m => m.MessagespagePageModule)
-  },  {
+  },
+  {
     path: 'messagecreate',
     loadChildren: () => import('./messagecreate/messagecreate.module').then( m => m.MessagecreatePageModule)
   },
@@ -166,7 +167,7 @@ const routes: Routes = [
   },
   {
     path: 'employees',
-    loadChildren: () => import('./pages/employees/employees.module').then( m => m.EmployeesPageModule)
+    loadChildren: () => import('./companysidepages/employees/employees.module').then( m => m.EmployeesPageModule)
   },
   {
     path: 'viewemployee',
@@ -174,7 +175,11 @@ const routes: Routes = [
   },
   {
     path: 'rateemployee',
-    loadChildren: () => import('./pages/rateemployee/rateemployee.module').then( m => m.RateemployeePageModule)
+    loadChildren: () => import('./companysidepages/rateemployee/rateemployee.module').then( m => m.RateemployeePageModule)
+  },
+  {
+    path: 'addjoblisting',
+    loadChildren: () => import('./companysidepages/addjoblisting/addjoblisting.module').then( m => m.AddjoblistingPageModule)
   },
 
 
