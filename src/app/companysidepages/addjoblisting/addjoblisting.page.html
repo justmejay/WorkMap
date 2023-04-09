@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>Add Job Listing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header class="jobdetails">
+      <ion-card-title>Company Details</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input placeholder="Job title Needed"></ion-input>
+      <ion-input placeholder="Starting Salary" ></ion-input>
+      <h2>Job Specialization</h2>
+      <div class="select">
+        <ion-select label="Default label" placeholder="Select job specialization" class="jobspecialization">
+        <ion-select-option value="">Accounting/Finance</ion-select-option>
+        <ion-select-option value="">Admin/Human Resources</ion-select-option>
+        <ion-select-option value="">Agriculture, Forestry & Fishery</ion-select-option>
+        <ion-select-option value="">Armed Forces</ion-select-option>
+        <ion-select-option value="">Arts/Media/Communication</ion-select-option>
+        <ion-select-option value="">Building/Construction</ion-select-option>
+        <ion-select-option value="">Computer/Information Technology</ion-select-option>
+        <ion-select-option value="">Craft & Related Trade Workers</ion-select-option>
+        <ion-select-option value="">Education/Training</ion-select-option>
+        <ion-select-option value="">Engineering</ion-select-option>
+        <ion-select-option value="">Healthcare</ion-select-option>
+        <ion-select-option value="">Hotel/Restaurant</ion-select-option>
+        <ion-select-option value="">Manufacturing</ion-select-option>
+        <ion-select-option value="">Plant & Machine Operators & Assemblers</ion-select-option>
+        <ion-select-option value="">Sales/Marketing</ion-select-option>
+        <ion-select-option value="">Sciences</ion-select-option>
+      </ion-select>
+      <h2>Job Type</h2>
+      <ion-select label="Default label" placeholder="Select job type" class="jobtype">
+        <ion-select-option value="">Full Time</ion-select-option>
+        <ion-select-option value="">Hybrid</ion-select-option>
+        <ion-select-option value="">Work from home</ion-select-option>
+      </ion-select>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header class="companydetails">
+      <ion-icon style="float: right; color: white;" name="create-outline" class="edit" [routerLink]=""></ion-icon>
+      <ion-card-title>Company Details</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input placeholder="Apple, Inc autofill from /aboutcompany" disabled="true"></ion-input>
+      <ion-input placeholder="Company Address autofill from /aboutcompany" disabled="true"></ion-input>
+      <ion-input placeholder="Company number autofill from /aboutcompany" disabled="true"></ion-input>
+      <ion-input placeholder="Company email autofill from /aboutcompany" disabled="true"></ion-input>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header class="companydetails">
+      <ion-icon style="float: right; color: white;" name="create-outline" class="edit" [routerLink]=""></ion-icon>
+      <ion-card-title>About Company</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h4>Vision</h4>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem alias esse a eaque blanditiis eius quis qui hic aliquam vitae sit veniam praesentium fuga, omnis obcaecati sunt ullam sed voluptatem!</p>
+      <h4>Mission</h4>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla cumque in asperiores tempore quas, ducimus maxime, quod impedit porro, tenetur corporis itaque eum voluptate adipisci magnam! Dignissimos fugit expedita illo?</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header class="companydetails">
+      <ion-icon style="float: right; color: white;" name="create-outline" class="edit" [routerLink]=""></ion-icon>
+      <ion-card-title>Additional Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label position="stacked">Company size: </ion-label>
+        <ion-input position="stacked" placeholder="1000 employees" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="stacked">Average Processing Time: </ion-label>
+        <ion-input position="stacked" placeholder="1-2 Working Days" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label position="stacked">Industry Type: </ion-label>
+        <ion-input position="stacked" placeholder="Computer Information/Technology" disabled="true"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header class="companydetails">
+      <ion-icon style="float: right; color: white;" name="create-outline" class="edit" [routerLink]=""></ion-icon>
+      <ion-card-title>Benefits</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <div class="benefits">
+          <h2 position="stacked">Health Insurance </h2>
+          <h2 position="stacked">Free Apple Cloud Service </h2>
+        </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
