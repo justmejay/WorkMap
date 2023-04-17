@@ -13,49 +13,41 @@
 <div >
   <form [formGroup]="credentials" (ngSubmit)="editcompany()">
     <div>
-    <h3>Company Details</h3>
     <ion-card>
+      <ion-card-header>
+        <ion-card-title>Company Details</ion-card-title>
+      </ion-card-header>
       <ion-card-content>
-          <ion-item>
             <ion-label position="stacked">Company Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="cname" value="{{company.cname}}" class="custominput"></ion-input>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(cname.dirty || cname.touched) && cname.errors">Required</ion-note>
 
-          <ion-item>
             <ion-label position="stacked">Company Contact Number:</ion-label>
             <ion-input position="stacked" type="number" formControlName="ccontact" value="{{company.ccontact}}" class="custominput"></ion-input>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(ccontact.dirty || ccontact.touched) && ccontact.errors">Required</ion-note>
 
-          <ion-item>
             <ion-label position="stacked">Company Email Address:</ion-label>
             <ion-input position="stacked" type="text" formControlName="cemail" value="{{company.cemail}}" class="custominput"></ion-input>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(cemail.dirty || cemail.touched) && cemail.errors">Required</ion-note>
 
-          <ion-item>
             <ion-label position="stacked">Company Size (number of employees):</ion-label>
             <ion-input position="stacked" type="number" formControlName="csize" value="{{company.csize}}" class="custominput"></ion-input>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(csize.dirty || csize.touched) && csize.errors">Required</ion-note>
           
-          <ion-item>
             <ion-label  position="stacked">Average Processing Time:</ion-label>
-            <ion-list class="dropdown">
-              <ion-item class="dropdown"  lines="none">
+            <h2>Select Duration:</h2>
                 <ion-select formControlName="cprocessingtime1" value="{{company.cprocessingtime1}}" interface="popover" placeholder="Select" expand="block">
                   <ion-select-option value="day/s">Day/s</ion-select-option>
                   <ion-select-option value="week/s">Week/s</ion-select-option>
                   <ion-select-option value="month/s">Month/s</ion-select-option>
                   <ion-select-option value="year/s">Year/s</ion-select-option>
                 </ion-select>
-              </ion-item>
-            </ion-list>
             <ion-note slot="error" *ngIf="(cprocessingtime1.dirty || cprocessingtime1.touched) && cprocessingtime1.errors">Required</ion-note>
-
-            <ion-list class="dropdown">
-              <ion-item class="dropdown"  lines="none">
+            <h2>Select Amount:</h2>
                 <ion-select formControlName="cprocessingtime2" value="{{company.cprocessingtime2}}" interface="popover" placeholder="Select" expand="block">
                   <ion-select-option value="1">1</ion-select-option>
                   <ion-select-option value="2">2</ion-select-option>
@@ -69,52 +61,46 @@
                   <ion-select-option value="10">10</ion-select-option>
                   <ion-select-option value="11">11</ion-select-option>
                 </ion-select>
-              </ion-item>
-            </ion-list>
-          </ion-item>
-          <ion-note slot="error" *ngIf="(cprocessingtime2.dirty || cprocessingtime2.touched) && cprocessingtime2.errors">Required</ion-note>
 
-          <ion-item>
+          <ion-note slot="error" *ngIf="(cprocessingtime2.dirty || cprocessingtime2.touched) && cprocessingtime2.errors">Required</ion-note>
+            <br>
             <ion-label position="stacked">Benefits:</ion-label>
             <ion-textarea formControlName="cbenefits" value="{{company.cbenefits}}" autogrow="true" class="custominput"></ion-textarea>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(cbenefits.dirty || cbenefits.touched) && cbenefits.errors">Required</ion-note>
 
       </ion-card-content>
     </ion-card>
 
-    <h3>Company Address</h3>
     <ion-card>
+      <ion-card-header>
+        <ion-card-title>Company Address</ion-card-title>
+      </ion-card-header>
       <ion-card-content>
-          <ion-item>
             <ion-label position="stacked">Street:</ion-label>
             <ion-input formControlName="street" value="{{company.street}}" position="stacked" type="text" class="custominput"></ion-input>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(street.dirty || street.touched) && street.errors">Required</ion-note>
 
-          <ion-item>
             <ion-label position="stacked">Barangay:</ion-label>
             <ion-input formControlName="barangay" value="{{company.barangay}}" position="stacked" type="text" class="custominput"></ion-input>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(barangay.dirty || barangay.touched) && barangay.errors">Required</ion-note>
 
-          <ion-item>
             <ion-label position="stacked">Town:</ion-label>
             <ion-input formControlName="town" value="{{company.town}}" position="stacked" type="text" class="custominput"></ion-input>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(town.dirty || town.touched) && town.errors">Required</ion-note>
 
-          <ion-item>
             <ion-label position="stacked">Province:</ion-label>
             <ion-input formControlName="province" value="{{company.province}}" position="stacked" type="text" class="custominput"></ion-input>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(province.dirty || province.touched) && province.errors">Required</ion-note>
 
-          <ion-item>
             <ion-label position="stacked">Country:</ion-label>
             <ion-input formControlName="country" value="{{company.country}}"position="stacked" type="text" class="custominput"></ion-input>
 
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(country.dirty || country.touched) && country.errors">Required</ion-note>
       </ion-card-content>
     </ion-card>
@@ -122,10 +108,9 @@
     <h3>About Company</h3>
     <ion-card>
       <ion-card-content>
-          <ion-item>
             <ion-label position="stacked">Company Overview:</ion-label>
             <ion-textarea formControlName="cdetails" value="{{company.cdetails}}" autogrow="true" class="custominput"></ion-textarea>
-          </ion-item>
+
           <ion-note slot="error" *ngIf="(cdetails.dirty || cdetails.touched) && cdetails.errors">Required</ion-note>
       </ion-card-content>
     </ion-card>
