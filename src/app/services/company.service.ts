@@ -105,4 +105,22 @@ export class CompanyService {
     }
   }
 
+
+
+  async addjoblisting({jtitle, jsalary, jspecialization, jtype, cname, caddress, ccontact, cemail, cdetails, csize, cprocessingtime, cbenefits}: 
+    {jtitle: any, jsalary: any, jspecialization: any, jtype: any,  cname: any,  caddress: any,  ccontact: any,  cemail: any,  cdetails: any,  csize: any,  cprocessingtime: any, cbenefits: any,}){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `joblisting/${userget}/jobdetails/${userget}`);
+      await setDoc(userDocRef3, {uid: userget, jtitle, jsalary, jspecialization, jtype});
+     
+      const userDocRef4 = doc(this.firestore, `joblisting/${userget}/companydetails/${userget}`);
+      await setDoc(userDocRef4, {uid: userget, cname, caddress, ccontact, cemail, cdetails, csize, cprocessingtime, cbenefits});
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
 }

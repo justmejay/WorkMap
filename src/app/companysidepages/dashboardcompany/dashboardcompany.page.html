@@ -29,7 +29,7 @@
         Settings</ion-button>
     </ion-card>
     <ion-card class="hamburgcard">
-      <ion-button fill="clear" class="card1menu" expand="block">
+      <ion-button fill="clear" class="card1menu" expand="block" (click)="logout()">
         <ion-icon slot="start" name="log-out-outline" style="color:#042f9c;"></ion-icon>
         Logout</ion-button>
     </ion-card>
@@ -99,7 +99,7 @@
             <ion-icon name="briefcase"></ion-icon>Review Application 
           </ion-tab-button>
 
-          <ion-tab-button tab="discover">
+          <ion-tab-button [routerLink]="['/addjoblisting']">
             <ion-icon name="add-outline"></ion-icon>Add Job Listing
           </ion-tab-button>
 
