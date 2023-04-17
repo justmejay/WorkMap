@@ -61,7 +61,11 @@ ion-toolbar{
     font-weight: bold;
     font-size: 20px;
 }
-
+ion-card{
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    border: solid 3px  #4c3c77;
+}
 ion-card.cardcontainer {
     --background: #ffffff;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
