@@ -83,7 +83,7 @@ const routes: Routes = [
   },
   {
     path: 'companyprofile',
-    loadChildren: () => import('./pages/companyprofile/companyprofile.module').then( m => m.CompanyprofilePageModule)
+    loadChildren: () => import('./companysidepages/companyprofile/companyprofile.module').then( m => m.CompanyprofilePageModule)
   },
   {
     path: 'editcompanydetails',
