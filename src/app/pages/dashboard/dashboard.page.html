@@ -16,8 +16,8 @@
         <ion-icon slot="start" name="shield-half-outline" style="color: #0d71d5;"></ion-icon>
         Privacy Policy
       </ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="newspaper" style="color: #0bc089;" [routerLink]="['/resumebuilder']"></ion-icon>
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/resumebuilder']">
+        <ion-icon slot="start" name="newspaper" style="color: #0bc089;"></ion-icon>
          Resume Builder</ion-button>
       <ion-button fill="clear" class="card1menu" expand="block">
         <ion-icon slot="start" name="diamond-outline" style="color: #ba8929;"></ion-icon>
@@ -95,7 +95,7 @@
             <ion-icon name="home"></ion-icon>Home
           </ion-tab-button>
 
-          <ion-tab-button tab="discover">
+          <ion-tab-button [routerLink]="['/dashboard']">
             <ion-icon name="compass"></ion-icon>Discover
           </ion-tab-button>
 
