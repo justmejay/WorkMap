@@ -25,30 +25,19 @@
       <ion-card >
         <!-- <ion-card-title>Login Here!</ion-card-title> -->
         <ion-card-content>
-          <ion-list lines="none">
-            <ion-item fill="outline">
-              <ion-label position="floating"> Email</ion-label>
+              <ion-label position="stacked"> Email</ion-label>
               <ion-input formControlName="email" type="text"></ion-input>
               <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
-            </ion-item>
-                <ion-item fill="outline">
-                  <ion-label position="floating"> Password</ion-label>
-                  <ion-input formControlName="password" type="password"></ion-input>
-                  <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
-                </ion-item>
-            </ion-list>
-            <ion-list lines="none" class="action">
-              <ion-item>
-                <ion-button [disabled]="!credentials.valid" type="submit" class="btnlog" expand="block">
+              <br>
+              <ion-label position="stacked"> Password</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
+                <ion-button shape="round" [disabled]="!credentials.valid" type="submit" class="btnlog" expand="block">
                   Log In
                 </ion-button>
-              </ion-item>
-              <ion-item>
-                <ion-button fill="clear"  [routerLink]="['/forgot']" expand="block">
+                <ion-button fill="clear" [routerLink]="['/forgot']" expand="block">
                   FORGOT PASSWORD?
                 </ion-button>
-              </ion-item>
-            </ion-list>
         </ion-card-content>
       </ion-card>
 
@@ -61,31 +50,20 @@
   <form [formGroup]="credentials" (ngSubmit)="signup()">
     <ion-card >
       <ion-card-content>
-        <ion-list fill="solid">
-            <ion-item fill="outline" lines="none">
-              <ion-label position="floating"> Email</ion-label> 
+              <ion-label position="stacked"> Email</ion-label> 
               <ion-input formControlName="email" type="text"></ion-input>
               <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
-            </ion-item>
-              <ion-item fill="outline" lines="none">
-                <ion-label position="floating"> Password</ion-label>
-                <ion-input formControlName="password" type="password"></ion-input>
-                <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
-              </ion-item>
-          </ion-list>
-          
-          <ion-list>
-            <ion-item lines="none">
-              <ion-button type="button"   [disabled]="!credentials.valid" (click)="signup()" expand="block" class="btnreg">
+              <br>
+              <ion-label position="stacked"> Password</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
+
+              <ion-button type="button" shape="round" [disabled]="!credentials.valid" (click)="signup()" expand="block" class="btnreg">
                 Register
               </ion-button>
-            </ion-item>
-            <ion-item lines="none">
-              <ion-button type="button"  [disabled]="!credentials.valid" (click)="signupc()" expand="block" class="btncompany">
+              <ion-button type="button" shape="round" [disabled]="!credentials.valid" (click)="signupc()" expand="block" class="btncompany">
                 Register as Company
               </ion-button>
-            </ion-item>
-          </ion-list>
       </ion-card-content>
     </ion-card>
   </form>
