@@ -35,11 +35,12 @@ export class AuthService {
   ) { }
 
 
-  async signup({fname, mname, lname, suffix,
-    bday, age, contact, street, barangay, town, country, province, cs, religion, specialization,sex,hstreet, hbarangay, htown, hcountry, hprovince  }: 
-    {fname: any, mname: any, lname: any, suffix: any, bday: any, cs: any, religion: any, age: any, contact:any, street: any, barangay: any, 
-    town: any, country:any,  province: any, specialization: any, sex : any ,hstreet : any, hbarangay : any, htown : any, hcountry : any, 
-    hprovince : any }, email: any, 
+  async signup({fname, mname, lname, suffix, homeaddress, currentaddress,
+    bday, age, contact, cs, religion, specialization,sex , currentcoords, currentPlaceID,
+    homecoords,homePlaceID, }: 
+    {fname: any, mname: any, lname: any, suffix: any, bday: any, cs: any, religion: any, age: any, contact:any,  specialization: any, sex : any ,
+      currentPlaceID: any, selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
+     }, email: any, 
     password: any,  ){
 
     try {
@@ -60,10 +61,11 @@ export class AuthService {
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
       await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "", aboutme: "", cs,religion,  fname, mname, lname, suffix, sex, contact, bday, age, email });
       
+        console.log(currentPlaceID);
 
       const userDocRef2 = doc(this.firestore, `users/${userget}/address/${userget}`);
-      await setDoc(userDocRef2, {street, barangay, town, province, country, hstreet, hbarangay , 
-    htown, hprovince, hcountry});
+      await setDoc(userDocRef2, {clat: currentcoords.lat, clng: currentcoords.lng, currentPlaceID,
+        homeaddress,lat: homecoords.lat, lng: homecoords.lng,homePlaceID, currentaddress });
 
       const userDocRef3 = collection(this.firestore, `users/${userget}/experience`);
       await addDoc(userDocRef3, {cname: "", caddress: "", jtitle: "", datef: "", datet:""});
