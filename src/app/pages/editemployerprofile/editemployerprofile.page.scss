@@ -13,7 +13,7 @@ ion-toolbar{
 ion-card {
     border-radius: 15px;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-    border: solid 2px  rgb(53, 66, 125);
+    // border: solid 2px  rgb(53, 66, 125);
     --background: #71a8fa;
     color: azure;
 }
@@ -47,7 +47,7 @@ ion-input.custominput{
 .btnreg{
     display: block;
     width: 100%;
-    --border-radius: 15px;
+    --border-radius: 50px;
     --background: #2F7EF5;
     margin: 0%;
     text-transform: initial;
