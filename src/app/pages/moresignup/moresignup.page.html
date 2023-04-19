@@ -95,7 +95,7 @@
         <ion-input position="stacked" [hidden]="true" [value]="selectedHome" formControlName="homeaddress" type="text" class="custominput"></ion-input>        
         <form action="" [formGroup]="credshome" (ngSubmit)="searchome()">
           <ion-input position="stacked" [value]="selectedHome" formControlName="homeaddress" type="text" class="custominput"></ion-input>
-          <ion-button type="submit">Search</ion-button>
+          <ion-button type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
           <ion-button (click)="getCurrent()"> <ion-icon name="location-outline"></ion-icon></ion-button>
         </form>
           <ion-note slot="error" *ngIf="(homeaddress.dirty || homeaddress.touched) && homeaddress.errors">Required</ion-note>
@@ -115,7 +115,7 @@
       <ion-card-content>
         <form action="" [formGroup]="credscurrent" (ngSubmit)="searchCurrent()">
           <ion-input   position="stacked" [value]="selectedCurrent" formControlName="currentaddress" type="text" class="custominput"></ion-input>
-          <ion-button type="submit">Search</ion-button>
+          <ion-button type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
           <ion-button (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
         </form>
           <ion-note slot="error" *ngIf="(currentaddress.dirty || currentaddress.touched) && currentaddress.errors">Required</ion-note>
@@ -204,7 +204,6 @@
             </ion-radio-group>
   </ion-card-content>
     </ion-card>
-    <ion-button (click)="check()"  shape="round "expand="block" class="btnreg">CHEck</ion-button>
 
     <ion-button type="submit"  shape="round "expand="block" class="btnreg">Finish</ion-button>
   </form>
