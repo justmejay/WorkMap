@@ -112,6 +112,7 @@ export class CompanyService {
     try {
       
       const userget = this.auth.currentUser?.uid;
+      console.log(userget)
       const userDocRef3 = collection(this.firestore, `joblist/`);
       const user = await addDoc(userDocRef3, {uid: userget, cname, caddress, ccontact, cemail, cdetails, csize, cprocessingtime, cbenefits, jtitle, jsalary, jspecialization, jtype});
      
@@ -123,7 +124,15 @@ export class CompanyService {
 
   getjob(): Observable<Company[]>{
     const cakesRef = collection(this.firestore, 'joblist')
-    return collectionData(cakesRef, {idField: 'id'}) as Observable<[Company]>
+    return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
+  }
+
+  getjobc(): Observable<Company[]>{
+    const userget = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `joblist/`)
+    const q = query(cakesRef, where("uid", "==", `${userget}` ))
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
   }
 
 }
