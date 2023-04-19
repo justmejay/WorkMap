@@ -54,37 +54,40 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content  *ngFor="let job of job" class="ion-padding ">
-    <ion-card class="joblisting">
-      <ion-card-header>
-        <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
-        <ion-card-title>
-          {{job.jtitle}}
-        </ion-card-title>
-        <ion-card-subtitle>
-          {{job.cname}}
-        </ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <div class="companydetails">
-          <ion-label>Company Address: {{job.caddress}}</ion-label>
-          <ion-label></ion-label>
-          <ion-label>Starting Salary: {{job.jsalary}}</ion-label>
-          <ion-label></ion-label>
-        </div>
-        <div class="jobdetails">
-          <div class="jobspecialization">
-            <ion-label>Job Specialization: {{job.jspecialization}}</ion-label>
-            <ion-label></ion-label>
+  <ion-content  class="ion-padding ">
+    <div class="joblistingfeed" *ngFor="let job of job">
+      <ion-card class="joblisting">
+        <ion-card-header>
+          <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
+          <ion-card-title>
+            {{job.jtitle}}
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{job.cname}}
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="companydetails">
+            <ion-label class="cardsubtitle">Company Address: </ion-label>
+            <ion-label class="jobinfo">{{job.caddress}}</ion-label>
+            <ion-label class="cardsubtitle">Starting Salary: </ion-label>
+            <ion-label class="jobinfo">{{job.jsalary}} pesos</ion-label>
           </div>
-          <div class="jobtype">
-            <ion-label>{{job.jtype}}</ion-label>
+          <div class="jobdetails">
+            <div class="jobspecialization">
+              <ion-label class="cardsubtitle">Job Specialization: </ion-label>
+              <ion-label class="jobinfo">{{job.jspecialization}}</ion-label>
+            </div>
+            <div class="jobtype">
+              <ion-label class="cardsubtitle">Job Type: </ion-label>
+              <ion-label class="jobinfo">{{job.jtype}}</ion-label>
+            </div>
           </div>
-        </div>
-      </ion-card-content>
-      <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
-    <ion-button size="large" class="jobcardinfo">Apply Now</ion-button>
-    </ion-card>
+        </ion-card-content>
+        <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
+        <ion-button size="large" class="jobcardinfo">Apply Now</ion-button>
+      </ion-card>
+    </div>
   </ion-content>
 
   <ion-footer>

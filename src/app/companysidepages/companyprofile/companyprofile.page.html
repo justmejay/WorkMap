@@ -33,20 +33,14 @@
             </div>
           </ion-card-header>
           <ion-card-content>
-            <ion-item lines="none">
-              <ion-label>Name: </ion-label>
+              <ion-label class="cardsubtitle">Name: </ion-label>
               <ion-input value="{{employer.fname}} {{employer.mname}} {{employer.lname}}" [readonly]="true"></ion-input>
-            </ion-item>
 
-            <ion-item lines="none">
-              <ion-label>Contact Number: </ion-label>
+              <ion-label class="cardsubtitle">Contact Number: </ion-label>
               <ion-input  value="{{employer.contact}}" [readonly]="true"></ion-input>
-            </ion-item>
 
-            <ion-item lines="none">
-              <ion-label>Email Address: </ion-label>
+              <ion-label class="cardsubtitle">Email Address: </ion-label>
               <ion-input  value="{{employer.email}}" [readonly]="true"></ion-input>
-            </ion-item>
           </ion-card-content>
         </ion-card> 
 
@@ -59,44 +53,28 @@
             </div>
           </ion-card-header>
           <ion-card-content>
-            <ion-item lines="none">
-              <ion-label>Company Name: </ion-label>
+              <ion-label class="cardsubtitle">Company Name: </ion-label>
               <ion-input value="{{company.cname}}" [readonly]="true"></ion-input>
-            </ion-item>
 
-            <ion-item lines="none">
-              <ion-label>Company Address: </ion-label>
+              <ion-label class="cardsubtitle">Company Address: </ion-label>
               <ion-input value="{{company.street}} {{company.barangay}} {{company.town}} {{company.province}} {{company.country}}" [readonly]="true"></ion-input>
-            </ion-item>
-            <ion-item lines="none">
               <ion-label>Company Contact Number: </ion-label>
               <ion-input  value="{{company.ccontact}}" [readonly]="true"></ion-input>
-            </ion-item>
 
-            <ion-item lines="none">
-              <ion-label>Company Email Address: </ion-label>
+              <ion-label class="cardsubtitle">Company Email Address: </ion-label>
               <ion-input value="{{company.cemail}}" [readonly]="true"></ion-input>
-            </ion-item>
 
-            <ion-item lines="none">
-              <ion-label>Company Size: </ion-label>
+              <ion-label class="cardsubtitle">Company Size: </ion-label>
               <ion-input value="{{company.csize}}" [readonly]="true"></ion-input>
-            </ion-item>
 
-            <ion-item lines="none">
-              <ion-label>Average Processing Time: </ion-label>
+              <ion-label class="cardsubtitle">Average Processing Time: </ion-label>
               <ion-input value="{{company.cprocessingtime2}} {{company.cprocessingtime1}}" [readonly]="true"></ion-input>
-            </ion-item>
 
-            <ion-item lines="none">
-              <ion-label>Benefits: </ion-label>
+              <ion-label class="cardsubtitle">Benefits: </ion-label>
               <ion-textarea style="height: 50px; color:black" value="{{company.cbenefits}}" autosize color="primary" [readonly]="true"></ion-textarea>
-            </ion-item>
 
-            <ion-item lines="none">
-              <ion-label>About Company: </ion-label>
+              <ion-label class="cardsubtitle">About Company: </ion-label>
               <ion-textarea style="height: 50px; color:black" value="{{company.cdetails}}" autosize color="primary" [readonly]="true"></ion-textarea>
-            </ion-item>
 
           </ion-card-content>
         </ion-card>     
