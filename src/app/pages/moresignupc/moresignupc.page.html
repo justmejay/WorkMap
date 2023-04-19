@@ -54,7 +54,7 @@
 
           <form action="" [formGroup]="credscurrent" (ngSubmit)="searchCurrent()">
             <ion-input   position="stacked" [value]="selectedCurrent" formControlName="companyaddress" type="text" class="custominput"></ion-input>
-            <ion-button type="submit">Search</ion-button>
+            <ion-button type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
             <ion-button (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
           </form>
             <ion-note slot="error" *ngIf="(companyaddress.dirty || companyaddress.touched) && companyaddress.errors">Required</ion-note>
@@ -66,7 +66,6 @@
       </ion-card-content>
     </ion-card>
     </div>
-    <ion-button   (click)="checkl()" expand="block" class="btnreg">Check</ion-button>
     <ion-button type="submit" [disabled]="!credentials.valid" expand="block" class="btnreg">Finish</ion-button>
   </form>
 </div>
