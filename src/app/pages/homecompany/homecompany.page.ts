@@ -15,12 +15,11 @@ import {
 import { Auth } from '@angular/fire/auth';
 
 @Component({
-  selector: 'app-dashboardcompany',
-  templateUrl: './dashboardcompany.page.html',
-  styleUrls: ['./dashboardcompany.page.scss'],
+  selector: 'app-homecompany',
+  templateUrl: './homecompany.page.html',
+  styleUrls: ['./homecompany.page.scss'],
 })
-export class DashboardcompanyPage implements OnInit {
-  job: any = [];
+export class HomecompanyPage implements OnInit {
 
   constructor(
     private firestore: CompanyService,
@@ -31,19 +30,11 @@ export class DashboardcompanyPage implements OnInit {
     private router: Router,
     private storage: Storage,
     private authd: Auth
-  ) {
-    
-    this.firestore.getjobc().subscribe(res=>{
-      this.job = res;
-      console.log(this.job)
-
-    })
-   }
+  ) { }
 
   ngOnInit() {
   }
 
-  
   logout(){
     this.auth.logout();
     this.router.navigate(['authentication'], );

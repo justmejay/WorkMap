@@ -104,29 +104,6 @@ export class AddjoblistingPage implements OnInit {
     
   }
 
-  // async addjoblisting() {
-
-  //   const loading = await this.loadingController.create({
-  //     spinner: "dots",
-  //     message: "Adding up!"
-  //   });    await loading.present();
-  //   await loading.present();
-
-  //   const job = await this.firestore.addjoblisting(this.credentials.value);
-
-    
-  //   await loading.dismiss();
-
-  //   if (job) {
-  //     this.router.navigateByUrl('/dashboardcompany', { replaceUrl: true });
-  //     this.showAlert('Upload success', 'Data uploaded!');
-
-
-  //       } else {
-  //     this.showAlert('Upload failed', 'Please try again!');
-  //   }
-  // }
-
   async addjoblisting() {
 
     const loading = await this.loadingController.create({
