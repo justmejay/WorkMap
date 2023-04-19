@@ -104,26 +104,46 @@ export class AddjoblistingPage implements OnInit {
     
   }
 
+  // async addjoblisting() {
+
+  //   const loading = await this.loadingController.create({
+  //     spinner: "dots",
+  //     message: "Adding up!"
+  //   });    await loading.present();
+  //   await loading.present();
+
+  //   const job = await this.firestore.addjoblisting(this.credentials.value);
+
+    
+  //   await loading.dismiss();
+
+  //   if (job) {
+  //     this.router.navigateByUrl('/dashboardcompany', { replaceUrl: true });
+  //     this.showAlert('Upload success', 'Data uploaded!');
+
+
+  //       } else {
+  //     this.showAlert('Upload failed', 'Please try again!');
+  //   }
+  // }
+
   async addjoblisting() {
 
     const loading = await this.loadingController.create({
       spinner: "dots",
       message: "Adding up!"
     });    await loading.present();
-    await loading.present();
 
-    const job = await this.firestore.addjoblisting(this.credentials.value);
-
-    
+    const user = await this.firestore.addjoblisting(this.credentials.value);
     await loading.dismiss();
 
-    if (job) {
+    if (user) {
       this.router.navigateByUrl('/dashboardcompany', { replaceUrl: true });
-      this.showAlert('Upload success', 'Data uploaded!');
+      this.showAlert('Add success', '');
 
 
         } else {
-      this.showAlert('Upload failed', 'Please try again!');
+      this.showAlert('Add failed', 'Please try again!');
     }
   }
 
