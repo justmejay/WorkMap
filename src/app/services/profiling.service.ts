@@ -57,6 +57,17 @@ export interface User{
   ongoing: string,
   schoolname: string,
   yearg: string,
+  
+
+  //addressadd
+  clat: string;
+  clng: string;
+  currentPlaceID: string;
+  currentaddress: string;
+  homePlaceID: string;
+  homeaddress: string;
+  lat: string;
+  lng: string;
 
 
 
