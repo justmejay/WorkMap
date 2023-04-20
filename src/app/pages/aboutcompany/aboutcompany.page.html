@@ -10,80 +10,66 @@
 <ion-content>
 
 <!-- Company Details -->
-  <ion-card>
+  <ion-card class="cardcontainer">
     <ion-card-header>
         <ion-card-title>Company Details</ion-card-title>
       </ion-card-header>
     <ion-card-content>
-      <ion-item lines="none">
-        <ion-label position="stacked">Company Name: </ion-label>
-        <ion-input position="stacked" placeholder="Apple, Inc." [readonly]="true"></ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label position="stacked">Company Address: </ion-label>
-        <ion-input position="stacked" placeholder="Specified Address" [readonly]="true"></ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label position="stacked">Company Contact Number: </ion-label>
-        <ion-input position="stacked" placeholder="09010203040" [readonly]="true"></ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label position="stacked">Company Email Address: </ion-label>
-        <ion-input position="stacked" placeholder="appleinc@icloud.com" [readonly]="true"></ion-input>
-      </ion-item>
+        <ion-label position="stacked" class="cardsubtitle">Company Name: </ion-label>
+        <ion-input position="stacked" class="custominput" placeholder="Apple, Inc." [readonly]="true"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company Address: </ion-label>
+        <ion-input position="stacked" class="custominput" placeholder="Specified Address" [readonly]="true"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company Contact Number: </ion-label>
+        <ion-input position="stacked" class="custominput" placeholder="09010203040" [readonly]="true"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company Email Address: </ion-label>
+        <ion-input position="stacked" class="custominput" placeholder="appleinc@icloud.com" [readonly]="true"></ion-input>
+      
     </ion-card-content>
   </ion-card>
 
 <!-- About Company -->
-  <ion-card>
+  <ion-card class="cardcontainer">
     <ion-card-header>
         <ion-card-title>About Company</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-item lines="none">
-        <div class="aboutcompany">
-          <h4>Vision</h4>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat explicabo facilis aliquam, dolores cum suscipit eum nobis repellat dignissimos voluptas nostrum eos mollitia iste! Perspiciatis soluta cum placeat quaerat recusandae?</p>
-          <h4>Mission</h4>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat explicabo facilis aliquam, dolores cum suscipit eum nobis repellat dignissimos voluptas nostrum eos mollitia iste! Perspiciatis soluta cum placeat quaerat recusandae?</p>
-        </div>
-      </ion-item>
+      <ion-label position="stacked" class="cardsubtitle">Vision:</ion-label>
+      <ion-textarea autosize [readonly]="true" class="custominput"></ion-textarea>
+      
+      <ion-label position="stacked" class="cardsubtitle">Mission:</ion-label>
+      <ion-textarea autosize [readonly]="true" class="custominput"></ion-textarea>
     </ion-card-content>
   </ion-card>
 
 <!-- Additional Info -->
-  <ion-card>
+  <ion-card class="cardcontainer">
     <ion-card-header>
         <ion-card-title>Additional Information</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-item lines="none">
-        <ion-label position="stacked">Company size: </ion-label>
-        <ion-input position="stacked" placeholder="1000 employees"></ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label position="stacked">Average Processing Time: </ion-label>
-        <ion-input position="stacked" placeholder="1-2 Working Days"></ion-input>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label position="stacked">Industry Type: </ion-label>
-        <ion-input position="stacked" placeholder="Computer Information/Technology"></ion-input>
-      </ion-item>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company size: </ion-label>
+        <ion-input position="stacked" class="custominput" placeholder="1000 employees"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Average Processing Time: </ion-label>
+        <ion-input position="stacked" class="custominput" placeholder="1-2 Working Days"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Industry Type: </ion-label>
+        <ion-input position="stacked" class="custominput" placeholder="Computer Information Technology"></ion-input>
+      
     </ion-card-content>
   </ion-card>
 
 <!-- Benefits -->
-  <ion-card>
+  <ion-card class="cardcontainer">
     <ion-card-header>
         <ion-card-title>Benefits</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-item lines="none">
-        <ion-label position="stacked">Health Insurance </ion-label>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-label position="stacked">Free Apple Cloud Service </ion-label>
-      </ion-item>
+      <ion-textarea autosize [readonly]="true" class="custominput"></ion-textarea>
     </ion-card-content>
   </ion-card>
 </ion-content>
