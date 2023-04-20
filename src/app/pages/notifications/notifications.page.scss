@@ -73,15 +73,17 @@ ion-tab-button{
     color: #000000;
 }
 
-ion-card {
-    --background: #ffffff;
+ion-card{
+    --background: #71a8fa;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-    margin: 8%;
     border-radius: 15px;
-    border: solid 3px  rgb(53, 66, 125);
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
 }
 ion-card-header{
     padding:0%;
+    --background:  #71a8fa;
+    color: whitesmoke;
 }
 ion-card-content{
     color: black;
@@ -90,10 +92,8 @@ ion-card-content{
 
 
 ion-item{
-    --background: #70AFFA;
+    --background:  #71a8fa;
 }
-
-
 
 
 

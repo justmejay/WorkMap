@@ -11,15 +11,22 @@ ion-header{
     }
 }
 
-ion-card {
-    --background: #ffffff;
+ion-card{
+    --background: #71a8fa;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    border: solid 3px  rgb(53, 66, 125);
-    margin: 0.5rem;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card.cardcontainer {
+    --background: #71a8fa;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
 }
 ion-card-header{
-    --background: #5e2ee4;
+    --background: #277dff;
     color: whitesmoke;
     margin: 0%;
 }
@@ -32,20 +39,31 @@ ion-card-content{
     color: black;
     margin: auto;
 }
-
-ion-item {
-    --background: #ffffff;
+ion-label.cardsubtitle{
+    font-size: 1.2em;
+    font-weight: 500;
 }
 
-ion-input{
+ion-input.custominput{
     white-space: pre-wrap;
     word-wrap: break-word;
+    border: solid 2px rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
     // text-align: justify;
 }
-
-.cardcontainer ion-card-content{
-    padding: 0%;
+ion-textarea{
+    border: solid 2px rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.10rem;
+    margin-top: 0.5rem;
 }
+
 
 .profilepic{
     height: 15%;

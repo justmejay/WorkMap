@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card >
+  <ion-card class="cardcontainer">
     <ion-card-header>
       <div style="display: flex; align-items: center;">
         <ion-thumbnail slot="start">
@@ -17,51 +17,42 @@
       </div>
     </ion-card-header>
     <ion-card-content>
-        <ion-item lines="none">
-          <ion-label position="stacked">Age: </ion-label>
-          <ion-input placeholder="22" [readonly]="true"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label position="stacked">Sex:</ion-label>
-          <ion-input placeholder="Male" [readonly]="true"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label position="stacked">Address:</ion-label>
-          <ion-input placeholder="address" [readonly]="true"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-          <ion-label position="stacked">Job Specialization:</ion-label>
-          <ion-input [readonly]="true">Computer Information Technology</ion-input>         
-        </ion-item>
+          <ion-label position="stacked" class="cardsubtitle">Age: </ion-label>
+          <ion-input position="stacked" placeholder="22" class="custominput"[readonly]="true"></ion-input>
+
+          <ion-label position="stacked" class="cardsubtitle">Sex:</ion-label>
+          <ion-input position="stacked" placeholder="Male" class="custominput"[readonly]="true"></ion-input>
+
+          <ion-label position="stacked" class="cardsubtitle">Address:</ion-label>
+          <ion-input position="stacked" placeholder="address" class="custominput"[readonly]="true"></ion-input>
+
+          <ion-label position="stacked" class="cardsubtitle">Job Specialization:</ion-label>
+          <ion-input position="stacked" placeholder="IT" [readonly]="true" class="custominput"></ion-input>         
+
 
         <!--Ratings -->
-        <ion-card class="cardcontainer">
+        <ion-card class="cardcontainer" style="border: solid 3px  rgb(53, 66, 125);">
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>Ratings</ion-card-title>
             </div>
           </ion-card-header>
           <ion-card-content>
-              <ion-item lines="none">
-                <ion-label position="stacked">Customer Satisfaction: </ion-label>
-                <ion-input position="stacked" placeholder="Very Satisfactory" [readonly]="true"></ion-input>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-label position="stacked">Work Quality:</ion-label>
-                <ion-input position="stacked" placeholder="Satisfactory"[readonly]="true"></ion-input>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-label position="stacked">Professionalism:</ion-label>
-                <ion-input position="stacked" placeholder="Fair" [readonly]="true"></ion-input>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-label position="stacked">Technical Skills:</ion-label>
-                <ion-input position="stacked" placeholder="Poor" [readonly]="true"></ion-input>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-label position="stacked">Comments:</ion-label>
-                <ion-textarea style="height: 50px; color:black; text-align: justify;" autosize color="primary" [readonly]="true">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</ion-textarea>        
-              </ion-item>
+
+                <ion-label position="stacked" class="cardsubtitle">Customer Satisfaction: </ion-label>
+                <ion-input position="stacked" class="custominput" placeholder="Very Satisfactory" [readonly]="true"></ion-input>
+
+                <ion-label position="stacked" class="cardsubtitle">Work Quality:</ion-label>
+                <ion-input position="stacked" class="custominput" placeholder="Satisfactory"[readonly]="true"></ion-input>
+
+                <ion-label position="stacked" class="cardsubtitle">Professionalism:</ion-label>
+                <ion-input position="stacked" class="custominput" placeholder="Fair" [readonly]="true"></ion-input>
+
+                <ion-label position="stacked" class="cardsubtitle">Technical Skills:</ion-label>
+                <ion-input position="stacked" class="custominput" placeholder="Poor" [readonly]="true"></ion-input>
+
+                <ion-label position="stacked" class="cardsubtitle">Comments:</ion-label>
+                <ion-textarea autosize [readonly]="true" class="custominput"></ion-textarea>        
           </ion-card-content>
         </ion-card>
 

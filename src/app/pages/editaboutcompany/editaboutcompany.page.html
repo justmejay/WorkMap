@@ -14,7 +14,7 @@
   <form >
     <div>
     <h3>About Company</h3>
-    <ion-card>
+    <ion-card class="cardcontainer">
       <ion-card-content>
             <h3 position="stacked">Company Overview:</h3>
             <ion-textarea autogrow="true" class="custominput"></ion-textarea>
@@ -24,26 +24,18 @@
     <h3>Additional Company Information</h3>
     <ion-card>
       <ion-card-content>
-          <ion-item>
-            <ion-label position="stacked">Company Size (number of employees):</ion-label>
-            <ion-input position="stacked" type="number"></ion-input>
-          </ion-item>
+            <ion-label position="stacked" class="cardsubtitle">Company Size (number of employees):</ion-label>
+            <ion-input position="stacked" type="number" class="custominput" ></ion-input>
           
           <h3>Average Processing Time:</h3>
-            <ion-item class="apt">
-              <ion-list class="processtime">
-                <ion-item lines="none" class="dropdown">
                   <ion-select interface="popover" placeholder="Select">
                     <ion-select-option value="day/s">Day/s</ion-select-option>
                     <ion-select-option value="week/s">Week/s</ion-select-option>
                     <ion-select-option value="month/s">Month/s</ion-select-option>
                     <ion-select-option value="year/s">Year/s</ion-select-option>
                   </ion-select>
-                </ion-item>
-              </ion-list>
   
-              <ion-list class="processtime">
-                <ion-item lines="none" class="dropdown">
+
                   <ion-select interface="popover" placeholder="Select">
                     <ion-select-option value="1">1</ion-select-option>
                     <ion-select-option value="2">2</ion-select-option>
@@ -57,9 +49,7 @@
                     <ion-select-option value="10">10</ion-select-option>
                     <ion-select-option value="11">11</ion-select-option>
                   </ion-select>
-                </ion-item>
-              </ion-list>
-            </ion-item>
+
               
           <h3>Industry Type:</h3>
           <ion-radio-group [allowEmptySelection]="false">
