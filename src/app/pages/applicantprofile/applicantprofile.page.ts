@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
@@ -20,6 +21,7 @@ export class ApplicantprofilePage implements OnInit {
   constructor(
     private firestore: ProfilingService,
     private alertCtrl: AlertController,
+    private router: Router
   ) {
 
     this.firestore.getprofile().subscribe(res=>{
@@ -52,8 +54,10 @@ export class ApplicantprofilePage implements OnInit {
    }
 
   ngOnInit(
+    
 
   ) {
+
   }
 
   async about(){

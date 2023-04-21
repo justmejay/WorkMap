@@ -13,11 +13,29 @@
 <div >
   <form [formGroup]="credentials" (ngSubmit)="editadd()" >
     <div>
+   
+
+    <h3>Current Address</h3>
+    <div class="map" #map></div>
+    <P style="color: red; text-align: center;">(Adjust the Marker if not accurate)</P>
+
+
+    <ion-card>
+      <ion-card-content>
+          <ion-item>
+            <ion-input position="stacked" [readonly]="true" type="text"  value="{{address.currentaddress}}" class="custominput"></ion-input>
+          </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+    </div>
+    
     <h3>Home Address</h3>
     <ion-card>
+
       <ion-card-content *ngIf="address">
           <ion-item>
-            <ion-input position="stacked" type="text" formControlName="hstreet" value="{{address.homeaddress}}" class="custominput"></ion-input>
+            <ion-input position="stacked"   type="text" formControlName="homeaddress" value="{{address.homeaddress}}" class="custominput"></ion-input>
           </ion-item>
      
           
@@ -25,22 +43,12 @@
       </ion-card-content>
     </ion-card>
 
-    <h3>Current Address</h3>
-    <ion-card>
-      <ion-card-content>
-          <ion-item>
-            <ion-input position="stacked" type="text" formControlName="street"  value="{{address.currentaddress}}" class="custominput"></ion-input>
-          </ion-item>
-         
-
-      </ion-card-content>
-    </ion-card>
-    </div>
-
-
     <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">Save</ion-button>
+
   </form>
 </div>
+
+
 
 
 
