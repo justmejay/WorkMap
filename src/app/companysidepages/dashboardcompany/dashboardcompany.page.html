@@ -1,0 +1,128 @@
+<ion-menu contentId="main-content">
+  <ion-header collapse="fade">
+    <ion-toolbar class="hamburgermenu">
+      <ion-label class="ion-padding hamburgtitle">Menu</ion-label>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-card class="hamburgcard">
+      <ion-button fill="clear" class="card1menu" expand="block">
+        <ion-icon slot="start" name="bookmarks-outline" style="color: #1ccdf9;"></ion-icon>
+        Saved</ion-button>
+      <ion-button fill="clear" class="card1menu" expand="block">
+        <ion-icon slot="start" name="information-circle-outline"></ion-icon>
+        About Us</ion-button>
+      <ion-button fill="clear" class="card1menu" expand="block">
+        <ion-icon slot="start" name="shield-half-outline" style="color: #0d71d5;"></ion-icon>
+        Privacy Policy
+      </ion-button>
+      <ion-button fill="clear" class="card1menu" expand="block">
+        <ion-icon slot="start" name="person" style="color: #0bc089;" [routerLink]="['/resumebuilder']"></ion-icon>
+         Employees</ion-button>
+      <ion-button fill="clear" class="card1menu" expand="block">
+        <ion-icon slot="start" name="diamond-outline" style="color: #ba8929;"></ion-icon>
+        Get Premium</ion-button>
+    </ion-card>
+    <ion-card class="hamburgcard">
+      <ion-button fill="clear" class="card1menu" expand="block">
+        <ion-icon slot="start" name="settings" style="color: #42505d;"></ion-icon>
+        Settings</ion-button>
+    </ion-card>
+    <ion-card class="hamburgcard">
+      <ion-button fill="clear" class="card1menu" expand="block" (click)="logout()">
+        <ion-icon slot="start" name="log-out-outline" style="color:#042f9c;"></ion-icon>
+        Logout</ion-button>
+    </ion-card>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar class="uppertool">
+      <ion-buttons fill="solid" slot="start">
+        <ion-menu-button class="btn"></ion-menu-button>
+      </ion-buttons>
+      
+      <ion-buttons fill="solid" slot="end">
+        <!-- <ion-button type="">
+          <ion-icon class="btn" name="search" slot="icon-only"></ion-icon>
+        </ion-button> -->
+        <ion-button type=""  [routerLink]="['/companyprofile']">
+          <ion-icon class="btn" name="person-circle" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content  *ngFor="let job of job" class="ion-padding ">
+    <ion-card class="joblisting">
+      <ion-card-header>
+        <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
+        <ion-card-title>
+          {{job.jtitle}}
+        </ion-card-title>
+        <ion-card-subtitle>
+          {{job.cname}}
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="companydetails">
+          <ion-label>Company Address: {{job.caddress}}</ion-label>
+          <ion-label></ion-label>
+          <ion-label>Starting Salary: {{job.jsalary}}</ion-label>
+          <ion-label></ion-label>
+        </div>
+        <div class="jobdetails">
+          <div class="jobspecialization">
+            <ion-label>Job Specialization: {{job.jspecialization}}</ion-label>
+            <ion-label></ion-label>
+          </div>
+          <div class="jobtype">
+            <ion-label>{{job.jtype}}</ion-label>
+          </div>
+        </div>
+      </ion-card-content>
+      <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
+    <ion-button size="large" class="jobcardinfo">Apply Now</ion-button>
+    </ion-card>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+      <ion-tabs>
+        <ion-router-outlet></ion-router-outlet>
+  
+        <ion-tab-bar class="lowertool">
+          <ion-tab-button tab="home">
+            <ion-icon name="home"></ion-icon>Home
+          </ion-tab-button>
+
+          <ion-tab-button [routerLink]="['/dashboardcompany']">
+            <ion-icon name="briefcase"></ion-icon>Job Listing 
+          </ion-tab-button>
+
+          <ion-tab-button tab="discover">
+            <ion-icon name="briefcase"></ion-icon>Review Application 
+          </ion-tab-button>
+
+          <ion-tab-button [routerLink]="['/addjoblisting']">
+            <ion-icon name="add-outline"></ion-icon>Add Job Listing
+          </ion-tab-button>
+
+          <ion-tab-button tab="messages">
+            <ion-icon name="chatbubble"></ion-icon>Messages
+          </ion-tab-button>
+
+          <ion-tab-button tab="notification">
+            <ion-icon name="notifications" [routerLink]="['/notifications']"></ion-icon>Notification
+          </ion-tab-button>
+          
+        </ion-tab-bar>
+      </ion-tabs>
+    </ion-toolbar>
+  </ion-footer>
+
+<!-- 
+  <ion-button  [routerLink]="['/companyprofile']" >Company Profile</ion-button> -->
+
+</div>  

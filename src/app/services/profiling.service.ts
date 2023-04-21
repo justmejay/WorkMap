@@ -57,6 +57,17 @@ export interface User{
   ongoing: string,
   schoolname: string,
   yearg: string,
+  
+
+  //addressadd
+  clat: any;
+  clng: any;
+  currentPlaceID: string;
+  currentaddress: string;
+  homePlaceID: string;
+  homeaddress: string;
+  lat: string;
+  lng: string;
 
 
 
@@ -174,13 +185,13 @@ export class ProfilingService {
     }
   }
 
-  async editaddress({street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry}: 
-    {street: any, barangay: any, town: any, province: any, country: any, hstreet: any, hbarangay: any, htown: any, hprovince: any, hcountry: any}){
+  async editaddress({homeaddress, newmarker}: 
+    {homeaddress: any, newmarker: any}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/address/${userget}`);
-      const user = await updateDoc(userDocRef3, {street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry});
+      const user = await updateDoc(userDocRef3, {homeaddress, clat: newmarker.lat, clng: newmarker.lng});
      
       return true;
     } catch (e) {
@@ -327,6 +338,46 @@ export class ProfilingService {
     const storageRef = ref(this.storage, fileStoragePath);
     await deleteObject(storageRef);
   }
+
+  async editresumefile(fileUrl: any, generateunique: any){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/resume/${userget}`);
+      const user = await updateDoc(userDocRef3, {fpath: fileUrl, filename: generateunique});
+     
+      return user;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async deleterfile(fname: any){
+    const userget = this.auth.currentUser?.uid;
+
+    const fileStoragePath = `filesStorage/resume/${this.auth.currentUser.uid}/${fname}`;
+    const storageRef = ref(this.storage, fileStoragePath);
+    await deleteObject(storageRef);
+  }
+
+  deletecdoc(id: any){
+    const userget = this.auth.currentUser.uid;
+    const cakeRef = doc(this.firestore, `users/${userget}/certifications/${id}`)
+    return deleteDoc(cakeRef)
+  }
+
+  deleteedoc(id: any){
+    const userget = this.auth.currentUser.uid;
+    const cakeRef = doc(this.firestore, `users/${userget}/experience/${id}`)
+    return deleteDoc(cakeRef)
+  }
+
+  deletesdoc(id: any){
+    const userget = this.auth.currentUser.uid;
+    const cakeRef = doc(this.firestore, `users/${userget}/school/${id}`)
+    return deleteDoc(cakeRef)
+  }
+
 
 }
 

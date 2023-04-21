@@ -19,11 +19,11 @@
        
           <ion-item>
             <ion-label position="stacked">School Name:</ion-label>
-            <ion-input value="{{sch.schoolname}}" formControlName="schoolname" type="text" class="custominput"></ion-input>
+            <ion-input position="stacked" value="{{sch.schoolname}}" formControlName="schoolname" type="text" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Course:</ion-label>
-            <ion-input value="{{sch.course}}"  formControlName="course" type="text" class="custominput"></ion-input>
+            <ion-input position="stacked" value="{{sch.course}}"  formControlName="course" type="text" class="custominput"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Level:</ion-label>
@@ -34,8 +34,8 @@
             </ion-select>
           </ion-item>
           <ion-item >
-            <ion-label>Year Graduated:</ion-label>
-            <ion-input value="{{sch.yearg}}" formControlName="yearg" type="date"></ion-input>
+            <ion-label position="stacked">Year Graduated:</ion-label>
+            <ion-input position="stacked" value="{{sch.yearg}}" formControlName="yearg" type="date"></ion-input>
           
 
               <ion-modal [keepContentsMounted]="true">

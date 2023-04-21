@@ -1,0 +1,83 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+    ion-toolbar{
+        --background:  #2855A1;
+        color: white;
+    }
+}
+
+ion-content{
+    --background:#ffffff;
+} 
+
+.btn{
+    font-size: 40px;
+    color: #ffffff;  
+}
+
+ion-card-content{
+    color: black;
+    margin: auto;
+}
+
+ion-item{
+    --background: #71a8fa;
+}
+
+ion-card{
+    --background: #71a8fa;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card.cardcontainer {
+    --background: #71a8fa;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card-header{
+    --background: #277dff;
+    color: whitesmoke;
+    margin: 0%;
+}
+ion-card-title{
+    color: whitesmoke;
+}
+.profilepic{
+    display: flex;
+    align-items: center;
+    height: 20%;
+    width: 20%;
+    margin-right: 5%;
+}
+.profilepicimage{
+    border-radius: 50%;
+}
+
+.my-card {
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.5;
+    color: black;
+}
+
+.review{
+    --background: #277dff;
+    --border-color: rgb(53, 66, 125);
+    --border-style: solid;
+    --border-width: 2px;
+    color: #FFFFFF;
+    margin-top: 4%;
+}
+
+

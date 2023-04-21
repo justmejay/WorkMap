@@ -29,9 +29,11 @@ ion-toolbar{
 }
 
 .image{
+    display: flex;
+    justify-content: center;
     padding-top: 5%;
-    height: 20%;
-    width: 20%;
+    height: 35%;
+    width: 35%;
 }
 
 .preview {
@@ -54,42 +56,72 @@ ion-toolbar{
 
 .caption {
     color: #ffffff;
-    margin: 20% 0 20% 0;
+    margin: 10% 0;
     display: block;
     font-weight: bold;
     font-size: 20px;
 }
-
-ion-card {
-    --background: #E5EBEE;
+ion-card{
+    --background: #71a8fa;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-    margin: 8%;
     border-radius: 15px;
-    border: solid 3px  rgb(53, 66, 125);
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card.cardcontainer {
+    --background: #71a8fa;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
 }
 ion-card-header{
-    --background: #2F7EF5;
+    --background: #277dff;
     color: whitesmoke;
     margin: 0%;
 }
 ion-card-title{
     color: whitesmoke;
 }
-ion-item {
-    --background: #E5EBEE;
+ion-input.custominput{
+    border: solid 2px rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+ion-textarea{
+    border: solid 1px  rgb(143, 92, 172);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+ion-card-content{
+    color: black;
+    margin: auto;
+}
+ion-label.cardsubtitle{
+    font-size: 1.2em;
+    font-weight: 500;
 }
 ion-icon{
     height: 21px;
     width: 21px;
 }
 ion-item.aboutself{
-    border-style: solid 3px #2F7EF5 ;
+    // border-style: solid 3px #2F7EF5 ;
+    border-radius: 15px;
 }
 .aboutself{
     margin-top: 3%;
+    --background: #d3d3d3;
 }
 
-.resume{
+ion-button.resume{
     margin-bottom: 10%;
-    
+    --background: #70AFFA;
+    --border-style: solid 2px #2855A1;
 }

@@ -10,22 +10,39 @@ ion-toolbar{
         text-align: left;
     }
 }
-ion-card{
-    --background: #E5EBEE;
-    box-shadow: 10px 10px 5px rgb(208, 210, 211);
-    margin-bottom: 10%;
+.backicon{
+    width: 50px; 
+    color: white;
 }
+
+.backicon{
+    width: 50px; 
+    color: white;
+}
+
+ion-card {
+    --background: #70AFFA;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    // margin: 8%;
+    border-radius: 15px;
+    border: solid 3px  rgb(53, 66, 125);
+}
+ion-card-content{
+    color: black;
+    margin: auto;
+}
+
 ion-label{
     padding-left: 3%;
 }
-ion-list{
-    --background: #E5EBEE;
-}
 ion-item{
-    border: solid 1px #044DA3;
-    margin: 5%; 
+    border: solid 2px #136cd2;
+    border-radius: 15px; 
+    margin-bottom: 3%;
 }
-
+ion-input{
+    border-radius: 15px;
+}
 ion-input.custominput{
 //   --background: #fff;
   --color: black;
@@ -40,12 +57,29 @@ ion-label{
     font-size: 8px;
 }
 
-.btnreg{
+ion-button.btnreg{
     width: 100%;
     height: 60px;
-    --background-color: #2855A1;
+    --background: #2F7EF5;
     --color: white;
     margin-top: 5%;
+}
+
+h3{
+    margin-left: 5%;
+    color:  black;
+}
+
+ion-note{
+    margin-left: 6%;
+    color: #930808;
+}
+.dropdown{
+    display: block;
+    width: auto;
+}
+.selectitem{
+    border: none;
 }
 
 .add{

@@ -1,0 +1,197 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons [routerLink]="" slot="start">
+    <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+    </ion-buttons> 
+   Apply to Job
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Personal Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label>Name: </ion-label>
+        <ion-input value="" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Date of Birth: </ion-label>
+        <ion-input value="" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Age: </ion-label>
+        <ion-input value="" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Home Address: </ion-label>
+        <ion-input value="" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Current Address: </ion-label>
+        <ion-input value="" placeholder="House/Street No, Barangay, Town, Province" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Civil Status: </ion-label>
+        <ion-input  value="" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Religion: </ion-label>
+        <ion-input value="" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Specialization: </ion-label>
+        <ion-input value="" [readonly]="true"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <div>
+        <ion-card-title>Character Reference</ion-card-title>
+        <!-- <ion-icon style="float: right;" name="create" class="edit"></ion-icon> -->
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-label>Name of Mother: </ion-label>
+        <ion-input value="" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Contact No: </ion-label>
+        <ion-input value="" placeholder="09xx-xxx-xxxx" [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Name of Father: </ion-label>
+        <ion-input value=""  [readonly]="true"></ion-input>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Contact No: </ion-label>
+        <ion-input value="" [readonly]="true"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Educational Background -->
+        <ion-card >
+          <ion-card-header>
+            <div>
+              <ion-card-title>Educational Background</ion-card-title>
+              <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon> -->
+            </div>
+          </ion-card-header>
+          <ion-card-content class="ion-padding">
+
+            <div> 
+              <ion-item lines="none">
+                <ion-label>School Name: </ion-label>
+                <ion-input value="" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Course: </ion-label>
+                <ion-input value="" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Level: </ion-label>
+                <ion-input value="" [readonly]="true"></ion-input>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-label>Year Graduated: </ion-label>
+                <ion-input value="" [readonly]="true"></ion-input>
+              </ion-item>
+            </div>
+            
+          </ion-card-content>
+        </ion-card>
+
+  
+
+
+  <!-- Work Experience -->
+        <ion-card>
+          <ion-card-header>
+            <div>
+              <ion-card-title>Work Experience</ion-card-title>
+              <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]=""></ion-icon> -->
+            </div >
+          </ion-card-header>
+          <ion-card-content>
+            <div>
+              <ion-item lines="none">
+                <ion-label>Company Name: </ion-label>
+                <ion-input value="" [readonly]="true"></ion-input>
+              </ion-item>
+        
+              <ion-item lines="none">
+                <ion-label>Company Address: </ion-label>
+                <ion-input value="" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>Job Title: </ion-label>
+                <ion-input value="" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>From: </ion-label>
+                <ion-input value="" [readonly]="true"></ion-input>
+              </ion-item>
+
+              <ion-item lines="none">
+                <ion-label>To: </ion-label>
+                <ion-input value="" [readonly]="true"></ion-input>
+              </ion-item>
+            </div>
+              
+          </ion-card-content>
+        </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Reason for Applying Job</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-item lines="none">
+          <ion-label position="stacked">Enter input here: </ion-label>
+          <ion-input fill="outline" placeholder="I want to apply to this job because..."></ion-input>
+        </ion-item>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Credentials</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-item lines="none">
+          <ion-label position="stacked">File Name: </ion-label>
+          <ion-input fill="outline" placeholder="HacktheNorth Certification"></ion-input>
+        </ion-item>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-item lines="none">
+          <ion-label position="stacked">Organization: </ion-label>
+          <ion-input fill="outline" placeholder="HacktheNorth, Inc"></ion-input>
+        </ion-item>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-item lines="none">
+          <ion-label position="stacked">Date Obtained: </ion-label>
+          <ion-input fill="outline" placeholder="mm/dd/yyyy"></ion-input>
+        </ion-item>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-label>Attachments</ion-label>
+        <ion-button>Add file +</ion-button>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-button size="large" shape="round" expand="block">Submit Application</ion-button>
+</ion-content>

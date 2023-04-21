@@ -83,7 +83,7 @@ const routes: Routes = [
   },
   {
     path: 'companyprofile',
-    loadChildren: () => import('./pages/companyprofile/companyprofile.module').then( m => m.CompanyprofilePageModule)
+    loadChildren: () => import('./companysidepages/companyprofile/companyprofile.module').then( m => m.CompanyprofilePageModule)
   },
   {
     path: 'editcompanydetails',
@@ -107,7 +107,7 @@ const routes: Routes = [
   },
   {
     path: 'aboutcompany',
-    loadChildren: () => import('./aboutcompany/aboutcompany.module').then( m => m.AboutcompanyPageModule)
+    loadChildren: () => import('./pages/aboutcompany/aboutcompany.module').then( m => m.AboutcompanyPageModule)
   },
   {
     path: 'editaboutme',
@@ -120,10 +120,77 @@ const routes: Routes = [
   {
     path: 'addcertification',
     loadChildren: () => import('./pages/addcertification/addcertification.module').then( m => m.AddcertificationPageModule)
-  },  {
+  },
+  {
     path: 'editcertifications',
     loadChildren: () => import('./pages/editcertifications/editcertifications.module').then( m => m.EditcertificationsPageModule)
   },
+  {
+    path: 'editemployerprofile',
+    loadChildren: () => import('./pages/editemployerprofile/editemployerprofile.module').then( m => m.EditemployerprofilePageModule)
+  },
+  {
+    path: 'editchar',
+    loadChildren: () => import('./pages/editchar/editchar.module').then( m => m.EditcharPageModule)
+  },
+  {
+    path: 'editresume',
+    loadChildren: () => import('./pages/editresume/editresume.module').then( m => m.EditresumePageModule)
+  },
+  {
+    path: 'dashboardcompany',
+    loadChildren: () => import('./companysidepages/dashboardcompany/dashboardcompany.module').then( m => m.DashboardcompanyPageModule)
+  },
+  {
+    path: 'messagespage',
+    loadChildren: () => import('./messagespage/messagespage.module').then( m => m.MessagespagePageModule)
+  },
+  {
+    path: 'messagecreate',
+    loadChildren: () => import('./messagecreate/messagecreate.module').then( m => m.MessagecreatePageModule)
+  },
+  {
+    path: 'messageview',
+    loadChildren: () => import('./messageview/messageview.module').then( m => m.MessageviewPageModule)
+  },
+  {
+    path: 'notifications',
+    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'viewnotification',
+    loadChildren: () => import('./pages/viewnotification/viewnotification.module').then( m => m.ViewnotificationPageModule)
+  },
+  {
+    path: 'searchengine',
+    loadChildren: () => import('./searchengine/searchengine.module').then( m => m.SearchenginePageModule)
+  },
+  {
+    path: 'employees',
+    loadChildren: () => import('./companysidepages/employees/employees.module').then( m => m.EmployeesPageModule)
+  },
+  {
+    path: 'viewemployee',
+    loadChildren: () => import('./pages/viewemployee/viewemployee.module').then( m => m.ViewemployeePageModule)
+  },
+  {
+    path: 'rateemployee',
+    loadChildren: () => import('./companysidepages/rateemployee/rateemployee.module').then( m => m.RateemployeePageModule)
+  },
+  {
+    path: 'addjoblisting',
+    loadChildren: () => import('./companysidepages/addjoblisting/addjoblisting.module').then( m => m.AddjoblistingPageModule)
+  },  {
+    path: 'applytojob',
+    loadChildren: () => import('./pages/applytojob/applytojob.module').then( m => m.ApplytojobPageModule)
+  },
+  {
+    path: 'homecompany',
+    loadChildren: () => import('./pages/homecompany/homecompany.module').then( m => m.HomecompanyPageModule)
+  },
+
+
+
 
 
   

@@ -1,0 +1,42 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+    ion-toolbar{
+        --background:  #2855A1;
+        color: white;
+    }
+}
+
+.fabdesign{
+    --background: #2855A1;
+}
+
+ion-card {
+    display: flex;
+    flex-direction: row;
+    --background: #71a8fa;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    margin: 8%;
+    padding: 0.8rem;
+    border-radius: 15px;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card-title{
+    color: black;
+}
+ion-card-subtitle{
+    color: black;
+}
+
+.profilepic{
+    height: 20%;
+    width: 20%;
+    margin-right: 5%;
+}
+.profilepicimage{
+    border-radius: 50%;
+}

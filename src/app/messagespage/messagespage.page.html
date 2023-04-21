@@ -1,0 +1,56 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label>Messages</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card class="received">
+  <div class="profilepic">
+    <img class="profilepicimage" alt="Applicant Profile Picture" src="assets/header.png"/>
+  </div>
+  <div class="messagecontent">
+    <ion-card-title>
+      <ion-label>John Doe</ion-label>
+    </ion-card-title>
+    <ion-card-subtitle>
+      <ion-label>Sample message</ion-label>
+    </ion-card-subtitle>
+  </div>
+</ion-card>
+<ion-card class="received">
+  <div class="profilepic">
+    <img class="profilepicimage" alt="Applicant Profile Picture" src="assets/header.png"/>
+  </div>
+  <div class="messagecontent">
+    <ion-card-title>
+      <ion-label>John Wick</ion-label>
+    </ion-card-title>
+    <ion-card-subtitle>
+      <ion-label>Sample message</ion-label>
+    </ion-card-subtitle>
+  </div>
+</ion-card>
+<ion-card class="received">
+  <div class="profilepic">
+    <img class="profilepicimage" alt="Applicant Profile Picture" src="assets/header.png"/>
+  </div>
+  <div class="messagecontent">
+    <ion-card-title>
+      <ion-label>John Don't</ion-label>
+    </ion-card-title>
+    <ion-card-subtitle>
+      <ion-label>Sample message</ion-label>
+    </ion-card-subtitle>
+  </div>
+</ion-card>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button class="fabdesign">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

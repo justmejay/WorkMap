@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/resumebuilder']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>Edit Character Reference</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content class="ion-padding " *ngIf="resume">
+
+
+    <div>
+      <form [formGroup]="credentials" (ngSubmit)="editchar()" >
+        <div>
+        <ion-card>
+          <ion-card-content>
+            <ion-item lines="none">
+              <ion-label position="stacked">Name of Mother: </ion-label>
+              <ion-input position="stacked" formControlName="mo" value="{{resume.mo}} "></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="stacked">Contact No: </ion-label>
+              <ion-input type="number" position="stacked" formControlName="moc" value="{{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="stacked">Name of Father: </ion-label>
+              <ion-input position="stacked" formControlName="fa" value="{{resume.fa}}" ></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label position="stacked">Contact No: </ion-label>
+              <ion-input type="number" position="stacked" formControlName="fac" value="{{resume.fac}}"></ion-input>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+        </div>
+    
+     
+    
+        <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">Save</ion-button>
+      </form>
+    </div>
+
+
+
+</ion-content>

@@ -35,11 +35,12 @@ export class AuthService {
   ) { }
 
 
-  async signup({fname, mname, lname, suffix,
-    bday, age, contact, street, barangay, town, country, province, cs, religion, specialization,sex,hstreet, hbarangay, htown, hcountry, hprovince  }: 
-    {fname: any, mname: any, lname: any, suffix: any, bday: any, cs: any, religion: any, age: any, contact:any, street: any, barangay: any, 
-    town: any, country:any,  province: any, specialization: any, sex : any ,hstreet : any, hbarangay : any, htown : any, hcountry : any, 
-    hprovince : any }, email: any, 
+  async signup({fname, mname, lname, suffix, homeaddress, currentaddress,
+    bday, age, contact, cs, religion, specialization,sex , currentcoords, currentPlaceID,
+    homecoords,homePlaceID, }: 
+    {fname: any, mname: any, lname: any, suffix: any, bday: any, cs: any, religion: any, age: any, contact:any,  specialization: any, sex : any ,
+      currentPlaceID: any, selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
+     }, email: any, 
     password: any,  ){
 
     try {
@@ -60,10 +61,11 @@ export class AuthService {
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
       await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "", aboutme: "", cs,religion,  fname, mname, lname, suffix, sex, contact, bday, age, email });
       
+        console.log(currentPlaceID);
 
       const userDocRef2 = doc(this.firestore, `users/${userget}/address/${userget}`);
-      await setDoc(userDocRef2, {street, barangay, town, province, country, hstreet, hbarangay , 
-    htown, hprovince, hcountry});
+      await setDoc(userDocRef2, {clat: currentcoords.lat, clng: currentcoords.lng, currentPlaceID,
+        homeaddress,lat: homecoords.lat, lng: homecoords.lng,homePlaceID, currentaddress });
 
       const userDocRef3 = collection(this.firestore, `users/${userget}/experience`);
       await addDoc(userDocRef3, {cname: "", caddress: "", jtitle: "", datef: "", datet:""});
@@ -76,7 +78,7 @@ export class AuthService {
       await addDoc(userDocRef5, {name: "", orgn: "", year: "", fpath: "", filename: "" });
 
       const userDocRef6 = doc(this.firestore, `users/${userget}/resume/${userget}`);
-      await setDoc(userDocRef6, {fpath: "" , mo: "", moc: "", fa: "", fac: ""});
+      await setDoc(userDocRef6, {filename: "" ,fpath: "" , mo: "", moc: "", fa: "", fac: ""});
 
       await sendEmailVerification(this.auth.currentUser);
 
@@ -89,9 +91,8 @@ export class AuthService {
 
  
   async signupc({fname, mname, lname, contact, 
-    cname, ccontact, street, barangay, town, province,  country }: 
-    {fname: any, mname: any, lname: any, contact: any, cname: any, ccontact: any, street: any, barangay: any
-    , town: any, province: any, country: any }, email: any, 
+    cname, ccontact, companyaddress, currentPlaceID, currentcoordss, cemail }: 
+    {fname: any, mname: any, lname: any, contact: any, email:any, cname: any, ccontact: any, companyaddress: any, currentPlaceID: any, currentcoordss: any , cemail: any }, email: any, 
     password: any ){
 
     try {
@@ -107,20 +108,18 @@ export class AuthService {
       console.log(userget);
       const imageUrl = ""
       
-      const userDocRef = doc(this.firestore, `employers/${userget}`);
-      await setDoc(userDocRef, {uid: userget, profileimg: "",});
 
-      const userDocRef1 = collection(this.firestore, `employers/${userget}/profile/${userget}`);
-      await addDoc(userDocRef1, {fname, mname, lname, contact});
+      const userDocRef1 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
+      await setDoc(userDocRef1, {fname, mname, lname, contact, email, uid: userget, profileimg: ""});
       
 
-      const userDocRef2 = collection(this.firestore, `employers/${userget}/company`);
-      await addDoc(userDocRef2, {cname, ccontact, street, barangay, town, province, country, imageurl: ""});
+      const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);
+      await setDoc(userDocRef2, {cname, ccontact, currentPlaceID,lat: currentcoordss.lat,lng: currentcoordss.lng,
+      companyaddress,   imageurl: "", 
+      cemail, csize: "", cdetails: "", cprocessingtime1: "", cprocessingtime2: "", cbenefits: ""});
 
-      const userDocRef3 = collection(this.firestore, `employers/${userget}/experience`);
-      await addDoc(userDocRef3, {cname: "", caddress: "", jtitle: "", specialization: "", datef: "", datet:""});
-      
 
+  
       await sendEmailVerification(this.auth.currentUser);
 
      

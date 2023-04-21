@@ -1,0 +1,54 @@
+ion-toolbar{
+    --background: #2855A1;
+    height: 100%;
+   
+    ion-title{
+        color: white;
+        // font-weight: bold;
+        font-size: 20px;
+        text-align: left;
+    }
+}
+ion-card{
+    border-radius: 15px;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border: solid 2px  rgb(53, 66, 125);
+    --background: #71a8fa;
+    color: azure;
+}
+ion-item{
+    --background: #71a8fa;
+    color: azure;
+}
+ion-input{
+    border: solid 2px  rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: #cddbf1;
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+ion-select{
+    border: solid 2px  rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: #cddbf1;
+    color: black;
+    ion-select-option{
+        --background: #cddbf1;
+    }
+}
+ion-label{
+    font-size: medium;
+}
+.benefits{
+    display: flex;
+    flex-direction: column;
+}
+.uploadjoblisting{
+    display: block;
+    width: 100%;
+    --border-radius: 15px;
+    --background: #2F7EF5;
+    margin: 0%;
+    text-transform: initial;
+}

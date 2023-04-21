@@ -1,0 +1,67 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/viewemployee']" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form>
+  <ion-card >
+    <ion-card-header>
+      <div style="display: flex; align-items: center;">
+        <ion-thumbnail slot="start">
+          <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+        </ion-thumbnail>
+        <ion-card-title>John Doe</ion-card-title>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+        <!--Ratings -->
+          <ion-label position="stacked" class="cardsubtitle">Customer Satisfaction: </ion-label>
+
+            <ion-select justify="space-between" interface="popover" placeholder="Very Satisfactory">
+              <ion-select-option value="Very Satisfactory">Very Satisfactory</ion-select-option>
+              <ion-select-option value="Satisfactory">Satisfactory</ion-select-option>
+              <ion-select-option value="Fair">Fair</ion-select-option>
+              <ion-select-option value="Poor">Poor</ion-select-option>
+            </ion-select>
+
+        
+          <ion-label position="stacked" class="cardsubtitle">Work Quality: </ion-label>
+            <ion-select justify="space-between" interface="popover" placeholder="Very Satisfactory">
+              <ion-select-option value="Very Satisfactory">Very Satisfactory</ion-select-option>
+              <ion-select-option value="Satisfactory">Satisfactory</ion-select-option>
+              <ion-select-option value="Fair">Fair</ion-select-option>
+              <ion-select-option value="Poor">Poor</ion-select-option>
+            </ion-select>
+        
+          <ion-label position="stacked" class="cardsubtitle">Professionalism: </ion-label>
+            <ion-select justify="space-between" interface="popover" placeholder="Very Satisfactory">
+              <ion-select-option value="Very Satisfactory">Very Satisfactory</ion-select-option>
+              <ion-select-option value="Satisfactory">Satisfactory</ion-select-option>
+              <ion-select-option value="Fair">Fair</ion-select-option>
+              <ion-select-option value="Poor">Poor</ion-select-option>
+            </ion-select>
+       
+          <ion-label position="stacked" class="cardsubtitle">Technical Skills: </ion-label>
+            <ion-select justify="space-between" interface="popover" placeholder="Very Satisfactory">
+              <ion-select-option value="Very Satisfactory">Very Satisfactory</ion-select-option>
+              <ion-select-option value="Satisfactory">Satisfactory</ion-select-option>
+              <ion-select-option value="Fair">Fair</ion-select-option>
+              <ion-select-option value="Poor">Poor</ion-select-option>
+            </ion-select>
+        
+          <ion-label position="stacked" class="cardsubtitle">Comments:</ion-label>
+          <ion-textarea  type="textarea autosize" class="custominput" placeholder="Enter Comments"></ion-textarea>
+        
+
+        <ion-buttons fill="solid" class="btns">
+          <ion-button class="save" type="Submit"  expand="block" fill="solid" shape="round" >Save</ion-button>
+        </ion-buttons>
+
+    </ion-card-content>
+  </ion-card>
+</form>
+</ion-content>

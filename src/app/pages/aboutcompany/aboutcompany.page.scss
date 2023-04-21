@@ -1,0 +1,69 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+    ion-toolbar{
+        --background:  #2855A1;
+        color: white;
+    }
+}
+
+ion-card{
+    --background: #71a8fa;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card.cardcontainer {
+    --background: #71a8fa;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card-header{
+    --background: #277dff;
+    color: whitesmoke;
+    margin: 0%;
+}
+ion-card-title{
+    color: whitesmoke;
+    margin-left: 5%;
+}
+ion-card-subtitle{
+    color: whitesmoke;
+}
+ion-card-content{
+    color: black;
+    margin: auto;
+}
+
+ion-label.cardsubtitle{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+
+ion-input.custominput{
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: solid 2px rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    // text-align: justify;
+}
+ion-textarea{
+    border: solid 2px rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.10rem;
+    margin-top: 0.5rem;
+}

@@ -16,9 +16,9 @@
         <ion-icon slot="start" name="shield-half-outline" style="color: #0d71d5;"></ion-icon>
         Privacy Policy
       </ion-button>
-      <!-- <ion-button fill="clear" class="card1menu" expand="block">
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/resumebuilder']">
         <ion-icon slot="start" name="newspaper" style="color: #0bc089;"></ion-icon>
-         Resume Builder</ion-button> -->
+         Resume Builder</ion-button>
       <ion-button fill="clear" class="card1menu" expand="block">
         <ion-icon slot="start" name="diamond-outline" style="color: #ba8929;"></ion-icon>
         Get Premium</ion-button>
@@ -54,35 +54,40 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
-    <ion-card>
-      <ion-card-header>
-        <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
-        <ion-card-title>
-          Job Title Needed
-        </ion-card-title>
-        <ion-card-subtitle>
-          Company Name
-        </ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <div class="companydetails">
-          <ion-label>Company Address</ion-label>
-          <ion-label>Starting Salary</ion-label>
-        </div>
-        <div class="jobdetails">
-          <div class="jobspecialization">
-            <ion-label>Job Specialization:</ion-label>
-            <ion-label>Computer Information</ion-label>
+  <ion-content  class="ion-padding ">
+    <div class="joblistingfeed" *ngFor="let job of job">
+      <ion-card class="joblisting">
+        <ion-card-header>
+          <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
+          <ion-card-title>
+            {{job.jtitle}}
+          </ion-card-title>
+          <ion-card-subtitle>
+            {{job.cname}}
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="companydetails">
+            <ion-label class="cardsubtitle">Company Address: </ion-label>
+            <ion-label class="jobinfo">{{job.caddress}}</ion-label>
+            <ion-label class="cardsubtitle">Starting Salary: </ion-label>
+            <ion-label class="jobinfo">{{job.jsalary}} pesos</ion-label>
           </div>
-          <div class="jobtype">
-            <ion-label>Full time/Hybrid/Work from Home</ion-label>
+          <div class="jobdetails">
+            <div class="jobspecialization">
+              <ion-label class="cardsubtitle">Job Specialization: </ion-label>
+              <ion-label class="jobinfo">{{job.jspecialization}}</ion-label>
+            </div>
+            <div class="jobtype">
+              <ion-label class="cardsubtitle">Job Type: </ion-label>
+              <ion-label class="jobinfo">{{job.jtype}}</ion-label>
+            </div>
           </div>
-        </div>
-      </ion-card-content>
-      <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
-    <ion-button size="large" class="jobcardinfo">Apply Now</ion-button>
-    </ion-card>
+        </ion-card-content>
+        <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
+        <ion-button size="large" class="jobcardinfo">Apply Now</ion-button>
+      </ion-card>
+    </div>
   </ion-content>
 
   <ion-footer>
@@ -95,7 +100,7 @@
             <ion-icon name="home"></ion-icon>Home
           </ion-tab-button>
 
-          <ion-tab-button tab="discover">
+          <ion-tab-button [routerLink]="['/dashboard']">
             <ion-icon name="compass"></ion-icon>Discover
           </ion-tab-button>
 
@@ -111,5 +116,8 @@
       </ion-tabs>
     </ion-toolbar>
   </ion-footer>
+
+
+
 
 </div>  

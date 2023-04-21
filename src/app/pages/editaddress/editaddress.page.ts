@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
+import { GmapService } from 'src/app/services/gmap.service';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
@@ -12,6 +13,14 @@ import { ProfilingService } from 'src/app/services/profiling.service';
 export class EditaddressPage implements OnInit {
   address: any = [];
   credentials: FormGroup;
+  googleMaps: any;
+  @ViewChild('map', {static: true}) mapElementRef: ElementRef;
+  center: any = {lat: 17.6022248, lng: 121.6768867};
+  map:any;
+  mapClickListener: any;
+  marker: any;
+  newmarker: any = {lat: 0, lng:0}
+  cmarker: any = {lat: 0, lng:0}
 
 
 
@@ -20,11 +29,15 @@ export class EditaddressPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private firestore: ProfilingService,
-    private router: Router
+    private router: Router,
+    private gmaps: GmapService,
+    private renderer: Renderer2,
+
   ) {
 
     this.firestore.getaddress().subscribe(res=>{
       this.address = res;
+   
     });
    }
 
@@ -64,23 +77,24 @@ export class EditaddressPage implements OnInit {
 
   ngOnInit() {
 
+   
+
     this.credentials = this.fb.group({
-      street: ['', [Validators.required]],
-      barangay: ['', [Validators.required]],
-      town: ['', [Validators.required]],
-      province: ['', [Validators.required]],
-      country: ['', [Validators.required]],
-      hstreet: ['', [Validators.required]],
-      hbarangay: ['', [Validators.required]],
-      htown: ['', [Validators.required]],
-      hprovince: ['', [Validators.required]],
-      hcountry: ['', [Validators.required]],
+      
+      homeaddress: ['', [Validators.required]],
+      newmarker: [this.newmarker],
+
+    
       
     });
 
+
   }
 
+ngAfterViewInit(){
+  this.loadMapCurrent();
 
+}
 
   async editadd() {
 
@@ -93,9 +107,9 @@ export class EditaddressPage implements OnInit {
     await loading.dismiss();
 
     if (user) {
+      this.router.navigate([this.router.url])
       this.router.navigateByUrl('/applicantprofile', { replaceUrl: true });
       this.showAlert('Edit success', 'Data updated!');
-
 
         } else {
       this.showAlert('Edit failed', 'Please try again!');
@@ -113,5 +127,76 @@ export class EditaddressPage implements OnInit {
     });
     await alert.present();
   }
+
+  async loadMapCurrent(){
+    try {
+
+      this.firestore.getaddress().subscribe(async res=>{
+        this.address = res;
+        console.log(this.address.clat);
+        console.log(this.address.clng);
+
+        let googleMaps: any = await this.gmaps.loadGoogleMaps();
+      this.googleMaps = googleMaps;
+      const mapEl = this.mapElementRef.nativeElement;
+      const location = new googleMaps.LatLng(this.address.clat, this.address.clng);
+      this.map =  new googleMaps.Map(mapEl,{
+        center: location,
+        zoom: 12,
+        mapTypeId: 'terrain',
+        disableDefaultUI: true,
+      }); 
+
+      this.map.setCenter({lat: this.address.clat, lng: this.address.clng});
+      this.renderer.addClass(mapEl, 'visible');
+      this.addMarker({lat: this.address.clat, lng: this.address.clng});
+      this.onMapDrag();
+  
+      });
+
+
+      
+
+     
+    }catch(e){
+      console.log(e);
+    }
+  }
+
+
+  addMarker(location: any){
+    let googleMaps: any = this.googleMaps;
+
+    const source_icon = {
+      url: 'https://chart.googleapis.com/chart?chst=d_map_pin_letter&chld=O|FF0000|000000',
+      scaledSize: new googleMaps.Size(30, 40), // scaled size
+      origin: new googleMaps.Point(0, 0), // origin
+      anchor: new googleMaps.Point(0, 0) // anchor
+    };
+
+    this.marker = new googleMaps.Marker({
+      position: location,
+      map: this.map,
+      icon: source_icon,
+      draggable: true,
+      animation: googleMaps.Animation.DROP
+    });
+
+    // const position = this.marker.getPosition();
+
+  }
+
+  onMapDrag() {
+    this.mapClickListener = this.googleMaps.event.addListener(this.marker, "dragend", (mapsMouseEvent) => {
+      console.log(mapsMouseEvent.latLng.toJSON());
+      const storage = mapsMouseEvent.latLng.toJSON();
+      this.newmarker.lat = storage.lat;
+      this.newmarker.lng = storage.lng;
+      console.log(this.credentials.value);
+
+    });
+  }
+
+  
 
 }
