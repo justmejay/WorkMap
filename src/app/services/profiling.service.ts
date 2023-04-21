@@ -60,8 +60,8 @@ export interface User{
   
 
   //addressadd
-  clat: string;
-  clng: string;
+  clat: any;
+  clng: any;
   currentPlaceID: string;
   currentaddress: string;
   homePlaceID: string;
@@ -185,13 +185,13 @@ export class ProfilingService {
     }
   }
 
-  async editaddress({street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry}: 
-    {street: any, barangay: any, town: any, province: any, country: any, hstreet: any, hbarangay: any, htown: any, hprovince: any, hcountry: any}){
+  async editaddress({homeaddress, newmarker}: 
+    {homeaddress: any, newmarker: any}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/address/${userget}`);
-      const user = await updateDoc(userDocRef3, {street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry});
+      const user = await updateDoc(userDocRef3, {homeaddress, clat: newmarker.lat, clng: newmarker.lng});
      
       return true;
     } catch (e) {
