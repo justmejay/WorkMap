@@ -141,7 +141,7 @@ ngAfterViewInit(){
       message: "Adding up!"
     });    await loading.present();
 
-    const user = await this.firestore.Ceditaddress(this.credentials.value);
+    const user = await this.firestore.Ceditaddress(this.Ccredentials.value);
     await loading.dismiss();
 
     if (user) {

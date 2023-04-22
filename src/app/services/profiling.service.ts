@@ -185,14 +185,28 @@ export class ProfilingService {
     }
   }
 
-  async editaddress({street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry}: 
-    {street: any, barangay: any, town: any, province: any, country: any, hstreet: any, hbarangay: any, htown: any, hprovince: any, hcountry: any}){
+  async editaddress({homeaddress, newmarker, currentaddress}: 
+    {homeaddress: any, newmarker: any, currentaddress: any}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/address/${userget}`);
-      const user = await updateDoc(userDocRef3, {street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry});
-     
+      const user = await updateDoc(userDocRef3, {changed: true, homeaddress, clat: newmarker.lat, clng: newmarker.lng, currentaddress});
+
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async Ceditaddress({homeaddress}: 
+    {homeaddress: any}){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/address/${userget}`);
+      const user = await updateDoc(userDocRef3, {homeaddress});
+
       return true;
     } catch (e) {
       return null;
