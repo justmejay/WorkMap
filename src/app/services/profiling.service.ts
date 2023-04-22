@@ -60,8 +60,8 @@ export interface User{
   
 
   //addressadd
-  clat: any;
-  clng: any;
+  clat: string;
+  clng: string;
   currentPlaceID: string;
   currentaddress: string;
   homePlaceID: string;
@@ -185,13 +185,13 @@ export class ProfilingService {
     }
   }
 
-  async editaddress({homeaddress, newmarker}: 
-    {homeaddress: any, newmarker: any}){
+  async editaddress({street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry}: 
+    {street: any, barangay: any, town: any, province: any, country: any, hstreet: any, hbarangay: any, htown: any, hprovince: any, hcountry: any}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/address/${userget}`);
-      const user = await updateDoc(userDocRef3, {homeaddress, clat: newmarker.lat, clng: newmarker.lng});
+      const user = await updateDoc(userDocRef3, {street, barangay, town, province, country, hstreet, hbarangay, htown, hprovince, hcountry});
      
       return true;
     } catch (e) {
@@ -376,6 +376,22 @@ export class ProfilingService {
     const userget = this.auth.currentUser.uid;
     const cakeRef = doc(this.firestore, `users/${userget}/school/${id}`)
     return deleteDoc(cakeRef)
+  }
+
+  async addapplication({name, bday, age, homeaddress, currentaddress, cs, religion, specialization, mo, moc, fa, fac, schoolname, course, level, yearg, cname, caddress, jtitle, datef, datet, reason, cnname, orgn, year, fpath, fpathr}: 
+    {name: any, bday: any, age: any, homeaddress: any, currentaddress: any, cs: any, religion: any, specialization: any, mo: any, moc: any, fa: any, fac: any, schoolname:any, course:any, level:any, yearg:any, cname:any, caddress:any, jtitle:any, datef:any, datet:any, reason:any, cnname:any, orgn:any, year:any, fpath:any, fpathr:any} ){
+
+    try {
+      
+      const userget = this.auth.currentUser?.uid;
+      console.log(userget)
+      const userDocRef3 = collection(this.firestore, `application/`);
+      const user = await addDoc(userDocRef3, {uid: userget, name, bday, age, homeaddress, currentaddress, cs, religion, specialization, mo, moc, fa, fac, schoolname, course, level, yearg, cname, caddress, jtitle, datef, datet, reason, cnname, orgn, year, fpath, fpathr});
+     
+      return user;
+    } catch (e) {
+      return null;
+    }
   }
 
 

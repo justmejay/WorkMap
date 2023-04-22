@@ -27,10 +27,10 @@
         <ion-input position="stacked" class="custominput" value="{{profile.age}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Home Address: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{address.hstreet}} {{address.hbarangay}}, {{address.htown}}, {{address.hprovince}}, {{address.hcountry}}" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value="{{address.homeaddress}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Current Address: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{address.street}} {{address.barangay}}, {{address.town}}, {{address.province}}, {{address.country}}" placeholder="House/Street No, Barangay, Town, Province" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value="{{address.currentaddress}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
         <ion-input position="stacked" class="custominput" value="{{profile.cs}}" [readonly]="true"></ion-input>
@@ -109,7 +109,7 @@
                 <ion-input position="stacked" class="custominput" value="{{e.cname}}" [readonly]="true"></ion-input>
         
                 <ion-label position="stacked" class="cardsubtitle">Company Address: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{e.address}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value="{{e.caddress}}" [readonly]="true"></ion-input>
 
                 <ion-label position="stacked" class="cardsubtitle">Job Title: </ion-label>
                 <ion-input position="stacked" class="custominput" value="{{e.jtitle}}" [readonly]="true"></ion-input>
