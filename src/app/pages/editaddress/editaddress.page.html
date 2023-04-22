@@ -9,43 +9,78 @@
 
 <ion-content class="ion-padding ">
 
-
-<div >
-  <form [formGroup]="credentials" (ngSubmit)="editadd()" >
-    <div>
-   
-
-    <h3>Current Address</h3>
-    <div class="map" #map></div>
-    <P style="color: red; text-align: center;">(Adjust the Marker if not accurate)</P>
+    <div [hidden]="address.changed">
 
 
-    <ion-card>
-      <ion-card-content>
-          <ion-item>
-            <ion-input position="stacked" [readonly]="true" type="text"  value="{{address.currentaddress}}" class="custominput"></ion-input>
-          </ion-item>
-
-      </ion-card-content>
-    </ion-card>
-    </div>
+      <form [formGroup]="credentials" (ngSubmit)="editadd()" >
     
-    <h3>Home Address</h3>
-    <ion-card>
 
-      <ion-card-content *ngIf="address">
-          <ion-item>
-            <ion-input position="stacked"   type="text" formControlName="homeaddress" value="{{address.homeaddress}}" class="custominput"></ion-input>
-          </ion-item>
+        <div class="map" #map></div>
+        <P *ngIf="address.changed == false;" style="color: red; text-align: center;">(Adjust the Marker if not accurate!)</P>
+        <P *ngIf="address.changed == false;" style="color: red; text-align: center;">(This is one time only!)</P>
+
+        <h3>Current Address</h3>
+
+        <ion-card >
+          <ion-card-content>
+              <ion-item>
+                <ion-input position="stacked" [readonly]="true" type="text" formControlName="currentaddress"  [value]="address.currentaddress" class="custominput"></ion-input>
+              </ion-item>
+    
+          </ion-card-content>
+        </ion-card>
+        
+        <h3>Home Address</h3>
+        <ion-card >
+    
+          <ion-card-content >
+              <ion-item>
+                <ion-input position="stacked" placeholder="eh"   type="text" formControlName="homeaddress" [value]="address.homeaddress" class="custominput"></ion-input>
+              </ion-item>
+          </ion-card-content>
+        </ion-card>
+    
+        <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">Save</ion-button>
+    
+      </form>
+
+    </div>
+
      
-          
 
-      </ion-card-content>
-    </ion-card>
 
-    <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">Save</ion-button>
 
-  </form>
+
+
+
+ <div [hidden]="!address.changed" > 
+  
+    <form  [formGroup]="Ccredentials" (ngSubmit)="Ceditadd()" >
+      <h3>Current Address</h3>
+
+      <ion-card>
+        <ion-card-content>
+            <ion-item>
+              <ion-input position="stacked" [readonly]="true" type="text"  [value]="address.currentaddress" class="custominput"></ion-input>
+            </ion-item>
+  
+        </ion-card-content>
+      </ion-card>
+    
+      
+      <h3>Home Address</h3>
+      <ion-card>
+  
+        <ion-card-content >
+            <ion-item>
+              <ion-input position="stacked"   type="text" formControlName="homeaddress" [value]="address.homeaddress" class="custominput"></ion-input>
+            </ion-item>
+        </ion-card-content>
+      </ion-card>
+  
+      <ion-button type="submit"  [disabled]="!Ccredentials.valid" expand="block" class="btnreg">Save</ion-button>
+  
+    </form>
 </div>
 
 
