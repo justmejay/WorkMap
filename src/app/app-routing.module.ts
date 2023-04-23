@@ -188,6 +188,10 @@ const routes: Routes = [
     path: 'homecompany',
     loadChildren: () => import('./pages/homecompany/homecompany.module').then( m => m.HomecompanyPageModule)
   },
+  {
+    path: 'subscriptions',
+    loadChildren: () => import('./paymentpages/subscriptions/subscriptions.module').then( m => m.SubscriptionsPageModule)
+  },
 
 
 
