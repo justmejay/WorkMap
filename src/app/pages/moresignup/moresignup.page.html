@@ -26,8 +26,10 @@
 
           <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
 
-            <ion-label  position="stacked">Suffix (optional):</ion-label>
-                <ion-select formControlName="suffix" interface="popover" placeholder="Select suffix" expand="block">
+          
+            <ion-label position="stacked">Suffix (optional):</ion-label>
+            <ion-item >
+                <ion-select formControlName="suffix" interface="popover" placeholder="Select suffix" expand="block" >
                   <ion-select-option value="">Not Applicable</ion-select-option>
                   <ion-select-option value="Jr">Jr.</ion-select-option>
                   <ion-select-option value="Sr">Sr.</ion-select-option>
@@ -35,16 +37,18 @@
                   <ion-select-option value="II">II</ion-select-option>
                   <ion-select-option value="III">III</ion-select-option>
                 </ion-select>
+              </ion-item>
 
 
             <ion-label  position="stacked">Civil Status:</ion-label>
+              <ion-item>
                 <ion-select formControlName="cs" interface="popover" placeholder="Select suffix" expand="block">
                   <ion-select-option value="Single">Single</ion-select-option>
                   <ion-select-option value="Married">Married</ion-select-option>
                   <ion-select-option value="Separated">Separated</ion-select-option>
                   <ion-select-option value="Widowed">Widowed</ion-select-option>
                 </ion-select>
-
+              </ion-item>
 
           <ion-note slot="error" *ngIf="(cs.dirty || cs.touched) && cs.errors">Required</ion-note>
 
@@ -54,10 +58,12 @@
           <ion-note slot="error" *ngIf="(religion.dirty || religion.touched) && religion.errors">Required</ion-note>
 
             <ion-label  position="stacked">Sex:</ion-label>
+              <ion-item>
                 <ion-select formControlName="sex" interface="popover" placeholder="Select" expand="block">
                   <ion-select-option value="Male">Male</ion-select-option>
                   <ion-select-option value="Female">Female</ion-select-option> 
                 </ion-select>
+              </ion-item>
 
           <ion-note slot="error" *ngIf="(sex.dirty || sex.touched) && sex.errors">Required</ion-note>
 
@@ -205,7 +211,7 @@
   </ion-card-content>
     </ion-card>
 
-    <ion-button type="submit"  shape="round "expand="block" class="btnreg">Finish</ion-button>
+    <ion-button type="submit"  shape="round "expand="block" class="btnreg" size="large">Finish</ion-button>
   </form>
 </div>
 

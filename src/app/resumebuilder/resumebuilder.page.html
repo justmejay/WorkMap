@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons [routerLink]="['/applicantprofile']" slot="start">
+    <ion-buttons [routerLink]="['/dashboard']" slot="start">
     <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
     </ion-buttons> 
     Resume Builder
@@ -16,30 +16,30 @@
     <ion-card-content>
       
         <ion-label position="stacked" class="cardsubtitle">Name: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
 
 
         <ion-label position="stacked" class="cardsubtitle">Date of Birth: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{profile.bday}}" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{profile.bday}}" [readonly]="true"></ion-input>
 
 
         <ion-label position="stacked" class="cardsubtitle">Age: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{profile.age}}" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{profile.age}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Home Address: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{address.homeaddress}}" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{address.homeaddress}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Current Address: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{address.currentaddress}}" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{address.currentaddress}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{profile.cs}}" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{profile.cs}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Religion: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{profile.religion}}" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{profile.religion}}" [readonly]="true"></ion-input>
       
         <ion-label position="stacked" class="cardsubtitle">Specialization: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{profile.specialization}}" [readonly]="true"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{profile.specialization}}" [readonly]="true"></ion-input>
     </ion-card-content>
   </ion-card>
 
@@ -52,16 +52,16 @@
     </ion-card-header>
     <ion-card-content>
         <ion-label position="stacked" class="cardsubtitle">Name of Mother: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{resume.mo}} "></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{resume.mo}} "></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Name of Father: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{resume.fa}}" ></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{resume.fa}}" ></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
-        <ion-input position="stacked" class="custominput" value="{{resume.fac}}"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{resume.fac}}"></ion-input>
     </ion-card-content>
   </ion-card>
 
@@ -77,16 +77,16 @@
 
             <div style=" margin-top: 5%;"> 
                 <ion-label position="stacked" class="cardsubtitle">School Name: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{s.schoolname}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value=" {{s.schoolname}}" [readonly]="true"></ion-input>
 
                 <ion-label position="stacked" class="cardsubtitle">Course: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{s.course}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value=" {{s.course}}" [readonly]="true"></ion-input>
 
                 <ion-label position="stacked" class="cardsubtitle">Level: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{s.level}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value=" {{s.level}}" [readonly]="true"></ion-input>
 
                 <ion-label position="stacked" class="cardsubtitle">Year Graduated: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{s.yearg}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value=" {{s.yearg}}" [readonly]="true"></ion-input>
             </div>
             
           </ion-card-content>
@@ -106,56 +106,48 @@
           <ion-card-content *ngFor="let e of  experience">
             <div style="margin-top: 5%;">
                 <ion-label position="stacked" class="cardsubtitle">Company Name: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{e.cname}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value=" {{e.cname}}" [readonly]="true"></ion-input>
         
                 <ion-label position="stacked" class="cardsubtitle">Company Address: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{e.caddress}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value=" {{e.caddress}}" [readonly]="true"></ion-input>
 
                 <ion-label position="stacked" class="cardsubtitle">Job Title: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{e.jtitle}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value=" {{e.jtitle}}" [readonly]="true"></ion-input>
 
                 <ion-label position="stacked" class="cardsubtitle">From: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{e.datef}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value=" {{e.datef}}" [readonly]="true"></ion-input>
 
                 <ion-label position="stacked" class="cardsubtitle">To: </ion-label>
-                <ion-input position="stacked" class="custominput" value="{{e.datet}}" [readonly]="true"></ion-input>
+                <ion-input position="stacked" class="custominput" value=" {{e.datet}}" [readonly]="true"></ion-input>
             </div>
               
           </ion-card-content>
         </ion-card>
 
+<!-- Certifications -->
         <ion-card>
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>Certifications</ion-card-title>
               <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/certifications']"></ion-icon>
             </div >
-              </ion-card-header>
+          </ion-card-header>
           <ion-card-content *ngFor="let c of  certifications">
-            <div style="border-style: solid; margin-top: 5%;">
-              <ion-item lines="none">
-                <ion-item lines="none">
-                  <ion-label position="stacked">Certification Name: </ion-label>
-                  <ion-input position="stacked" value="{{c.name}}" fill="outline" [readonly]="true"></ion-input>
-                </ion-item>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-item lines="none">
-                  <ion-label position="stacked">Organization: </ion-label>
-                  <ion-input position="stacked" fill="outline" [readonly]="true" value="{{c.orgn}}"></ion-input>
-                </ion-item>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-item lines="none">
-                  <ion-label position="stacked">Date Obtained: </ion-label>
-                  <ion-input position="stacked" fill="outline" [readonly]="true" value="{{c.year}}"></ion-input>
-                </ion-item>
-              </ion-item>
-              <ion-item lines="none">
-                <ion-label>Attachment</ion-label>
-                <a href="{{c.fpath}}"><ion-button color="success">Download</ion-button>
+            <div style="margin-top: 5%;">
+                  <ion-label position="stacked" class="cardsubtitle">Certification Name: </ion-label>
+                  <ion-input position="stacked" class="custominput" value=" {{c.name}}" [readonly]="true"></ion-input>
+                
+                  <ion-label position="stacked" class="cardsubtitle">Organization: </ion-label>
+                  <ion-input position="stacked" class="custominput" [readonly]="true" value=" {{c.orgn}}"></ion-input>
+              
+                  <ion-label position="stacked" class="cardsubtitle">Date Obtained: </ion-label>
+                  <ion-input position="stacked" class="custominput" [readonly]="true" value=" {{c.year}}"></ion-input>
+                
+                <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label>
+                <a href="{{c.fpath}}">
+                  <ion-button color="success">Download</ion-button>
                 </a>
-              </ion-item>
+             
       
               </div>
             
@@ -173,7 +165,7 @@
             </div >
               </ion-card-header>
           <ion-card-content class="ion-padding" *ngIf="resume">
-
+            <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label>
            <a  href="{{resume.fpath}}"> <ion-button *ngIf="resume?.fpath" color=success>Download</ion-button></a>
           </ion-card-content>
         </ion-card>

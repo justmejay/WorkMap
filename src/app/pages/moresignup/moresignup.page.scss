@@ -34,7 +34,11 @@ ion-list{
     --background: #E5EBEE;
 }
 ion-item{
-    border: solid 1px #044DA3;
+    border: solid 2px  rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: #cddbf1;
+    color: black;
+
 }
 
 ion-input.custominput{
@@ -47,15 +51,16 @@ ion-input.custominput{
 
 
 }
-ion-select{
-    border: solid 2px  rgb(53, 66, 125);
-    border-radius: 15px;
-    --background: #cddbf1;
-    color: black;
-    ion-select-option{
-        --background: #cddbf1;
-    }
-}
+// ion-select{
+//     border: solid 2px  rgb(53, 66, 125);
+//     border-radius: 15px;
+//     --background: #cddbf1;
+//     color: black;
+//     ion-select-option{
+//         --background: #cddbf1;
+//     }
+// }
+
 .btnreg{
     width: 100%;
     --background-color: #2855A1;

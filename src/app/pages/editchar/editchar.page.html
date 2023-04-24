@@ -16,21 +16,21 @@
         <div>
         <ion-card>
           <ion-card-content>
-            <ion-item lines="none">
+            <ion-item >
               <ion-label position="stacked">Name of Mother: </ion-label>
-              <ion-input position="stacked" formControlName="mo" value="{{resume.mo}} "></ion-input>
+              <ion-input position="stacked" class="custominput" formControlName="mo" value="{{resume.mo}} "></ion-input>
             </ion-item>
-            <ion-item lines="none">
+            <ion-item>
               <ion-label position="stacked">Contact No: </ion-label>
-              <ion-input type="number" position="stacked" formControlName="moc" value="{{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
+              <ion-input type="number" position="stacked" class="custominput" formControlName="moc" value="{{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
             </ion-item>
-            <ion-item lines="none">
+            <ion-item>
               <ion-label position="stacked">Name of Father: </ion-label>
-              <ion-input position="stacked" formControlName="fa" value="{{resume.fa}}" ></ion-input>
+              <ion-input position="stacked" class="custominput" formControlName="fa" value="{{resume.fa}}" ></ion-input>
             </ion-item>
-            <ion-item lines="none">
+            <ion-item>
               <ion-label position="stacked">Contact No: </ion-label>
-              <ion-input type="number" position="stacked" formControlName="fac" value="{{resume.fac}}"></ion-input>
+              <ion-input type="number" position="stacked" class="custominput" formControlName="fac" value="{{resume.fac}}"></ion-input>
             </ion-item>
           </ion-card-content>
         </ion-card>
@@ -38,7 +38,7 @@
     
      
     
-        <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">Save</ion-button>
+        <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg" shape="round" size="large">Save</ion-button>
       </form>
     </div>
 
