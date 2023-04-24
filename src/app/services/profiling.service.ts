@@ -408,6 +408,25 @@ export class ProfilingService {
     }
   }
 
+  verify(): Observable<User[]>{
+
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/profile/`)
+    return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
+    
+  }
+
+  verifyc(): Observable<User[]>{
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `employers/${id}/profile/`)
+    return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
+    
+  }
+
+  
+
 
 }
 
