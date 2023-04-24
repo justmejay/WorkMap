@@ -45,6 +45,7 @@ export class CompanyService {
     private auth: Auth,
   ) { }
 
+
   getcompany(): Observable<Company[]>{
     const userget = this.auth.currentUser.uid;
     console.log(userget);
