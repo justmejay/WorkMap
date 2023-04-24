@@ -15,38 +15,29 @@
           <ion-card-title>Personal Information</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-item lines="none">
-            <ion-label>Name: </ion-label>
-            <ion-input formControlName="name" value="{{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Date of Birth: </ion-label>
-            <ion-input formControlName="bday"  value="{{profile.bday}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Age: </ion-label>
-            <ion-input formControlName="age"  value="{{profile.age}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Home Address: </ion-label>
-            <ion-input formControlName="homeaddress"  value="{{address.homeaddress}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Current Address: </ion-label>
-            <ion-input formControlName="currentaddress" value="{{address.currentaddress}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Civil Status: </ion-label>
-            <ion-input formControlName="cs" value="{{profile.cs}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Religion: </ion-label>
-            <ion-input formControlName="religion" value="{{profile.religion}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Specialization: </ion-label>
-            <ion-input formControlName="specialization"  value="{{profile.specialization}}" [readonly]="true"></ion-input>
-          </ion-item>
+            <ion-label position="stacked" class="cardsubtitle">Name: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="name" value="{{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Date of Birth: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="bday"  value="{{profile.bday}}" [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Age: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="age"  value="{{profile.age}}" [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Home Address: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="homeaddress"  value="{{address.homeaddress}}" [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Current Address: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="currentaddress" value="{{address.currentaddress}}" [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="cs" value="{{profile.cs}}" [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Religion: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="religion" value="{{profile.religion}}" [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Specialization: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="specialization"  value="{{profile.specialization}}" [readonly]="true"></ion-input>
         </ion-card-content>
       </ion-card>
     
@@ -58,22 +49,17 @@
           </div>
         </ion-card-header>
         <ion-card-content>
-          <ion-item lines="none">
-            <ion-label>Name of Mother: </ion-label>
-            <ion-input formControlName="mo"  value="{{resume.mo}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Contact No: </ion-label>
-            <ion-input formControlName="moc"  value="{{resume.moc}}" placeholder="09xx-xxx-xxxx" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Name of Father: </ion-label>
-            <ion-input formControlName="fa"  value="{{resume.fa}}"  [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Contact No: </ion-label>
-            <ion-input formControlName="fac"  value="{{resume.fac}}" [readonly]="true"></ion-input>
-          </ion-item>
+            <ion-label position="stacked" class="cardsubtitle">Name of Mother: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="mo"  value="{{resume.mo}}" [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="moc"  value="{{resume.moc}}" placeholder="09xx-xxx-xxxx" [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Name of Father: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="fa"  value="{{resume.fa}}"  [readonly]="true"></ion-input>
+          
+            <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
+            <ion-input position="stacked" class="custominput" formControlName="fac"  value="{{resume.fac}}" [readonly]="true"></ion-input>
         </ion-card-content>
       </ion-card>
     
@@ -88,22 +74,17 @@
               <ion-card-content *ngFor="let s of school" class="ion-padding" >
     
                 <div> 
-                  <ion-item lines="none">
-                    <ion-label>School Name: </ion-label>
-                    <ion-input formControlName="schoolname" value="{{s.schoolname}}" [readonly]="true"></ion-input>
-                  </ion-item>
-                  <ion-item lines="none">
-                    <ion-label>Course: </ion-label>
-                    <ion-input formControlName="course"  value="{{s.course}}" [readonly]="true"></ion-input>
-                  </ion-item>
-                  <ion-item lines="none">
-                    <ion-label>Level: </ion-label>
-                    <ion-input formControlName="level" value="{{s.level}}" [readonly]="true"></ion-input>
-                  </ion-item>
-                  <ion-item lines="none">
-                    <ion-label>Year Graduated: </ion-label>
-                    <ion-input formControlName="yearg" value="{{s.yearg}}" [readonly]="true"></ion-input>
-                  </ion-item>
+                    <ion-label position="stacked" class="cardsubtitle">School Name: </ion-label>
+                    <ion-input position="stacked" class="custominput" formControlName="schoolname" value="{{s.schoolname}}" [readonly]="true"></ion-input>
+                  
+                    <ion-label position="stacked" class="cardsubtitle">Course: </ion-label>
+                    <ion-input position="stacked" class="custominput" formControlName="course"  value="{{s.course}}" [readonly]="true"></ion-input>
+                  
+                    <ion-label position="stacked" class="cardsubtitle">Level: </ion-label>
+                    <ion-input position="stacked" class="custominput" formControlName="level" value="{{s.level}}" [readonly]="true"></ion-input>
+                  
+                    <ion-label position="stacked" class="cardsubtitle">Year Graduated: </ion-label>
+                    <ion-input position="stacked" class="custominput" formControlName="yearg" value="{{s.yearg}}" [readonly]="true"></ion-input>
                 </div>
                 
               </ion-card-content>
@@ -122,30 +103,21 @@
               </ion-card-header>
               <ion-card-content *ngFor="let e of experience">
                 <div>
-                  <ion-item lines="none">
-                    <ion-label>Company Name: </ion-label>
-                    <ion-input formControlName="cname" value="{{e.cname}}" [readonly]="true"></ion-input>
-                  </ion-item>
-            
-                  <ion-item lines="none">
-                    <ion-label>Company Address: </ion-label>
-                    <ion-input formControlName="caddress" value="{{e.caddress}}" [readonly]="true"></ion-input>
-                  </ion-item>
-    
-                  <ion-item lines="none">
-                    <ion-label>Job Title: </ion-label>
-                    <ion-input formControlName="jtitle" value="{{e.jtitle}}" [readonly]="true"></ion-input>
-                  </ion-item>
-    
-                  <ion-item lines="none">
-                    <ion-label>From: </ion-label>
-                    <ion-input formControlName="datef" value="{{e.datef}}" [readonly]="true"></ion-input>
-                  </ion-item>
-    
-                  <ion-item lines="none">
-                    <ion-label>To: </ion-label>
-                    <ion-input formControlName="datet" value="{{e.datet}}" [readonly]="true"></ion-input>
-                  </ion-item>
+                  
+                    <ion-label position="stacked" class="cardsubtitle">Company Name: </ion-label>
+                    <ion-input position="stacked" class="custominput" formControlName="cname" value="{{e.cname}}" [readonly]="true"></ion-input>
+                  
+                    <ion-label position="stacked" class="cardsubtitle">Company Address: </ion-label>
+                    <ion-input position="stacked" class="custominput" formControlName="caddress" value="{{e.caddress}}" [readonly]="true"></ion-input>
+                  
+                    <ion-label position="stacked" class="cardsubtitle">Job Title: </ion-label>
+                    <ion-input position="stacked" class="custominput" formControlName="jtitle" value="{{e.jtitle}}" [readonly]="true"></ion-input>
+                  
+                    <ion-label position="stacked" class="cardsubtitle">From: </ion-label>
+                    <ion-input position="stacked" class="custominput" formControlName="datef" value="{{e.datef}}" [readonly]="true"></ion-input>
+                  
+                    <ion-label position="stacked" class="cardsubtitle">To: </ion-label>
+                    <ion-input position="stacked" class="custominput" formControlName="datet" value="{{e.datet}}" [readonly]="true"></ion-input>
                 </div>
                   
               </ion-card-content>
@@ -157,12 +129,10 @@
           <ion-card-title>Reason for Applying Job</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-item lines="none">
-            <ion-item lines="none">
-              <ion-label position="stacked">Enter input here: </ion-label>
-              <ion-input formControlName="reason" fill="outline" placeholder="I want to apply to this job because..."></ion-input>
-            </ion-item>
-          </ion-item>
+          
+              <ion-label position="stacked" class="cardsubtitle">Enter input here: </ion-label>
+              <ion-input position="stacked" class="custominput" formControlName="reason" fill="outline" placeholder="I want to apply to this job because..."></ion-input>
+            
         </ion-card-content>
       </ion-card>
     
@@ -171,30 +141,21 @@
           <ion-card-title>Credentials</ion-card-title>
         </ion-card-header>
         <ion-card-content *ngFor="let c of certifications">
-          <ion-item lines="none">
-            <ion-item lines="none">
-              <ion-label position="stacked">Certification Name: </ion-label>
-              <ion-input formControlName="cnname" value="{{c.name}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input>
-            </ion-item>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-item lines="none">
-              <ion-label position="stacked">Organization: </ion-label>
-              <ion-input formControlName="orgn"  value="{{c.orgn}}" [readonly]="true" fill="outline" placeholder="HacktheNorth, Inc"></ion-input>
-            </ion-item>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-item lines="none">
-              <ion-label position="stacked">Date Obtained: </ion-label>
-              <ion-input formControlName="year" value="{{c.year}}" [readonly]="true" fill="outline" placeholder="mm/dd/yyyy"></ion-input>
-            </ion-item>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Attachments</ion-label>
+          
+              <ion-label position="stacked" class="cardsubtitle">Certification Name: </ion-label>
+              <ion-input position="stacked" class="custominput" formControlName="cnname" value="{{c.name}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input>
+            
+          
+              <ion-label position="stacked" class="cardsubtitle">Organization: </ion-label>
+              <ion-input position="stacked" class="custominput" formControlName="orgn"  value="{{c.orgn}}" [readonly]="true" fill="outline" placeholder="HacktheNorth, Inc"></ion-input>
+            
+              <ion-label position="stacked" class="cardsubtitle">Date Obtained: </ion-label>
+              <ion-input position="stacked" class="custominput" formControlName="year" value="{{c.year}}" [readonly]="true" fill="outline" placeholder="mm/dd/yyyy"></ion-input>
+            
+            <ion-label position="stacked" class="cardsubtitle">Attachments</ion-label>
             <!-- <a href="{{c.fpath}}" formControlName="fpath" ><ion-button color="success" >Download</ion-button>
             </a> -->
-            <ion-input formControlName="fpath" value="{{c.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input>
-          </ion-item>
+            <ion-input position="stacked" class="custominput" formControlName="fpath" value="{{c.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input>
         </ion-card-content>
       </ion-card>
     
@@ -203,12 +164,10 @@
           <ion-card-title>Credentials</ion-card-title>
         </ion-card-header>
         <ion-card-content *ngIf="resume" >
-          <ion-item lines="none">
-            <ion-label> Resume Attachments</ion-label>
+            <ion-label position="stacked" class="cardsubtitle"> Resume Attachments</ion-label>
             <!-- <a href="{{resume.fpath}}"formControlName="fpathr" ><ion-button color="success" >Download</ion-button>
             </a> -->
-            <ion-input formControlName="fpathr" value="{{resume.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input>
-          </ion-item>
+            <ion-input position="stacked" class="custominput" formControlName="fpathr" value="{{resume.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input>
         </ion-card-content>
       </ion-card>
       <ion-button size="large" shape="round" expand="block" type="submit">Submit Application</ion-button>

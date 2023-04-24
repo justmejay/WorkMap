@@ -10,22 +10,11 @@ ion-toolbar{
         text-align: left;
     }
 }
-.backicon{
-    width: 50px; 
-    color: white;
-}
-
-.backicon{
-    width: 50px; 
-    color: white;
-}
 
 ion-card {
     --background: #70AFFA;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-    // margin: 8%;
     border-radius: 15px;
-    border: solid 3px  rgb(53, 66, 125);
 }
 ion-card-content{
     color: black;
@@ -58,11 +47,10 @@ ion-label{
 }
 
 ion-button.btnreg{
-    width: 100%;
-    height: 60px;
     --background: #2F7EF5;
     --color: white;
     margin-top: 5%;
+    text-transform: uppercase;
 }
 
 h3{

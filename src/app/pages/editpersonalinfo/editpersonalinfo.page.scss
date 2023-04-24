@@ -19,10 +19,10 @@ ion-toolbar{
 ion-card {
     --background: #70AFFA;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-    // margin: 8%;
     border-radius: 15px;
-    border: solid 3px  rgb(53, 66, 125);
+    // border: solid 3px  rgb(53, 66, 125);
 }
+
 ion-card-content{
     color: black;
     margin: auto;
@@ -30,6 +30,7 @@ ion-card-content{
 
 ion-label{
     padding-left: 3%;
+    font-size: 8px;
 }
 ion-item{
     border: solid 2px #136cd2;
@@ -49,16 +50,12 @@ ion-input.custominput{
 
 }
 
-ion-label{
-    font-size: 8px;
-}
 
 ion-button.btnreg{
-    width: 100%;
-    height: 60px;
     --background: #2F7EF5;
     --color: white;
     margin-top: 5%;
+    text-transform: uppercase;
 }
 
 h3{

@@ -15,16 +15,15 @@
     <div>
     <ion-card>
       <ion-card-content>
-          <ion-item>
+          
             <ion-label position="stacked"> Tell me about yourself:</ion-label>
             <ion-textarea  type="textarea autosize" formControlName="aboutme" value="{{profile.aboutme}}" class="custominput"></ion-textarea>
-          </ion-item>
       </ion-card-content>
     </ion-card>
     </div>
  
 
-    <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg">Save</ion-button>
+    <ion-button type="submit"  [disabled]="!credentials.valid" expand="block" class="btnreg" shape="round" size="large">Save</ion-button>
   </form>
 </div>
 
