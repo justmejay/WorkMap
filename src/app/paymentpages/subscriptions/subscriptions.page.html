@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/dashboard']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>Workmap Premium</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<h2>Choose your plan.</h2>
+
+<div class="silver">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Silver Plan
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="features">
+        <ion-item> 
+          <ion-icon name="locate-outline" slot="start"></ion-icon>
+          <ion-label>5km search radius</ion-label>
+        </ion-item>
+      </div>
+      <ion-button expand="block" class="year" size="medium" shape="round">500 Pesos/Year</ion-button>
+      <ion-button fill="clear" expand="block" class="month" size="medium" shape="round">50 Pesos/Month</ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+<div class="gold">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Gold Plan
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="features">
+        <ion-item> 
+          <ion-icon name="locate-outline" slot="start"></ion-icon>
+          <ion-label>7km search radius</ion-label>
+        </ion-item>
+      </div>
+      <ion-button expand="block" class="year" size="medium" shape="round">600 Pesos/Year</ion-button>
+      <ion-button fill="clear" expand="block" class="month" size="medium" shape="round">60 Pesos/Month</ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+<div class="platinum">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Platinum Plan
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="features">
+        <ion-item> 
+          <ion-icon name="locate-outline" slot="start"></ion-icon>
+          <ion-label>10km search radius</ion-label>
+        </ion-item>
+      </div>
+      <ion-button expand="block" class="year" size="medium" shape="round">800 Pesos/Year</ion-button>
+      <ion-button fill="clear" expand="block" class="month" size="medium" shape="round">80 Pesos/Month</ion-button>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

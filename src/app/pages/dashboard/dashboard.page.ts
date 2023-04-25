@@ -1,7 +1,7 @@
 import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { CompanyService } from 'src/app/services/company.service'; 
 import {
@@ -30,7 +30,8 @@ export class DashboardPage implements OnInit {
     private auth: AuthService,
     private router: Router,
     private storage: Storage,
-    private authd: Auth
+    private authd: Auth,
+    private nc: NavController
   ) {
     this.firestore.getjob().subscribe(res=>{
       this.job = res;
@@ -43,9 +44,7 @@ export class DashboardPage implements OnInit {
 
   logout(){
     this.auth.logout();
-    this.router.navigate(['authentication'], );
-
-    
+    this.nc.navigateRoot('authentication');
   }
 
 }

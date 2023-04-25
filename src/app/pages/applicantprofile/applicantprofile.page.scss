@@ -92,7 +92,7 @@ ion-input.custominput{
     margin-top: 0.5rem;
 }
 ion-textarea{
-    border: solid 1px  rgb(143, 92, 172);
+    border: solid 2px rgb(53, 66, 125);
     border-radius: 15px;
     --background: rgb(242, 237, 245);
     color: black;
@@ -110,14 +110,6 @@ ion-label.cardsubtitle{
 ion-icon{
     height: 21px;
     width: 21px;
-}
-ion-item.aboutself{
-    // border-style: solid 3px #2F7EF5 ;
-    border-radius: 15px;
-}
-.aboutself{
-    margin-top: 3%;
-    --background: #d3d3d3;
 }
 
 ion-button.resume{

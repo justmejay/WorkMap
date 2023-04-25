@@ -13,6 +13,8 @@ import { ProfilingService } from 'src/app/services/profiling.service';
 export class EditaddressPage implements OnInit {
   address: any = [];
   credentials: FormGroup;
+  Ccredentials: FormGroup;
+
   googleMaps: any;
   @ViewChild('map', {static: true}) mapElementRef: ElementRef;
   center: any = {lat: 17.6022248, lng: 121.6768867};
@@ -21,6 +23,9 @@ export class EditaddressPage implements OnInit {
   marker: any;
   newmarker: any = {lat: 0, lng:0}
   cmarker: any = {lat: 0, lng:0}
+  temp: any = [];
+  isChecked: boolean = false;
+  addressrecovery: any = [];
 
 
 
@@ -37,6 +42,7 @@ export class EditaddressPage implements OnInit {
 
     this.firestore.getaddress().subscribe(res=>{
       this.address = res;
+      console.log(this.address)
    
     });
    }
@@ -80,7 +86,7 @@ export class EditaddressPage implements OnInit {
    
 
     this.credentials = this.fb.group({
-      
+      currentaddress: ['', [Validators.required]],
       homeaddress: ['', [Validators.required]],
       newmarker: [this.newmarker],
 
@@ -88,12 +94,26 @@ export class EditaddressPage implements OnInit {
       
     });
 
+    this.Ccredentials = this.fb.group({
+      
+      homeaddress: ['', [Validators.required]],
+      
+    });
+
+    
+
 
   }
 
 ngAfterViewInit(){
-  this.loadMapCurrent();
+  this.firestore.getaddress().subscribe(async res=>{
+    this.temp = res;
 
+    if (this.temp.changed == false){
+      this.loadMapCurrent();
+    }
+  });
+ 
 }
 
   async editadd() {
@@ -104,6 +124,26 @@ ngAfterViewInit(){
     });    await loading.present();
 
     const user = await this.firestore.editaddress(this.credentials.value);
+    await loading.dismiss();
+
+    if (user) {
+      this.router.navigate([this.router.url])
+      this.router.navigateByUrl('/applicantprofile', { replaceUrl: true });
+      this.showAlert('Edit success', 'Data updated!');
+
+        } else {
+      this.showAlert('Edit failed', 'Please try again!');
+    }
+  }
+
+  async Ceditadd() {
+
+    const loading = await this.loadingController.create({
+      spinner: "dots",
+      message: "Adding up!"
+    });    await loading.present();
+
+    const user = await this.firestore.Ceditaddress(this.Ccredentials.value);
     await loading.dismiss();
 
     if (user) {
@@ -186,15 +226,38 @@ ngAfterViewInit(){
 
   }
 
-  onMapDrag() {
-    this.mapClickListener = this.googleMaps.event.addListener(this.marker, "dragend", (mapsMouseEvent) => {
+  async onMapDrag() {
+    this.mapClickListener = this.googleMaps.event.addListener(this.marker, "dragend", ( mapsMouseEvent) => {
       console.log(mapsMouseEvent.latLng.toJSON());
       const storage = mapsMouseEvent.latLng.toJSON();
       this.newmarker.lat = storage.lat;
       this.newmarker.lng = storage.lng;
       console.log(this.credentials.value);
 
+      const test =   this.gmaps.rgeocode(this.newmarker.lat, this.newmarker.lng).subscribe(res => {
+        this.address.currentaddress = res.results[0].formatted_address;
+        
+    
+      
+       });
+
     });
+  }
+
+  checked(event: any){
+    if (event.currentTarget.checked){
+      this.address.homeaddress = this.address.currentaddress;
+      this.isChecked = true;
+    }
+    else{
+      this.isChecked = false;
+      this.firestore.getaddress().subscribe(res=>{
+        this.addressrecovery = res;
+        this.address.homeaddress = this.addressrecovery.homeaddress;
+     
+      });
+
+    }
   }
 
   

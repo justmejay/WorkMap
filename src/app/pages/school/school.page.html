@@ -11,10 +11,6 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-
-    
-
-
     <ion-card class="ion-padding" *ngFor="let s of school">
       <ion-card-title>
         {{ s.schoolname }}
@@ -23,10 +19,14 @@
         {{s.level}}
       </ion-card-subtitle>
       <ion-card-content>
-        <p>{{s.course}}</p>
-        <p>{{s.yearg}}</p>
-        <ion-button type="button" (click)="editsc(s)" >Edit</ion-button>
-        <ion-button type="button" color="danger" (click)="deletesc(s)" >Delete</ion-button>
+        <ion-label position="stacked" class="cardsubtitle">Course:</ion-label>
+        <ion-input position="stacked" class="custominput" value=" {{s.course}}" [readonly]="true"></ion-input>
+
+        <ion-label position="stacked" class="cardsubtitle">Year Graduated:</ion-label>
+        <ion-input position="stacked" class="custominput" value=" {{s.yearg}}" [readonly]="true"></ion-input>
+
+        <ion-button type="button" (click)="editsc(s)" expand="block" shape="round">Edit</ion-button>
+        <ion-button type="button" (click)="deletesc(s)" color="danger" expand="block" shape="round">Delete</ion-button>
 
       </ion-card-content>
     </ion-card>

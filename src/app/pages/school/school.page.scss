@@ -25,20 +25,27 @@ ion-card{
   // border: solid 3px  rgb(53, 66, 125);
 }
 
-ion-card-header{
-  --background: #277dff;
-  color: whitesmoke;
-  margin: 0%;
-}
 ion-card-title{
   color: whitesmoke;
 }
 ion-card-subtitle{
   color:whitesmoke;
-
 }
 
 ion-card-content{
   color: black;
   margin: auto;
+}
+
+ion-label.cardsubtitle{
+  font-size: 1.2em;
+  font-weight: 500;
+}
+ion-input.custominput{
+  border: solid 2px rgb(53, 66, 125);
+  border-radius: 15px;
+  --background: rgb(242, 237, 245);
+  color: black;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }

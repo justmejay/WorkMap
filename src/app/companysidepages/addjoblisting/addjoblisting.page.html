@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons [routerLink]="" slot="start">
+      <ion-buttons [routerLink]="['/homecompany']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-title>Add Job Listing</ion-title>
@@ -17,9 +17,10 @@
         <ion-card-content>
           <ion-input placeholder="Job title Needed" position="stacked" type="text" formControlName="jtitle" ></ion-input>
           <ion-input placeholder="Starting Salary" position="stacked" type="number" formControlName="jsalary" ></ion-input>
-          <h2>Job Specialization</h2>
-          <div class="select">
-            <ion-select label="Default label" placeholder="Select job specialization" class="jobspecialization" formControlName="jspecialization">
+          
+          <ion-label>Job Specialization</ion-label>
+            <ion-item lines="none">
+            <ion-select label="Default label" placeholder="Select job specialization" class="jobspecialization" formControlName="jspecialization" expand="block">
             <ion-select-option value="Accounting/Finance">Accounting/Finance</ion-select-option>
             <ion-select-option value="Admin/Human Resources">Admin/Human Resources</ion-select-option>
             <ion-select-option value="Agriculture, Forestry & Fishery">Agriculture, Forestry & Fishery</ion-select-option>
@@ -37,18 +38,22 @@
             <ion-select-option value="Sales/Marketing">Sales/Marketing</ion-select-option>
             <ion-select-option value="Sciences">Sciences</ion-select-option>
           </ion-select>
-          <h2>Job Type</h2>
+        </ion-item>
+
+        <ion-label>Job Type</ion-label>
+        <ion-item lines="none">
           <ion-select label="Default label" placeholder="Select job type" class="jobtype" formControlName="jtype">
             <ion-select-option value="Full Time">Full Time</ion-select-option>
             <ion-select-option value="Hybrid">Hybrid</ion-select-option>
             <ion-select-option value="Work from home">Work from home</ion-select-option>
           </ion-select>
-          </div>
+        </ion-item>
+
         </ion-card-content>
       </ion-card>
+
       <ion-card>
         <ion-card-header class="companydetails">
-          <ion-icon style="float: right; color: white;" name="create-outline" class="edit" [routerLink]=""></ion-icon>
           <ion-card-title>Company Details</ion-card-title>
         </ion-card-header>
         <ion-card-content>
@@ -61,32 +66,29 @@
     
       <ion-card>
         <ion-card-header class="companydetails">
-          <ion-icon style="float: right; color: white;" name="create-outline" class="edit" [routerLink]=""></ion-icon>
           <ion-card-title>About Company</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <ion-textarea formControlName="cdetails" value="{{job.cdetails}}" autogrow="true" [readonly]="true" class="custominput"></ion-textarea>
         </ion-card-content>
       </ion-card>
+
       <ion-card>
         <ion-card-header class="companydetails">
-          <ion-icon style="float: right; color: white;" name="create-outline" class="edit" [routerLink]=""></ion-icon>
           <ion-card-title>Additional Information</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-item lines="none">
+          
             <ion-label position="stacked">Company size: </ion-label>
             <ion-input position="stacked" formControlName="csize" value="{{job.csize}}" [readonly]="true"></ion-input>
-          </ion-item>
-          <ion-item lines="none">
+          
             <ion-label position="stacked">Average Processing Time: </ion-label>
             <ion-input position="stacked" formControlName="cprocessingtime" value="{{job.cprocessingtime2}} {{job.cprocessingtime1}}" [readonly]="true"></ion-input>
-          </ion-item>
         </ion-card-content>
       </ion-card>
+
       <ion-card>
         <ion-card-header class="companydetails">
-          <ion-icon style="float: right; color: white;" name="create-outline" class="edit" [routerLink]=""></ion-icon>
           <ion-card-title>Benefits</ion-card-title>
         </ion-card-header>
         <ion-card-content>

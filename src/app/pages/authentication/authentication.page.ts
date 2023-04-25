@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup ,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
   selector: 'app-authentication',
@@ -12,13 +13,16 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AuthenticationPage implements OnInit {
   selectTabs: string = 'si';
   credentials: FormGroup;
+  storage: any;
 
   constructor(
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private alertController: AlertController,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private profile: ProfilingService,
+    private nc: NavController
   ) {
     
    }
@@ -64,7 +68,8 @@ export class AuthenticationPage implements OnInit {
     const user = await this.auth.login(this.credentials.value); 
     await loading.dismiss();
 
-    if (user) {
+    if (user?.user?.uid != undefined) {
+
       if (user.user.emailVerified == false){
         await this.auth.resend();
         this.auth.logout;
@@ -72,10 +77,38 @@ export class AuthenticationPage implements OnInit {
         
       }
       else{
-        this.router.navigate(['dashboard']);
 
-        this.showAlert("Success", "Login Success");     
 
+        const data =  this.profile.verify().subscribe(res =>{
+          console.log(" i run again")
+
+
+          this.storage = res.length;
+
+
+          if(this.storage === 1){
+            this.nc.navigateRoot('dashboard');
+
+            // this.router.navigate(['dashboard']);
+            this.showAlert("Success", "Login Success");  
+          }
+          else if (this.storage === 0){
+
+
+            const data2 = this.profile.verifyc().subscribe(res =>{
+              this.storage = res.length;
+
+              if(this.storage === 1){
+                // this.router.navigate(['homecompany']);
+                this.nc.navigateRoot('dashboardcompany');
+                this.showAlert("Success", "Login Success"); 
+              }
+              data2.unsubscribe();
+            });
+          }
+          data.unsubscribe();
+        });
+     
       }
 
     } else {

@@ -7,7 +7,7 @@ import {
 } from '@angular/fire/auth-guard';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/authentication']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['/dashboard']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['/checkrole']);
 
 
 const routes: Routes = [
@@ -180,7 +180,8 @@ const routes: Routes = [
   {
     path: 'addjoblisting',
     loadChildren: () => import('./companysidepages/addjoblisting/addjoblisting.module').then( m => m.AddjoblistingPageModule)
-  },  {
+  },
+  {
     path: 'applytojob',
     loadChildren: () => import('./pages/applytojob/applytojob.module').then( m => m.ApplytojobPageModule)
   },
@@ -188,6 +189,14 @@ const routes: Routes = [
     path: 'homecompany',
     loadChildren: () => import('./pages/homecompany/homecompany.module').then( m => m.HomecompanyPageModule)
   },
+  {
+    path: 'subscriptions',
+    loadChildren: () => import('./paymentpages/subscriptions/subscriptions.module').then( m => m.SubscriptionsPageModule)
+  },  {
+    path: 'checkrole',
+    loadChildren: () => import('./checkrole/checkrole.module').then( m => m.CheckrolePageModule)
+  },
+
 
 
 

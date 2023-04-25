@@ -40,14 +40,17 @@
           
             <ion-label  position="stacked">Average Processing Time:</ion-label>
             <h2>Select Duration:</h2>
+            <ion-item>
                 <ion-select formControlName="cprocessingtime1" value="{{company.cprocessingtime1}}" interface="popover" placeholder="Select" expand="block">
                   <ion-select-option value="day/s">Day/s</ion-select-option>
                   <ion-select-option value="week/s">Week/s</ion-select-option>
                   <ion-select-option value="month/s">Month/s</ion-select-option>
                   <ion-select-option value="year/s">Year/s</ion-select-option>
                 </ion-select>
+              </ion-item>
             <ion-note slot="error" *ngIf="(cprocessingtime1.dirty || cprocessingtime1.touched) && cprocessingtime1.errors">Required</ion-note>
             <h2>Select Amount:</h2>
+            <ion-item>
                 <ion-select formControlName="cprocessingtime2" value="{{company.cprocessingtime2}}" interface="popover" placeholder="Select" expand="block">
                   <ion-select-option value="1">1</ion-select-option>
                   <ion-select-option value="2">2</ion-select-option>
@@ -61,6 +64,7 @@
                   <ion-select-option value="10">10</ion-select-option>
                   <ion-select-option value="11">11</ion-select-option>
                 </ion-select>
+              </ion-item>
 
           <ion-note slot="error" *ngIf="(cprocessingtime2.dirty || cprocessingtime2.touched) && cprocessingtime2.errors">Required</ion-note>
             <br>
@@ -105,8 +109,10 @@
       </ion-card-content>
     </ion-card>
 
-    <h3>About Company</h3>
     <ion-card>
+      <ion-card-header>
+        <ion-card-title>About Company</ion-card-title>
+      </ion-card-header>
       <ion-card-content>
             <ion-label position="stacked">Company Overview:</ion-label>
             <ion-textarea formControlName="cdetails" value="{{company.cdetails}}" autogrow="true" class="custominput"></ion-textarea>

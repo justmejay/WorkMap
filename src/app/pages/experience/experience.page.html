@@ -19,10 +19,14 @@
         {{e.datef}} to {{e.datet}}
       </ion-card-subtitle>
       <ion-card-content>
-        <p>{{e.caddress}}</p>
-        <p>{{e.jtitle}}</p>
-        <ion-button type="button" (click)="edit(e)" >Edit</ion-button>
-        <ion-button type="button" color="danger" (click)="deletexp(e)" >Delete</ion-button>
+        <ion-label position="stacked" class="cardsubtitle">Company Address:</ion-label>
+        <ion-input position="stacked" class="custominput" value=" {{e.caddress}}" [readonly]="true"></ion-input>
+
+        <ion-label position="stacked" class="cardsubtitle">Job Title:</ion-label>
+        <ion-input position="stacked" class="custominput" value=" {{e.jtitle}}" [readonly]="true"></ion-input>
+        
+        <ion-button type="button" (click)="edit(e)" expand="block" shape="round">Edit</ion-button>
+        <ion-button type="button" (click)="deletexp(e)" color="danger" expand="block" shape="round" >Delete</ion-button>
 
 
       </ion-card-content>

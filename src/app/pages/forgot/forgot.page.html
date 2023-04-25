@@ -1,35 +1,23 @@
 <ion-content>
 <img src="assets/header.png" alt="">
 
-
-
 <form [formGroup]="credentials" (ngSubmit)="forgot()">
   <ion-card class="ion-padding">
     <ion-card-title>Reset your Password!</ion-card-title>
     <ion-card-content>
-      <ion-list fill="solid">
-        <ion-item fill="solid">
-          <ion-label position="stacked"> Email</ion-label>
-          <ion-input formControlName="email" type="text"></ion-input>
+          <ion-label position="stacked" class="cardsubtitle"> Email</ion-label>
+          <ion-input position="stacked" class="custominput" formControlName="email" type="text"></ion-input>
           <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
-        </ion-item>
-        </ion-list>
         
-        <ion-list>
           <ion-button [disabled]="!credentials.valid" type="submit" class="btnlog" shape="round"  color="danger">
             Request
           </ion-button>
-          <ion-button style="align-items: center;display: block;" fill="clear"  [routerLink]="['/authentication']" >
+          <ion-button fill="clear" [routerLink]="['/authentication']">
             LOGIN HERE?
           </ion-button>
-      </ion-list>
+
     </ion-card-content>
   </ion-card>
-
-
-
-
-
 </form>
 
 

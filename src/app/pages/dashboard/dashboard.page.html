@@ -20,7 +20,7 @@
         <ion-icon slot="start" name="newspaper" style="color: #0bc089;"></ion-icon>
          Resume Builder</ion-button>
       <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="diamond-outline" style="color: #ba8929;"></ion-icon>
+        <ion-icon slot="start" name="diamond-outline" style="color: #ba8929;" [routerLink]="['/paymentpages/subscriptions']"></ion-icon>
         Get Premium</ion-button>
     </ion-card>
     <ion-card class="hamburgcard">
@@ -85,7 +85,7 @@
           </div>
         </ion-card-content>
         <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
-        <ion-button size="large" class="jobcardinfo">Apply Now</ion-button>
+        <ion-button size="large" class="jobcardinfo" [routerLink]="['/applytojob']">Apply Now</ion-button>
       </ion-card>
     </div>
   </ion-content>
