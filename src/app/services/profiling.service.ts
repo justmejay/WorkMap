@@ -416,7 +416,7 @@ export class ProfilingService {
     return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
     
   }
-
+ 
   verifyc(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   

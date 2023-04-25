@@ -7,7 +7,7 @@ import {
 } from '@angular/fire/auth-guard';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/authentication']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['/dashboard']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['/checkrole']);
 
 
 const routes: Routes = [
@@ -192,7 +192,11 @@ const routes: Routes = [
   {
     path: 'subscriptions',
     loadChildren: () => import('./paymentpages/subscriptions/subscriptions.module').then( m => m.SubscriptionsPageModule)
+  },  {
+    path: 'checkrole',
+    loadChildren: () => import('./checkrole/checkrole.module').then( m => m.CheckrolePageModule)
   },
+
 
 
 
