@@ -15,28 +15,15 @@ ion-header{
     --background: #2855A1;
 }
 
-ion-card {
-    display: flex;
-    flex-direction: row;
-    --background: #71a8fa;
-    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-    margin: 8%;
-    padding: 0.8rem;
-    border-radius: 15px;
-    // border: solid 3px  rgb(53, 66, 125);
-}
-ion-card-title{
-    color: black;
-}
-ion-card-subtitle{
-    color: black;
-}
 
-.profilepic{
-    height: 20%;
-    width: 20%;
-    margin-right: 5%;
-}
-.profilepicimage{
-    border-radius: 50%;
-}
+ion-item {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    --background: #71a8fa;
+    --color: #151515;
+    --border-radius: 20px;
+    ion-label{
+        --color: #151515;
+    }
+  }

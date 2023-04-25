@@ -8,47 +8,18 @@
 </ion-header>
 
 <ion-content>
-<ion-card class="received">
-  <div class="profilepic">
-    <img class="profilepicimage" alt="Applicant Profile Picture" src="assets/header.png"/>
-  </div>
-  <div class="messagecontent">
-    <ion-card-title>
-      <ion-label>John Doe</ion-label>
-    </ion-card-title>
-    <ion-card-subtitle>
-      <ion-label>Sample message</ion-label>
-    </ion-card-subtitle>
-  </div>
-</ion-card>
-<ion-card class="received">
-  <div class="profilepic">
-    <img class="profilepicimage" alt="Applicant Profile Picture" src="assets/header.png"/>
-  </div>
-  <div class="messagecontent">
-    <ion-card-title>
-      <ion-label>John Wick</ion-label>
-    </ion-card-title>
-    <ion-card-subtitle>
-      <ion-label>Sample message</ion-label>
-    </ion-card-subtitle>
-  </div>
-</ion-card>
-<ion-card class="received">
-  <div class="profilepic">
-    <img class="profilepicimage" alt="Applicant Profile Picture" src="assets/header.png"/>
-  </div>
-  <div class="messagecontent">
-    <ion-card-title>
-      <ion-label>John Don't</ion-label>
-    </ion-card-title>
-    <ion-card-subtitle>
-      <ion-label>Sample message</ion-label>
-    </ion-card-subtitle>
-  </div>
-</ion-card>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+<ion-item button detail="true" href="">
+  <ion-avatar slot="start">
+    <img alt="Profile piture" src="assets/header.png" />
+  </ion-avatar>
+  <ion-label>
+    <h3>John Wick</h3>
+    <p>Contains last message sent</p>
+  </ion-label>
+</ion-item>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" routerLink="[/messagecreate]">
     <ion-fab-button class="fabdesign">
       <ion-icon name="create"></ion-icon>
     </ion-fab-button>
