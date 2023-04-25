@@ -77,6 +77,20 @@ h2{
     text-transform: initial;
 }
 
+.map {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+  }
+  
+.map.visible {
+    opacity: 1;
+  }
+
+
 
 
 

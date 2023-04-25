@@ -79,16 +79,17 @@ export class CompanyService {
 
 
 
-  async editcompany({cname, ccontact, cemail, csize, cprocessingtime1, cprocessingtime2, cbenefits, street, barangay, town, province, country, cdetails}: 
-    {cname: any, ccontact: any, cemail: any, csize: any,  cprocessingtime1: any,  cprocessingtime2: any,  cbenefits: any,  street: any,  barangay: any,  town: any,  province: any,  country: any,  cdetails: any,}){
+  async editcompany({cname, ccontact, cemail, csize,cdetails,newmarker, cprocessingtime1, cprocessingtime2, cbenefits,  companyaddress}: 
+    {cname: any, ccontact: any, cemail: any, csize: any, newmarker:any, cprocessingtime1: any,  cprocessingtime2: any,  cbenefits: any,  companyaddress: any,  cdetails: any,}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `employers/${userget}/company/${userget}`);
-      const user = await updateDoc(userDocRef3, {cname, ccontact, cemail, csize, cprocessingtime1, cprocessingtime2, cbenefits, street, barangay, town, province, country, cdetails});
+      const user = await updateDoc(userDocRef3, {cname, ccontact, cemail, csize, cprocessingtime1, cprocessingtime2, cbenefits, companyaddress, cdetails, lat: newmarker.lat, lng: newmarker.lng});
      
       return true;
     } catch (e) {
+      console.log(e);
       return null;
     }
   }
@@ -102,6 +103,22 @@ export class CompanyService {
      
       return true;
     } catch (e) {
+      return null;
+    }
+  }
+
+
+
+  async editcompanylogo(imageurl: any){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `employers/${userget}/company/${userget}`);
+      const user = await updateDoc(userDocRef3, {imageurl});
+     
+      return true;
+    } catch (e) {
+      console.log(e);
       return null;
     }
   }
