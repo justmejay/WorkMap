@@ -180,7 +180,8 @@ const routes: Routes = [
   {
     path: 'addjoblisting',
     loadChildren: () => import('./companysidepages/addjoblisting/addjoblisting.module').then( m => m.AddjoblistingPageModule)
-  },  {
+  },
+  {
     path: 'applytojob',
     loadChildren: () => import('./pages/applytojob/applytojob.module').then( m => m.ApplytojobPageModule)
   },

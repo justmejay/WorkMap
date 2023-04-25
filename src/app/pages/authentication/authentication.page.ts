@@ -100,7 +100,7 @@ export class AuthenticationPage implements OnInit {
 
               if(this.storage === 1){
                 // this.router.navigate(['homecompany']);
-                this.nc.navigateRoot('homecompany');
+                this.nc.navigateRoot('dashboardcompany');
                 this.showAlert("Success", "Login Success"); 
               }
               data2.unsubscribe();
