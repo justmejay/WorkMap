@@ -24,6 +24,8 @@ export class EditaddressPage implements OnInit {
   newmarker: any = {lat: 0, lng:0}
   cmarker: any = {lat: 0, lng:0}
   temp: any = [];
+  isChecked: boolean = false;
+  addressrecovery: any = [];
 
 
 
@@ -240,6 +242,22 @@ ngAfterViewInit(){
        });
 
     });
+  }
+
+  checked(event: any){
+    if (event.currentTarget.checked){
+      this.address.homeaddress = this.address.currentaddress;
+      this.isChecked = true;
+    }
+    else{
+      this.isChecked = false;
+      this.firestore.getaddress().subscribe(res=>{
+        this.addressrecovery = res;
+        this.address.homeaddress = this.addressrecovery.homeaddress;
+     
+      });
+
+    }
   }
 
   

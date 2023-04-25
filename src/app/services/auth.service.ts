@@ -36,10 +36,9 @@ export class AuthService {
 
 
   async signup({fname, mname, lname, suffix, homeaddress, currentaddress,
-    bday, age, contact, cs, religion, specialization,sex , currentcoords, currentPlaceID,
-    homecoords,homePlaceID, }: 
+    bday, age, contact, cs, religion, specialization,sex , currentcoords }: 
     {fname: any, mname: any, lname: any, suffix: any, bday: any, cs: any, religion: any, age: any, contact:any,  specialization: any, sex : any ,
-      currentPlaceID: any, selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
+       selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
      }, email: any, 
     password: any,  ){
 
@@ -55,17 +54,15 @@ export class AuthService {
       const userget = this.auth.currentUser?.uid;
       console.log(userget);
       const imageUrl = ""
-      
-      
 
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
       await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "", aboutme: "", cs,religion,  fname, mname, lname, suffix, sex, contact, bday, age, email });
       
-        console.log(currentPlaceID);
+       
 
       const userDocRef2 = doc(this.firestore, `users/${userget}/address/${userget}`);
-      await setDoc(userDocRef2, {clat: currentcoords.lat, clng: currentcoords.lng, currentPlaceID,
-        homeaddress,lat: homecoords.lat, lng: homecoords.lng,homePlaceID, currentaddress });
+      await setDoc(userDocRef2, {clat: currentcoords.lat, clng: currentcoords.lng,
+        homeaddress, currentaddress, changed: false });
 
       const userDocRef3 = collection(this.firestore, `users/${userget}/experience`);
       await addDoc(userDocRef3, {cname: "", caddress: "", jtitle: "", datef: "", datet:""});

@@ -94,29 +94,8 @@
 
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Home Address</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>   
-        <ion-input position="stacked" [hidden]="true" [value]="homePlaceID" formControlName="homePlaceID" type="text" class="custominput"></ion-input>     
-        <ion-input position="stacked" [hidden]="true" [value]="selectedHome" formControlName="homeaddress" type="text" class="custominput"></ion-input>        
-        <form action="" [formGroup]="credshome" (ngSubmit)="searchome()">
-          <ion-input position="stacked" [value]="selectedHome" formControlName="homeaddress" type="text" class="custominput"></ion-input>
-          <ion-button type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
-          <ion-button (click)="getCurrent()"> <ion-icon name="location-outline"></ion-icon></ion-button>
-        </form>
-          <ion-note slot="error" *ngIf="(homeaddress.dirty || homeaddress.touched) && homeaddress.errors">Required</ion-note>
-          <ion-item button *ngFor="let address of addresses" (click)="onSelect(address)" >
-            <ion-icon name="pin"></ion-icon>
-            {{ address.description }}
-          </ion-item>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
         <ion-card-title>Current Address</ion-card-title>
       </ion-card-header>
-      <ion-input [hidden]="true"  position="stacked" [value]="currentPlaceID" formControlName="currentPlaceID" type="text" class="custominput"></ion-input>
       <ion-input [hidden]="true"  position="stacked" [value]="selectedCurrent" formControlName="currentaddress" type="text" class="custominput"></ion-input>
       <ion-card-content>
         <form action="" [formGroup]="credscurrent" (ngSubmit)="searchCurrent()">
@@ -131,6 +110,22 @@
           </ion-item>
       </ion-card-content>
     </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Home Address</ion-card-title>
+        <ion-item>
+          <ion-toggle (ionChange)="sameC($event)"></ion-toggle>
+          <ion-label>Same with Current Address</ion-label>
+        </ion-item>
+      </ion-card-header>
+      <ion-card-content>   
+          <ion-input position="stacked" [value]="selectedHome" formControlName="homeaddress" type="text" class="custominput"></ion-input>
+          <ion-note slot="error" *ngIf="(homeaddress.dirty || homeaddress.touched) && homeaddress.errors">Required</ion-note>
+      </ion-card-content>
+    </ion-card>
+
+   
 
     <ion-card class="custom-card">
       <ion-card-header>

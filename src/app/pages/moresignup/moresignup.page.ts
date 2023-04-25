@@ -108,7 +108,6 @@ export class MoresignupPage implements OnInit {
       bday: ['', [Validators.required]],
       age: ['', [Validators.required]],
       contact: ['', [Validators.required]],
-      homecoords: [this.homecoords, ],
       currentcoords: [this.currentcoords, ],
       cs: ['', [Validators.required]],
       religion: ['', [Validators.required]],
@@ -116,16 +115,12 @@ export class MoresignupPage implements OnInit {
 
       currentaddress: ['',],
       homeaddress: ['',],
-      homePlaceID: ['', ],
-      currentPlaceID: ['', ], 
       
 
       
     });
 
-    this.credshome = this.fb.group({
-      homeaddress: ['', [Validators.required]],
-    });
+   
     this.credscurrent = this.fb.group({
       currentaddress: ['', [Validators.required]],
     });
@@ -292,6 +287,18 @@ async check(){
   console.log(this.currenta);
   console.log(this.homea);
 
+}
+
+
+async sameC(event: any){
+
+  if (event.currentTarget.checked ==  true){
+    this.selectedHome = this.selectedCurrent;
+
+  }
+  else{
+    this.selectedHome = [];
+  }
 }
   
 
