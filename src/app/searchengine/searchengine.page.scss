@@ -13,18 +13,15 @@ ion-toolbar{
     color: white;
 }
 ion-card.joblisting {
-    --background: #ffffff;
+    --background: #eee8ff;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    border: solid 3px  rgb(53, 66, 125);
-}
-ion-label{
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
 }
 ion-card-header{
     --background: #5e2ee4;
     color: whitesmoke;
-    margin: 0%;
 }
 ion-card-title{
     color: whitesmoke;
@@ -34,15 +31,17 @@ ion-card-subtitle{
 }
 ion-card-content{
     color: black;
-    margin: auto;
 }
 .jobcardinfo{
     display: block;
-    width: 100%;
-    --border-radius: 0px 0px 10px 10px;
+    width: 80%;
+    --border-radius: 50px;
     --background: #2F7EF5;
-    margin: 0%;
     text-transform: initial;
+    -ms-transform: translate(50%, 50%);
+    transform: translate(10%, 0%);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 .location{
     display: flex;
