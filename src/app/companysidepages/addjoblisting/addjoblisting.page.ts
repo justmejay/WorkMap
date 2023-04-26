@@ -92,14 +92,7 @@ export class AddjoblistingPage implements OnInit {
       jsalary: ['', [Validators.required]],
       jspecialization: ['', []],
       jtype: ['', [Validators.required]],
-      cname: ['', []],
-      caddress: ['', [Validators.required]],
-      ccontact: ['', [Validators.required]],
-      cemail: ['', [Validators.required]],
-      cdetails: ['', [Validators.required]],
-      csize: ['', [Validators.required]],
-      cprocessingtime: ['', [Validators.required]],
-      cbenefits: ['', [Validators.required]],
+      jdescription: ['', [Validators.required]],
     });
     
   }
