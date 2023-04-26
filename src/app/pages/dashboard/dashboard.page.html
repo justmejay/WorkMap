@@ -45,7 +45,7 @@
       
       <ion-buttons fill="solid" slot="end">
         <ion-button type="">
-          <ion-icon class="btn" name="search" slot="icon-only"></ion-icon>
+          <ion-icon class="btn" name="search" slot="icon-only" routerLink="['/searchengine']"></ion-icon>
         </ion-button>
         <ion-button [routerLink]="['/applicantprofile']" type="">
           <ion-icon class="btn" name="person-circle" slot="icon-only"></ion-icon>
@@ -54,8 +54,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content  *ngFor="let job of job" class="ion-padding ">
-    <ion-card class="joblisting">
+  <ion-content class="ion-padding ">
+    <ion-card class="joblisting" *ngFor="let job of job">
       <ion-card-header>
         <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
         <ion-card-title>
