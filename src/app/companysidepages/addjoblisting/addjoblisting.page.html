@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons [routerLink]="['/homecompany']" slot="start">
+      <ion-buttons [routerLink]="['/dashboardcompany']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-title>Add Job Listing</ion-title>
@@ -58,7 +58,7 @@
         </ion-card-header>
         <ion-card-content>
           <ion-input position="stacked" formControlName="cname" value="{{job.cname}}" [readonly]="true"></ion-input>
-          <ion-input position="stacked" formControlName="caddress" value="{{job.street}} {{job.barangay}} {{job.town}} {{job.province}} {{job.country}}" [readonly]="true"></ion-input>
+          <ion-input position="stacked" formControlName="caddress" value="{{job.companyaddress}}" [readonly]="true"></ion-input>
           <ion-input position="stacked" formControlName="ccontact" value="{{job.ccontact}}" [readonly]="true"></ion-input>
           <ion-input position="stacked" formControlName="cemail" value="{{job.cemail}}" [readonly]="true"></ion-input>
         </ion-card-content>

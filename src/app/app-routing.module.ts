@@ -186,13 +186,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/applytojob/applytojob.module').then( m => m.ApplytojobPageModule)
   },
   {
-    path: 'homecompany',
-    loadChildren: () => import('./pages/homecompany/homecompany.module').then( m => m.HomecompanyPageModule)
-  },
-  {
     path: 'subscriptions',
     loadChildren: () => import('./paymentpages/subscriptions/subscriptions.module').then( m => m.SubscriptionsPageModule)
-  },  {
+  },
+  {
     path: 'checkrole',
     loadChildren: () => import('./checkrole/checkrole.module').then( m => m.CheckrolePageModule)
   },

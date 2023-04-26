@@ -155,8 +155,11 @@
             <ion-label position="stacked" class="cardsubtitle">Attachments</ion-label>
             <!-- <a href="{{c.fpath}}" formControlName="fpath" ><ion-button color="success" >Download</ion-button>
             </a> -->
-            <ion-input position="stacked" class="custominput"  value="{{c.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input>
-        </ion-card-content>
+            <!-- <ion-input position="stacked" class="custominput"  value="{{c.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input> -->
+            <a href="{{c.fpath}}">
+              <ion-button color="success">Download</ion-button>
+            </a>
+          </ion-card-content>
       </ion-card>
     
       <ion-card>
@@ -167,8 +170,9 @@
             <ion-label position="stacked" class="cardsubtitle"> Resume Attachments</ion-label>
             <!-- <a href="{{resume.fpath}}"formControlName="fpathr" ><ion-button color="success" >Download</ion-button>
             </a> -->
-            <ion-input position="stacked" class="custominput"  value="{{resume.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input>
-        </ion-card-content>
+            <!-- <ion-input position="stacked" class="custominput"  value="{{resume.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input> -->
+            <a  href="{{resume.fpath}}"> <ion-button *ngIf="resume?.fpath" color=success>Download</ion-button></a>
+          </ion-card-content>
       </ion-card>
       <ion-button size="large" shape="round" expand="block" type="submit">Submit Application</ion-button>
     </form>
