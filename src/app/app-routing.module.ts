@@ -192,7 +192,15 @@ const routes: Routes = [
   {
     path: 'checkrole',
     loadChildren: () => import('./checkrole/checkrole.module').then( m => m.CheckrolePageModule)
+  },  {
+    path: 'hometab',
+    loadChildren: () => import('./pages/hometab/hometab.module').then( m => m.HometabPageModule)
   },
+  {
+    path: 'addpost',
+    loadChildren: () => import('./pages/addpost/addpost.module').then( m => m.AddpostPageModule)
+  },
+
 
 
 
