@@ -77,12 +77,12 @@
             <ion-icon name="add-outline"></ion-icon>Add Job Listing
           </ion-tab-button>
 
-          <ion-tab-button tab="messages">
+          <ion-tab-button [routerLink]="['/messagespage']">
             <ion-icon name="chatbubble"></ion-icon>Messages
           </ion-tab-button>
 
-          <ion-tab-button tab="notification">
-            <ion-icon name="notifications" [routerLink]="['/notifications']"></ion-icon>Notification
+          <ion-tab-button [routerLink]="['/notifications']">
+            <ion-icon name="notifications" ></ion-icon>Notification
           </ion-tab-button>
           
         </ion-tab-bar>
