@@ -92,7 +92,7 @@
       <ion-tabs>
         <ion-router-outlet></ion-router-outlet>
   
-        <ion-tab-bar class="lowertool">
+        <ion-tab-bar [routerLink]="['/homecompany']">
           <ion-tab-button tab="home">
             <ion-icon name="home"></ion-icon>Home
           </ion-tab-button>
@@ -109,7 +109,7 @@
             <ion-icon name="add-outline"></ion-icon>Add Job Listing
           </ion-tab-button>
 
-          <ion-tab-button tab="messages">
+          <ion-tab-button [routerLink]="['/messagespage']">
             <ion-icon name="chatbubble"></ion-icon>Messages
           </ion-tab-button>
 
