@@ -4,6 +4,7 @@ import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, de
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
+import { timeStamp } from 'console';
 
 export interface Company{
   //id is optional and not required
@@ -43,7 +44,13 @@ export class CompanyService {
   constructor(
     private firestore: Firestore,
     private auth: Auth,
-  ) { }
+  ) {
+
+    // console.log(Date.now())
+    // const date: Date = new Date(1682515211967);
+
+    // console.log(date.toLocaleString());  
+   }
 
 
   getcompany(): Observable<Company[]>{
@@ -124,16 +131,28 @@ export class CompanyService {
   }
 
 
-  async addjoblisting({cname, caddress, ccontact, cemail, cdetails, csize, cprocessingtime, cbenefits, jtitle, jsalary, jspecialization, jtype}: 
-    {cname: any, caddress: any, ccontact: any, cemail: any, cdetails: any, csize: any, cprocessingtime: any, cbenefits: any, jtitle: any, jsalary: any, jspecialization: any, jtype: any, } ){
+  async addjoblisting({jdescription, jtitle, jsalary, jspecialization, jtype}: 
+    { jtitle: any, jsalary: any, jspecialization: any, jtype: any, jdescription: any } ){
 
     try {
-      
+
+
+      const timeStamp = Date.now();
+    const date: Date = new Date(1682515211967);
+
+    const date2 = date.toLocaleString();
       const userget = this.auth.currentUser?.uid;
       console.log(userget)
       const userDocRef3 = collection(this.firestore, `joblist/`);
-      const user = await addDoc(userDocRef3, {uid: userget, cname, caddress, ccontact, cemail, cdetails, csize, cprocessingtime, cbenefits, jtitle, jsalary, jspecialization, jtype});
-     
+      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jspecialization, jtype, jdescription, timestamp: date2, listid: "" });
+
+      const id = user.id;
+
+      const userDocRef4 = doc(this.firestore, `joblist/${id}`);
+      const user2 = await updateDoc(userDocRef4, {listid: id });
+      
+
+
       return user;
     } catch (e) {
       return null;

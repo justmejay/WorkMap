@@ -67,7 +67,6 @@
       </ion-card-header>
       <ion-card-content>
         <div class="companydetails">
-          <ion-label>Company Address: {{job.caddress}}</ion-label>
           <ion-label></ion-label>
           <ion-label>Starting Salary: {{job.jsalary}} pesos</ion-label>
           <ion-label></ion-label>
@@ -80,9 +79,12 @@
           <div class="jobtype">
             <ion-label>{{job.jtype}}</ion-label>
           </div>
+          <div class="jobtype">
+            <ion-label>{{job.jdescription}}</ion-label>
+          </div>
         </div>
       </ion-card-content>
-      <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
+      <ion-label class="ion-padding timeposted">Date Posted: {{job.timestamp}}</ion-label>
     </ion-card>
   </ion-content>
   

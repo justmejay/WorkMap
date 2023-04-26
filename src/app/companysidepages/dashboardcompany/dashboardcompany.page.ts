@@ -21,6 +21,8 @@ import { Auth } from '@angular/fire/auth';
 })
 export class DashboardcompanyPage implements OnInit {
   job: any = [];
+  dateposted: any;
+  company: any = [];
 
   constructor(
     private firestore: CompanyService,
@@ -32,10 +34,20 @@ export class DashboardcompanyPage implements OnInit {
     private storage: Storage,
     private authd: Auth
   ) {
+
+      
+    this.firestore.getcompany().subscribe(res=>{
+      this.job = res;
+      console.log(this.job)
+      this.company = res;
+
+
+    })
     
     this.firestore.getjobc().subscribe(res=>{
       this.job = res;
       console.log(this.job)
+
 
     })
    }
