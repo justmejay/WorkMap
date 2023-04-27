@@ -13,6 +13,8 @@ import {
   deleteObject
 } from '@angular/fire/storage';
 import { Auth } from '@angular/fire/auth';
+import { Profiler } from 'inspector';
+import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -21,6 +23,8 @@ import { Auth } from '@angular/fire/auth';
 })
 export class DashboardPage implements OnInit {
   job: any = [];
+  vschool: any;
+  button: boolean = false;
 
   constructor(
     private firestore: CompanyService,
@@ -31,12 +35,56 @@ export class DashboardPage implements OnInit {
     private router: Router,
     private storage: Storage,
     private authd: Auth,
-    private nc: NavController
+    private nc: NavController,
+    private profile: ProfilingService
   ) {
     this.firestore.getjob().subscribe(res=>{
       this.job = res;
       console.log(this.job)
     })
+
+     this.profile.verifyschool().then(res =>{
+      const a = res;
+
+      this.profile.verifyexp().then(res =>{
+        const b = res;
+
+
+        this.profile.verifycertifications().then(res =>{
+
+          const c = res;
+
+          this.profile.verifyresume().then(res =>{
+            const d = res;
+
+
+            this.profile.verifyrfile().then(res =>{
+              const e = res;
+
+              if (a >= 1 && b >= 1 && c>=1 && d>=1 && e>=1 ){
+              
+                this.button = false;
+              }else{
+                this.button  = true;
+              }
+
+            });
+
+
+            
+
+          });
+
+        });
+      });
+
+      
+
+
+    });
+
+    
+     
    }
 
   ngOnInit() {

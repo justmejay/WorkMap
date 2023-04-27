@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where } from '@angular/fire/firestore';
+import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where, collectionSnapshots } from '@angular/fire/firestore';
 import {
   deleteObject,
   getDownloadURL,
@@ -9,7 +9,7 @@ import {
   uploadString,
 } from '@angular/fire/storage';
 import { Photo } from '@capacitor/camera';
-import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
+import { collectionGroup, CollectionReference, query,getCountFromServer, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -84,7 +84,9 @@ export class ProfilingService {
     private firestore: Firestore,
     private auth: Auth,
     private storage: Storage,
-  ) { }
+  ) {
+    
+   }
 
 
   
@@ -425,6 +427,66 @@ export class ProfilingService {
     
   }
 
+
+  async verifyexp(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/experience/`)
+    const q = query(cakesRef, where("cname", "!=", "" ));
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+
+    
+  }
+
+  async verifyschool(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/school/`)
+    const q = query(cakesRef, where("schoolname", "!=", "" ))
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+  }
+
+  async verifycertifications(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/certifications/`)
+    const q = query(cakesRef, where("name", "!=", "" ));
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+    
+  }
+
+ async  verifyresume(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/resume/`);
+    const q = query(cakesRef, where("fa", "!=", "" ));
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+    
+  }
+
+  async  verifyrfile(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/resume/`);
+    const q = query(cakesRef, where("fpath", "!=", "" ));
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+    
+  }
   
 
 
