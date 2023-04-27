@@ -57,7 +57,8 @@
   <ion-content  *ngFor="let job of job" class="ion-padding ">
     <ion-card class="joblisting">
       <ion-card-header>
-        <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
+        <ion-label style="float: right;">Active</ion-label>
+        <ion-toggle (ionChange)="checked($event, job)" [checked]="job.state" style="float: right;"></ion-toggle>
         <ion-card-title>
           {{job.jtitle}}
         </ion-card-title>
