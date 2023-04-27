@@ -144,7 +144,7 @@ export class CompanyService {
       const userget = this.auth.currentUser?.uid;
       console.log(userget)
       const userDocRef3 = collection(this.firestore, `joblist/`);
-      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jspecialization, jtype, jdescription, timestamp: date2, listid: "" });
+      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jspecialization, jtype, jdescription, timestamp: date2, listid: "",state: true });
 
       const id = user.id;
 
@@ -170,6 +170,20 @@ export class CompanyService {
     const cakesRef = collection(this.firestore, `joblist/`)
     const q = query(cakesRef, where("uid", "==", `${userget}` ))
     return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
+  }
+
+  
+  async editstatus(state: any, value: boolean){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `joblist/${state}`);
+      const user = await updateDoc(userDocRef3, {state: value});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
   }
 
 }

@@ -23,6 +23,7 @@ export class DashboardcompanyPage implements OnInit {
   job: any = [];
   dateposted: any;
   company: any = [];
+  isCheck: boolean;
 
   constructor(
     private firestore: CompanyService,
@@ -46,8 +47,9 @@ export class DashboardcompanyPage implements OnInit {
     
     this.firestore.getjobc().subscribe(res=>{
       this.job = res;
-      console.log(this.job)
 
+
+      
 
     })
    }
@@ -61,6 +63,12 @@ export class DashboardcompanyPage implements OnInit {
     this.router.navigate(['authentication'], );
 
     
+  }
+
+  async checked(event: any, job: any){
+    const a = event.currentTarget.checked;
+    const b = job.listid;
+    const user = await this.firestore.editstatus(b, a);
   }
 
 }
