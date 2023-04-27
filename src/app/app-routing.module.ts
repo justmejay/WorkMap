@@ -200,6 +200,14 @@ const routes: Routes = [
     path: 'addpost',
     loadChildren: () => import('./pages/addpost/addpost.module').then( m => m.AddpostPageModule)
   },
+  {
+    path: 'privacypolicy',
+    loadChildren: () => import('./pages/privacypolicy/privacypolicy.module').then( m => m.PrivacypolicyPageModule)
+  },
+  {
+    path: 'editjoblisting',
+    loadChildren: () => import('./companysidepages/editjoblisting/editjoblisting.module').then( m => m.EditjoblistingPageModule)
+  },
 
 
 
