@@ -224,7 +224,15 @@ const routes: Routes = [
   {
     path: 'messagecreatecompany',
     loadChildren: () => import('./companysidepages/messagecreatecompany/messagecreatecompany.module').then( m => m.MessagecreatecompanyPageModule)
+  },  {
+    path: 'hometabcompany',
+    loadChildren: () => import('./companysidepages/hometabcompany/hometabcompany.module').then( m => m.HometabcompanyPageModule)
   },
+  {
+    path: 'addpostcompany',
+    loadChildren: () => import('./companysidepages/addpostcompany/addpostcompany.module').then( m => m.AddpostcompanyPageModule)
+  },
+
 
 
 

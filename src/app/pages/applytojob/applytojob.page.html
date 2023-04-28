@@ -122,19 +122,7 @@
                   
               </ion-card-content>
             </ion-card>
-    
-    
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Reason for Applying Job</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          
-              <ion-label position="stacked" class="cardsubtitle">Enter input here: </ion-label>
-              <ion-input position="stacked" class="custominput"  fill="outline" placeholder="I want to apply to this job because..."></ion-input>
-            
-        </ion-card-content>
-      </ion-card>
+
     
       <ion-card>
         <ion-card-header>
@@ -156,25 +144,44 @@
             <!-- <a href="{{c.fpath}}" formControlName="fpath" ><ion-button color="success" >Download</ion-button>
             </a> -->
             <!-- <ion-input position="stacked" class="custominput"  value="{{c.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input> -->
-            <a href="{{c.fpath}}">
+            <!-- <a href="{{c.fpath}}">
               <ion-button color="success" shape="round" expand="block">Download</ion-button>
-            </a>
+            </a> -->
           </ion-card-content>
       </ion-card>
     
-      <ion-card>
+      <!-- <ion-card>
         <ion-card-header>
           <ion-card-title>Credentials</ion-card-title>
         </ion-card-header>
         <ion-card-content *ngIf="resume" >
-            <ion-label position="stacked" class="cardsubtitle"> Resume Attachments</ion-label>
+            <ion-label position="stacked" class="cardsubtitle"> Resume Attachments</ion-label> -->
             <!-- <a href="{{resume.fpath}}"formControlName="fpathr" ><ion-button color="success" >Download</ion-button>
             </a> -->
             <!-- <ion-input position="stacked" class="custominput"  value="{{resume.fpath}}" [readonly]="true" fill="outline" placeholder="HacktheNorth Certification"></ion-input> -->
-            <a  href="{{resume.fpath}}"> <ion-button *ngIf="resume?.fpath" color=success shape="round" expand="block">Download</ion-button></a>
+            <!-- <a  href="{{resume.fpath}}"> <ion-button *ngIf="resume?.fpath" color=success shape="round" expand="block">Download</ion-button></a>
           </ion-card-content>
+      </ion-card> -->
+
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Reason for Applying Job</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          
+              <ion-label position="stacked" class="cardsubtitle">Enter input here: </ion-label>
+              <ion-input position="stacked" class="custominput"  fill="outline" placeholder="I want to apply to this job because..."></ion-input>
+            
+        </ion-card-content>
       </ion-card>
+
+      
       <ion-button size="large" shape="round" expand="block" type="submit">Submit Application</ion-button>
+
+          
+    
+      
     </form>
   </div>
   
