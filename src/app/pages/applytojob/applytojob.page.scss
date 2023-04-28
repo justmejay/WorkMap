@@ -115,9 +115,12 @@ ion-icon{
     height: 21px;
     width: 21px;
 }
-
+ion-button{
+    text-transform: initial;
+}
 ion-button.resume{
     margin-bottom: 10%;
     --background: #70AFFA;
     --border-style: solid 2px #2855A1;
+    text-transform: initial;
 }

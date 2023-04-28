@@ -1,0 +1,37 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/messagescompany']" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label>New Message</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="addrecipient">
+    <ion-input class="recipient" placeholder="Recipient"></ion-input>
+    <ion-button fill="clear">
+      <ion-icon name="add"></ion-icon>
+    </ion-button>
+  </div>
+  <div class="messagesent">
+    <ion-card class="sent">
+      <ion-card-content>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore excepturi, reprehenderit possimus laudantium eum fuga expedita aspernatur incidunt voluptatibus distinctio adipisci ad aliquam iure illo fugit. Numquam quidem maiores tempora?</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="messagereceived">
+    <ion-card class="received">
+      <ion-card-content>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore excepturi, reprehenderit possimus laudantium eum fuga expedita aspernatur incidunt voluptatibus distinctio adipisci ad aliquam iure illo fugit. Numquam quidem maiores tempora?</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div class="message">
+    <ion-input class="messageinput" placeholder="Type Message"></ion-input>
+    <ion-button fill="clear">
+      <ion-icon name="send"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>
