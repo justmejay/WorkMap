@@ -192,7 +192,8 @@ const routes: Routes = [
   {
     path: 'checkrole',
     loadChildren: () => import('./checkrole/checkrole.module').then( m => m.CheckrolePageModule)
-  },  {
+  },
+  {
     path: 'hometab',
     loadChildren: () => import('./pages/hometab/hometab.module').then( m => m.HometabPageModule)
   },
@@ -207,6 +208,22 @@ const routes: Routes = [
   {
     path: 'editjoblisting',
     loadChildren: () => import('./companysidepages/editjoblisting/editjoblisting.module').then( m => m.EditjoblistingPageModule)
+  },
+  {
+    path: 'notificationuser',
+    loadChildren: () => import('./pages/notificationuser/notificationuser.module').then( m => m.NotificationuserPageModule)
+  },
+  {
+    path: 'messagescompany',
+    loadChildren: () => import('./companysidepages/messagescompany/messagescompany.module').then( m => m.MessagescompanyPageModule)
+  },
+  {
+    path: 'messageviewcompany',
+    loadChildren: () => import('./companysidepages/messageviewcompany/messageviewcompany.module').then( m => m.MessageviewcompanyPageModule)
+  },
+  {
+    path: 'messagecreatecompany',
+    loadChildren: () => import('./companysidepages/messagecreatecompany/messagecreatecompany.module').then( m => m.MessagecreatecompanyPageModule)
   },
 
 

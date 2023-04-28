@@ -14,7 +14,7 @@ import { EditjoblistingPage } from './editjoblisting.page';
     FormsModule,
     IonicModule,
     EditjoblistingPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   declarations: [EditjoblistingPage]
 })
