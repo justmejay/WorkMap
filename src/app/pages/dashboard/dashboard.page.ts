@@ -25,6 +25,8 @@ export class DashboardPage implements OnInit {
   job: any = [];
   vschool: any;
   button: boolean = false;
+  userarray: any = [];
+  userspec: any;
 
   constructor(
     private firestore: CompanyService,
@@ -38,10 +40,25 @@ export class DashboardPage implements OnInit {
     private nc: NavController,
     private profile: ProfilingService
   ) {
-    this.firestore.getjob().subscribe(res=>{
-      this.job = res;
-      console.log(this.job)
-    })
+
+      this.profile.getprofile().subscribe(res =>{
+
+        this.userarray = res;
+        this.userspec = this.userarray.specialization;
+
+        this.firestore.getjobs(this.userspec).subscribe(res=>{
+
+
+          this.job = res;
+          console.log(this.job)
+        });
+
+
+
+
+      });
+
+     
 
      this.profile.verifyschool().then(res =>{
       const a = res;

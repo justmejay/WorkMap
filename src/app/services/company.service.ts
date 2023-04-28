@@ -161,8 +161,17 @@ export class CompanyService {
 
   getjob(): Observable<Company[]>{
     const cakesRef = collection(this.firestore, 'joblist')
-    return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
+    const q = query(cakesRef, where("schoolname", "!=", "" ))
+    return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
   }
+
+  getjobs(spec: any): Observable<Company[]>{
+    const cakesRef = collection(this.firestore, 'joblist')
+    const q = query(cakesRef, where("state", "==", true ), where("jspecialization", "==", spec ))
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]> 
+  }
+
+
 
   getjobc(): Observable<Company[]>{
     const userget = this.auth.currentUser.uid;
