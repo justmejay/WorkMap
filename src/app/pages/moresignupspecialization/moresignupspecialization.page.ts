@@ -154,7 +154,19 @@ export class MoresignupspecializationPage implements OnInit {
     // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password);
     // this.router.navigateByUrl('/moresignupaddress', { replaceUrl: true });
     // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password, this.personaldetails.fname, this.personaldetails.mname, this.personaldetails.lname,  this.personaldetails.suffix,  this.personaldetails.cs,  this.personaldetails.religion,  this.personaldetails.sex,  this.personaldetails.bday,  this.personaldetails.age,  this.personaldetails.contact, );
-    this.router.navigate(['moresignupaddress'], {queryParams:{specialization: this.specialization.value, }});
+    this.router.navigate(['moresignupaddress'], {queryParams:{specialization: this.specialization.value, 
+      fname: this.authdetails.fname, 
+      mname: this.authdetails.mname, 
+      lname: this.authdetails.lname, 
+      suffix: this.authdetails.suffix, 
+      cs: this.authdetails.cs, 
+      religion: this.authdetails.religion, 
+      sex: this.authdetails.sex, 
+      bday: this.authdetails.bday,
+      age: this.authdetails.age,
+      contact: this.authdetails.contact, 
+      email: this.authdetails.email,
+      password: this.authdetails.password} });
 
 
     // if (user) {

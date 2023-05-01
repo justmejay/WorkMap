@@ -128,17 +128,17 @@ export class MoresignupaddressPage implements OnInit {
       currentaddress: ['',],
       homeaddress: ['',],
 
-      fname: [this.authdetails.fname, Validators.required ],
-      mname: [this.authdetails.mname, Validators.required ],
-      lname: [this.authdetails.lname, Validators.required ],
-      suffix: [this.authdetails.suffix, Validators.required ],
-      cs: [this.authdetails.cs, Validators.required ],
-      religion: [this.authdetails.religion, Validators.required ],
-      sex: [this.authdetails.sex, Validators.required ],
-      bday: [this.authdetails.bday, Validators.required ],
-      age: [this.authdetails.age, Validators.required ],
-      contact: [this.authdetails.contact, Validators.required ],
-      specialization: [this.authdetails.specialization, Validators.required ],
+      fname: [this.authdetails.fname],
+      mname: [this.authdetails.mname],
+      lname: [this.authdetails.lname],
+      suffix: [this.authdetails.suffix],
+      cs: [this.authdetails.cs],
+      religion: [this.authdetails.religion],
+      sex: [this.authdetails.sex ],
+      bday: [this.authdetails.bday],
+      age: [this.authdetails.age],
+      contact: [this.authdetails.contact],
+      specialization: [this.authdetails.specialization],
       
 
 
