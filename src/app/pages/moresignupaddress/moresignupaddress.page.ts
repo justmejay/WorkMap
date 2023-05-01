@@ -138,6 +138,7 @@ export class MoresignupaddressPage implements OnInit {
       bday: [this.authdetails.bday],
       age: [this.authdetails.age],
       contact: [this.authdetails.contact],
+      citizenship: [this.authdetails.citizenship],
       specialization: [this.authdetails.specialization],
       
 

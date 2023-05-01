@@ -90,6 +90,10 @@ export class MoresignupPage implements OnInit {
     return this.credentials.get('contact');
   }
 
+  get citizenship() {
+    return this.credentials.get('citizenship');
+  }
+
   // get specialization() {
   //   return this.credentials.get('specialization'); 
   // }
@@ -119,6 +123,7 @@ export class MoresignupPage implements OnInit {
       bday: ['', [Validators.required]],
       age: ['', [Validators.required]],
       contact: ['', [Validators.required]],
+      citizenship: ['', [Validators.required]],
       // currentcoords: [this.currentcoords, ],
       
       
@@ -163,7 +168,8 @@ export class MoresignupPage implements OnInit {
                                                                     sex: this.sex.value, 
                                                                     bday: this.bday.value,
                                                                     age: this.age.value,
-                                                                    contact: this.contact.value, 
+                                                                    contact: this.contact.value,
+                                                                    citizenship: this.citizenship.value, 
                                                                     email: this.authdetails.email,
                                                                     password: this.authdetails.password}});
 

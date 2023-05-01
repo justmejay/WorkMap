@@ -51,29 +51,32 @@ export class MoresignupcPage implements OnInit {
     return this.credentials.get('lname');
   }
   get contact() {
-    return this.credentials.get('lname');
+    return this.credentials.get('contact');
+  }
+  get citizenship() {
+    return this.credentials.get('citizenship');
   }
   get cname() {
-    return this.credentials.get('lname');
+    return this.credentials.get('cname');
   }
   get ccontact() {
-    return this.credentials.get('lname');
+    return this.credentials.get('ccontact');
   }
-  get street() {
-    return this.credentials.get('street');
-  }
-  get barangay() {
-    return this.credentials.get('barangay');
-  }
-  get town() {
-    return this.credentials.get('town');
-  }
-  get province() {
-    return this.credentials.get('town');
-  }
-  get country() {
-    return this.credentials.get('town');
-  }
+  // get street() {
+  //   return this.credentials.get('street');
+  // }
+  // get barangay() {
+  //   return this.credentials.get('barangay');
+  // }
+  // get town() {
+  //   return this.credentials.get('town');
+  // }
+  // get province() {
+  //   return this.credentials.get('town');
+  // }
+  // get country() {
+  //   return this.credentials.get('town');
+  // }
   get cemail() {
     return this.credentials.get('cemail');
   }
@@ -91,6 +94,7 @@ export class MoresignupcPage implements OnInit {
       mname: ['', []],
       lname: ['', [Validators.required]],
       contact: ['', [Validators.required]],
+      citizenship: ['', [Validators.required]],
       ccontact: ['', [Validators.required]],
       cname: ['', [Validators.required]],
       companyaddress: ['', []],

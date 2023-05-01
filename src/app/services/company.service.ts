@@ -29,6 +29,7 @@ export interface Company{
   fname:string,
   mname:string,
   lname:string,
+  citizenship,
   contact:number,
   email:string,
 
@@ -70,13 +71,13 @@ export class CompanyService {
   }
 
 
-  async editemployer({fname, mname, lname, contact}: 
-    {fname: any, mname: any, lname: any, contact: any,}){
+  async editemployer({fname, mname, lname, citizenship, contact}: 
+    {fname: any, mname: any, lname: any, citizenship:any, contact: any,}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
-      const user = await updateDoc(userDocRef3, {fname, mname, lname, contact});
+      const user = await updateDoc(userDocRef3, {fname, mname, lname, citizenship, contact});
      
       return true;
     } catch (e) {
