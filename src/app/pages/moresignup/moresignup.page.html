@@ -81,12 +81,16 @@
 
 
         <ion-note slot="error" *ngIf="(bday.dirty || bday.touched) && bday.errors">Required</ion-note>
-          <ion-label position="stacked">Age</ion-label>
+          <ion-label position="stacked">Age:</ion-label>
           <ion-input position="stacked" formControlName="age" type="Number"  class="custominput"></ion-input>
         <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
-          <ion-label position="stacked">Contact</ion-label>
+          <ion-label position="stacked">Contact:</ion-label>
           <ion-input position="stacked" formControlName="contact" type="Number" class="custominput"></ion-input>
         <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+        
+        <ion-label position="stacked">Citizenship:</ion-label>
+            <ion-input position="stacked" type="text" formControlName="citizenship" class="custominput"></ion-input>
+          <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
 
       </ion-card-content>
     </ion-card>

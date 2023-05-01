@@ -165,6 +165,7 @@ export class MoresignupspecializationPage implements OnInit {
       bday: this.authdetails.bday,
       age: this.authdetails.age,
       contact: this.authdetails.contact, 
+      citizenship: this.authdetails.citizenship, 
       email: this.authdetails.email,
       password: this.authdetails.password} });
 
