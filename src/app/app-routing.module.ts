@@ -232,18 +232,6 @@ const routes: Routes = [
     path: 'addpostcompany',
     loadChildren: () => import('./companysidepages/addpostcompany/addpostcompany.module').then( m => m.AddpostcompanyPageModule)
   },
-  {
-    path: 'moresignupspecialization',
-    loadChildren: () => import('./pages/moresignupspecialization/moresignupspecialization.module').then( m => m.MoresignupspecializationPageModule)
-  },
-  {
-    path: 'moresignupaddress',
-    loadChildren: () => import('./pages/moresignupaddress/moresignupaddress.module').then( m => m.MoresignupaddressPageModule)
-  },
-  {
-    path: 'moresignupccompany',
-    loadChildren: () => import('./pages/moresignupccompany/moresignupccompany.module').then( m => m.MoresignupccompanyPageModule)
-  },
 
 
 
