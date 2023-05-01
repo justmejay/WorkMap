@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons [routerLink]="['/authentication']" slot="start">
+      <ion-buttons [routerLink]="['/moresignupspecialization']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-title>Setup your account</ion-title>
@@ -10,7 +10,7 @@
 <ion-content class="ion-padding ">
 <div >
   <form [formGroup]="credentials" (ngSubmit)="signup()">
-    <div class="personalinfo">
+    <!-- <div class="personalinfo">
     <ion-card>
       <ion-card-header>
         <ion-card-title>Personal Information</ion-card-title>
@@ -90,9 +90,9 @@
 
       </ion-card-content>
     </ion-card>
-    </div>
+    </div> -->
 
-    <!-- <ion-card>
+    <ion-card>
       <ion-card-header>
         <ion-card-title>Current Address</ion-card-title>
       </ion-card-header>
@@ -123,7 +123,7 @@
           <ion-input position="stacked" [value]="selectedHome" formControlName="homeaddress" type="text" class="custominput"></ion-input>
           <ion-note slot="error" *ngIf="(homeaddress.dirty || homeaddress.touched) && homeaddress.errors">Required</ion-note>
       </ion-card-content>
-    </ion-card> -->
+    </ion-card> 
 
    
 
@@ -206,7 +206,7 @@
   </ion-card-content>
     </ion-card> -->
 
-    <ion-button type="submit"  shape="round "expand="block" class="btnreg" size="large">Next</ion-button>
+    <ion-button type="submit"  shape="round "expand="block" class="btnreg" size="large">Finish</ion-button>
   </form>
 </div>
 

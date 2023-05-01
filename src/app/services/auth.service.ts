@@ -35,19 +35,21 @@ export class AuthService {
   ) { }
 
 
-  async signup({fname, mname, lname, suffix, homeaddress, currentaddress,
-    bday, age, contact, cs, religion, specialization,sex , currentcoords }: 
-    {fname: any, mname: any, lname: any, suffix: any, bday: any, cs: any, religion: any, age: any, contact:any,  specialization: any, sex : any ,
-       selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
+  async signup({fname, mname, lname, suffix, cs, religion, sex, bday, age, contact, specialization, homeaddress, currentaddress, currentcoords, }: 
+    {fname: any, mname: any, lname: any, suffix: any, cs: any, religion: any, sex : any , bday: any, age: any, contact:any, specialization: any, selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
      }, email: any, 
-    password: any,  ){
+    password: any,
+    
+    
+     ){
 
     try {
       console.log
       const user = await createUserWithEmailAndPassword(
         this.auth,
         email, 
-        password
+        password,
+
       );
 
         

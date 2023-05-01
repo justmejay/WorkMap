@@ -7,14 +7,12 @@ import { GmapService } from 'src/app/services/gmap.service';
 import { Geolocation } from '@capacitor/geolocation';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
-
-
 @Component({
-  selector: 'app-moresignup',
-  templateUrl: './moresignup.page.html',
-  styleUrls: ['./moresignup.page.scss'],
+  selector: 'app-moresignupspecialization',
+  templateUrl: './moresignupspecialization.page.html',
+  styleUrls: ['./moresignupspecialization.page.scss'],
 })
-export class MoresignupPage implements OnInit {
+export class MoresignupspecializationPage implements OnInit {
   isInputEnabled = false;
   isInput2Enabled = false;
   authdetails: any = [];
@@ -51,48 +49,52 @@ export class MoresignupPage implements OnInit {
 
       });
 
+       
+
+      
+
 
 
    }
 
-   get fname() {
-    return this.credentials.get('fname');
-  }
-  get mname() {
-    return this.credentials.get('mname');
-  }
-  get lname() {
-    return this.credentials.get('lname');
-  }
-  get suffix() {
-    return this.credentials.get('suffix');
-  }
-
-  get cs() {
-    return this.credentials.get('cs'); 
-  }
-
-  get religion() {
-    return this.credentials.get('religion'); 
-  }
-  
-  get sex() {
-    return this.credentials.get('sex'); 
-  }
-
-  get bday() {
-    return this.credentials.get('bday');
-  }
-  get age() {
-    return this.credentials.get('age');
-  }
-  get contact() {
-    return this.credentials.get('contact');
-  }
-
-  // get specialization() {
-  //   return this.credentials.get('specialization'); 
+  // get fname() {
+  //   return this.credentials.get('fname');
   // }
+  // get mname() {
+  //   return this.credentials.get('mname');
+  // }
+  // get lname() {
+  //   return this.credentials.get('lname');
+  // }
+  // get suffix() {
+  //   return this.credentials.get('suffix');
+  // }
+
+  // get cs() {
+  //   return this.credentials.get('cs'); 
+  // }
+
+  // get religion() {
+  //   return this.credentials.get('religion'); 
+  // }
+  
+  // get sex() {
+  //   return this.credentials.get('sex'); 
+  // }
+
+  // get bday() {
+  //   return this.credentials.get('bday');
+  // }
+  // get age() {
+  //   return this.credentials.get('age');
+  // }
+  // get contact() {
+  //   return this.credentials.get('contact');
+  // }
+
+  get specialization() {
+    return this.credentials.get('specialization'); 
+  }
  
 
  
@@ -109,20 +111,20 @@ export class MoresignupPage implements OnInit {
   ngOnInit() {
 
     this.credentials = this.fb.group({
-      fname: ['', [Validators.required]],
-      mname: ['', ],
-      lname: ['', [Validators.required]],
-      suffix: ['', ],
-      cs: ['', [Validators.required]],
-      religion: ['', [Validators.required]],
-      sex: ['', [Validators.required]],
-      bday: ['', [Validators.required]],
-      age: ['', [Validators.required]],
-      contact: ['', [Validators.required]],
+      // fname: ['', [Validators.required]],
+      // mname: ['', ],
+      // lname: ['', [Validators.required]],
+      // suffix: ['', ],
+      // cs: ['', [Validators.required]],
+      // religion: ['', [Validators.required]],
+      // sex: ['', [Validators.required]],
+      // bday: ['', [Validators.required]],
+      // age: ['', [Validators.required]],
+      // contact: ['', [Validators.required]],
       // currentcoords: [this.currentcoords, ],
       
       
-      // specialization: ['', [Validators.required]],
+      specialization: ['', [Validators.required]],
 
       // currentaddress: ['',],
       // homeaddress: ['',],
@@ -150,20 +152,10 @@ export class MoresignupPage implements OnInit {
     // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password);
     // await loading.dismiss();
     // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password);
-    // this.router.navigateByUrl('/moresignupspecialization', { replaceUrl: true });
+    // this.router.navigateByUrl('/moresignupaddress', { replaceUrl: true });
+    // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password, this.personaldetails.fname, this.personaldetails.mname, this.personaldetails.lname,  this.personaldetails.suffix,  this.personaldetails.cs,  this.personaldetails.religion,  this.personaldetails.sex,  this.personaldetails.bday,  this.personaldetails.age,  this.personaldetails.contact, );
+    this.router.navigate(['moresignupaddress'], {queryParams:{specialization: this.specialization.value, }});
 
-    // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password);
-    
-    this.router.navigate(['moresignupspecialization'], {queryParams:{fname: this.fname.value, 
-                                                                    mname: this.mname.value, 
-                                                                    lname: this.lname.value, 
-                                                                    suffix: this.suffix.value, 
-                                                                    cs: this.cs.value, 
-                                                                    religion: this.religion.value, 
-                                                                    sex: this.sex.value, 
-                                                                    bday: this.bday.value,
-                                                                    age: this.age.value,
-                                                                    contact: this.contact.value,}});
 
     // if (user) {
     //   await this.auth.logout();
