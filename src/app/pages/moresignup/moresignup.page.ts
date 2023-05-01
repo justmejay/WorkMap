@@ -163,7 +163,9 @@ export class MoresignupPage implements OnInit {
                                                                     sex: this.sex.value, 
                                                                     bday: this.bday.value,
                                                                     age: this.age.value,
-                                                                    contact: this.contact.value,}});
+                                                                    contact: this.contact.value, 
+                                                                    email: this.authdetails.email,
+                                                                    password: this.authdetails.password}});
 
     // if (user) {
     //   await this.auth.logout();
