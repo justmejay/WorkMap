@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where } from '@angular/fire/firestore';
+import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where, collectionSnapshots } from '@angular/fire/firestore';
 import {
   deleteObject,
   getDownloadURL,
@@ -9,7 +9,7 @@ import {
   uploadString,
 } from '@angular/fire/storage';
 import { Photo } from '@capacitor/camera';
-import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
+import { collectionGroup, CollectionReference, query,getCountFromServer, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -21,7 +21,9 @@ export interface User{
   specialization: string,
   age: number,
   bday: string,
+  cs: string,
   contact: number, 
+  citizenship: string,
   email: string,
   fname: string,
   gender: string,
@@ -84,7 +86,9 @@ export class ProfilingService {
     private firestore: Firestore,
     private auth: Auth,
     private storage: Storage,
-  ) { }
+  ) {
+    
+   }
 
 
   
@@ -171,13 +175,13 @@ export class ProfilingService {
     }
   }
 
-  async editprofile({fname, mname,sex, lname, suffix, bday,contact, age, cs, religion}: 
-    {fname: any, mname: any, lname: any, suffix: any, contact: any, bday: any, cs: any, religion : any, age: any, sex: any}){
+  async editprofile({fname, mname,sex, lname, suffix, bday,contact, citizenship, age, cs, religion}: 
+    {fname: any, mname: any, lname: any, suffix: any, contact: any, citizenship:any, bday: any, cs: any, religion : any, age: any, sex: any}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/profile/${userget}`);
-      const user = await updateDoc(userDocRef3, {fname, cs, religion, lname, mname,suffix, bday, contact, age , sex});
+      const user = await updateDoc(userDocRef3, {fname, cs, religion, lname, mname,suffix, bday, contact, citizenship, age , sex});
      
       return true;
     } catch (e) {
@@ -425,6 +429,66 @@ export class ProfilingService {
     
   }
 
+
+  async verifyexp(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/experience/`)
+    const q = query(cakesRef, where("cname", "!=", "" ));
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+
+    
+  }
+
+  async verifyschool(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/school/`)
+    const q = query(cakesRef, where("schoolname", "!=", "" ))
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+  }
+
+  async verifycertifications(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/certifications/`)
+    const q = query(cakesRef, where("name", "!=", "" ));
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+    
+  }
+
+ async  verifyresume(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/resume/`);
+    const q = query(cakesRef, where("fa", "!=", "" ));
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+    
+  }
+
+  async  verifyrfile(){
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = collection(this.firestore, `users/${id}/resume/`);
+    const q = query(cakesRef, where("fpath", "!=", "" ));
+    const b = getCountFromServer(q);
+    const c = (await b).data().count;   
+    console.log(c);
+    return c;
+    
+  }
   
 
 

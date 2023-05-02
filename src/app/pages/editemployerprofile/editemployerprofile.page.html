@@ -15,7 +15,7 @@
     <div>
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Employer Profile</ion-card-title>
+        <ion-card-title>Employer Profile</ion-card-title> 
       </ion-card-header>
       <ion-card-content>
           <ion-label position="stacked">Change Profile Picture:</ion-label>
@@ -35,6 +35,11 @@
             <ion-input position="stacked" type="text" formControlName="lname" value="{{employer.lname}}" class="custominput"></ion-input>
 
           <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
+
+          <ion-label position="stacked">Citizenship:</ion-label>
+          <ion-input position="stacked" type="text" formControlName="citizenship" value="{{employer.citizenship}}" class="custominput"></ion-input>
+
+        <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
 
             <ion-label position="stacked">Contact Number:</ion-label>
             <ion-input position="stacked" type="number" formControlName="contact" value="{{employer.contact}}" class="custominput"></ion-input>

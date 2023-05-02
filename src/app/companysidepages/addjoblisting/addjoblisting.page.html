@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons [routerLink]="['/homecompany']" slot="start">
+      <ion-buttons [routerLink]="['/dashboardcompany']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-title>Add Job Listing</ion-title>
@@ -39,7 +39,7 @@
             <ion-select-option value="Sciences">Sciences</ion-select-option>
           </ion-select>
         </ion-item>
-
+        
         <ion-label>Job Type</ion-label>
         <ion-item lines="none">
           <ion-select label="Default label" placeholder="Select job type" class="jobtype" formControlName="jtype">
@@ -48,56 +48,15 @@
             <ion-select-option value="Work from home">Work from home</ion-select-option>
           </ion-select>
         </ion-item>
+        <ion-label>Job Description</ion-label>
+        <ion-item>
+          <ion-textarea placeholder="Description" position="stacked" type="textarea" formControlName="jdescription" ></ion-textarea>
+        </ion-item>
 
         </ion-card-content>
       </ion-card>
 
-      <ion-card>
-        <ion-card-header class="companydetails">
-          <ion-card-title>Company Details</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-input position="stacked" formControlName="cname" value="{{job.cname}}" [readonly]="true"></ion-input>
-          <ion-input position="stacked" formControlName="caddress" value="{{job.street}} {{job.barangay}} {{job.town}} {{job.province}} {{job.country}}" [readonly]="true"></ion-input>
-          <ion-input position="stacked" formControlName="ccontact" value="{{job.ccontact}}" [readonly]="true"></ion-input>
-          <ion-input position="stacked" formControlName="cemail" value="{{job.cemail}}" [readonly]="true"></ion-input>
-        </ion-card-content>
-      </ion-card>
-    
-      <ion-card>
-        <ion-card-header class="companydetails">
-          <ion-card-title>About Company</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-textarea formControlName="cdetails" value="{{job.cdetails}}" autogrow="true" [readonly]="true" class="custominput"></ion-textarea>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-header class="companydetails">
-          <ion-card-title>Additional Information</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          
-            <ion-label position="stacked">Company size: </ion-label>
-            <ion-input position="stacked" formControlName="csize" value="{{job.csize}}" [readonly]="true"></ion-input>
-          
-            <ion-label position="stacked">Average Processing Time: </ion-label>
-            <ion-input position="stacked" formControlName="cprocessingtime" value="{{job.cprocessingtime2}} {{job.cprocessingtime1}}" [readonly]="true"></ion-input>
-        </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-        <ion-card-header class="companydetails">
-          <ion-card-title>Benefits</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            <div class="benefits">
-              <ion-textarea formControlName="cbenefits" value="{{job.cbenefits}}" autogrow="true" [readonly]="true" class="custominput"></ion-textarea>
-            </div>
-        </ion-card-content>
-      </ion-card>
-      <ion-button class="uploadjoblisting" type="submit">Upload</ion-button>
+      <ion-button class="uploadjoblisting" type="submit" expand="block" size="large" shape="round">Submit</ion-button>
 
     </form>
   </div>

@@ -35,19 +35,21 @@ export class AuthService {
   ) { }
 
 
-  async signup({fname, mname, lname, suffix, homeaddress, currentaddress,
-    bday, age, contact, cs, religion, specialization,sex , currentcoords }: 
-    {fname: any, mname: any, lname: any, suffix: any, bday: any, cs: any, religion: any, age: any, contact:any,  specialization: any, sex : any ,
-       selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
+  async signup({fname, mname, lname, suffix, cs, religion, sex, bday, age, contact, citizenship, specialization, homeaddress, currentaddress, currentcoords, }: 
+    {fname: any, mname: any, lname: any, suffix: any, cs: any, religion: any, sex : any , bday: any, age: any, contact:any, citizenship:any, specialization: any, selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
      }, email: any, 
-    password: any,  ){
+    password: any,
+    
+    
+     ){
 
     try {
       console.log
       const user = await createUserWithEmailAndPassword(
         this.auth,
         email, 
-        password
+        password,
+
       );
 
         
@@ -56,7 +58,7 @@ export class AuthService {
       const imageUrl = ""
 
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
-      await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "", aboutme: "", cs,religion,  fname, mname, lname, suffix, sex, contact, bday, age, email });
+      await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "", aboutme: "", cs, religion,  fname, mname, lname, suffix, sex, contact, citizenship, bday, age, email });
       
        
 
@@ -87,9 +89,9 @@ export class AuthService {
   }
 
  
-  async signupc({fname, mname, lname, contact, 
+  async signupc({fname, mname, lname, contact, citizenship,
     cname, ccontact, companyaddress, currentPlaceID, currentcoordss, cemail }: 
-    {fname: any, mname: any, lname: any, contact: any, email:any, cname: any, ccontact: any, companyaddress: any, currentPlaceID: any, currentcoordss: any , cemail: any }, email: any, 
+    {fname: any, mname: any, lname: any, contact: any, citizenship:any, email:any, cname: any, ccontact: any, companyaddress: any, currentPlaceID: any, currentcoordss: any , cemail: any }, email: any, 
     password: any ){
 
     try {
@@ -107,7 +109,7 @@ export class AuthService {
       
 
       const userDocRef1 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
-      await setDoc(userDocRef1, {fname, mname, lname, contact, email, uid: userget, profileimg: ""});
+      await setDoc(userDocRef1, {fname, mname, lname, contact, citizenship, email, uid: userget, profileimg: ""});
       
 
       const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);

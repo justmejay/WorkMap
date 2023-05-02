@@ -186,16 +186,62 @@ const routes: Routes = [
     loadChildren: () => import('./pages/applytojob/applytojob.module').then( m => m.ApplytojobPageModule)
   },
   {
-    path: 'homecompany',
-    loadChildren: () => import('./pages/homecompany/homecompany.module').then( m => m.HomecompanyPageModule)
-  },
-  {
     path: 'subscriptions',
     loadChildren: () => import('./paymentpages/subscriptions/subscriptions.module').then( m => m.SubscriptionsPageModule)
-  },  {
+  },
+  {
     path: 'checkrole',
     loadChildren: () => import('./checkrole/checkrole.module').then( m => m.CheckrolePageModule)
   },
+  {
+    path: 'hometab',
+    loadChildren: () => import('./pages/hometab/hometab.module').then( m => m.HometabPageModule)
+  },
+  {
+    path: 'addpost',
+    loadChildren: () => import('./pages/addpost/addpost.module').then( m => m.AddpostPageModule)
+  },
+  {
+    path: 'privacypolicy',
+    loadChildren: () => import('./pages/privacypolicy/privacypolicy.module').then( m => m.PrivacypolicyPageModule)
+  },
+  {
+    path: 'editjoblisting',
+    loadChildren: () => import('./companysidepages/editjoblisting/editjoblisting.module').then( m => m.EditjoblistingPageModule)
+  },
+  {
+    path: 'notificationuser',
+    loadChildren: () => import('./pages/notificationuser/notificationuser.module').then( m => m.NotificationuserPageModule)
+  },
+  {
+    path: 'messagescompany',
+    loadChildren: () => import('./companysidepages/messagescompany/messagescompany.module').then( m => m.MessagescompanyPageModule)
+  },
+  {
+    path: 'messageviewcompany',
+    loadChildren: () => import('./companysidepages/messageviewcompany/messageviewcompany.module').then( m => m.MessageviewcompanyPageModule)
+  },
+  {
+    path: 'messagecreatecompany',
+    loadChildren: () => import('./companysidepages/messagecreatecompany/messagecreatecompany.module').then( m => m.MessagecreatecompanyPageModule)
+  },  {
+    path: 'hometabcompany',
+    loadChildren: () => import('./companysidepages/hometabcompany/hometabcompany.module').then( m => m.HometabcompanyPageModule)
+  },
+  {
+    path: 'addpostcompany',
+    loadChildren: () => import('./companysidepages/addpostcompany/addpostcompany.module').then( m => m.AddpostcompanyPageModule)
+  },
+  {
+    path: 'moresignupspecialization',
+    loadChildren: () => import('./pages/moresignupspecialization/moresignupspecialization.module').then( m => m.MoresignupspecializationPageModule)
+  },
+  {
+    path: 'moresignupaddress',
+    loadChildren: () => import('./pages/moresignupaddress/moresignupaddress.module').then( m => m.MoresignupaddressPageModule)
+  },
+
+
 
 
 

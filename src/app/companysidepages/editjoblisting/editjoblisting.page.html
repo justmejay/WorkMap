@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/dashboardcompany']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>Edit Job Listing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <form>
+      <ion-card>
+        <ion-card-header class="jobdetails">
+          <ion-card-title>Job Details</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-input placeholder="Job title Needed" position="stacked" type="text" formControlName="jtitle" ></ion-input>
+          <ion-input placeholder="Starting Salary" position="stacked" type="number" formControlName="jsalary" ></ion-input>
+          
+          <ion-label>Job Specialization</ion-label>
+            <ion-item lines="none">
+            <ion-select label="Default label" placeholder="Select job specialization" class="jobspecialization" formControlName="jspecialization" expand="block">
+            <ion-select-option value="Accounting/Finance">Accounting/Finance</ion-select-option>
+            <ion-select-option value="Admin/Human Resources">Admin/Human Resources</ion-select-option>
+            <ion-select-option value="Agriculture, Forestry & Fishery">Agriculture, Forestry & Fishery</ion-select-option>
+            <ion-select-option value="Armed Forces">Armed Forces</ion-select-option>
+            <ion-select-option value="Arts/Media/Communication">Arts/Media/Communication</ion-select-option>
+            <ion-select-option value="Building/Construction">Building/Construction</ion-select-option>
+            <ion-select-option value="Computer/Information Technology">Computer/Information Technology</ion-select-option>
+            <ion-select-option value="Craft & Related Trade Workers">Craft & Related Trade Workers</ion-select-option>
+            <ion-select-option value="Education/Training">Education/Training</ion-select-option>
+            <ion-select-option value="Engineering">Engineering</ion-select-option>
+            <ion-select-option value="Healthcare">Healthcare</ion-select-option>
+            <ion-select-option value="Hotel/Restaurant">Hotel/Restaurant</ion-select-option>
+            <ion-select-option value="manufacturing">Manufacturing</ion-select-option>
+            <ion-select-option value="Plant & Machine Operators & Assemblers">Plant & Machine Operators & Assemblers</ion-select-option>
+            <ion-select-option value="Sales/Marketing">Sales/Marketing</ion-select-option>
+            <ion-select-option value="Sciences">Sciences</ion-select-option>
+          </ion-select>
+        </ion-item>
+        
+        <ion-label>Job Type</ion-label>
+        <ion-item lines="none">
+          <ion-select label="Default label" placeholder="Select job type" class="jobtype" formControlName="jtype">
+            <ion-select-option value="Full Time">Full Time</ion-select-option>
+            <ion-select-option value="Hybrid">Hybrid</ion-select-option>
+            <ion-select-option value="Work from home">Work from home</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-label>Job Description</ion-label>
+        <ion-item>
+          <ion-textarea placeholder="Description" position="stacked" type="textarea" formControlName="jdescription" ></ion-textarea>
+        </ion-item>
+
+        </ion-card-content>
+      </ion-card>
+
+      <ion-button class="uploadjoblisting" type="submit" expand="block" size="large" shape="round">Save Changes</ion-button>
+
+    </form>
+  </div>
+  
+</ion-content>

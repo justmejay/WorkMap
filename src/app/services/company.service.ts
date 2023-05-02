@@ -4,6 +4,7 @@ import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, de
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
+import { timeStamp } from 'console';
 
 export interface Company{
   //id is optional and not required
@@ -28,6 +29,7 @@ export interface Company{
   fname:string,
   mname:string,
   lname:string,
+  citizenship,
   contact:number,
   email:string,
 
@@ -43,7 +45,13 @@ export class CompanyService {
   constructor(
     private firestore: Firestore,
     private auth: Auth,
-  ) { }
+  ) {
+
+    // console.log(Date.now())
+    // const date: Date = new Date(1682515211967);
+
+    // console.log(date.toLocaleString());  
+   }
 
 
   getcompany(): Observable<Company[]>{
@@ -63,13 +71,13 @@ export class CompanyService {
   }
 
 
-  async editemployer({fname, mname, lname, contact}: 
-    {fname: any, mname: any, lname: any, contact: any,}){
+  async editemployer({fname, mname, lname, citizenship, contact}: 
+    {fname: any, mname: any, lname: any, citizenship:any, contact: any,}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
-      const user = await updateDoc(userDocRef3, {fname, mname, lname, contact});
+      const user = await updateDoc(userDocRef3, {fname, mname, lname, citizenship, contact});
      
       return true;
     } catch (e) {
@@ -79,16 +87,17 @@ export class CompanyService {
 
 
 
-  async editcompany({cname, ccontact, cemail, csize, cprocessingtime1, cprocessingtime2, cbenefits, street, barangay, town, province, country, cdetails}: 
-    {cname: any, ccontact: any, cemail: any, csize: any,  cprocessingtime1: any,  cprocessingtime2: any,  cbenefits: any,  street: any,  barangay: any,  town: any,  province: any,  country: any,  cdetails: any,}){
+  async editcompany({cname, ccontact, cemail, csize,cdetails,newmarker, cprocessingtime1, cprocessingtime2, cbenefits,  companyaddress}: 
+    {cname: any, ccontact: any, cemail: any, csize: any, newmarker:any, cprocessingtime1: any,  cprocessingtime2: any,  cbenefits: any,  companyaddress: any,  cdetails: any,}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `employers/${userget}/company/${userget}`);
-      const user = await updateDoc(userDocRef3, {cname, ccontact, cemail, csize, cprocessingtime1, cprocessingtime2, cbenefits, street, barangay, town, province, country, cdetails});
+      const user = await updateDoc(userDocRef3, {cname, ccontact, cemail, csize, cprocessingtime1, cprocessingtime2, cbenefits, companyaddress, cdetails, lat: newmarker.lat, lng: newmarker.lng});
      
       return true;
     } catch (e) {
+      console.log(e);
       return null;
     }
   }
@@ -107,16 +116,44 @@ export class CompanyService {
   }
 
 
-  async addjoblisting({cname, caddress, ccontact, cemail, cdetails, csize, cprocessingtime, cbenefits, jtitle, jsalary, jspecialization, jtype}: 
-    {cname: any, caddress: any, ccontact: any, cemail: any, cdetails: any, csize: any, cprocessingtime: any, cbenefits: any, jtitle: any, jsalary: any, jspecialization: any, jtype: any, } ){
+
+  async editcompanylogo(imageurl: any){
 
     try {
-      
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `employers/${userget}/company/${userget}`);
+      const user = await updateDoc(userDocRef3, {imageurl});
+     
+      return true;
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
+
+  async addjoblisting({jdescription, jtitle, jsalary, jspecialization, jtype}: 
+    { jtitle: any, jsalary: any, jspecialization: any, jtype: any, jdescription: any } ){
+
+    try {
+
+
+      const timeStamp = Date.now();
+    const date: Date = new Date(1682515211967);
+
+    const date2 = date.toLocaleString();
       const userget = this.auth.currentUser?.uid;
       console.log(userget)
       const userDocRef3 = collection(this.firestore, `joblist/`);
-      const user = await addDoc(userDocRef3, {uid: userget, cname, caddress, ccontact, cemail, cdetails, csize, cprocessingtime, cbenefits, jtitle, jsalary, jspecialization, jtype});
-     
+      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jspecialization, jtype, jdescription, timestamp: date2, listid: "",state: true });
+
+      const id = user.id;
+
+      const userDocRef4 = doc(this.firestore, `joblist/${id}`);
+      const user2 = await updateDoc(userDocRef4, {listid: id });
+      
+
+
       return user;
     } catch (e) {
       return null;
@@ -125,8 +162,17 @@ export class CompanyService {
 
   getjob(): Observable<Company[]>{
     const cakesRef = collection(this.firestore, 'joblist')
-    return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
+    const q = query(cakesRef, where("schoolname", "!=", "" ))
+    return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
   }
+
+  getjobs(spec: any): Observable<Company[]>{
+    const cakesRef = collection(this.firestore, 'joblist')
+    const q = query(cakesRef, where("state", "==", true ), where("jspecialization", "==", spec ))
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]> 
+  }
+
+
 
   getjobc(): Observable<Company[]>{
     const userget = this.auth.currentUser.uid;
@@ -134,6 +180,20 @@ export class CompanyService {
     const cakesRef = collection(this.firestore, `joblist/`)
     const q = query(cakesRef, where("uid", "==", `${userget}` ))
     return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
+  }
+
+  
+  async editstatus(state: any, value: boolean){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `joblist/${state}`);
+      const user = await updateDoc(userDocRef3, {state: value});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
   }
 
 }

@@ -120,6 +120,12 @@
         </ion-item>
         <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
        
+         <ion-item>
+            <ion-label position="stacked">Citizenship:</ion-label>
+            <ion-input position="stacked" type="text" formControlName="citizenship" value="{{profile.citizenship}}" class="custominput"></ion-input>
+          </ion-item>
+          <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
+      
       </ion-card-content>
     </ion-card>
     </div>

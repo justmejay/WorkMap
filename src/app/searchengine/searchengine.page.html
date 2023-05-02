@@ -1,6 +1,6 @@
 <ion-header >
   <ion-toolbar>
-      <ion-buttons [routerLink]="" slot="start">
+      <ion-buttons [routerLink]="['/dashboard']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-label class="title">Search</ion-label>
@@ -11,14 +11,14 @@
 <ion-content>
   <div class="searchengine">
     <ion-searchbar animated="true" placeholder="Job Title"></ion-searchbar>
-    <div class="location">
+    <!-- <div class="location">
       <ion-icon name="location-outline"></ion-icon>
       <ion-select class="selectlocation" placeholder="Select Place">
-        <ion-select-option value="">Manila</ion-select-option>
-        <ion-select-option value="">Tuguegarao</ion-select-option>
-        <ion-select-option value="">Isabela</ion-select-option>
+        <ion-select-option value="">Address 1</ion-select-option>
+        <ion-select-option value="">Address 2</ion-select-option>
+        <ion-select-option value="">Address 3</ion-select-option>
       </ion-select>
-    </div>
+    </div> -->
     <div class="jobspecialization">
       <ion-icon name="briefcase-outline"></ion-icon>
       <ion-select class="selectjobspecialization" placeholder="Job Specialization">

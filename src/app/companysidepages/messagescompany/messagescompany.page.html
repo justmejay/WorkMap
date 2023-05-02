@@ -1,0 +1,28 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/dashboardcompany']" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label>Messages</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-item button detail="true" [routerLink]="['/messageviewcompany']">
+  <ion-avatar slot="start">
+    <img alt="Profile piture" src="assets/header.png" />
+  </ion-avatar>
+  <ion-label>
+    <h3>John Wick</h3>
+    <p>Contains last message sent</p>
+  </ion-label>
+</ion-item>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" [routerLink]="['/messagecreatecompany']">
+    <ion-fab-button class="fabdesign">
+      <ion-icon name="create"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+

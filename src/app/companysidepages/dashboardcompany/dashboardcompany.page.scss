@@ -42,7 +42,7 @@ ion-content{
 } 
 
 .btn{
-    font-size: 40px;
+    
     color: #ffffff;  
 }
 ion-tabs{
@@ -72,16 +72,16 @@ ion-tab-button{
     color: #000000;
 }
 
-.joblisting{
-    --background: #ffffff;
+ion-card.joblisting {
+    --background: #eee8ff;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    border: solid 3px  rgb(53, 66, 125);
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
 }
 ion-card-header{
     --background: #5e2ee4;
     color: whitesmoke;
-    margin: 0%;
 }
 ion-card-title{
     color: whitesmoke;
@@ -91,7 +91,7 @@ ion-card-subtitle{
 }
 ion-card-content{
     color: black;
-    margin: auto;
+    padding: 1rem;
 }
 .hamburgcard{
     --background: #ffffff;
@@ -102,12 +102,26 @@ ion-card-content{
     display: flex;
     flex-direction: column;
 }
+.jobdetails{
+    display: flex;
+    flex-direction: column;
+}
+.jobtype{
+    display: flex;
+    flex-direction: column;
+}
 .jobspecialization{
     display: flex;
     flex-direction: column;
 }
+.jobdescription{
+    display: flex;
+    flex-direction: column;
+}
 .timeposted{
-    margin-bottom: 3%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #2F7EF5;
 }
 .jobcardinfo{
     display: block;
@@ -116,4 +130,14 @@ ion-card-content{
     --background: #2F7EF5;
     margin: 0%;
     text-transform: initial;
+}
+.togglestatus{
+    padding-top: 0.6rem;
+}
+ion-label{
+    padding-left: 0.5rem;
+}
+.labelheader{
+    font-size: 20px;
+    font-weight: 300;
 }

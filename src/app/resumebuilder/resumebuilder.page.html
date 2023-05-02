@@ -32,12 +32,18 @@
         <ion-label position="stacked" class="cardsubtitle">Current Address: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{address.currentaddress}}" [readonly]="true"></ion-input>
 
-        <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{profile.cs}}" [readonly]="true"></ion-input>
-
         <ion-label position="stacked" class="cardsubtitle">Religion: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{profile.religion}}" [readonly]="true"></ion-input>
+
+        <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
+        <ion-input position="stacked" class="custominput" value=" {{profile.cs}}" [readonly]="true"></ion-input>
       
+        <ion-label position="stacked" class="cardsubtitle">Contact: </ion-label>
+        <ion-input position="stacked" class="custominput" value=" {{profile.contact}}" [readonly]="true"></ion-input>
+
+        <ion-label position="stacked" class="cardsubtitle">Citizenship: </ion-label>
+        <ion-input position="stacked" class="custominput" value=" {{profile.citizenship}}" [readonly]="true"></ion-input>
+
         <ion-label position="stacked" class="cardsubtitle">Specialization: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{profile.specialization}}" [readonly]="true"></ion-input>
     </ion-card-content>
@@ -145,7 +151,7 @@
                 
                 <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label>
                 <a href="{{c.fpath}}">
-                  <ion-button color="success">Download</ion-button>
+                  <ion-button shape="round" expand="block" color="success">Download</ion-button>
                 </a>
              
       
@@ -165,8 +171,10 @@
             </div >
               </ion-card-header>
           <ion-card-content class="ion-padding" *ngIf="resume">
-            <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label>
-           <a  href="{{resume.fpath}}"> <ion-button *ngIf="resume?.fpath" color=success>Download</ion-button></a>
+            <!-- <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label> -->
+           <a  href="{{resume.fpath}}"> 
+            <ion-button *ngIf="resume?.fpath" color=success expand="block" shape="round">Download</ion-button>
+          </a>
           </ion-card-content>
         </ion-card>
 

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+        <ion-buttons [routerLink]="['/hometabcompany']" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline"> </ion-icon>
+        </ion-buttons>
+        <ion-title>Add New Post</ion-title> 
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>What's to post?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input placeholder="Insert post title"></ion-input>
+      <ion-textarea placeholder="lorem ipsum"></ion-textarea>
+      <div class="imageview">
+        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+        <ion-button expand="block" color="danger" shape="round">Delete</ion-button>
+      </div>
+      <div class="videoview"></div>
+      <div class="linkview"></div>
+    </ion-card-content>
+    <!-- <ion-button fill="clear">
+      <ion-icon name="attach"></ion-icon>Link</ion-button> -->
+    <ion-button fill="clear">
+      <ion-icon name="image-outline"></ion-icon>Image</ion-button>
+    <!-- <ion-button fill="clear">
+      <ion-icon name="play-outline"></ion-icon>Video</ion-button> -->
+  </ion-card>
+  <ion-button expand="block" shape="round" size="large">Add post</ion-button>
+</ion-content>

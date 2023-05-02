@@ -1,0 +1,34 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+}
+ion-toolbar{
+    --background:  #2855A1;
+}
+ion-title{
+    --color: white;
+}
+ion-label{
+    margin-top: 0.5rem;
+    padding-left: 0.8rem;
+}
+h3{
+    margin-top: 0rem;
+    padding-left: 1rem;
+}
+ion-list{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+p{
+    padding-left: 0.5rem;
+    text-align: justify;
+}
+.fabdesign{
+    --background: #2855A1;
+}
+

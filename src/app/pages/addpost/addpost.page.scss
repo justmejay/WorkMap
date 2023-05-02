@@ -1,0 +1,49 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+}
+ion-title{
+    --color: white;
+}
+ion-toolbar{
+    --background:  #2855A1;
+}
+ion-card{
+    --background: #71a8fa;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card-header{
+    --background: #277dff;
+    color: whitesmoke;
+    margin: 0%;
+}
+ion-card-title{
+    color: whitesmoke;
+}
+ion-input{
+    border: solid 2px rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+ion-textarea{
+    border: solid 2px rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+ion-button{
+    --color: white;
+    text-transform: initial;
+}

@@ -45,6 +45,10 @@ export class EditemployerprofilePage implements OnInit {
     return this.credentials.get('lname');
   }
 
+  get citizenship() {
+    return this.credentials.get('citizenship');
+  }
+
   get contact() {
     return this.credentials.get('contact');
   }
@@ -75,6 +79,7 @@ export class EditemployerprofilePage implements OnInit {
       fname: ['', [Validators.required]],
       mname: ['', [Validators.required]],
       lname: ['', [Validators.required]],
+      citizenship: ['', [Validators.required]],
       contact: ['', [Validators.required]],
       email: ['', [Validators.required]],
     });

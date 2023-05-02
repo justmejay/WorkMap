@@ -66,6 +66,10 @@ export class EditpersonalinfoPage implements OnInit {
     return this.credentials.get('religion');
   }
 
+  get citizenship() {
+    return this.credentials.get('citizenship');
+  }
+
   constructor(
     private firestore: ProfilingService,
    private fb: FormBuilder,
@@ -99,6 +103,7 @@ export class EditpersonalinfoPage implements OnInit {
       sex: ['', [Validators.required]],
       cs: ['', [Validators.required]],
       religion: ['', [Validators.required]],
+      citizenship: ['', [Validators.required]],
     });
     
   }

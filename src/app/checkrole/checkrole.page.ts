@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Component, OnInit } from '@angular/core';
 import { ProfilingService } from '../services/profiling.service';
 import { Router } from '@angular/router';

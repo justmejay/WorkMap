@@ -1,0 +1,25 @@
+<ion-header>
+<ion-toolbar>
+      <ion-buttons [routerLink]="['/dashboard']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline"> </ion-icon>
+      </ion-buttons>
+      <ion-title>Home Feed</ion-title> 
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-label>Posted 24hrs ago</ion-label>
+    <h3>Post Title</h3>
+    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    <p>Post description</p>
+    <ion-button expand="block" fill="clear">https://www.sampleattachedlink.com</ion-button>
+    <!-- <div class="actionbuttons">
+      <ion-button fill="clear">Like</ion-button>
+    </div> -->
+  </ion-list>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" [routerLink]="['/addpost']">
+    <ion-fab-button class="fabdesign">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
