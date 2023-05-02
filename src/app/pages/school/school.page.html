@@ -11,13 +11,11 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <ion-card class="ion-padding" *ngFor="let s of school">
-      <ion-card-title>
-        {{ s.schoolname }}
-      </ion-card-title>
-      <ion-card-subtitle>
-        {{s.level}}
-      </ion-card-subtitle>
+    <ion-card *ngFor="let s of school">
+        <ion-card-header>
+          <ion-card-title>{{ s.schoolname }}</ion-card-title>
+          <ion-card-subtitle>{{s.level}}</ion-card-subtitle>
+        </ion-card-header>
       <ion-card-content>
         <ion-label position="stacked" class="cardsubtitle">Course:</ion-label>
         <ion-input position="stacked" class="custominput" value=" {{s.course}}" [readonly]="true"></ion-input>

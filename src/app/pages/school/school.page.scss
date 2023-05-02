@@ -21,19 +21,28 @@ ion-card{
   margin-bottom: 1rem;
   // border: solid 3px  rgb(53, 66, 125);
 }
-
-ion-card-title{
+ion-card.cardcontainer {
+  --background: #71a8fa;
+  box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  margin-bottom: 1rem;
+  // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card-header{
+  --background: #277dff;
   color: whitesmoke;
+  margin: 0%;
 }
-ion-card-subtitle{
-  color:whitesmoke;
-}
-
 ion-card-content{
   color: black;
   margin: auto;
 }
-
+ion-card-title{
+  --color: whitesmoke;
+}
+ion-card-subtitle{
+  --color: whitesmoke;
+}
 ion-label.cardsubtitle{
   font-size: 1.2em;
   font-weight: 500;
