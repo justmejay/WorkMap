@@ -100,10 +100,8 @@
       <ion-card-content>
         <form action="" [formGroup]="credscurrent" (ngSubmit)="searchCurrent()">
           <ion-input   position="stacked" [value]="selectedCurrent" formControlName="currentaddress" type="text" class="custominput"></ion-input>
-          <div class="apibutton">
-            <ion-button class="apibuttons" shape="round" type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
-            <ion-button class="apibuttons" shape="round" (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
-          </div>
+          <ion-button type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
+          <ion-button (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
         </form>
           <ion-note slot="error" *ngIf="(currentaddress.dirty || currentaddress.touched) && currentaddress.errors">Required</ion-note>
           <ion-item button *ngFor="let address of addressesc" (click)="onSelectc(address)" >

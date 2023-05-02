@@ -12,13 +12,11 @@
     <form [formGroup]="credentials" (ngSubmit)="addjoblisting()">
       <ion-card>
         <ion-card-header class="jobdetails">
-          <ion-card-title>Job Listing Details</ion-card-title>
+          <ion-card-title>Job Details</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-label>Job Title : </ion-label>
-          <ion-input placeholder="Webdeveloper" position="stacked" type="text" formControlName="jtitle" ></ion-input>
-          <ion-label>Starting Salary: </ion-label>
-          <ion-input placeholder="35,000" position="stacked" type="number" formControlName="jsalary" ></ion-input>
+          <ion-input placeholder="Job title Needed" position="stacked" type="text" formControlName="jtitle" ></ion-input>
+          <ion-input placeholder="Starting Salary" position="stacked" type="number" formControlName="jsalary" ></ion-input>
           
           <ion-label>Job Specialization</ion-label>
             <ion-item lines="none">
@@ -41,15 +39,7 @@
             <ion-select-option value="Sciences">Sciences</ion-select-option>
           </ion-select>
         </ion-item>
-
-        <ion-label>Job Position: </ion-label>
-        <ion-input placeholder="Senior Developer" position="stacked" type="text" ></ion-input>
-
-        <ion-label>Job Description</ion-label>
-        <ion-item>
-          <ion-textarea placeholder="Description" position="stacked" type="textarea" formControlName="jdescription" ></ion-textarea>
-        </ion-item>
-
+        
         <ion-label>Job Type</ion-label>
         <ion-item lines="none">
           <ion-select label="Default label" placeholder="Select job type" class="jobtype" formControlName="jtype">
@@ -58,12 +48,10 @@
             <ion-select-option value="Work from home">Work from home</ion-select-option>
           </ion-select>
         </ion-item>
-
-        <ion-label>Minimum experience: </ion-label>
-        <ion-input placeholder="atleast 2 years in the IT industry"  position="stacked" type="text" ></ion-input>
-
-        <ion-label>Educational Attainment: </ion-label>
-        <ion-input placeholder="College Graduate"  position="stacked" type="text" ></ion-input>
+        <ion-label>Job Description</ion-label>
+        <ion-item>
+          <ion-textarea placeholder="Description" position="stacked" type="textarea" formControlName="jdescription" ></ion-textarea>
+        </ion-item>
 
         </ion-card-content>
       </ion-card>

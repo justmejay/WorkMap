@@ -151,7 +151,7 @@
                 
                 <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label>
                 <a href="{{c.fpath}}">
-                  <ion-button shape="round" expand="block" class="download">Download</ion-button>
+                  <ion-button shape="round" expand="block" color="success">Download</ion-button>
                 </a>
              
       
@@ -173,10 +173,10 @@
           <ion-card-content class="ion-padding" *ngIf="resume">
             <!-- <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label> -->
            <a  href="{{resume.fpath}}"> 
-            <ion-button class="download" *ngIf="resume?.fpath" expand="block" shape="round">Download</ion-button>
+            <ion-button *ngIf="resume?.fpath" color=success expand="block" shape="round">Download</ion-button>
           </a>
           </ion-card-content>
         </ion-card>
-        <ion-button class="save" size="large" shape="round" expand="block">Save</ion-button>
+
   
 </ion-content>
