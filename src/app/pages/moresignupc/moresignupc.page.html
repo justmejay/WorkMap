@@ -20,19 +20,27 @@
       <ion-card-content>
             <ion-label position="stacked">First Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="fname" class="custominput"></ion-input>
+          <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
+            <br>
 
             <ion-label position="stacked">Middle Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="mname" class="custominput"></ion-input>
+            <br>
 
             <ion-label position="stacked">Last Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="lname" class="custominput"></ion-input>
+            <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
+            <br>
 
             <ion-label position="stacked">Contact:</ion-label>
             <ion-input position="stacked" type="number" formControlName="contact" class="custominput"></ion-input>
+            <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+            <br>
 
-            
             <ion-label position="stacked">Citizenship:</ion-label>
             <ion-input position="stacked" type="text" formControlName="citizenship" class="custominput"></ion-input>
+            <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
+
       </ion-card-content>
     </ion-card>
 
@@ -41,30 +49,36 @@
         <ion-card-title>Employer Information</ion-card-title>
       </ion-card-header>      
       <ion-card-content>
-            <ion-label position="stacked">Company Name:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="cname" class="custominput"></ion-input>
+          <ion-label position="stacked">Company Name:</ion-label>
+          <ion-input position="stacked" type="text" formControlName="cname" class="custominput"></ion-input>
+          <ion-note slot="error" *ngIf="(cname.dirty || cname.touched) && cname.errors">Required</ion-note>
+          <br>
 
-            <ion-label position="stacked">Company Contact:</ion-label>
-            <ion-input position="stacked" type="number" formControlName="ccontact" class="custominput"></ion-input>
+          <ion-label position="stacked">Company Contact:</ion-label>
+          <ion-input position="stacked" type="number" formControlName="ccontact" class="custominput"></ion-input>
+          <ion-note slot="error" *ngIf="(ccontact.dirty || ccontact.touched) && ccontact.errors">Required</ion-note>
+          <br>
 
-            <ion-label position="stacked">Company email:</ion-label>
-            <ion-input position="stacked" type="email" formControlName="cemail" class="custominput"></ion-input>
+          <ion-label position="stacked">Company Email:</ion-label>
+          <ion-input position="stacked" type="email" formControlName="cemail" class="custominput"></ion-input>
+          <ion-note slot="error" *ngIf="(cemail.dirty || cemail.touched) && cemail.errors">Required</ion-note>
+          <br>
 
-          <h4>Company Address</h4>
+          <ion-label position="stacked">Company Address:</ion-label>
           <ion-input [hidden]="true"  position="stacked" [value]="currentPlaceID" formControlName="currentPlaceID" type="text" class="custominput"></ion-input>
-
+          
           <ion-input [hidden]="true"  position="stacked" [value]="selectedCurrent" formControlName="companyaddress" type="text" class="custominput"></ion-input>
 
           <form action="" [formGroup]="credscurrent" (ngSubmit)="searchCurrent()">
-            <ion-input   position="stacked" [value]="selectedCurrent" formControlName="companyaddress" type="text" class="custominput"></ion-input>
+            <ion-input position="stacked" [value]="selectedCurrent" formControlName="companyaddress" type="text" class="custominput"></ion-input>
             <ion-button type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
             <ion-button (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
           </form>
-            <ion-note slot="error" *ngIf="(companyaddress.dirty || companyaddress.touched) && companyaddress.errors">Required</ion-note>
             <ion-item button *ngFor="let address of addressesc" (click)="onSelectc(address)" >
               <ion-icon name="pin"></ion-icon>
               {{ address.description }} 
             </ion-item>
+            
 
       </ion-card-content>
     </ion-card>
