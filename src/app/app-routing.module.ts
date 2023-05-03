@@ -155,11 +155,11 @@ const routes: Routes = [
   },
   {
     path: 'notifications',
-    loadChildren: () => import('./pages/notifications/notifications.module').then( m => m.NotificationsPageModule)
+    loadChildren: () => import('./companysidepages/notifications/notifications.module').then( m => m.NotificationsPageModule)
   },
   {
     path: 'viewnotification',
-    loadChildren: () => import('./pages/viewnotification/viewnotification.module').then( m => m.ViewnotificationPageModule)
+    loadChildren: () => import('./companysidepages/viewnotification/viewnotification.module').then( m => m.ViewnotificationPageModule)
   },
   {
     path: 'searchengine',
@@ -224,7 +224,8 @@ const routes: Routes = [
   {
     path: 'messagecreatecompany',
     loadChildren: () => import('./companysidepages/messagecreatecompany/messagecreatecompany.module').then( m => m.MessagecreatecompanyPageModule)
-  },  {
+  },
+  {
     path: 'hometabcompany',
     loadChildren: () => import('./companysidepages/hometabcompany/hometabcompany.module').then( m => m.HometabcompanyPageModule)
   },
