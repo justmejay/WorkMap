@@ -1,0 +1,145 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+    ion-toolbar{
+        --background:  #2855A1;
+        color: white;
+    }
+}
+
+ion-card.maincard {
+    --background: #a4c7fb;
+    // box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}
+.maincardpfp{
+    display: flex;
+    flex-direction: row;
+   ion-card-title{
+    padding-top: 0.7rem;
+    padding-left: 1rem;
+   }
+}
+ion-card-header.maincard{
+    --background: #2F7EF5;
+    color: whitesmoke;
+}
+ion-card-title{
+    color: whitesmoke;
+    text-align: left;
+}
+
+ion-card-content.maincard{
+    background-color:#a4c7fb;
+    color: black;
+}
+
+.profilepic{
+    height: 15%;
+    width: 15%;
+}
+.profilepicimage{
+    border-radius: 50%;
+    margin-right: 5%;
+}
+
+.btns{
+    display: flex; 
+    flex-direction:column; 
+    align-items: stretch;
+    padding: 0 10%;
+}
+.reject{
+    --background:#EF7463;
+    --border-color: #A13728;
+    --border-style: solid;
+    --border-width: 2px;
+    color: #FFFFFF;
+    margin-top: 4%;
+}
+.accept{
+    --background:#2F7EF5;
+    --border-color: #2855A1;
+    --border-style: solid;
+    --border-width: 2px;
+    color: #FFFFFF;
+    margin-top: 4%;
+}
+
+// RESUME BUILDER SCSS
+
+.avatar{
+    vertical-align: top;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 40px;
+    // padding-bottom: 5%;
+    flex-direction: column;
+    background:  #2855A1;
+}
+
+ion-card.subcard{
+    --background: #71a8fa;
+    // box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    border: solid 3px  rgb(53, 66, 125);
+}
+ion-card-header.subcard{
+    --background: #277dff;
+    color: whitesmoke;
+}
+ion-card-title{
+    color: whitesmoke;
+}
+ion-input.custominput{
+    border: solid 2px rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+ion-textarea{
+    border: solid 1px  rgb(143, 92, 172);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+ion-card-content.subcard{
+    color: black;
+    margin: auto;
+}
+ion-label.cardsubtitle{
+    font-size: 1.2em;
+    font-weight: 500;
+}
+ion-icon{
+    height: 21px;
+    width: 21px;
+}
+
+ion-button{
+    text-transform: initial;
+}
+.buttondiv{
+    margin-left: auto;
+    margin-right: auto;
+    height: 40%;
+    width: 90%;
+}
+.action{
+    display: block;
+}
+.download{
+    --background: #142680;
+    text-transform: initial;
+}

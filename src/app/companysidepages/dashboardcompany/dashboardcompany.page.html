@@ -16,15 +16,15 @@
         <ion-icon slot="start" name="shield-half-outline" style="color: #42505d;"></ion-icon>
         Privacy Policy
       </ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block">
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/employees']">
         <ion-icon slot="start" name="person" style="color: #42505d;" ></ion-icon>
          Employees</ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['paymentpages/subscriptions']">
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/subscriptions']">
         <ion-icon slot="start" name="diamond-outline" style="color: #42505d;"></ion-icon>
         Get Premium</ion-button>
-        <ion-button fill="clear" class="card1menu" expand="block">
+        <!-- <ion-button fill="clear" class="card1menu" expand="block">
           <ion-icon slot="start" name="briefcase" style="color: #42505d;"></ion-icon>
-          Review Application</ion-button>
+          Review Application</ion-button> -->
     </ion-card>
     <ion-card class="hamburgcard">
       <ion-button fill="clear" class="card1menu" expand="block">
@@ -135,11 +135,13 @@
           </ion-tab-button>
 
           <ion-tab-button [routerLink]="['/messagescompany']">
+            <ion-badge color="danger">3</ion-badge>
             <ion-icon name="chatbubble"></ion-icon>Messages
           </ion-tab-button>
 
           <ion-tab-button tab="notification">
-            <ion-icon name="notifications" [routerLink]="['/notificationsuser']"></ion-icon>Notification
+            <ion-badge color="danger">1</ion-badge>
+            <ion-icon name="notifications" [routerLink]="['/notifications']"></ion-icon>Notification
           </ion-tab-button>
           
         </ion-tab-bar>
