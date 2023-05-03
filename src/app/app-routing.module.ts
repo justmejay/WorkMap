@@ -240,6 +240,10 @@ const routes: Routes = [
     path: 'moresignupaddress',
     loadChildren: () => import('./pages/moresignupaddress/moresignupaddress.module').then( m => m.MoresignupaddressPageModule)
   },
+  {
+    path: 'applicantlist',
+    loadChildren: () => import('./companysidepages/applicantlist/applicantlist.module').then( m => m.ApplicantlistPageModule)
+  },
 
 
 

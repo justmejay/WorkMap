@@ -1,0 +1,29 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+    ion-toolbar{
+        --background:  #2855A1;
+        color: white;
+    }
+}
+
+.fabdesign{
+    --background: #2855A1;
+}
+
+
+ion-item {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    --background: #88b7fc;
+    --color: #151515;
+    --border-radius: 45px;
+    ion-label{
+        --color: #151515;
+    }
+  }
