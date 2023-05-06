@@ -112,4 +112,10 @@ export class DashboardPage implements OnInit {
     this.nc.navigateRoot('authentication');
   }
 
+  apply(job:any){
+    const any = job.listid
+  
+    this.router.navigate(['applytojob'], {queryParams:{jobid:any}});
+  }
+
 }
