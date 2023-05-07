@@ -40,6 +40,7 @@ export class ApplytojobPage implements OnInit {
 
   job: any =[];
   jobid: any;
+  cid: any;
 
  
 
@@ -95,6 +96,8 @@ export class ApplytojobPage implements OnInit {
 
     this.job = params;
     console.log(this.job)
+    this.cid = params;
+    console.log(this.cid)
 
     
 
@@ -122,16 +125,18 @@ export class ApplytojobPage implements OnInit {
       certificationsdetails: this.certificationsdetails,
       schooldetails: this.schooldetails,
       experiencedetails: this.experiencedetails,
+      uid: this.profiledetails.uid,
       
     };
 
-    const jobid = {
+    const id = {
       jobid: this.job.jobid,
+      cid: this.job.cid,
     }
     const get = await this.firestore.addApplication({
       ...application, 
       ...this.credentials.value,
-      ...jobid
+      ...id
     });
     
     this.router.navigateByUrl('/dashboard', { replaceUrl: true });
