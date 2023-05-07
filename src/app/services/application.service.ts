@@ -83,7 +83,6 @@ export interface Application{
   certificationsdetails: any,
   schooldetails: any,
   experiencedetails: any,
-  jobspec:any,
 
   job:any;
 }
@@ -163,11 +162,14 @@ export class ApplicationService {
 
   }
 
-  getjob(): Observable<User[]>{
-    const cakesRef = collection(this.firestore, 'joblist')
-    // const q = query(cakesRef, where("schoolname", "!=", "" ))
-    return collectionData(cakesRef, {idField: 'userget'}) as Observable<[User]> 
+  
+  getjobs(id: any): Observable<User[]>{
+    const cakesRef = collection(this.firestore, 'application/')
+    const q = query(cakesRef, where("jobid", "==", id ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]> 
   }
 
+  
+                       
 
 }

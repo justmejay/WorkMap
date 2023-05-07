@@ -1,4 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
+import { ApplicationService } from 'src/app/services/application.service'; 
+import {
+  getDownloadURL,
+  ref,
+  Storage,
+  uploadString,
+  uploadBytes,
+  deleteObject
+} from '@angular/fire/storage';
+import { Auth } from '@angular/fire/auth';
+
 
 @Component({
   selector: 'app-applicantlist',
@@ -7,9 +22,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplicantlistPage implements OnInit {
 
-  constructor() { }
+  job: any = [];
+  
+  jobid: any;
+
+  jobs: any = [];
+
+  constructor(
+    private firestore: ApplicationService,
+    private fb: FormBuilder,
+    private loadingController: LoadingController,
+    private alertController: AlertController,
+    private auth: AuthService,
+    private router: Router,
+    private storage: Storage,
+    private authd: Auth,
+    private activatedRoute: ActivatedRoute,
+  ) { 
+    
+    this.activatedRoute.queryParams.subscribe((params) =>{
+
+    this.job = params;
+    console.log(this.job.jobid)
+
+    this.firestore.getjobs(this.job.jobid).subscribe(res => {
+      this.jobs = res;
+      console.log(this.jobs);
+    });
+
+
+
+    });
+   
+
+
+
+    
+
+
+
+
+    
+    
+  }
 
   ngOnInit() {
+    
   }
 
 }

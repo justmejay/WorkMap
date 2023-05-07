@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { ApplicationService } from 'src/app/services/application.service';
-import { CompanyService } from 'src/app/services/company.service';
+// import { CompanyService } from 'src/app/services/company.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -50,7 +50,7 @@ export class ApplytojobPage implements OnInit {
 
   constructor(
     private firestore: ApplicationService,
-    private company: CompanyService,
+    // private company: CompanyService,
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private alertController: AlertController,
