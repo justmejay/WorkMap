@@ -163,12 +163,19 @@ export class ApplicationService {
   }
 
   
-  getjobs(id: any): Observable<User[]>{
+  getapplicants(id: any): Observable<User[]>{
     const cakesRef = collection(this.firestore, 'application/')
     const q = query(cakesRef, where("jobid", "==", id ))
     return collectionData(q, {idField: 'id'}) as Observable<[User]> 
   }
 
+   getjtitle(id: any): Observable<User[]>{
+    const cakesRef = collection(this.firestore, 'joblist/')
+    const q = query(cakesRef, where("listid", "==", id ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]> 
+  }
+
+  
   
                        
 

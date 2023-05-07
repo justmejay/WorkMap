@@ -15,7 +15,7 @@
   </ion-avatar>
   <ion-label>
     <h3>John Wick</h3>
-    <ion-label>has applied in your "{{jobs.jtitle}}" Listing</ion-label>
+    <ion-label *ngFor="let title of title">has applied in your "{{title.jtitle}}" Listing</ion-label>
   </ion-label>
 </ion-item>
 <!-- <ion-item button detail="true" [routerLink]="['/notifications']">

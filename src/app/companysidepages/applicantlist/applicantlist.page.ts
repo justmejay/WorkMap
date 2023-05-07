@@ -28,6 +28,11 @@ export class ApplicantlistPage implements OnInit {
 
   jobs: any = [];
 
+  title: any = [];
+
+  
+
+
   constructor(
     private firestore: ApplicationService,
     private fb: FormBuilder,
@@ -45,14 +50,17 @@ export class ApplicantlistPage implements OnInit {
     this.job = params;
     console.log(this.job.jobid)
 
-    this.firestore.getjobs(this.job.jobid).subscribe(res => {
+    this.firestore.getapplicants(this.job.jobid).subscribe(res => {
       this.jobs = res;
       console.log(this.jobs);
     });
 
-
-
+    this.firestore.getjtitle(this.job.jobid).subscribe(res => {
+      this.title = res;
+      console.log(this.title);
     });
+
+
    
 
 
@@ -60,7 +68,7 @@ export class ApplicantlistPage implements OnInit {
     
 
 
-
+  });
 
     
     
