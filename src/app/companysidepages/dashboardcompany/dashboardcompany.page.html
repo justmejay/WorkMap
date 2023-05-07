@@ -107,7 +107,7 @@
       </ion-card-content>
       <ion-buttons fill="solid" class="btns">
         
-        <ion-button class="save" type="Submit"  expand="block" fill="solid" shape="round" [routerLink]="['/applicantlist']">
+        <ion-button (click)="applicant(job)" class="save" type="Submit"  expand="block" fill="solid" shape="round" [routerLink]="['/applicantlist']">
           <ion-badge color="tertiary">18</ion-badge> Applicants</ion-button>
       </ion-buttons>
     </ion-card>
