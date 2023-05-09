@@ -7,6 +7,8 @@ import { GmapService } from 'src/app/services/gmap.service';
 import { Geolocation } from '@capacitor/geolocation';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
+
+
 @Component({
   selector: 'app-moresignupspecialization',
   templateUrl: './moresignupspecialization.page.html',
@@ -20,8 +22,10 @@ export class MoresignupspecializationPage implements OnInit {
   originalquery: any = [];
   filteredquery: any = [];
   term: any;
-  
+  employee: any = [];
 
+    public checkeds = 0;
+    public limit = 5;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -86,7 +90,7 @@ export class MoresignupspecializationPage implements OnInit {
     return this.credentials.get('specialization'); 
   }
  
-
+  
  
  
 
@@ -170,6 +174,9 @@ export class MoresignupspecializationPage implements OnInit {
   }
 
 
+  async onselect(filter: any){
+    console.log(filter);
+  }
 
 
   toggleInput(event: any) {
@@ -193,13 +200,43 @@ export class MoresignupspecializationPage implements OnInit {
   async search(event: any){
     const searchTerm = event.target.value;
 
-    this.auth.getsearch().subscribe(res => {
-      this.filteredquery = res;
-    });
+    // this.auth.getsearch().subscribe(res => {
+    //   this.filteredquery = res;
+    // });
 
-  
+    console.log(this.employee);
 
+    if (searchTerm == ""){
+      this.employee = [];
+    }
+    else {
+      this.employee = [{"name":"Ram", "email":"ram@gmail.com", "age":23},
+      {"name":"Shyam", "email":"shyam23@gmail.com", "age":28},
+      {"name":"John", "email":"john@gmail.com", "age":33},
+      {"name":"Bob", "email":"bob32@gmail.com", "age":41},
+      {"name":"B", "email":"bob32@gmail.com", "age":41},
+      {"name":"Bo", "email":"bob32@gmail.com", "age":41},
+      {"name":"Bobb", "email":"bob32@gmail.com", "age":41}]; 
+    }
   }
 
+  async check(event: any){
+    const a = event.currentTarget.checked;
+    console.log(a);
+    if(a == false){
+  
+      if (this.checkeds < 2){
+        this.checkeds++;
+      }
 
+    }
+    else {
+      this.checkeds--;
+    }
+
+  }
+  
+  reset(){
+    this.checkeds = 0;
+  }
 }
