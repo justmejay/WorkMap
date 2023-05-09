@@ -10,23 +10,24 @@
 <ion-content class="ion-padding ">
 <div >
    
-
     <ion-card class="custom-card">
+      <ion-button style="float: right;" (click)="reset()" >Reset</ion-button>
+      <ion-button>test</ion-button>
       <ion-card-header>
         <ion-card-title>Select your preferred Job positions?</ion-card-title>
       </ion-card-header>
-        <ion-card-content>
-
-          <ion-searchbar debounce=500 (ionChange)="search($event)" [(ngModel)]="term" animated="true" placeholder="Job Positions"></ion-searchbar>
-            <ion-list lines="none" >
-              <ion-item button *ngFor="let filter of filteredquery | filter:term"  >
-                <ion-icon name="briefcase-outline"></ion-icon>
-                {{ filter.position }}
-              </ion-item>
-            </ion-list>
+      <ion-card-content>
        
-              
-  </ion-card-content>
+          <ion-searchbar show-clear-button="focus" value="Show on Focus" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" animated="true" placeholder="Job Positions"></ion-searchbar>
+                <ion-item *ngFor="let filter of employee | filter:term">
+                  <ion-checkbox (click)="check($event)" [disabled]="checkeds==2">
+                    <!-- <ion-icon class="dropdownicon" name="briefcase-outline"></ion-icon> -->
+                   <!-- {{ filter.name }} --> 
+                  </ion-checkbox>
+                  <ion-label>{{filter.name}}</ion-label>
+                </ion-item>
+              <!-- (click)="onselect(filter)" -->
+      </ion-card-content>
     </ion-card>
 
     <ion-button type="submit"  shape="round "expand="block" class="btnreg" size="large">Next</ion-button>

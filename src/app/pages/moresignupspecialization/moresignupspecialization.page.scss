@@ -34,10 +34,15 @@ ion-list{
     --background: #E5EBEE;
 }
 ion-item{
-    border: solid 2px  rgb(53, 66, 125);
-    border-radius: 15px;
+    display: block;
+    border: solid 1px  rgb(53, 66, 125);
+    border-radius: 45px;
     --background: #cddbf1;
     color: black;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    width: 98%;
 
 }
 
@@ -92,8 +97,15 @@ ion-item.dropdown{
     flex-direction: row;
 }
 
+ion-searchbar{
+    --border-radius: 50px;
+}
 
-  
+.dropdownicon{
+    margin-right: 0.2rem;
+}
 
-
+ion-checkbox{
+    color: black;
+}
  
