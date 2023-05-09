@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { MoresignupspecializationPageRoutingModule } from './moresignupspecialization-routing.module';
 
 import { MoresignupspecializationPage } from './moresignupspecialization.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   imports: [
@@ -14,7 +16,9 @@ import { MoresignupspecializationPage } from './moresignupspecialization.page';
     ReactiveFormsModule,
     FormsModule,
     IonicModule,
-    MoresignupspecializationPageRoutingModule
+    MoresignupspecializationPageRoutingModule,
+    Ng2SearchPipeModule
+
   ],
   declarations: [MoresignupspecializationPage]
 })
