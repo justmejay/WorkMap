@@ -19,6 +19,7 @@ export interface User{
   id?: string,
   email: string;
   uid:string;
+  position: string
 
 }
 
@@ -166,6 +167,12 @@ export class AuthService {
 
   async resend(){
     return sendEmailVerification(this.auth.currentUser)
+  }
+
+  getsearch(): Observable<User[]>{
+  
+    const cakesRef = collection(this.firestore, `positions/`)
+        return collectionData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
 
 }

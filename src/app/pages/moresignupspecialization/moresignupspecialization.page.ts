@@ -17,18 +17,9 @@ export class MoresignupspecializationPage implements OnInit {
   isInput2Enabled = false;
   authdetails: any = [];
   credentials: FormGroup;
-  // credshome: FormGroup;
-  // addresses: any = [];
-  // selectedHome: any;
-  // homePlaceID:any  ; 
-  // homecoords: any  = {lat: 0, lng: 0} 
-  // selectedCurrent: any;
-  // currentPlaceID:any ; 
-  // currentcoords: any  = {lat: 0, lng: 0} 
-  // credscurrent: FormGroup;
-  // addressesc: any = [];
-  // homea: any = [];
-  // currenta: any = [];
+  originalquery: any = [];
+  filteredquery: any = [];
+  term: any;
   
 
 
@@ -49,11 +40,10 @@ export class MoresignupspecializationPage implements OnInit {
 
       });
 
-       
-
       
 
 
+      
 
    }
 
@@ -200,137 +190,16 @@ export class MoresignupspecializationPage implements OnInit {
     await alert.present();
   }
 
-//   async searchome() {
+  async search(event: any){
+    const searchTerm = event.target.value;
 
-//     const loading = await this.loadingController.create({
-//       spinner: "dots",
-//       message: "Looking up!"
-//     });   
-//      await loading.present();
-     
-//     const test =  await this.map.search_map(this.credshome.value.homeaddress).subscribe(res => {
-//      this.addresses = res.predictions;
-//     });
-
-//     await loading.dismiss();
-  
-//  }
-
-//  async searchCurrent() {
-
-//   const loading = await this.loadingController.create({
-//     spinner: "dots",
-//     message: "Looking up!"
-//   });   
-//    await loading.present();
-   
-//   const test =  await this.map.search_map(this.credscurrent.value.currentaddress).subscribe(res => {
-//    this.addressesc = res.predictions;
-//   });
-
-//   await loading.dismiss();
-
-// }
-
-//  async onSelect(address: any){
-//   const test =  await this.map.geocode(address.place_id).subscribe(res => {
-    
-//     this.homecoords.lat =  res.results[0].geometry.location.lat;
-//     this.homecoords.lng =  res.results[0].geometry.location.lng;
-//     this.homePlaceID = address.place_id;
-
-
-    
-
-//     this.selectedHome = res.results[0].formatted_address;
-//     this.homea = res.results[0].formatted_address;
-//    });
-//    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-//    await sleep(500);   
-
-//    this.addresses = [];
-
-//    console.log(this.homePlaceID);
-//    console.log(this.homecoords.lat);
-//    console.log(this.homecoords.lng);
-
-//  };
-
-//  async onSelectc(address: any){
-//   const test =  await this.map.geocode(address.place_id).subscribe(res => {
-    
-//     this.currentcoords.lat =  res.results[0].geometry.location.lat;
-//     this.currentcoords.lng =  res.results[0].geometry.location.lng;
-//     this.currentPlaceID = address.place_id;
-
-
-    
-
-//     this.selectedCurrent = res.results[0].formatted_address;
-
-//    });
-//    const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-//    await sleep(500);   
-
-//    this.addressesc = [];
-
-//    console.log(this.homePlaceID);
-//    console.log(this.homecoords.lat);
-//    console.log(this.homecoords.lng);
-
-//  };
- 
-// async getCurrent(){
-//   const coordinates = await Geolocation.getCurrentPosition();
-//   const test =  await this.map.rgeocode(coordinates.coords.latitude, coordinates.coords.longitude).subscribe(res => {
-//     this.selectedHome = res.results[0].formatted_address;
-//     this.homecoords.lat =  res.results[0].geometry.location.lat;
-//     this.homecoords.lng =  res.results[0].geometry.location.lng;
-//     this.homePlaceID = res.results[0].place_id;
-//     this.homea = res.results[0].formatted_address;
-
-    
- 
-    
-  
-//    });
-  
-// }
-
-// async getCurrentc(){
-//   const coordinates = await Geolocation.getCurrentPosition();
-//   const test =  await this.map.rgeocode(coordinates.coords.latitude, coordinates.coords.longitude).subscribe(res => {
-//     this.selectedCurrent = res.results[0].formatted_address;
-//     this.currentcoords.lat =  res.results[0].geometry.location.lat;
-//     this.currentcoords.lng =  res.results[0].geometry.location.lng;
-//     this.currentPlaceID = res.results[0].place_id;
-//     this.currenta = res.results[0].formatted_address;
-
-
+    this.auth.getsearch().subscribe(res => {
+      this.filteredquery = res;
+    });
 
   
-//    });
-  
-// }
 
-// async check(){
-//   console.log(this.credentials.value,);
-//   console.log(this.currenta);
-//   console.log(this.homea);
+  }
 
-// }
-
-
-// async sameC(event: any){
-
-//   if (event.currentTarget.checked ==  true){
-//     this.selectedHome = this.selectedCurrent;
-
-//   }
-//   else{
-//     this.selectedHome = [];
-//   }
-// }
-  
 
 }
