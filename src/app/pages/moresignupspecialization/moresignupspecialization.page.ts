@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { GmapService } from 'src/app/services/gmap.service';
 import { Geolocation } from '@capacitor/geolocation';
 import { ProfilingService } from 'src/app/services/profiling.service';
+import { timeStamp } from 'console';
 
 
 
@@ -20,6 +21,11 @@ export class MoresignupspecializationPage implements OnInit {
   authdetails: any = [];
   credentials: FormGroup;
   originalquery: any = [];
+  queryinit: any[];
+  checkeditems: any = [];
+  checkeds: number = 0;
+
+  textbox: any = "test";
   filteredquery: any = [
     {
         "position": "Territory Manager",
@@ -3472,11 +3478,10 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "zxqDQB0bZODvKCzz4yme"
     }
 ];
-  term: any;
+  term: any = "";
   employee: any = [];
 
 
-    public checkeds = 0;
     public limit = 5;
 
   constructor(
@@ -3573,10 +3578,6 @@ export class MoresignupspecializationPage implements OnInit {
       
       specialization: ['', [Validators.required]],
 
-      // currentaddress: ['',],
-      // homeaddress: ['',],
-      
-
       
     });
 
@@ -3601,7 +3602,8 @@ export class MoresignupspecializationPage implements OnInit {
     // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password);
     // this.router.navigateByUrl('/moresignupaddress', { replaceUrl: true });
     // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password, this.personaldetails.fname, this.personaldetails.mname, this.personaldetails.lname,  this.personaldetails.suffix,  this.personaldetails.cs,  this.personaldetails.religion,  this.personaldetails.sex,  this.personaldetails.bday,  this.personaldetails.age,  this.personaldetails.contact, );
-    this.router.navigate(['moresignupaddress'], {queryParams:{specialization: this.specialization.value, 
+    this.router.navigate(['moresignupaddress'], {queryParams:{
+      specialization: this.checkeditems, 
       fname: this.authdetails.fname, 
       mname: this.authdetails.mname, 
       lname: this.authdetails.lname, 
@@ -3652,42 +3654,59 @@ export class MoresignupspecializationPage implements OnInit {
 
   async search(event: any){
     const searchTerm = event.target.value;
+    this.textbox = searchTerm;
 
-   
-
-    console.log(this.employee);
 
     if (searchTerm == ""){
-      this.employee = [];
+      this.queryinit = [];
+    }else{
+        this.queryinit = this.filteredquery;
     }
-    else {
-      this.employee = [{"name":"Ram", "email":"ram@gmail.com", "age":23},
-      {"name":"Shyam", "email":"shyam23@gmail.com", "age":28},
-      {"name":"John", "email":"john@gmail.com", "age":33},
-      {"name":"Bob", "email":"bob32@gmail.com", "age":41},
-      {"name":"B", "email":"bob32@gmail.com", "age":41},
-      {"name":"Bo", "email":"bob32@gmail.com", "age":41},
-      {"name":"Bobb", "email":"bob32@gmail.com", "age":41}]; 
-    }
+    
   }
 
-  async check(event: any){
+  async check(event: any, filter: any){
+    if (this.checkeds+1 == 5){
+        this.queryinit = [];
+        this.term = "";
+    }
     const a = event.currentTarget.checked;
-    console.log(a);
-    if(a == false){
-  
-      if (this.checkeds < 2){
-        this.checkeds++;
-      }
+    const b = event.currentTarget.value;
 
+
+    if (a == false){
+        
+    const rank = this.checkeds;
+
+    for( var i = 0; i<=4; i++ ){
+
+        if (this.checkeditems[i] == null){
+            this.checkeditems[i] = filter.position; 
+            console.log(this.checkeditems);
+            this.checkeds++;
+            break;
+        }
     }
-    else {
-      this.checkeds--;
+    }else{
+        this.checkeds = this.checkeds - 1;
+        for( var i = 0; i<=4; i++ ){
+
+            if (this.checkeditems[i] == filter.position){
+                this.checkeditems[i] = null;
+                console.log(this.checkeditems);
+            }
+
+        }
     }
+        console.log(this.checkeds)
+   
 
   }
   
   reset(){
     this.checkeds = 0;
+    this.checkeditems = [];
+    this.term = ""
+    this.queryinit = [];
   }
 }

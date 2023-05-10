@@ -50,7 +50,7 @@
    
 
    
-    <ion-button type="submit"  shape="round "expand="block" class="btnreg" size="large">Finish</ion-button>
+    <ion-button type="submit" [disabled]="!credentials.valid"  shape="round "expand="block" class="btnreg" size="large">Finish</ion-button>
   </form>
 </div>
 
