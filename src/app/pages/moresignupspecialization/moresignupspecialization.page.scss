@@ -108,4 +108,18 @@ ion-searchbar{
 ion-checkbox{
     color: black;
 }
- 
+
+.reset{
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    float: right;
+}
+
+ion-icon{
+    --background: white;
+}
+
+ion-card-header{
+    display: flex;
+    flex-direction: row;
+}
