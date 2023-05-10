@@ -60,13 +60,18 @@
       </div>
     <ion-card class="joblisting" *ngFor="let job of job">
       <ion-card-header>
-        <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
-        <ion-card-title>
-          {{job.jtitle}}
-        </ion-card-title>
+        <div class="cardhead">
+          <ion-card-title>
+            {{job.jtitle}}
+          </ion-card-title>
+          <ion-button class="viewmore" fill="clear" [routerLink]="['/aboutcompany']">View more
+            <ion-icon  name="information-circle" class="edit" ></ion-icon>
+          </ion-button>
+        </div>
         <ion-card-subtitle>
           {{job.cname}}
         </ion-card-subtitle>
+
       </ion-card-header>
       <ion-card-content>
         <div class="companydetails">

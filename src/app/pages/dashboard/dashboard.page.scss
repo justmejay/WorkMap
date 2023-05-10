@@ -149,3 +149,11 @@ ion-label.jobinfo{
         padding: 0.2rem;
     }
 }
+.viewmore{
+    --color: white;
+    text-transform: initial;
+}
+.cardhead{
+    display: flex;
+    flex-direction: row;
+}
