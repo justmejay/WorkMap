@@ -125,8 +125,8 @@ export class MoresignupaddressPage implements OnInit {
       
       // specialization: ['', [Validators.required]],
 
-      currentaddress: ['',],
-      homeaddress: ['',],
+      currentaddress: ['', [Validators.required]],
+      homeaddress: ['', [Validators.required]],
 
       fname: [this.authdetails.fname],
       mname: [this.authdetails.mname],

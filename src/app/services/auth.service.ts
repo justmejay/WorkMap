@@ -59,7 +59,7 @@ export class AuthService {
       const imageUrl = ""
 
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
-      await setDoc(userDocRef1, {uid: userget, specialization, profileimg: "", aboutme: "", cs, religion,  fname, mname, lname, suffix, sex, contact, citizenship, bday, age, email });
+      await setDoc(userDocRef1, {uid: userget, profileimg: "", aboutme: "", cs, religion,  fname, mname, lname, suffix, sex, contact, citizenship, bday, age, email });
       
        
 
@@ -79,6 +79,10 @@ export class AuthService {
 
       const userDocRef6 = doc(this.firestore, `users/${userget}/resume/${userget}`);
       await setDoc(userDocRef6, {filename: "" ,fpath: "" , mo: "", moc: "", fa: "", fac: ""});
+
+      const userDocRef7 = doc(this.firestore, `users/${userget}/preferred/${userget}`);
+      await setDoc(userDocRef7, {specialization});
+      
 
       await sendEmailVerification(this.auth.currentUser);
 
