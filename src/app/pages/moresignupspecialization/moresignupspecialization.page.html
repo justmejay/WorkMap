@@ -19,12 +19,12 @@
       <ion-card-content>
        
           <ion-searchbar show-clear-button="focus" value="Show on Focus" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" animated="true" placeholder="Job Positions"></ion-searchbar>
-                <ion-item *ngFor="let filter of employee | filter:term">
+                <ion-item *ngFor="let filter of filteredquery | filter:term">
                   <ion-checkbox (click)="check($event)" [disabled]="checkeds==2">
                     <!-- <ion-icon class="dropdownicon" name="briefcase-outline"></ion-icon> -->
                    <!-- {{ filter.name }} --> 
                   </ion-checkbox>
-                  <ion-label>{{filter.name}}</ion-label>
+                  <ion-label>{{filter.position}}</ion-label>
                 </ion-item>
               <!-- (click)="onselect(filter)" -->
       </ion-card-content>
