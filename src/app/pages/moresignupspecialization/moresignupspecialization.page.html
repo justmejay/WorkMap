@@ -11,10 +11,12 @@
 <div >
    
     <ion-card class="custom-card">
-      <ion-button style="float: right;" (click)="reset()" >Reset</ion-button>
-      <ion-button>test</ion-button>
+      <ion-button class="reset" shape="round" (click)="reset()">
+        <ion-icon name="arrow-undo-outline"></ion-icon>
+      </ion-button>
       <ion-card-header>
         <ion-card-title>Select your preferred Job positions?</ion-card-title>
+        
       </ion-card-header>
       <ion-card-content>
        
@@ -26,7 +28,6 @@
                   <ion-label>{{filter.position}}</ion-label>
                 </ion-item>
 
-                <ion-list>
                   <ion-item *ngFor="let c of checkeditems">
                     <ng-container>
                       
@@ -36,7 +37,7 @@
                     </ion-label>
 
                   </ion-item>
-                </ion-list>
+
       </ion-card-content>
     </ion-card>
 

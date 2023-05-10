@@ -55,9 +55,9 @@
   </ion-header>
 
   <ion-content class="ion-padding ">
-    <div class="alert">
-      <p [hidden]="!button" style="color: black;text-align: center;">Complete your resume before applying!</p>
-    </div>
+      <div class="alert" [hidden]="!button" style="color: black;text-align: center;">
+        <p>Complete your resume before applying!</p>
+      </div>
     <ion-card class="joblisting" *ngFor="let job of job">
       <ion-card-header>
         <ion-icon style="float: right;" name="information-circle" class="edit" [routerLink]=""></ion-icon>
