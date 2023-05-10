@@ -30,6 +30,12 @@ export class ApplicantlistPage implements OnInit {
 
   title: any = [];
 
+  id: any;
+
+  lname: any;
+
+  name: any;
+
   
 
 
@@ -53,7 +59,14 @@ export class ApplicantlistPage implements OnInit {
     this.firestore.getapplicants(this.job.jobid).subscribe(res => {
       this.jobs = res;
       console.log(this.jobs);
+     
+      
+      
+
+      
+
     });
+
 
     this.firestore.getjtitle(this.job.jobid).subscribe(res => {
       this.title = res;

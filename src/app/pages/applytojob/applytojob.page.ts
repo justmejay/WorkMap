@@ -126,6 +126,7 @@ export class ApplytojobPage implements OnInit {
       schooldetails: this.schooldetails,
       experiencedetails: this.experiencedetails,
       uid: this.profiledetails.uid,
+      lname: this.profiledetails.lname,
       
     };
 

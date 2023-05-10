@@ -99,6 +99,8 @@ export class ApplicationService {
     private storage: Storage,
   ) { }
 
+
+
   getprofile(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   
@@ -175,7 +177,8 @@ export class ApplicationService {
     return collectionData(q, {idField: 'id'}) as Observable<[User]> 
   }
 
-  
+
+ 
   
                        
 
