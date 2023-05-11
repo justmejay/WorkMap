@@ -73,36 +73,38 @@
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <div class="companydetails">
-          <ion-label class="labelheader">Starting Salary:</ion-label>
-          <ion-label>{{job.jsalary}} pesos</ion-label>
-        </div>
-        <div class="jobdetails">
-          <div class="jobspecialization">
-            <ion-label class="labelheader">Job Specialization: </ion-label>
-            <ion-label>{{job.jspecialization}}</ion-label>
+        <ion-grid>
+          <ion-row class="companydetails">
+            <ion-col class="labelheader">Starting Salary:</ion-col>
+            <ion-col>{{job.jsalary}} pesos</ion-col>
+          </ion-row>
+          <div class="jobdetails">
+            <ion-row class="jobspecialization">
+              <ion-col class="labelheader">Job Specialization: </ion-col>
+              <ion-col>{{job.jspecialization}}</ion-col>
+            </ion-row>
+            <ion-row class="jobposition">
+              <ion-col class="labelheader">Job Position:</ion-col>
+              <ion-col placeholder="">Senior Developer</ion-col>
+            </ion-row>
+            <ion-row class="jobdescription">
+              <ion-col class="labelheader">Job description:</ion-col>
+              <ion-col>{{job.jdescription}}</ion-col>
+            </ion-row>
+            <ion-row class="jobtype">
+              <ion-col class="labelheader">Job type:</ion-col>
+              <ion-col>{{job.jtype}}</ion-col>
+            </ion-row>
+            <ion-row class="minimum">
+              <ion-col class="labelheader">Minimum experience required:</ion-col>
+              <ion-col placeholder="">3 years of coding experience</ion-col>
+            </ion-row>
+            <ion-row class="education">
+              <ion-col class="labelheader">Educational Attainment:</ion-col>
+              <ion-col placeholder="">College Graduate</ion-col>
+            </ion-row>
           </div>
-          <div class="jobposition">
-            <ion-label class="labelheader">Job Position:</ion-label>
-            <ion-label placeholder="">Senior Developer</ion-label>
-          </div>
-          <div class="jobdescription">
-            <ion-label class="labelheader">Job description:</ion-label>
-            <ion-label>{{job.jdescription}}</ion-label>
-          </div>
-          <div class="jobtype">
-            <ion-label class="labelheader">Job type:</ion-label>
-            <ion-label>{{job.jtype}}</ion-label>
-          </div>
-          <div class="minimum">
-            <ion-label class="labelheader">Minimum experience required:</ion-label>
-            <ion-label placeholder="">3 years of coding experience</ion-label>
-          </div>
-          <div class="education">
-            <ion-label class="labelheader">Educational Attainment:</ion-label>
-            <ion-label placeholder="">College Graduate</ion-label>
-          </div>
-        </div>
+        </ion-grid>
         <ion-label class="timeposted">Date Posted: {{job.timestamp}}</ion-label>
       </ion-card-content>
       <ion-buttons fill="solid" class="btns">
