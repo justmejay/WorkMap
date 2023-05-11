@@ -6,9 +6,7 @@
   </ion-header>
   <ion-content class="ion-padding">
     <ion-card class="hamburgcard">
-      <!-- <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="bookmarks-outline" style="color: #1ccdf9;"></ion-icon>
-        Saved</ion-button> -->
+   
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="">
         <ion-icon slot="start" name="information-circle-outline" style="color: #42505d;"></ion-icon>
         About Us</ion-button>
@@ -19,8 +17,8 @@
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/resumebuilder']">
         <ion-icon slot="start" name="newspaper" style="color: #42505d;"></ion-icon>
          Resume Builder</ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/subscriptions']">
-        <ion-icon slot="start" name="diamond-outline" style="color: #42505d;"></ion-icon>
+      <ion-button [disabled]="true" fill="clear" class="card1menu" expand="block" [routerLink]="['/subscriptions']">
+        <ion-icon slot="start"  name="diamond-outline" style="color: #42505d;"></ion-icon>
         Get Premium</ion-button>
     </ion-card>
     <ion-card class="hamburgcard">
@@ -56,7 +54,7 @@
 
   <ion-content class="ion-padding ">
       <div class="alert" [hidden]="!button" style="color: black;text-align: center;">
-        <p>Complete your resume before applying!</p>
+        <ion-label [hidden]="!button"  class="alert">Complete your resume before applying!</ion-label>
       </div>
     <ion-card class="joblisting" *ngFor="let job of job">
       <ion-card-header>

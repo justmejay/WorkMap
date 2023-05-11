@@ -22,7 +22,7 @@
        
           <ion-searchbar  show-clear-button="focus" value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" animated="true" placeholder="Job Positions"></ion-searchbar>
                 <ion-item *ngFor="let filter of queryinit | filter:term">
-                  <ion-checkbox [checked]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" 
+                  <ion-checkbox [disabled]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" [checked]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" 
                   [disabled]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" value="{{filter.position}}" (click)="check($event, filter)" >
                   </ion-checkbox>
                   <ion-label>{{filter.position}}</ion-label>

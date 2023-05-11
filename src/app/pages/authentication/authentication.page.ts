@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup ,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController, NavController } from '@ionic/angular';
+import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
@@ -22,7 +22,9 @@ export class AuthenticationPage implements OnInit {
     private auth: AuthService,
     private router: Router,
     private profile: ProfilingService,
-    private nc: NavController
+    private nc: NavController,
+    private toastController: ToastController
+
   ) {
     
    }
@@ -73,7 +75,7 @@ export class AuthenticationPage implements OnInit {
       if (user.user.emailVerified == false){
         await this.auth.resend();
         this.auth.logout;
-          this.showAlert("Please Verify Email", "A new activation link is sent to your email!");     
+          this.presentToast("Please Verify Email. A new activation link is sent to your email!");     
         
       }
       else{
@@ -90,7 +92,7 @@ export class AuthenticationPage implements OnInit {
             this.nc.navigateRoot('dashboard');
 
             // this.router.navigate(['dashboard']);
-            this.showAlert("Success", "Login Success");  
+            this.presentToast("Success. Login Success");  
           }
           else if (this.storage === 0){
 
@@ -101,7 +103,7 @@ export class AuthenticationPage implements OnInit {
               if(this.storage === 1){
                 // this.router.navigate(['homecompany']);
                 this.nc.navigateRoot('dashboardcompany');
-                this.showAlert("Success", "Login Success"); 
+                this.presentToast("Success. Login Success"); 
               }
               data2.unsubscribe();
             });
@@ -125,6 +127,16 @@ export class AuthenticationPage implements OnInit {
       buttons: ['OK'],
     });
     await alert.present();
+  }
+  async presentToast(message: any) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 1500,
+      position: 'bottom',
+    });
+
+    await toast.present();
+
   }
 
 }
