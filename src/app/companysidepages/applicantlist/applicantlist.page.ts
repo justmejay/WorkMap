@@ -30,11 +30,7 @@ export class ApplicantlistPage implements OnInit {
 
   title: any = [];
 
-  id: any;
-
-  lname: any;
-
-  name: any;
+ 
 
   
 
@@ -59,12 +55,6 @@ export class ApplicantlistPage implements OnInit {
     this.firestore.getapplicants(this.job.jobid).subscribe(res => {
       this.jobs = res;
       console.log(this.jobs);
-     
-      
-      
-
-      
-
     });
 
 
@@ -89,6 +79,13 @@ export class ApplicantlistPage implements OnInit {
 
   ngOnInit() {
     
+  }
+
+  profiledetails(jobs:any){
+    const any = jobs.uid
+    console.log(any)
+  
+    this.router.navigate(['viewnotification'], {queryParams:{usid:any}});
   }
 
 }

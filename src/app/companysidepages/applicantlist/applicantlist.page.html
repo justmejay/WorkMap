@@ -9,12 +9,12 @@
 
 <ion-content >
 
-<ion-item button detail="true" [routerLink]="['/notifications']" *ngFor="let jobs of jobs">
+<ion-item button detail="true" (click)="profiledetails(jobs)" *ngFor="let jobs of jobs">
   <ion-avatar slot="start">
     <img alt="Profile piture" src="assets/header.png" />
   </ion-avatar>
   <ion-label>
-    <ion-label>{{jobs.lname}}</ion-label>
+    <ion-label>{{jobs.fname}} {{jobs.mname}} {{jobs.lname}}</ion-label>
     <ion-label *ngFor="let title of title">has applied in your "{{title.jtitle}}" Listing</ion-label>
   </ion-label>
 </ion-item>
