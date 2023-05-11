@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { GmapService } from 'src/app/services/gmap.service';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
@@ -37,6 +37,8 @@ export class EditaddressPage implements OnInit {
     private router: Router,
     private gmaps: GmapService,
     private renderer: Renderer2,
+    private toastController: ToastController
+
 
   ) {
 
@@ -109,9 +111,9 @@ ngAfterViewInit(){
   this.firestore.getaddress().subscribe(async res=>{
     this.temp = res;
 
-    if (this.temp.changed == false){
+    // if (this.temp.changed == false){ //Disabling user limit
       this.loadMapCurrent();
-    }
+    // }
   });
  
 }
@@ -129,10 +131,9 @@ ngAfterViewInit(){
     if (user) {
       this.router.navigate([this.router.url])
       this.router.navigateByUrl('/applicantprofile', { replaceUrl: true });
-      this.showAlert('Edit success', 'Data updated!');
-
+      this.presentToast('Address Updated!')
         } else {
-      this.showAlert('Edit failed', 'Please try again!');
+      this.presentToast('Something went wrong!');
     }
   }
 
@@ -149,11 +150,11 @@ ngAfterViewInit(){
     if (user) {
       this.router.navigate([this.router.url])
       this.router.navigateByUrl('/applicantprofile', { replaceUrl: true });
-      this.showAlert('Edit success', 'Data updated!');
+      this.presentToast('Address Updated!')
 
         } else {
-      this.showAlert('Edit failed', 'Please try again!');
-    }
+          this.presentToast('Something went wrong!');
+        }
   }
 
 
@@ -182,8 +183,8 @@ ngAfterViewInit(){
       const location = new googleMaps.LatLng(this.address.clat, this.address.clng);
       this.map =  new googleMaps.Map(mapEl,{
         center: location,
-        zoom: 12,
-        mapTypeId: 'terrain',
+        zoom: 17,
+        mapTypeId: 'roadmap',
         disableDefaultUI: true,
       }); 
 
@@ -258,6 +259,17 @@ ngAfterViewInit(){
       });
 
     }
+  }
+
+  async presentToast(message: any) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 1500,
+      position: 'bottom',
+    });
+
+    await toast.present();
+
   }
 
   

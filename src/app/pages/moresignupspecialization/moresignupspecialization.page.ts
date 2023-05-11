@@ -44,10 +44,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "0fjveC8402NpxBQAcrIm"
     },
     {
-        "position": "Retail Executive",
-        "id": "0pkYSSlLZYNtikrrhfcJ"
-    },
-    {
         "position": "Insurance Adviser",
         "id": "0wlhp92GC4uJpoRIIUD6"
     },
@@ -108,10 +104,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "1aYBBrkQ2MmvEtKU8Yht"
     },
     {
-        "position": "Guard",
-        "id": "1h5GvVqLg5f45b6jHQzN"
-    },
-    {
         "position": "Cooks Assistant",
         "id": "1l884JenUPWtp89H7iiJ"
     },
@@ -160,12 +152,8 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "2TsqtHX9YMWgUMFQH6k6"
     },
     {
-        "position": "Application Consultant ",
+        "position": "Application Consultant",
         "id": "2WYQcbfmzSHstitAoJsK"
-    },
-    {
-        "position": "Engineering Technician",
-        "id": "2YKQcYqEUR5rFU9RkfYO"
     },
     {
         "position": "Logistics Manager",
@@ -194,10 +182,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Porter",
         "id": "2r5mYmpPHkbyJfRnjRI0"
-    },
-    {
-        "position": "Dean",
-        "id": "2rjQByGxLrMljIPzsAmU"
     },
     {
         "position": "Taxation Accountant",
@@ -244,14 +228,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "3eX1eHTAH9gcMlat3VYz"
     },
     {
-        "position": "Interpreter",
-        "id": "3fMka2JInGS5TrMMEqvv"
-    },
-    {
-        "position": "Makeup Artist",
-        "id": "3hM70v3OHPUSXSPUWcHI"
-    },
-    {
         "position": "Planning Engineer",
         "id": "3iJcuIiXTyVgdd2HR39H"
     },
@@ -272,20 +248,8 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "3xMw9xs46gihT5zR6WrE"
     },
     {
-        "position": "Automation Engineer",
-        "id": "3xTrQUyzAIjk6zYjMFjT"
-    },
-    {
-        "position": "Product Designer",
-        "id": "423ICOiOgWd9nHM2bPnx"
-    },
-    {
         "position": "Debt Collector ",
         "id": "43N08hrbgWTalR7iTfRx"
-    },
-    {
-        "position": "Financial Consultant",
-        "id": "49pEivxXt5skeE6OysvU"
     },
     {
         "position": "Human Resources Executive",
@@ -346,10 +310,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Chemist",
         "id": "57bim1fYYg1sQiN7sghZ"
-    },
-    {
-        "position": "Superintendent",
-        "id": "5BepugixGU4T3Ao5x8kw"
     },
     {
         "position": "Project Assistant",
@@ -416,10 +376,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "6J2qt4dy9Xcdj7UHU3W4"
     },
     {
-        "position": "Content Writer",
-        "id": "6KMyocUbEfxY2oGG07gZ"
-    },
-    {
         "position": "Accounting Officer",
         "id": "6NmT5NW9JmLIV68kmfPJ"
     },
@@ -430,14 +386,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Accounts Receivable Officer",
         "id": "6Ye92gRI6EvInRWhgVrJ"
-    },
-    {
-        "position": "Supply Chain Assistant",
-        "id": "6cQjUU907QHXmr0sy1Ny"
-    },
-    {
-        "position": "Web Designer",
-        "id": "6cnLHRihWcHS6QorLao6"
     },
     {
         "position": "Customer Service Executive  ",
@@ -476,28 +424,12 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "71hTWORLq3bsc7c6EnJb"
     },
     {
-        "position": "Environmental Consultant",
-        "id": "72oiySGtP82UV89hMJwZ"
-    },
-    {
         "position": "Retail Store Manager",
         "id": "73XLGaOCmBN1iJl7iLG2"
     },
     {
-        "position": "Geotechnical Engineer",
-        "id": "78xuL7mrCVyV0sgyR9CR"
-    },
-    {
-        "position": "Safety Officer",
-        "id": "7GI8Kw7f5x2zBPmwK6ut"
-    },
-    {
         "position": "Field Service Engineer",
         "id": "7VAh0rkXk0zYxr6TGV0d"
-    },
-    {
-        "position": "Floor Manager",
-        "id": "7Zz06WKsuWIkmsv4SA3I"
     },
     {
         "position": "Network Engineer",
@@ -520,16 +452,8 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "7d6zY6zw4hjQTlVLzz2R"
     },
     {
-        "position": "Actuary",
-        "id": "7enBC7bja1mp31J1aTH2"
-    },
-    {
         "position": "Quality Analyst",
         "id": "7g07Eo6fhBOPejxBr2zl"
-    },
-    {
-        "position": "Production Officer",
-        "id": "7kBE9VUCEICuCmft8O0j"
     },
     {
         "position": "Assistant Warehouse Manager",
@@ -540,24 +464,12 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "7lthcdFKG4qU7zx8irjd"
     },
     {
-        "position": "User Experience Designer",
-        "id": "7mu6L7I0wbXRx97cSJyF"
-    },
-    {
         "position": "Inventory Assistant",
         "id": "7muyVmMML902skIzbItd"
     },
     {
-        "position": "Training Officer",
-        "id": "7vDRZ1tuH1L9IDaVCjFz"
-    },
-    {
         "position": "Floor Supervisor",
         "id": "7vuDaCFUFqE5freMYYo8"
-    },
-    {
-        "position": "Events Manager",
-        "id": "7xaygCk4Doo5qt9LhMgp"
     },
     {
         "position": "Product Marketing Manager",
@@ -608,10 +520,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "90I7ANoqyVA9luS27UPe"
     },
     {
-        "position": "Product Executive",
-        "id": "93hUTIeX2O68eSVBJq4v"
-    },
-    {
         "position": "Graphic Designer",
         "id": "94oYN2NabAMFdP63e6Ho"
     },
@@ -620,32 +528,16 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "9CXuzEkZCKHPBJH1rQUK"
     },
     {
-        "position": "Customer Support Executive",
-        "id": "9KqdSbd1toDeDD7Alcgn"
-    },
-    {
         "position": "Operations Analyst",
         "id": "9NRHXErNgM9Oa4n6UeOI"
-    },
-    {
-        "position": "Electronics Technician",
-        "id": "9NdBGluqC3MyJwZHRykp"
     },
     {
         "position": "Business Consultant",
         "id": "9RP722bB82ZgZ65feT97"
     },
     {
-        "position": "Human Resources Administrator",
-        "id": "9dMTgHEZrhzVT001djK0"
-    },
-    {
         "position": "Payroll Clerk",
         "id": "9kLGJpJdkA4p5tuINv9n"
-    },
-    {
-        "position": "Management Information System Executive",
-        "id": "9mNjk2HJP9ltJwmNzluF"
     },
     {
         "position": "Assistant Supervisor",
@@ -660,10 +552,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "9t7IpO4nR12suNb68nGq"
     },
     {
-        "position": "Assistant General Manager",
-        "id": "9zQniWqmodFXKz6etZXp"
-    },
-    {
         "position": "Network and Security Engineer",
         "id": "9zq31pZSCm9aB3u1z5wr"
     },
@@ -674,10 +562,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Technical Analyst",
         "id": "A8YUIWIhvKpjwc6HbrXT"
-    },
-    {
-        "position": "Accounts Administrator",
-        "id": "ACPm7DBx3B9JT7SyGHNC"
     },
     {
         "position": "Brand Ambassador",
@@ -728,10 +612,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "B2O7o9vnDlNVEL7mvblF"
     },
     {
-        "position": "Software Development Engineer",
-        "id": "B5ldWXrEvxi6pKzPhWvi"
-    },
-    {
         "position": "Service Desk Analyst",
         "id": "B8Ie7DmGSF6eppbBvR8V"
     },
@@ -756,10 +636,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "BcCSvIfyoJr4TxUjr3R0"
     },
     {
-        "position": "Artist",
-        "id": "Bg8RyHl3UV3QZvyO56Q3"
-    },
-    {
         "position": "Researcher",
         "id": "BjIBptPavApFWh260YzV"
     },
@@ -768,16 +644,8 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "Bzk8TGGW0kbrJpNBqxFs"
     },
     {
-        "position": "Sales and Marketing Officer",
-        "id": "C0n7H9d9Ofl2WqS5k7e3"
-    },
-    {
         "position": "Service Adviser",
         "id": "CBBKnfvJlWJXjz1jK9uC"
-    },
-    {
-        "position": "Clinician",
-        "id": "CBL6twFseFJlAHErfwk7"
     },
     {
         "position": "Customer Service Assistant",
@@ -794,10 +662,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Coxswain",
         "id": "Cbc377f7lSZUcxiaMx4u"
-    },
-    {
-        "position": "Fashion Adviser",
-        "id": "CdJCc5446JFmXZYWjC5n"
     },
     {
         "position": "Cashier",
@@ -824,10 +688,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "DTGVJGSWXrSryPFhuz3F"
     },
     {
-        "position": "Coordinator",
-        "id": "DUEsXtksanfvuFbxXaNv"
-    },
-    {
         "position": "Maintenance Technician",
         "id": "DXVBWYvCwQErymYAxB8N"
     },
@@ -850,10 +710,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Assistant Teacher",
         "id": "Disu6Pwhp7eJ6WKXaIY3"
-    },
-    {
-        "position": "Management Trainee",
-        "id": "Dnp9zuKpj0GM8hwm7SAU"
     },
     {
         "position": "Personal Banker ",
@@ -880,28 +736,12 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "ELNkcvUXGFxy9DpBVpLq"
     },
     {
-        "position": "Project Coordinator ",
-        "id": "ENJftks6rnpFs4rnhYjh"
-    },
-    {
         "position": "Assistant Relationship Manager",
         "id": "EPW2aaIvVdNBXqlTfIkM"
     },
     {
-        "position": "Computer Operator",
-        "id": "EQVs6TYOniCDk2p4byGn"
-    },
-    {
-        "position": "Coxswain",
-        "id": "EVXPKgXRinQTQdS51T2z"
-    },
-    {
         "position": "Production Assistant",
         "id": "EinfjXcmYG8BJJDj77BQ"
-    },
-    {
-        "position": "Shift Manager",
-        "id": "EjPtCWys9kegWhkntuR5"
     },
     {
         "position": "Information Technology Support Analyst",
@@ -936,16 +776,8 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "EwiwCqd5mpyAI5H3sy5B"
     },
     {
-        "position": "Operations Executive ",
-        "id": "F4iqO4r0NGWkgNdXiIyB"
-    },
-    {
         "position": "Content Editor  ",
         "id": "FCzZzNZKxcLLGAJp069a"
-    },
-    {
-        "position": "Biomedical Engineer",
-        "id": "FJly0rfC6111YWsQbhrd"
     },
     {
         "position": "Security Consultant",
@@ -992,20 +824,12 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "G6y7U0XL1iZiPEkseep6"
     },
     {
-        "position": "Inventory Assistant",
-        "id": "G72EduYfO1QNjMlqiE7H"
-    },
-    {
         "position": "Taxation Consultant",
         "id": "G7JHXTxkozgQYo2dl8bx"
     },
     {
         "position": "Training Officer",
         "id": "GC6IT4N6qt8oikVJrYNk"
-    },
-    {
-        "position": "Customer Relations Officer ",
-        "id": "GEXhAvDbP7lMRmuscnLc"
     },
     {
         "position": "Travel Agent",
@@ -1031,10 +855,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "GNkUQm02PM0MJAt9JREc"
     },
     {
-        "position": "Pastry Chef",
-        "id": "GQCWjAUfcqxGDQsCJ8qB"
-    },
-    {
         "position": "Animator",
         "id": "GXCWVV29YokJGoAgMWXg"
     },
@@ -1045,14 +865,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Marketing Executive",
         "id": "GxTkZl89ax4VQ1V1SHxt"
-    },
-    {
-        "position": "Laboratory Assistant",
-        "id": "Gy1LV8lfUCCyjv6vpm2t"
-    },
-    {
-        "position": "Business Development Assistant",
-        "id": "HHGXMyT8sa9g8me38qo2"
     },
     {
         "position": "Chief Financial Officer",
@@ -1079,10 +891,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "HzAUMAhCW83mvtcy72jc"
     },
     {
-        "position": "Branch Operations Manager",
-        "id": "I34HV8FjkZedGKbg7KMG"
-    },
-    {
         "position": "Electrical Supervisor",
         "id": "I8hRAhHrA2Z9nBkENEc6"
     },
@@ -1095,16 +903,8 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "INi1Wq5m174N7l5yfMo2"
     },
     {
-        "position": "Operator",
-        "id": "IULhJPTf7306lZwqPJS8"
-    },
-    {
         "position": "Caterer",
         "id": "IVjk6Y18eylmQ0SJwNas"
-    },
-    {
-        "position": "Bank Teller",
-        "id": "IYwQgs1ynodJyHTF21XF"
     },
     {
         "position": "Data Scientist",
@@ -1125,10 +925,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Infrastructure Engineer",
         "id": "IrM6LHHuW1R7IwcIMA0E"
-    },
-    {
-        "position": "Technical Manager",
-        "id": "IrcNR8xUdAse5LLsru5c"
     },
     {
         "position": "Information Technology Executive",
@@ -1155,10 +951,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "J1qYMhhHwlmco4mKlbrZ"
     },
     {
-        "position": "Manufacturing Technician",
-        "id": "JD0D0i50MBc5kdUszrkX"
-    },
-    {
         "position": "Supply Planner",
         "id": "JK8AHYVzdXgcb4ZKywwQ"
     },
@@ -1183,19 +975,11 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "JjNmmx1X3yhyC93Vxr06"
     },
     {
-        "position": "Rigger",
-        "id": "JkMYMlyJzIVJtIJXWvFV"
-    },
-    {
-        "position": "Shift Supervisor",
-        "id": "Jlo0jv9XHyoG6MWt8Z69"
-    },
-    {
         "position": "Surveyor",
         "id": "JoPuMvdtndovkkIVAFyk"
     },
     {
-        "position": "Advertising Manager ",
+        "position": "Advertising Manager",
         "id": "JtefpAGv6SSkGfinsrVj"
     },
     {
@@ -1245,10 +1029,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Operations Officer ",
         "id": "KYugug8DYnecloUJTyGc"
-    },
-    {
-        "position": "Production Officer",
-        "id": "KZeaPYfVPgw0kS5Qipso"
     },
     {
         "position": "Automotive Technician",
@@ -1307,28 +1087,12 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "LRLM75XqI1nVLytBv6Sv"
     },
     {
-        "position": "Business Controller",
-        "id": "LTqXqC6js5DAAvAvYizz"
-    },
-    {
         "position": "Fitter",
         "id": "LYLpdsLYQ8lkuEXF8MVx"
     },
     {
-        "position": "Clerk",
-        "id": "LhwCBtpLP4cJUL7C4w4G"
-    },
-    {
         "position": "Maintenance Assistant",
         "id": "Liz7eC5ZvzMHwdhzTK2H"
-    },
-    {
-        "position": "Recruitment Executive",
-        "id": "LlSYl9yUewlAwWeMnAb9"
-    },
-    {
-        "position": "Technical Manager",
-        "id": "LxssFD3WRc0ohxjCbV9K"
     },
     {
         "position": "Architectural Designer ",
@@ -1375,14 +1139,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "NC1xCHWYVgpMnIkA1whQ"
     },
     {
-        "position": "Product Manager",
-        "id": "NFso6d9jpePXaf29avQM"
-    },
-    {
-        "position": "Systems Consultant",
-        "id": "NH32prJ1zcPcTxGlmcCn"
-    },
-    {
         "position": "Bank Teller",
         "id": "NYYM3OjMHGkfmNllVb1V"
     },
@@ -1419,10 +1175,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "ODrlk28DOFuflsv4TIiS"
     },
     {
-        "position": "Engineer",
-        "id": "OE8Ed69TRhp8DlRLhGoM"
-    },
-    {
         "position": "Database Administrator",
         "id": "OHSADcKJLxbjZihXlkLe"
     },
@@ -1443,20 +1195,12 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "OamZnzp0P4QhMEvTg8xA"
     },
     {
-        "position": "Content Editor",
-        "id": "ObkmeqURDFf9eWCShR1a"
-    },
-    {
         "position": "Human Resources Manager",
         "id": "OeMkUFX6pawn3lCq6rkD"
     },
     {
         "position": "Sales Specialist",
         "id": "Oi0NXtFxPGBL448nIpvT"
-    },
-    {
-        "position": "Management Associate",
-        "id": "OlQ5cFf0LcnqMlxeNcUG"
     },
     {
         "position": "Risk Manager ",
@@ -1507,10 +1251,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "PK0lN3FlTE42FgInUy6r"
     },
     {
-        "position": "Technical Manager",
-        "id": "PLfnczH0JJz2a14REbO9"
-    },
-    {
         "position": "Operations Supervisor",
         "id": "POvGxqw9Vedhhwnxpuzo"
     },
@@ -1521,10 +1261,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Secretary",
         "id": "PUHdGFKq5PzCX7LI39Xu"
-    },
-    {
-        "position": "Driving Instructor",
-        "id": "PUikncCuNmIQLbO0BWgK"
     },
     {
         "position": "Talent Acquisition Specialist",
@@ -1671,14 +1407,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "SPxazTO8CQZKAB705O2s"
     },
     {
-        "position": "Procurement Engineer",
-        "id": "SSy489dEXQv4YGoOPd1k"
-    },
-    {
-        "position": "Customer Service Assistant",
-        "id": "SgAkm7mfBdTDYJqsQXSd"
-    },
-    {
         "position": "Promoter",
         "id": "SgdTo9jKin1C3bv2Ij5t"
     },
@@ -1713,10 +1441,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Business Development Analyst",
         "id": "THA1J6fSbmnAZk4AAAf5"
-    },
-    {
-        "position": "Pilot",
-        "id": "TKGkW3KaXJ0ZzwWwDdrN"
     },
     {
         "position": "Assistant Accounts Officer",
@@ -1759,16 +1483,8 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "U3Pl3lvssBnZgJRERweJ"
     },
     {
-        "position": "Advertising Manager",
-        "id": "U6cBixK9wg3t2CQ4UtsE"
-    },
-    {
         "position": "Bar Manager",
         "id": "UF2Iwhsn9K7SVBQsbdKP"
-    },
-    {
-        "position": "Health and Safety Officer",
-        "id": "ULOlEYBegLP3lG5wmwcA"
     },
     {
         "position": "Network Operations Centre Engineer",
@@ -1811,10 +1527,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "UtgpV1lBSrpyszMBNCrs"
     },
     {
-        "position": "Team Leader",
-        "id": "UxJmBkex65Tg1rUZvgN0"
-    },
-    {
         "position": "Healthcare Assistant",
         "id": "UyP0GgrJdd3UTRVF64W8"
     },
@@ -1841,10 +1553,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Actuary",
         "id": "VGw7mfidtOdr5jISX9DK"
-    },
-    {
-        "position": "Maintenance Supervisor",
-        "id": "VQfsv4SbyF3jPjs1Cljj"
     },
     {
         "position": "Chiropractor",
@@ -1983,10 +1691,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "XmrMVflY5OKFr2ik5LSv"
     },
     {
-        "position": "Fund Accountant",
-        "id": "XrgjIc3BQAm2GIvzSdoy"
-    },
-    {
         "position": "Accounts Administrator",
         "id": "XxOY7OZffi8zkLnn5Jbt"
     },
@@ -2017,10 +1721,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Human Resources Administrator",
         "id": "YjBFuHwAHxFzFS4FIZKA"
-    },
-    {
-        "position": "Technical Engineer",
-        "id": "YjRz1pnQQlJhOtqLT4DC"
     },
     {
         "position": "Purchasing Manager",
@@ -2063,10 +1763,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "ZQEGHRGEOaSauqzpFeeC"
     },
     {
-        "position": "Field Engineer",
-        "id": "ZQiv3wS9t5JMpFLkLLg6"
-    },
-    {
         "position": "Operations Clerk ",
         "id": "ZW7kQcau2S74p7W3NwQs"
     },
@@ -2077,10 +1773,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Housekeeper",
         "id": "Zacd4Mr5sDl9LHke8paD"
-    },
-    {
-        "position": "Credit Manager  ",
-        "id": "ZbOkofk6tXGt3EqC6mqA"
     },
     {
         "position": "Paramedic",
@@ -2095,28 +1787,12 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "aIxnPLM7INvwXH8vrSXL"
     },
     {
-        "position": "Account Director",
-        "id": "aK7zq7cBJAtzu61hhGhr"
-    },
-    {
         "position": "Program Coordinator",
         "id": "aLtHy79HVS32mOKIDwkn"
     },
     {
-        "position": "Therapist",
-        "id": "aYOT5KmSX3sxdv9aaRB4"
-    },
-    {
-        "position": "Systems Specialist",
-        "id": "aYfTIGBI7y0KTMtjrt3n"
-    },
-    {
         "position": "Structural Engineer",
         "id": "abgihOu6Aswhl9q6SdvO"
-    },
-    {
-        "position": "Research Analyst",
-        "id": "ag3e1ayPhbUzyOPOwCOq"
     },
     {
         "position": "Administration Manager",
@@ -2199,10 +1875,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "brhmUgQQeO4GnlRO0q6J"
     },
     {
-        "position": "Massage Therapist",
-        "id": "btHGcsL9HUwpUyWVh6C3"
-    },
-    {
         "position": "Customer Service Associate ",
         "id": "burSCdzy9cm0r56GUFxg"
     },
@@ -2233,14 +1905,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Unit Manager",
         "id": "cH9kHmcLY9ZbPpT84QEy"
-    },
-    {
-        "position": "Customer Support Executive ",
-        "id": "cUqCTI5qXcqb7TYNlwKR"
-    },
-    {
-        "position": "Telephone Consultant",
-        "id": "cgq5EZ3cxy3bYGbvkj5U"
     },
     {
         "position": "Data Entry Clerk",
@@ -2305,10 +1969,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Social Media Manager",
         "id": "duksOMmkBwTL7dyHFG6q"
-    },
-    {
-        "position": "Systems Engineer",
-        "id": "dvWdck9jvWl7g11u5Mct"
     },
     {
         "position": "Biomedical Engineer",
@@ -2383,14 +2043,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "f920lBA9fxO0opqRe8Y1"
     },
     {
-        "position": "Operations Clerk",
-        "id": "fDMye05PSTVtyLwZVj8E"
-    },
-    {
-        "position": "Account Coordinator",
-        "id": "fL1pkqBk6Y7OSTzcHDA5"
-    },
-    {
         "position": "Environmental Engineer",
         "id": "fSor8WQ59qJ6NN3nIfA1"
     },
@@ -2405,14 +2057,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Mechanical Project Engineer",
         "id": "fXzzrBbyeGR0psCWxgU7"
-    },
-    {
-        "position": "Corporate Sales Manager",
-        "id": "fYCeiidAi0QbDH2LHQF6"
-    },
-    {
-        "position": "Assistant Officer",
-        "id": "fZwqQ13IPNiOtZJ3rqjC"
     },
     {
         "position": "Planner  ",
@@ -2483,10 +2127,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "grAcBsvnOYEsDOQU499T"
     },
     {
-        "position": "Research Assistant",
-        "id": "guJ6NhOGvDA3vuWI787v"
-    },
-    {
         "position": "Building Manager",
         "id": "gyEXcY9hsZL3zNBYaYVf"
     },
@@ -2511,10 +2151,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "hWpCbja9FoMepJmbsyG0"
     },
     {
-        "position": "Project Manager",
-        "id": "hbK4OQXWQ20WpWYF12DA"
-    },
-    {
         "position": "Construction Project Manager ",
         "id": "hcC7cL007GDVGAT36qjo"
     },
@@ -2535,10 +2171,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "i31MySPK7oGtNj0Mleeo"
     },
     {
-        "position": "Demand Planner",
-        "id": "i65na2DtCAajVfRRh9Nv"
-    },
-    {
         "position": "Production Officer ",
         "id": "i8f8HPshTBGL8gl9TavK"
     },
@@ -2553,14 +2185,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Incident Manager",
         "id": "iGrcAhUDYLlAQWTy7JuR"
-    },
-    {
-        "position": "Draftsperson",
-        "id": "iKhIhFJ5ULezgiWwrRr1"
-    },
-    {
-        "position": "Programmer ",
-        "id": "ib1zonXQIxPekWEjOAYk"
     },
     {
         "position": "Reporter  ",
@@ -2595,16 +2219,8 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "jX73C2xrETedLAUUrtVN"
     },
     {
-        "position": "Credit Assistant",
-        "id": "jcyG3qsUVGplQes5eW3f"
-    },
-    {
         "position": "Courier",
         "id": "jeWzp5PySrUQMvO4t34u"
-    },
-    {
-        "position": "Liaison Officer",
-        "id": "jfLMj7nHc4R275Ywg2cf"
     },
     {
         "position": "Driver",
@@ -2637,10 +2253,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Aircraft Mechanic",
         "id": "kKSp2lCkNwQhZTMsz7DQ"
-    },
-    {
-        "position": "Assistant General Manager",
-        "id": "kL7Z5JyxEZ6iw7YPcnUb"
     },
     {
         "position": "Training Assistant",
@@ -2707,14 +2319,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "lk91sC7Ts3E5CHbi4YDB"
     },
     {
-        "position": "User Interface Designer",
-        "id": "lkeRwehYqkyWs9YwOBjT"
-    },
-    {
-        "position": "Maritime Engineer",
-        "id": "lqZFIgOjoHGvitFYOcDZ"
-    },
-    {
         "position": "Editor",
         "id": "lsX5Rim4hsJ3G0Jt78An"
     },
@@ -2774,10 +2378,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "nAG7RCZoHiXPCHxttlMh"
     },
     {
-        "position": "Project Designer",
-        "id": "nGhFNBqZ9jFCzxhlxjij"
-    },
-    {
         "position": "Copywriter",
         "id": "nLjpjBFcFoPFu1fLnCs6"
     },
@@ -2814,10 +2414,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "oBHEaDuM27gHnl6OOs82"
     },
     {
-        "position": "Project Consultant ",
-        "id": "oH7vzjUpbCy37gt3MOaW"
-    },
-    {
         "position": "Systems Specialist",
         "id": "oIKJOk8Cg4FXumyIALdI"
     },
@@ -2844,10 +2440,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Warehouse Clerk",
         "id": "ohVs6VoP1g0pS8zoGPhc"
-    },
-    {
-        "position": "Operations Executive",
-        "id": "ohqk4JuskKM1wRyEPBKC"
     },
     {
         "position": "Project Manager ",
@@ -2882,10 +2474,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "p80GRZNSpuyMageuknx5"
     },
     {
-        "position": "Civil Technician",
-        "id": "p8bNdSFuTUxazAF8i8D1"
-    },
-    {
         "position": "Piano Teacher",
         "id": "pC9pdyPflGKzkH6gpdsD"
     },
@@ -2896,10 +2484,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Credit Officer",
         "id": "pDzKDsIdbVyioxY6jh5q"
-    },
-    {
-        "position": "Retail Executive",
-        "id": "pFYRhh5EB0uksCeKQQkr"
     },
     {
         "position": "Guest Relations Officer  ",
@@ -2986,10 +2570,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "qh8WYYJItjkuXHnKGLCD"
     },
     {
-        "position": "Category Manager",
-        "id": "qkIIWH1nA2uOibru5RV8"
-    },
-    {
         "position": "Draftsperson",
         "id": "qrRo1iutnFtoWHS7qGI7"
     },
@@ -3004,10 +2584,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Logistics Officer",
         "id": "r3JqHJwyXJ2IwKHxGdUt"
-    },
-    {
-        "position": "Management Information Systems Manager",
-        "id": "r3spPgHWS8YOtOvwDLc1"
     },
     {
         "position": "Optometrist",
@@ -3046,10 +2622,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "rUmzmqddcjgEqL2yO95j"
     },
     {
-        "position": "Business Development Assistant",
-        "id": "rh2wrZbcNmUkzrMZM1Ci"
-    },
-    {
         "position": "Finance Manager",
         "id": "rmg6y2WJnOKyELgdDoTh"
     },
@@ -3078,16 +2650,8 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "s4IPZpBezFpXD90qm9TE"
     },
     {
-        "position": "Customer Service Associate",
-        "id": "s55zZ7xnaQHOWCPJ3NZb"
-    },
-    {
         "position": "Process Manager",
         "id": "s8MrOysT4y8ELBgmCj1w"
-    },
-    {
-        "position": "Floor Supervisor",
-        "id": "sUfVHDLjIfiQ3wUU22yr"
     },
     {
         "position": "Applications Engineer",
@@ -3108,10 +2672,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Managing Director ",
         "id": "sj6vk99i13aYPDyFBzLW"
-    },
-    {
-        "position": "Operations Clerk",
-        "id": "sjxYxnZjjWlJQIJjKaWR"
     },
     {
         "position": "Applications Developer",
@@ -3136,10 +2696,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Quality Control Inspector",
         "id": "tJk7ZcH9lwx8MlWs7TQ0"
-    },
-    {
-        "position": "Radio Frequency Engineer",
-        "id": "tTkhpS1VDFyxvtaRXO7K"
     },
     {
         "position": "Category Manager",
@@ -3172,10 +2728,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Assistant Controller",
         "id": "ty9UHNZrHVd9jJ2jTAqr"
-    },
-    {
-        "position": "Change Manager ",
-        "id": "tyOY7WiZqUo2UODPtLeJ"
     },
     {
         "position": "Supply Chain Assistant",
@@ -3246,10 +2798,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "vr8EY7UX9NEdOFd7hRiS"
     },
     {
-        "position": "Quality Supervisor",
-        "id": "vsZ1znpJw8M638nwsg0N"
-    },
-    {
         "position": "Storekeeper",
         "id": "vxxm4dATqg0iZsYWrsrL"
     },
@@ -3284,14 +2832,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Communications Executive",
         "id": "wffo9A70TAivU5si0KIr"
-    },
-    {
-        "position": "Geophysicist",
-        "id": "wjJuC2to7HOG7kqR1pMq"
-    },
-    {
-        "position": "Management Trainee",
-        "id": "wjR4QzVp6TgnfuZWEJUW"
     },
     {
         "position": "Audit Manager",
@@ -3438,10 +2978,6 @@ export class MoresignupspecializationPage implements OnInit {
         "id": "zHmkC0B9O4cIgzSvnD3p"
     },
     {
-        "position": "Assistant Operations Manager",
-        "id": "zIgvN3xDGza1GxPvP6So"
-    },
-    {
         "position": "Business Analyst",
         "id": "zaPDTSwRZuVcGA0Qui1t"
     },
@@ -3468,10 +3004,6 @@ export class MoresignupspecializationPage implements OnInit {
     {
         "position": "Automotive Mechanic",
         "id": "zwqIVkU4CGILff0XVILT"
-    },
-    {
-        "position": "Sales Support Executive",
-        "id": "zwuGwo8oeAgHdTzCcBze"
     },
     {
         "position": "Assistant Operations Manager",
@@ -3584,6 +3116,10 @@ export class MoresignupspecializationPage implements OnInit {
    
     // this.credscurrent = this.fb.group({
     //   currentaddress: ['', [Validators.required]],
+    // });
+
+    // this.auth.getsearch().subscribe(res =>{
+    //     console.log(res);
     // });
 
   }

@@ -9,15 +9,15 @@
 
 <ion-content class="ion-padding ">
 
-    <div [hidden]="address.changed">
+    <div>  <!--[hidden]="address.changed"-->
 
 
       <form [formGroup]="credentials" (ngSubmit)="editadd()" >
     
 
         <div class="map" #map></div>
-        <P *ngIf="address.changed == false;" style="color: red; text-align: center;">(Adjust the Marker if not accurate!)</P>
-        <P *ngIf="address.changed == false;" style="color: red; text-align: center;">(This is one time only!)</P>
+        <P   style="color: red; text-align: center;">(Adjust the Marker if not accurate!)</P>
+        <!-- <P *ngIf="address.changed == false;" style="color: red; text-align: center;">(This is one time only!)</P> -->
 
         <h3>Current Address</h3>
 
@@ -54,9 +54,8 @@
 
 
 
-
-
- <div [hidden]="!address.changed" > 
+<!-- Limiting User Edit Capability -->
+ <!-- <div [hidden]="!address.changed" > 
   
     <form  [formGroup]="Ccredentials" (ngSubmit)="Ceditadd()" >
       <h3>Current Address</h3>
@@ -84,7 +83,7 @@
       <ion-button type="submit"  [disabled]="!Ccredentials.valid" class="btnreg" expand="block" shape="round" size="large">Save</ion-button>
   
     </form>
-</div>
+</div> -->
 
 
 
