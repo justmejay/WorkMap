@@ -1,11 +1,11 @@
 <ion-header >
   <ion-toolbar>
       <ion-buttons [routerLink]="" slot="start">
-        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline" [routerLink]="['/applicantlist']">  </ion-icon>
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline" [routerLink]="['/notifications']">  </ion-icon>
       </ion-buttons> 
-      <ion-buttons slot="end">
+      <!-- <ion-buttons slot="end">
         <ion-icon style="width: 50px; color: white;" name="ellipsis-vertical" id="open-modal">  </ion-icon>
-      </ion-buttons>
+      </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
@@ -19,54 +19,54 @@
       </div>
     </ng-template>
   </ion-modal>
-  <ion-card class="maincard" *ngIf="profile" >
+  <ion-card class="maincard" >
     <ion-card-header class="maincard">
       <div class="maincardpfp">
         <ion-thumbnail slot="start">
           <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
         </ion-thumbnail>
-        <ion-card-title>{{profile.fname}} {{profile.mname}} {{profile.lname}}</ion-card-title>
+        <ion-card-title>John Doe</ion-card-title>
         <!-- <ion-icon style="float: right; font-size: 30px;" name="information-circle" class="edit"></ion-icon> -->
       </div>
     </ion-card-header>
-    <ion-card-content class="maincard" >
+    <ion-card-content class="maincard">
         <ion-card class="subcard">
           <ion-card-header class="subcard">
             <ion-card-title>Personal Information</ion-card-title>
           </ion-card-header>
           <ion-card-content class="subcard">
             
-              <ion-label position="stacked" class="cardsubtitle">Name:</ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked" class="cardsubtitle">Name: </ion-label>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
       
       
-              <ion-label position="stacked" class="cardsubtitle">Birthdate:</ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.bday}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked" class="cardsubtitle">Date of Birth: </ion-label>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
       
       
-              <ion-label position="stacked" class="cardsubtitle">Age:</ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.age}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked" class="cardsubtitle">Age: </ion-label>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
       
               <ion-label position="stacked" class="cardsubtitle">Home Address: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{address.homeaddress}}" [readonly]="true"></ion-input>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
       
               <ion-label position="stacked" class="cardsubtitle">Current Address: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{address.currentaddress}}" [readonly]="true"></ion-input>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
       
-              <ion-label position="stacked" class="cardsubtitle">Religion:</ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.religion}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked" class="cardsubtitle">Religion: </ion-label>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
       
-              <ion-label position="stacked" class="cardsubtitle">Civil Status:</ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.cs}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
             
-              <ion-label position="stacked" class="cardsubtitle">Contact:</ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.contact}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked" class="cardsubtitle">Contact: </ion-label>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
       
-              <ion-label position="stacked" class="cardsubtitle">Citizenship:</ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.citizenship}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked" class="cardsubtitle">Citizenship: </ion-label>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
       
-              <ion-label position="stacked" class="cardsubtitle">Specialization:</ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.specialization}}" [readonly]="true"></ion-input>
+              <ion-label position="stacked" class="cardsubtitle">Specialization: </ion-label>
+              <ion-input position="stacked" class="custominput" value="" [readonly]="true"></ion-input>
           </ion-card-content>
         </ion-card>
       
@@ -74,7 +74,7 @@
           <ion-card-header class="subcard">
             <div style="display: flex; justify-content: space-between;">
               <ion-card-title>Character Reference</ion-card-title>
-              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editchar']"></ion-icon>
+              <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editchar']"></ion-icon> -->
             </div>
           </ion-card-header>
           <ion-card-content class="subcard">
@@ -97,7 +97,7 @@
                 <ion-card-header class="subcard">
                   <div style="display: flex; justify-content: space-between;">
                     <ion-card-title>Educational Background</ion-card-title>
-                    <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/school']"></ion-icon>
+                    <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/school']"></ion-icon> -->
                   </div>
                 </ion-card-header>
                 <ion-card-content class="subcard">
@@ -127,7 +127,7 @@
                 <ion-card-header class="subcard">
                   <div style="display: flex; justify-content: space-between;">
                     <ion-card-title>Work Experience</ion-card-title>
-                    <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/experience']"></ion-icon>
+                    <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/experience']"></ion-icon> -->
                   </div >
                 </ion-card-header>
                 <ion-card-content class="subcard">
@@ -156,7 +156,7 @@
                 <ion-card-header class="subcard">
                   <div style="display: flex; justify-content: space-between;">
                     <ion-card-title>Certifications</ion-card-title>
-                    <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/certifications']"></ion-icon>
+                    <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/certifications']"></ion-icon> -->
                   </div >
                 </ion-card-header>
                 <ion-card-content class="subcard">
@@ -185,7 +185,7 @@
                 <ion-card-header class="subcard">
                   <div style="display: flex; justify-content: space-between;">
                     <ion-card-title>Resume Attachment</ion-card-title>
-                    <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editresume']"></ion-icon>
+                    <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editresume']"></ion-icon> -->
                   </div >
                     </ion-card-header>
                 <ion-card-content class="subcard">
