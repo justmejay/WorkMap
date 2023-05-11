@@ -126,8 +126,10 @@ export class ApplytojobPage implements OnInit {
       schooldetails: this.schooldetails,
       experiencedetails: this.experiencedetails,
       uid: this.profiledetails.uid,
+      fname: this.profiledetails.fname,
+      mname: this.profiledetails.mname,
       lname: this.profiledetails.lname,
-      
+      profileimg: this.profiledetails.profileimg,
     };
 
     const id = {
