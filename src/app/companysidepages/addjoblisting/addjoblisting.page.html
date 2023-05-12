@@ -15,14 +15,14 @@
           <ion-card-title>Job Listing Details</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-label>Job Title : </ion-label>
+          <ion-label>Job Titles</ion-label>
           <ion-input placeholder="Webdeveloper" position="stacked" type="text" formControlName="jtitle" ></ion-input>
           <ion-label>Starting Salary: </ion-label>
           <ion-input placeholder="35,000" position="stacked" type="number" formControlName="jsalary" ></ion-input>
           
           <ion-label>Job Specialization</ion-label>
             <ion-item lines="none">
-            <ion-select label="Default label" placeholder="Select job specialization" class="jobspecialization" formControlName="jspecialization" expand="block">
+            <ion-select label="Default label" interface="popover" placeholder="Select job specialization" class="jobspecialization" formControlName="jspecialization" expand="block">
             <ion-select-option value="Accounting/Finance">Accounting/Finance</ion-select-option>
             <ion-select-option value="Admin/Human Resources">Admin/Human Resources</ion-select-option>
             <ion-select-option value="Agriculture, Forestry & Fishery">Agriculture, Forestry & Fishery</ion-select-option>
@@ -42,7 +42,7 @@
           </ion-select>
         </ion-item>
 
-        <ion-label>Job Position: </ion-label>
+        <ion-label>Job Position</ion-label>
         <ion-input placeholder="Senior Developer" position="stacked" type="text" ></ion-input>
 
         <ion-label>Job Description</ion-label>
@@ -52,18 +52,27 @@
 
         <ion-label>Job Type</ion-label>
         <ion-item lines="none">
-          <ion-select label="Default label" placeholder="Select job type" class="jobtype" formControlName="jtype">
+          <ion-select label="Default label" interface="popover" placeholder="Select job type" class="jobtype" formControlName="jtype">
             <ion-select-option value="Full Time">Full Time</ion-select-option>
             <ion-select-option value="Hybrid">Hybrid</ion-select-option>
             <ion-select-option value="Work from home">Work from home</ion-select-option>
           </ion-select>
         </ion-item>
 
-        <ion-label>Minimum experience: </ion-label>
+        <ion-label>Minimum experience</ion-label>
         <ion-input placeholder="atleast 2 years in the IT industry"  position="stacked" type="text" ></ion-input>
 
-        <ion-label>Educational Attainment: </ion-label>
-        <ion-input placeholder="College Graduate"  position="stacked" type="text" ></ion-input>
+        <ion-label>Educational Attainment</ion-label>
+        <ion-item lines="none" >
+          <ion-select label="Default label" interface="popover" placeholder="Select Educational Attainment">
+            <ion-select-option class="popoverselect" value="1">High School Diploma</ion-select-option>
+            <ion-select-option class="popoverselect" value="2">Vocational Diploma/Short Course Certificate</ion-select-option>
+            <ion-select-option class="popoverselect" value="3">Bachelor's/College Degree</ion-select-option>
+            <ion-select-option class="popoverselect" value="4">Post Graduate Diploma/Master's Degree</ion-select-option>
+            <ion-select-option class="popoverselect" value="5">Professional License (Passed Board/Professional/License Exams)</ion-select-option>
+            <ion-select-option class="popoverselect" value="">Doctorate Degree</ion-select-option>
+          </ion-select>
+        </ion-item>
 
         </ion-card-content>
       </ion-card>
