@@ -22,7 +22,7 @@
           
           <ion-label>Job Specialization</ion-label>
             <ion-item lines="none">
-            <ion-select label="Default label" interface="popover" placeholder="Select job specialization" class="jobspecialization" formControlName="jspecialization" expand="block">
+            <ion-select label="Default label" interface="action-sheet" placeholder="Select job specialization" class="jobspecialization" formControlName="jspecialization" expand="block">
             <ion-select-option value="Accounting/Finance">Accounting/Finance</ion-select-option>
             <ion-select-option value="Admin/Human Resources">Admin/Human Resources</ion-select-option>
             <ion-select-option value="Agriculture, Forestry & Fishery">Agriculture, Forestry & Fishery</ion-select-option>
@@ -52,15 +52,33 @@
 
         <ion-label>Job Type</ion-label>
         <ion-item lines="none">
-          <ion-select label="Default label" interface="popover" placeholder="Select job type" class="jobtype" formControlName="jtype">
+          <ion-select label="Default label" interface="action-sheet" placeholder="Select job type" class="jobtype" formControlName="jtype">
             <ion-select-option value="Full Time">Full Time</ion-select-option>
             <ion-select-option value="Hybrid">Hybrid</ion-select-option>
             <ion-select-option value="Work from home">Work from home</ion-select-option>
           </ion-select>
         </ion-item>
 
-        <ion-label>Minimum experience</ion-label>
-        <ion-input placeholder="atleast 2 years in the IT industry"  position="stacked" type="text" ></ion-input>
+        <ion-label>Minimum Experience: </ion-label>
+        <div class="minexp">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-input placeholder="Select amount" type="text" ></ion-input>
+              </ion-col>
+              <ion-col>
+                <ion-item lines="none">
+                  <ion-select label="Default label" interface="popover" placeholder="Select duration" >
+                    <ion-select-option value="d">Days/</ion-select-option>
+                    <ion-select-option value="w">Week/s</ion-select-option>
+                    <ion-select-option value="m">Month/s</ion-select-option>
+                    <ion-select-option value="y">Year/s</ion-select-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
 
         <ion-label>Educational Attainment</ion-label>
         <ion-item lines="none" >
