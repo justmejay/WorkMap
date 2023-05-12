@@ -187,6 +187,31 @@ export class ApplicationService {
     return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
 
+  getresumes(id: any): Observable<User[]>{
+    const cakesRef = doc(this.firestore, `users/${id}/resume/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
+  getschools(id: any): Observable<User[]>{
+    const cakesRef = collection(this.firestore, `users/${id}/school`)
+    const q = query(cakesRef, where("schoolname", "!=", "" ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]>
+  }
+
+  getexperiences(id: any): Observable<User[]>{
+    const cakesRef = collection(this.firestore, `users/${id}/experience`)
+    const q = query(cakesRef, where("cname", "!=", "" ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]>
+  }
+
+  getcertifications(id: any): Observable<User[]>{
+    const cakesRef = collection(this.firestore, `users/${id}/certifications`)
+    const q = query(cakesRef, where("name", "!=", "" ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]>
+  }
+
+  
+
 
  
   

@@ -28,6 +28,16 @@ export class ViewnotificationPage implements OnInit {
 
   address: any = [];
 
+  resume: any = [];
+
+  school: any = [];
+
+  experience: any = [];
+
+  certifications: any = [];
+
+
+
   constructor(
     private firestore: ApplicationService,
     private fb: FormBuilder,
@@ -53,10 +63,33 @@ export class ViewnotificationPage implements OnInit {
         this.address = res;
         console.log(this.address);
       });
+
+      this.firestore.getresumes(this.jobs.usid).subscribe(res => {
+        this.resume = res;
+        console.log(this.resume);
+      });
+
+      this.firestore.getschools(this.jobs.usid).subscribe(res => {
+        this.school = res;
+        console.log(this.school);
+      });
+      
+      this.firestore.getexperiences(this.jobs.usid).subscribe(res => {
+        this.experience = res;
+        console.log(this.experience);
+      });
+
+      this.firestore.getcertifications(this.jobs.usid).subscribe(res => {
+        this.certifications = res;
+        console.log(this.certifications);
+      });
+
   })
 }
 
   ngOnInit() {
   }
+
+ 
 
 }
