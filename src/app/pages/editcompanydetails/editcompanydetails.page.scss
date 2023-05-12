@@ -91,6 +91,15 @@ h2{
   }
 
 
+.process{
+    display: flex;
+    justify-content: space-between;
+}
+
+.drop{
+    flex-direction: column;
+    flex: 1;
+}
 
 
 
