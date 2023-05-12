@@ -32,7 +32,7 @@
           
             <ion-label position="stacked">Suffix (optional):</ion-label>
             <ion-item >
-                <ion-select formControlName="suffix" interface="popover" placeholder="Select suffix" expand="block" >
+                <ion-select formControlName="suffix" interface="action-sheet" placeholder="Select suffix" expand="block" >
                   <ion-select-option value="">Not Applicable</ion-select-option>
                   <ion-select-option value="Jr">Jr.</ion-select-option>
                   <ion-select-option value="Sr">Sr.</ion-select-option>
@@ -45,7 +45,7 @@
 
             <ion-label  position="stacked">Civil Status:</ion-label>
               <ion-item>
-                <ion-select formControlName="cs" interface="popover" placeholder="Select suffix" expand="block">
+                <ion-select formControlName="cs" interface="action-sheet"placeholder="Select suffix" expand="block">
                   <ion-select-option value="Single">Single</ion-select-option>
                   <ion-select-option value="Married">Married</ion-select-option>
                   <ion-select-option value="Separated">Separated</ion-select-option>
@@ -94,8 +94,21 @@
         <ion-label position="stacked">Citizenship:</ion-label>
             <ion-input position="stacked" type="text" formControlName="citizenship" class="custominput"></ion-input>
           <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
+          
           <br>
 
+        <ion-label  position="stacked">Educational Attainment:</ion-label>
+          <ion-item>
+            <ion-select formControlName="cs" interface="action-sheet" placeholder="Select suffix" expand="block">
+              <ion-select-option class="popoverselect" value="1">High School Diploma</ion-select-option>
+              <ion-select-option class="popoverselect" value="2">Vocational Diploma/Short Course Certificate</ion-select-option>
+              <ion-select-option class="popoverselect" value="3">Bachelor's/College Degree</ion-select-option>
+              <ion-select-option class="popoverselect" value="4">Post Graduate Diploma/Master's Degree</ion-select-option>
+              <ion-select-option class="popoverselect" value="5">Professional License (Passed Board/Professional/License Exams)</ion-select-option>
+              <ion-select-option class="popoverselect" value="">Doctorate Degree</ion-select-option>
+            </ion-select>
+          </ion-item>    
+      <!-- <ion-note slot="error" *ngIf="(cs.dirty || cs.touched) && cs.errors">Required</ion-note> -->
       </ion-card-content>
     </ion-card>
     </div>
