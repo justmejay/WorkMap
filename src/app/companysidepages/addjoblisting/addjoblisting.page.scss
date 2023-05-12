@@ -70,3 +70,15 @@ ion-textarea{
     // margin: 0%;
     text-transform: initial;
 }
+
+.minexp{
+    display: flex;
+    flex-direction: row;
+    ion-input{
+        height: 50px;
+        margin-bottom: 0.5rem;
+    }
+    ion-list{
+        margin-top: 0.2rem;
+    }
+}
