@@ -7,17 +7,27 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-list>
-    <ion-label>John Doe posted 24hrs ago</ion-label>
-    <h3>Post Title</h3>
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-    <p>Post description</p>
-    <ion-button expand="block" fill="clear">https://www.sampleattachedlink.com</ion-button>
+  <ion-list *ngFor="let post of post">
+    <ion-label>{{post.fname}} {{post.mname}} {{post.lname}} posted 24hrs ago</ion-label>
+    <h3>{{post.ptitle}}</h3>
+    <span>
+
+      <img *ngIf="post?.imageUrl; else placeholder_avatar;" [src]="post.imageUrl" />
+
+      <ng-template #placeholder_avatar>
+        <!-- <div class="fallback">
+          <p>Select Image</p>
+        </div> -->
+      </ng-template>
+    
+    </span>
+    <p>{{post.pdescription}}</p>
+    <!-- <ion-button expand="block" fill="clear">https://www.sampleattachedlink.com</ion-button> -->
     <!-- <div class="actionbuttons">
       <ion-button fill="clear">Like</ion-button>
     </div> -->
   </ion-list>
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" [routerLink]="['/addpost']">
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="addpost(profile)">
     <ion-fab-button class="fabdesign">
       <ion-icon name="add-circle"></ion-icon>
     </ion-fab-button>
