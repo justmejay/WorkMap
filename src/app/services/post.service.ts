@@ -25,6 +25,10 @@ export interface Post{
   mname: string,
   lname: string
 
+  //company 
+  cname: string,
+
+
 }
 
 @Injectable({
@@ -38,15 +42,15 @@ export class PostService {
     private storage: Storage,
   ) { }
 
-  async addpost({ptitle, pdescription, fname, mname, lname}: 
-    { ptitle: any, pdescription: any, fname: any, mname: any, lname: any } ){
+  async addpost({ptitle, pdescription, fname, mname, lname, cname,}: 
+    { ptitle: any, pdescription: any, fname: any, mname: any, lname: any, cname: any,} ){
 
     try {
 
       const userget = this.auth.currentUser?.uid;
       console.log(userget)
       const userDocRef3 = collection(this.firestore, `post/`);
-      const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname });
+      const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname, cname });
 
       
 
@@ -81,6 +85,22 @@ export class PostService {
       const id = this.auth.currentUser.uid;
     
       const cakesRef = doc(this.firestore, `users/${id}/profile/${id}/`)
+      return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
+    }
+
+    getcompany(): Observable<Post[]>{
+      const id = this.auth.currentUser.uid;
+      console.log(id);
+    
+      const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
+      return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
+    }
+
+    getemployer(): Observable<Post[]>{
+      const id = this.auth.currentUser.uid;
+      console.log(id);
+    
+      const cakesRef = doc(this.firestore, `employers/${id}/profile/${id}`)
       return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
     }
 }
