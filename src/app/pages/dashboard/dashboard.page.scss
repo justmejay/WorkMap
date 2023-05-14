@@ -157,3 +157,14 @@ ion-label.jobinfo{
     display: flex;
     flex-direction: row;
 }
+ion-badge {
+    border-radius: 50px;
+    --color: white;
+    --padding-end: 20px;
+    --padding-start: 20px;
+  }
+
+  .positionbadges{
+    margin-bottom: 0.5rem;
+    margin-right: 0.3rem;
+  }
