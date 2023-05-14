@@ -8,26 +8,36 @@
   </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>What's to post?</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-input placeholder="Insert post title"></ion-input>
-      <ion-textarea placeholder="lorem ipsum"></ion-textarea>
-      <div class="imageview">
-        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
-        <ion-button expand="block" color="danger" shape="round">Delete</ion-button>
-      </div>
-      <div class="videoview"></div>
-      <div class="linkview"></div>
-    </ion-card-content>
-    <!-- <ion-button fill="clear">
-      <ion-icon name="attach"></ion-icon>Link</ion-button> -->
-    <ion-button fill="clear">
-      <ion-icon name="image-outline"></ion-icon>Image</ion-button>
-    <!-- <ion-button fill="clear">
-      <ion-icon name="play-outline"></ion-icon>Video</ion-button> -->
-  </ion-card>
-  <ion-button expand="block" shape="round" size="large">Add post</ion-button>
+  <div>
+    <form [formGroup]="credentials" (ngSubmit)="addpost()"> 
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>What's to post?</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-input formControlName="ptitle" placeholder="Insert post title"></ion-input>
+          <ion-textarea formControlName="pdescription"  placeholder="lorem ipsum"></ion-textarea>
+          <div class="imageview">
+            <img *ngIf="post?.imageUrl; else placeholder_avatar;" [src]="post.imageUrl" />
+            <ng-template #placeholder_avatar>
+              <!-- <div class="fallback">
+                <p>Select Image</p>
+              </div> -->
+            </ng-template>
+            <ion-button expand="block" color="danger" shape="round">Delete</ion-button>
+          </div>
+          <div class="videoview"></div>
+          <div class="linkview"></div>
+        </ion-card-content>
+        <!-- <ion-button fill="clear">
+          <ion-icon name="attach"></ion-icon>Link</ion-button> -->
+        <ion-button fill="clear" (click)="addImage()">
+          <ion-icon name="image-outline" ></ion-icon>Image</ion-button>
+        <!-- <ion-button fill="clear">
+          <ion-icon name="play-outline"></ion-icon>Video</ion-button> -->
+      </ion-card>
+      <ion-button expand="block" shape="round" size="large"  type="submit">Add post</ion-button>
+    </form>
+  </div>
+  
 </ion-content>
