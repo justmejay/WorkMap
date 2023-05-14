@@ -42,11 +42,11 @@
 
           <ion-note slot="error" *ngIf="(csize.dirty || csize.touched) && csize.errors">Required</ion-note>
           
-            <ion-label position="stacked">Average Processing Time:</ion-label>
+          <ion-label position="stacked">Average Processing Time:</ion-label>
           <div class="process">
             <div>
-            <h2>Select Duration:</h2>
-            <ion-item class="drop">
+              <h2>Select Duration:</h2>
+              <ion-item class="drop">
                 <ion-select formControlName="cprocessingtime1" [value]="company.cprocessingtime1" interface="popover" placeholder="Select" expand="block">
                   <ion-select-option value="day/s">Day/s</ion-select-option>
                   <ion-select-option value="week/s">Week/s</ion-select-option>
@@ -54,27 +54,15 @@
                   <ion-select-option value="year/s">Year/s</ion-select-option>
                 </ion-select>
               </ion-item>
-            <ion-note slot="error" *ngIf="(cprocessingtime1.dirty || cprocessingtime1.touched) && cprocessingtime1.errors">Required</ion-note>
+              <ion-note slot="error" *ngIf="(cprocessingtime1.dirty || cprocessingtime1.touched) && cprocessingtime1.errors">Required</ion-note>
             </div>
             
             <div>
-            <h2>Select Amount:</h2>
-            <ion-item class="drop">
-                <ion-select formControlName="cprocessingtime2" [value]="company.cprocessingtime2" interface="popover" placeholder="Select" expand="block">
-                  <ion-select-option value="1">1</ion-select-option>
-                  <ion-select-option value="2">2</ion-select-option>
-                  <ion-select-option value="3">3</ion-select-option>
-                  <ion-select-option value="4">4</ion-select-option>
-                  <ion-select-option value="5">5</ion-select-option>
-                  <ion-select-option value="6">6</ion-select-option>
-                  <ion-select-option value="7">7</ion-select-option>
-                  <ion-select-option value="8">8</ion-select-option>
-                  <ion-select-option value="9">9</ion-select-option>
-                  <ion-select-option value="10">10</ion-select-option>
-                  <ion-select-option value="11">11</ion-select-option>
-                </ion-select>
-              </ion-item>
-              <ion-note slot="error" *ngIf="(cprocessingtime2.dirty || cprocessingtime2.touched) && cprocessingtime2.errors">Required</ion-note>
+              <h2>Input Amount:</h2>
+                <ion-item>
+                  <ion-input type="number" formControlName="cprocessingtime2" [value]="company.cprocessingtime2" class=" drop"></ion-input>  
+                </ion-item>
+                <ion-note slot="error" *ngIf="(cprocessingtime2.dirty || cprocessingtime2.touched) && cprocessingtime2.errors">Required</ion-note>
             </div> 
           </div>
 

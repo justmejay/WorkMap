@@ -1,0 +1,125 @@
+//HEADER  STUFF
+ion-toolbar{
+    --background: #2855A1;
+    height: 100%;
+   
+    ion-title{
+        color: white;
+        // font-weight: bold;
+        font-size: 20px;
+        text-align: left;
+    }
+}
+ion-card {
+    border-radius: 15px;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    // border: solid 2px  rgb(53, 66, 125);
+    --background: #71a8fa;
+    color: azure;
+}
+ion-card-title{
+    color: azure;
+    font-weight: 300;
+}
+ion-card-content{
+    color: white;
+    margin: auto;
+}
+
+ion-label{
+    padding-left: 3%;
+    font-size: medium;
+}
+ion-list{
+    --background: #E5EBEE;
+}
+ion-item{
+    display: block;
+    border: solid 1px  rgb(53, 66, 125);
+    border-radius: 45px;
+    --background: #cddbf1;
+    color: black;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    width: 98%;
+
+}
+
+ion-input.custominput{
+    border: solid 2px  rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: #cddbf1;
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+
+}
+// ion-select{
+//     border: solid 2px  rgb(53, 66, 125);
+//     border-radius: 15px;
+//     --background: #cddbf1;
+//     color: black;
+//     ion-select-option{
+//         --background: #cddbf1;
+//     }
+// }
+
+.btnreg{
+    width: 100%;
+    --background-color: #2855A1;
+    --color: white;
+    margin-top: 1.5rem;
+    text-transform: initial;
+}
+
+h3{
+    margin-left: 3%;
+}
+
+.suffix{
+    margin-top: 2%;
+}
+
+ion-note{
+    margin-left: 6%;
+    color: #930808;
+}
+
+.dropdown{
+    width: 75%;
+    margin-top: 2%;
+}
+
+ion-item.dropdown{
+    border: none;
+    flex-direction: row;
+}
+
+ion-searchbar{
+    --border-radius: 50px;
+}
+
+.dropdownicon{
+    margin-right: 0.2rem;
+}
+
+ion-checkbox{
+    color: black;
+}
+
+.reset{
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    float: right;
+}
+
+ion-icon{
+    --background: white;
+}
+
+ion-card-header{
+    display: flex;
+    flex-direction: row;
+}

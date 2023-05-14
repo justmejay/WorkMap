@@ -244,7 +244,11 @@ const routes: Routes = [
   {
     path: 'applicantlist',
     loadChildren: () => import('./companysidepages/applicantlist/applicantlist.module').then( m => m.ApplicantlistPageModule)
+  },  {
+    path: 'editpreferredoption',
+    loadChildren: () => import('./pages/editpreferredoption/editpreferredoption.module').then( m => m.EditpreferredoptionPageModule)
   },
+
 
 
 
