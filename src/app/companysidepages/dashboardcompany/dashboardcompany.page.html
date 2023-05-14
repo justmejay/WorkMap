@@ -13,18 +13,18 @@
         <ion-icon slot="start" name="information-circle-outline"></ion-icon>
         About Us</ion-button>
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/privacypolicy']">
-        <ion-icon slot="start" name="shield-half-outline" style="color: #0d71d5;"></ion-icon>
+        <ion-icon slot="start" name="shield-half-outline" style="color: #42505d;"></ion-icon>
         Privacy Policy
       </ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="person" style="color: #0bc089;" ></ion-icon>
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/employees']">
+        <ion-icon slot="start" name="person" style="color: #42505d;" ></ion-icon>
          Employees</ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['paymentpages/subscriptions']">
-        <ion-icon slot="start" name="diamond-outline" style="color: #ba8929;"></ion-icon>
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/subscriptions']">
+        <ion-icon slot="start" name="diamond-outline" style="color: #42505d;"></ion-icon>
         Get Premium</ion-button>
-        <ion-button fill="clear" class="card1menu" expand="block">
-          <ion-icon slot="start" name="briefcase" style="color: #442a08;"></ion-icon>
-          Review Application</ion-button>
+        <!-- <ion-button fill="clear" class="card1menu" expand="block">
+          <ion-icon slot="start" name="briefcase" style="color: #42505d;"></ion-icon>
+          Review Application</ion-button> -->
     </ion-card>
     <ion-card class="hamburgcard">
       <ion-button fill="clear" class="card1menu" expand="block">
@@ -33,7 +33,7 @@
     </ion-card>
     <ion-card class="hamburgcard">
       <ion-button fill="clear" class="card1menu" expand="block" (click)="logout()">
-        <ion-icon slot="start" name="log-out-outline" style="color:#042f9c;"></ion-icon>
+        <ion-icon slot="start" name="log-out-outline" style="color:#42505d;"></ion-icon>
         Logout</ion-button>
     </ion-card>
   </ion-content>
@@ -60,39 +60,66 @@
   <ion-content   class="ion-padding ">
     <ion-card *ngFor="let job of job" class="joblisting">
       <ion-card-header>
-        <ion-button class="btn" type=""style="float: right;" fill="clear" [routerLink]="['/editjoblisting']">
-          <ion-icon class="edit" name="create-outline" slot="icon-only" style="height: 25px; width: 25px;"></ion-icon>
-        </ion-button>
-        <ion-label class="togglestatus" style="float: right;">Active</ion-label>
-        <ion-toggle (ionChange)="checked($event, job)" [checked]="job.state" style="float: right;"></ion-toggle>
+        <ion-icon class="edit" name="create-outline" style="float: right; height: 25px; width: 25px" [routerLink]="['/editjoblisting']"></ion-icon>
+        <div class="activetoggle">
+          <ion-toggle (ionChange)="checked($event, job)" [checked]="job.state" style="float: right;"></ion-toggle>
+          <ion-label class="togglestatus">Active</ion-label>
+        </div>
         <ion-card-title>
           {{job.jtitle}}
         </ion-card-title>
         <ion-card-subtitle>
-          {{job.cname}}
+          <!-- {{job.cname}} -->
+          Company Name, Company Address  Not Working
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <div class="companydetails">
-          <ion-label class="labelheader">Starting Salary:</ion-label>
-          <ion-label>{{job.jsalary}} pesos</ion-label>
-        </div>
-        <div class="jobdetails">
-          <div class="jobspecialization">
-            <ion-label class="labelheader">Job Specialization: </ion-label>
-            <ion-label>{{job.jspecialization}}</ion-label>
+        <ion-grid>
+          <ion-row class="jobposition">
+            <ion-badge class="positionbadges" color="tertiary">Web Designer</ion-badge>
+            <ion-badge class="positionbadges" color="tertiary">Web Developer</ion-badge>
+            <ion-badge class="positionbadges" color="tertiary">Graphic Designer</ion-badge>
+            <ion-badge class="positionbadges" color="tertiary">Illustrator</ion-badge>
+            <ion-badge class="positionbadges" color="tertiary">Software Engineer</ion-badge>
+          </ion-row>
+          <ion-row class="companydetails">
+            <ion-col class="labelheader">Starting Salary:</ion-col>
+            <ion-col>{{job.jsalary}} pesos</ion-col>
+          </ion-row>
+          <div class="jobdetails">
+            <ion-row class="jobspecialization">
+              <ion-col class="labelheader">Job Specialization: </ion-col>
+              <ion-col>{{job.jspecialization}}</ion-col>
+            </ion-row>
+            <!-- <ion-row class="jobposition">
+              <ion-col class="labelheader">Job Position:</ion-col>
+              <ion-col placeholder="">Senior Developer</ion-col>
+            </ion-row> -->
+            <ion-row class="jobdescription">
+              <ion-col class="labelheader">Job description:</ion-col>
+              <ion-col>{{job.jdescription}}</ion-col>
+            </ion-row>
+            <ion-row class="jobtype">
+              <ion-col class="labelheader">Job type:</ion-col>
+              <ion-col>{{job.jtype}}</ion-col>
+            </ion-row>
+            <ion-row class="minimum">
+              <ion-col class="labelheader">Minimum experience required:</ion-col>
+              <ion-col placeholder="">3 years of coding experience</ion-col>
+            </ion-row>
+            <ion-row class="education">
+              <ion-col class="labelheader">Educational Attainment:</ion-col>
+              <ion-col placeholder="">College Graduate</ion-col>
+            </ion-row>
           </div>
-          <div class="jobtype">
-            <ion-label class="labelheader">Job type:</ion-label>
-            <ion-label>{{job.jtype}}</ion-label>
-          </div>
-          <div class="jobdescription">
-            <ion-label class="labelheader">Job description:</ion-label>
-            <ion-label>{{job.jdescription}}</ion-label>
-          </div>
-        </div>
+        </ion-grid>
         <ion-label class="timeposted">Date Posted: {{job.timestamp}}</ion-label>
       </ion-card-content>
+      <ion-buttons fill="solid" class="btns">
+        
+        <ion-button (click)="applicant(job)" class="save" type="Submit" size="large" expand="block" fill="solid" shape="round" [routerLink]="['/applicantlist']">
+          <ion-badge color="tertiary">18</ion-badge> Applicants</ion-button>
+      </ion-buttons>
     </ion-card>
   </ion-content>
   
@@ -118,11 +145,13 @@
           </ion-tab-button>
 
           <ion-tab-button [routerLink]="['/messagescompany']">
+            <ion-badge color="danger">3</ion-badge>
             <ion-icon name="chatbubble"></ion-icon>Messages
           </ion-tab-button>
 
           <ion-tab-button tab="notification">
-            <ion-icon name="notifications" [routerLink]="['/notificationsuser']"></ion-icon>Notification
+            <ion-badge color="danger">1</ion-badge>
+            <ion-icon name="notifications" [routerLink]="['/notifications']"></ion-icon>Notification
           </ion-tab-button>
           
         </ion-tab-bar>

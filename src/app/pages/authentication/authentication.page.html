@@ -27,16 +27,16 @@
         <ion-card-content>
               <ion-label position="stacked"> Email</ion-label>
               <ion-input formControlName="email" type="text"></ion-input>
-              <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
+              <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email</ion-note>
               <br>
               <ion-label position="stacked"> Password</ion-label>
               <ion-input formControlName="password" type="password"></ion-input>
-              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
+              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">At least 6 characters required</ion-note>
                 <ion-button shape="round" [disabled]="!credentials.valid" type="submit" class="btnlog" expand="block">
                   Log In
                 </ion-button>
                 <ion-button fill="clear" [routerLink]="['/forgot']" expand="block">
-                  FORGOT PASSWORD?
+                  Forgot your password? Click here
                 </ion-button>
         </ion-card-content>
       </ion-card>
@@ -52,17 +52,17 @@
       <ion-card-content>
               <ion-label position="stacked"> Email</ion-label> 
               <ion-input formControlName="email" type="text"></ion-input>
-              <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
+              <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">Invalid Email</ion-note>
               <br>
               <ion-label position="stacked"> Password</ion-label>
               <ion-input formControlName="password" type="password"></ion-input>
-              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">Minimum of 6 characters! Required</ion-note>
+              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">At least 6 characters required</ion-note>
 
               <ion-button type="button" shape="round" [disabled]="!credentials.valid" (click)="signup()" expand="block" class="btnreg">
-                Register
+                Register as User
               </ion-button>
               <ion-button type="button" shape="round" [disabled]="!credentials.valid" (click)="signupc()" expand="block" class="btncompany">
-                Register as Company
+                Register as Employer
               </ion-button>
       </ion-card-content>
     </ion-card>

@@ -1,7 +1,7 @@
 import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfilingService } from 'src/app/services/profiling.service'; 
 import {
@@ -13,6 +13,8 @@ import {
   deleteObject
 } from '@angular/fire/storage';
 import { Auth } from '@angular/fire/auth';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+
 
 
 @Component({
@@ -78,7 +80,9 @@ export class EditpersonalinfoPage implements OnInit {
     private auth: AuthService,
     private router: Router,
     private storage: Storage,
-    private authd: Auth
+    private authd: Auth,
+    private toastController: ToastController
+
 
 
   ) {
@@ -118,38 +122,44 @@ export class EditpersonalinfoPage implements OnInit {
 
     const user = await this.firestore.editprofile(this.credentials.value);
 
-    if (this.selecteditemx != null){
-    const generateunique = `${new Date().getTime()}_${this.filename}`;
-    const fileStoragePath = `filesStorage/profile/${this.authd.currentUser.uid}/profile.png`;
-    const storageRef = ref(this.storage, fileStoragePath);
-    const uploadfile = await uploadBytes(storageRef, this.selecteditemx);
-    const fileUrl = await getDownloadURL(storageRef);
-    await this.firestore.editprofiledp(fileUrl);
-    }
+   
     
     await loading.dismiss();
 
     if (user) {
       this.router.navigateByUrl('/applicantprofile', { replaceUrl: true });
-      this.showAlert('Edit success', 'Data updated!');
+      this.presentToast('Sucess!')
 
 
         } else {
-      this.showAlert('Edit failed', 'Please try again!');
+      this.presentToast('Failed! Try again later');
     }
   }
 
 
-  async upload(event: any){
 
-    this.fileevent = event;
-    const selecteditem = event.target.files
-    this.selecteditemx = selecteditem.item(0)
-    this.filename  = this.selecteditemx.name
-    this.filesize  = this.selecteditemx.size;
+  async changeImage() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Prompt, // Camera, Photos or Prompt!
+    });
 
+    if (image) {
+      const loading = await this.loadingController.create();
+      await loading.present();
 
+      const result = await this.firestore.uploadImage(image);
+      loading.dismiss();
+
+      if (result) {
+        this.presentToast('Profile Picture Updated!')
+      }
+
+    }
   }
+
 
 
 
@@ -166,5 +176,15 @@ export class EditpersonalinfoPage implements OnInit {
     await alert.present();
   }
 
+  async presentToast(message: any) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 1000,
+      position: 'bottom',
+    });
+
+    await toast.present();
+
+  }
 
 }

@@ -9,207 +9,42 @@
 
 <ion-content class="ion-padding ">
 <div >
-  <form [formGroup]="credentials" (ngSubmit)="signup()">
-    <!-- <div class="personalinfo"> -->
-    <!-- <ion-card>
-      <ion-card-header>
-        <ion-card-title>Personal Information</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-            <ion-label position="stacked">First Name:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="fname" class="custominput"></ion-input>
-          <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
-            <ion-label position="stacked">Middle Name:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="mname" class="custominput"></ion-input>
-            <ion-label position="stacked">Last Name:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="lname" class="custominput"></ion-input>
-
-          <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
-
-          
-            <ion-label position="stacked">Suffix (optional):</ion-label>
-            <ion-item >
-                <ion-select formControlName="suffix" interface="popover" placeholder="Select suffix" expand="block" >
-                  <ion-select-option value="">Not Applicable</ion-select-option>
-                  <ion-select-option value="Jr">Jr.</ion-select-option>
-                  <ion-select-option value="Sr">Sr.</ion-select-option>
-                  <ion-select-option value="I">I</ion-select-option>
-                  <ion-select-option value="II">II</ion-select-option>
-                  <ion-select-option value="III">III</ion-select-option>
-                </ion-select>
-              </ion-item>
-
-
-            <ion-label  position="stacked">Civil Status:</ion-label>
-              <ion-item>
-                <ion-select formControlName="cs" interface="popover" placeholder="Select suffix" expand="block">
-                  <ion-select-option value="Single">Single</ion-select-option>
-                  <ion-select-option value="Married">Married</ion-select-option>
-                  <ion-select-option value="Separated">Separated</ion-select-option>
-                  <ion-select-option value="Widowed">Widowed</ion-select-option>
-                </ion-select>
-              </ion-item>
-
-          <ion-note slot="error" *ngIf="(cs.dirty || cs.touched) && cs.errors">Required</ion-note>
-
-            <ion-label position="stacked">Religion:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="religion" class="custominput"></ion-input>
-
-          <ion-note slot="error" *ngIf="(religion.dirty || religion.touched) && religion.errors">Required</ion-note>
-
-            <ion-label  position="stacked">Sex:</ion-label>
-              <ion-item>
-                <ion-select formControlName="sex" interface="popover" placeholder="Select" expand="block">
-                  <ion-select-option value="Male">Male</ion-select-option>
-                  <ion-select-option value="Female">Female</ion-select-option> 
-                </ion-select>
-              </ion-item>
-
-          <ion-note slot="error" *ngIf="(sex.dirty || sex.touched) && sex.errors">Required</ion-note>
-
-
-            <ion-label position="fixed">Birthdate:</ion-label>
-            <ion-input position="stacked" type="date" formControlName="bday" class="custominput"></ion-input>
-          
-
-              <ion-modal [keepContentsMounted]="true">
-                <ng-template>
-                  <ion-icon name="calendar-number-outline"></ion-icon>
-                  <ion-datetime id="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
-                </ng-template>
-              </ion-modal>
-
-
-        <ion-note slot="error" *ngIf="(bday.dirty || bday.touched) && bday.errors">Required</ion-note>
-          <ion-label position="stacked">Age</ion-label>
-          <ion-input position="stacked" formControlName="age" type="Number"  class="custominput"></ion-input>
-        <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
-          <ion-label position="stacked">Contact</ion-label>
-          <ion-input position="stacked" formControlName="contact" type="Number" class="custominput"></ion-input>
-        <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
-
-      </ion-card-content>
-    </ion-card>
-    </div> -->
-
-    <!-- <ion-card>
-      <ion-card-header>
-        <ion-card-title>Current Address</ion-card-title>
-      </ion-card-header>
-      <ion-input [hidden]="true"  position="stacked" [value]="selectedCurrent" formControlName="currentaddress" type="text" class="custominput"></ion-input>
-      <ion-card-content>
-        <form action="" [formGroup]="credscurrent" (ngSubmit)="searchCurrent()">
-          <ion-input   position="stacked" [value]="selectedCurrent" formControlName="currentaddress" type="text" class="custominput"></ion-input>
-          <ion-button type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
-          <ion-button (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
-        </form>
-          <ion-note slot="error" *ngIf="(currentaddress.dirty || currentaddress.touched) && currentaddress.errors">Required</ion-note>
-          <ion-item button *ngFor="let address of addressesc" (click)="onSelectc(address)" >
-            <ion-icon name="pin"></ion-icon>
-            {{ address.description }}
-          </ion-item>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Home Address</ion-card-title>
-        <ion-item>
-          <ion-toggle (ionChange)="sameC($event)"></ion-toggle>
-          <ion-label>Same with Current Address</ion-label>
-        </ion-item>
-      </ion-card-header>
-      <ion-card-content>   
-          <ion-input position="stacked" [value]="selectedHome" formControlName="homeaddress" type="text" class="custominput"></ion-input>
-          <ion-note slot="error" *ngIf="(homeaddress.dirty || homeaddress.touched) && homeaddress.errors">Required</ion-note>
-      </ion-card-content>
-    </ion-card> -->
-
    
-
     <ion-card class="custom-card">
+      <ion-button class="reset" shape="round" (click)="reset()">
+        <ion-icon name="arrow-undo-outline"></ion-icon>
+      </ion-button>
       <ion-card-header>
-        <ion-card-title>What job specialization are you in?</ion-card-title>
+        <ion-card-title>Select your preferred Job positions?</ion-card-title>
+        
       </ion-card-header>
-        <ion-card-content>
-            <ion-radio-group formControlName="specialization" [allowEmptySelection]="false">
-                <ion-item class="jobspecialradio">
-                  <ion-label>Accounting/Finance</ion-label>
-                  <ion-radio slot="end" value="Accounting/Finance"></ion-radio>
+      <ion-card-content>
+       
+          <ion-searchbar  show-clear-button="focus" value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" animated="true" placeholder="Job Positions"></ion-searchbar>
+                <ion-item *ngFor="let filter of queryinit | filter:term">
+                  <ion-checkbox [disabled]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" [checked]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" 
+                  [disabled]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" value="{{filter.position}}" (click)="check($event, filter)" >
+                  </ion-checkbox>
+                  <ion-label>{{filter.position}}</ion-label>
                 </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Admin/Human Resources</ion-label>
-                  <ion-radio slot="end" value="Admin/Human Resources"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Agriculture, Forestry & Fishery</ion-label>
-                  <ion-radio slot="end" value="Agriculture, Forestry & Fishery"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Armed Forces</ion-label>
-                  <ion-radio slot="end" value="Armed Forces"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Arts/Media/Communication</ion-label>
-                  <ion-radio slot="end" value="Arts/Media/Communication"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Building/Construction</ion-label>
-                  <ion-radio slot="end" value="Building/Construction"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Craft & Related Trade Workers</ion-label>
-                  <ion-radio slot="end" value="Craft & Related Trade Workers"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Computer/Information Technology</ion-label>
-                  <ion-radio slot="end" value="Computer/Information Technology"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Education/Training</ion-label>
-                  <ion-radio slot="end" value="Education/Training"></ion-radio> 
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Engineering</ion-label>
-                  <ion-radio slot="end" value="Engineering"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Healthcare</ion-label>
-                  <ion-radio slot="end" value="Healthcare"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Hotel/Restaurant</ion-label>
-                  <ion-radio slot="end" value="Hotel/Restaurant"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Manufacturing</ion-label>
-                  <ion-radio slot="end" value="Manufacturing"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Plant & Machine Operators & Assemblers</ion-label>
-                  <ion-radio slot="end" value="Plant & Machine Operators & Assemblers"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Sales/Marketing</ion-label>
-                  <ion-radio slot="end" value="Sales/Marketing"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Sciences</ion-label>
-                  <ion-radio slot="end" value="Sciences"></ion-radio>
-                </ion-item>
-                <ion-item class="jobspecialradio">
-                  <ion-label>Services</ion-label>
-                  <ion-radio slot="end" value="Services"></ion-radio>
-                </ion-item>
-                
-                
-              <ion-note slot="error" *ngIf="(specialization.dirty || specialization.touched) && specialization.errors">Required</ion-note>
-            </ion-radio-group>
-  </ion-card-content>
+
+                  <ion-item *ngFor="let c of checkeditems">
+                    <ng-container>
+                      
+                    </ng-container>
+                    <ion-label>
+                      {{c}}
+                    </ion-label>
+
+                  </ion-item>
+
+      </ion-card-content>
     </ion-card>
 
-    <ion-button type="submit"  shape="round "expand="block" class="btnreg" size="large">Next</ion-button>
-  </form>
+    <ion-button (click)="signup()" [disabled]="checkeditems.length == 0" shape="round "expand="block" class="btnreg" size="large">Next</ion-button>
 </div>
 
+
 </ion-content>
+
+<!-- removed form -->

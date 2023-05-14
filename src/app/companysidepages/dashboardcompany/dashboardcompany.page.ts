@@ -71,4 +71,10 @@ export class DashboardcompanyPage implements OnInit {
     const user = await this.firestore.editstatus(b, a);
   }
 
+  applicant(job:any){
+    const any = job.listid
+  
+    this.router.navigate(['applicantlist'], {queryParams:{jobid:any}});
+  }
+
 }

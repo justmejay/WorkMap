@@ -91,6 +91,16 @@ h2{
   }
 
 
+.process{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.drop{
+    flex-direction: column;
+    flex: 1;
+}
 
 
 

@@ -12,7 +12,7 @@ ion-menu::part(backdrop) {
   ion-menu::part(container) {
     border-radius: 0 20px 20px 0;
   
-    box-shadow: 4px 0px 16px rgba(1, 31, 105, 0.18);
+    box-shadow: 5px 8px 5px rgba(1, 31, 105, 0.18);
   }
   .hamburgtitle{
     font-size: larger;
@@ -28,6 +28,7 @@ ion-menu::part(backdrop) {
 .card1menu{
     --background: #FFFFFF;
     color: #000000;
+    text-transform: initial;
 }
 .uppertool{
     --background:#2855A1;
@@ -38,12 +39,21 @@ ion-menu::part(backdrop) {
 }
 
 ion-content{
-    --background:#E5EBEE;
+    --background:#ffffff;
 } 
 
+// .btnheader{
+//     width: auto;
+//     font-size: 40px;
+//     color: #ffffff; 
+//     padding: 0%; 
+// }
 .btn{
-    
-    color: #ffffff;  
+    color: #ffffff; 
+}
+.activetoggle{
+    display: flex;
+    flex-direction: row;
 }
 ion-tabs{
     display: flex;
@@ -69,12 +79,12 @@ ion-tab-bar{
 }
 
 ion-tab-button{
-    color: #000000;
+    color: #2855A1;
 }
 
 ion-card.joblisting {
     --background: #eee8ff;
-    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    // box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     margin-bottom: 1rem;
     // border: solid 3px  rgb(53, 66, 125);
@@ -98,26 +108,26 @@ ion-card-content{
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
 }
-.companydetails{
-    display: flex;
-    flex-direction: column;
-}
-.jobdetails{
-    display: flex;
-    flex-direction: column;
-}
-.jobtype{
-    display: flex;
-    flex-direction: column;
-}
-.jobspecialization{
-    display: flex;
-    flex-direction: column;
-}
-.jobdescription{
-    display: flex;
-    flex-direction: column;
-}
+// .companydetails{
+//     display: flex;
+//     flex-direction: row;
+// }
+// .jobdetails{
+//     display: flex;
+//     flex-direction: column;
+// }
+// .jobtype{
+//     display: flex;
+//     flex-direction: column;
+// }
+// .jobspecialization{
+//     display: flex;
+//     flex-direction: column;
+// }
+// .jobdescription{
+//     display: flex;
+//     flex-direction: column;
+// }
 .timeposted{
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -137,7 +147,38 @@ ion-card-content{
 ion-label{
     padding-left: 0.5rem;
 }
-.labelheader{
-    font-size: 20px;
-    font-weight: 300;
+// .labelheader{
+//     font-size: 20px;
+//     font-weight: 300;
+// }
+ion-icon{
+    --background:#ffffff;
 }
+.btns{
+    display: flex; 
+    flex-direction:column; 
+    align-items: stretch;
+    padding: 0 10%;
+    margin-bottom: 1rem;
+}
+.save{
+    --background: #182b8b;;
+    // --border-color: #2855A1;
+    // --border-style: solid;
+    // --border-width: 2px;
+    color: #FFFFFF;
+    margin-top: 4%;
+    text-transform: initial;
+    padding-left: 1rem;
+}
+ion-badge {
+    border-radius: 50px;
+    --color: white;
+    --padding-end: 20px;
+    --padding-start: 20px;
+  }
+
+  .positionbadges{
+    margin-bottom: 0.5rem;
+    margin-right: 0.3rem;
+  }

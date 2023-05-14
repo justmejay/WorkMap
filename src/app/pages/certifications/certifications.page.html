@@ -11,13 +11,15 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-    <ion-card class="ion-padding" *ngFor="let s of certification">
-      <ion-card-title>
-        {{ s.name }}
-      </ion-card-title>
-      <ion-card-subtitle>
-        {{s.orgn}}
-      </ion-card-subtitle>
+    <ion-card *ngFor="let s of certification">
+      <ion-card-header>
+        <ion-card-title>
+          {{ s.name }}
+        </ion-card-title>
+        <ion-card-subtitle>
+          {{s.orgn}}
+        </ion-card-subtitle>
+      </ion-card-header>
       <ion-card-content>
         <ion-label position="stacked" class="cardsubtitle">Year Obtained:</ion-label>
         <ion-input position="stacked" class="custominput" value=" {{s.year}}" [readonly]="true"></ion-input>

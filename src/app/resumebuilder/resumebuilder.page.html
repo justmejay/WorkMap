@@ -44,11 +44,29 @@
         <ion-label position="stacked" class="cardsubtitle">Citizenship: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{profile.citizenship}}" [readonly]="true"></ion-input>
 
-        <ion-label position="stacked" class="cardsubtitle">Specialization: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{profile.specialization}}" [readonly]="true"></ion-input>
+        <!-- <ion-label position="stacked" class="cardsubtitle">Specialization: </ion-label>
+        <ion-input position="stacked" class="custominput" value=" {{profile.specialization}}" [readonly]="true"></ion-input> -->
     </ion-card-content>
   </ion-card>
 
+<!-- Preferred job positions -->
+  <ion-card *ngIf="resume">
+    <ion-card-header>
+      <div style="display: flex; justify-content: space-between;">
+        <ion-card-title>Preferred Job Positions</ion-card-title>
+        <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editpreferredoption']"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-input position="stacked" class="custominput" placeholder="Web Developer"></ion-input>
+        <ion-input position="stacked" class="custominput" placeholder="Front End Developer"></ion-input>
+        <ion-input position="stacked" class="custominput" placeholder="UI/UX Designer"></ion-input>
+        <ion-input position="stacked" class="custominput" placeholder="Full Stack Developer"></ion-input>
+        <ion-input position="stacked" class="custominput" placeholder="Back End Developer"></ion-input>
+    </ion-card-content>
+  </ion-card>
+
+<!-- Character Reference -->
   <ion-card *ngIf="resume">
     <ion-card-header>
       <div style="display: flex; justify-content: space-between;">
@@ -151,7 +169,7 @@
                 
                 <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label>
                 <a href="{{c.fpath}}">
-                  <ion-button shape="round" expand="block" color="success">Download</ion-button>
+                  <ion-button shape="round" expand="block" class="download">Download</ion-button>
                 </a>
              
       
@@ -173,10 +191,10 @@
           <ion-card-content class="ion-padding" *ngIf="resume">
             <!-- <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label> -->
            <a  href="{{resume.fpath}}"> 
-            <ion-button *ngIf="resume?.fpath" color=success expand="block" shape="round">Download</ion-button>
+            <ion-button class="download" *ngIf="resume?.fpath" expand="block" shape="round">Download</ion-button>
           </a>
           </ion-card-content>
         </ion-card>
-
+        <ion-button class="save" size="large" shape="round" expand="block" [routerLink]="['/dashboard']">Save</ion-button>
   
 </ion-content>
