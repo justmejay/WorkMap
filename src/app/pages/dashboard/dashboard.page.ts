@@ -50,7 +50,7 @@ export class DashboardPage implements OnInit {
 
 
           this.job = res;
-          console.log(this.job)
+ 
         });
 
 

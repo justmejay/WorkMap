@@ -43,7 +43,7 @@ export class MoresignupaddressPage implements OnInit {
   ) {
     this.activatedRoute.queryParams.subscribe((params) =>{
       this.authdetails = params;
-      console.log(this.authdetails)
+ 
 
      
 
@@ -247,9 +247,9 @@ export class MoresignupaddressPage implements OnInit {
 
    this.addresses = [];
 
-   console.log(this.homePlaceID);
-   console.log(this.homecoords.lat);
-   console.log(this.homecoords.lng);
+ 
+ 
+ 
 
  };
 
@@ -271,9 +271,9 @@ export class MoresignupaddressPage implements OnInit {
 
    this.addressesc = [];
 
-   console.log(this.homePlaceID);
-   console.log(this.homecoords.lat);
-   console.log(this.homecoords.lng);
+ 
+ 
+ 
 
  };
  
@@ -319,9 +319,9 @@ async getCurrentc(){
 }
 
 async check(){
-  console.log(this.credentials.value,);
-  console.log(this.currenta);
-  console.log(this.homea);
+ 
+ 
+ 
 
 }
 

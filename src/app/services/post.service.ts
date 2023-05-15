@@ -48,7 +48,7 @@ export class PostService {
     try {
 
       const userget = this.auth.currentUser?.uid;
-      console.log(userget)
+ 
       const userDocRef3 = collection(this.firestore, `post/`);
       const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname, cname });
 
@@ -90,7 +90,7 @@ export class PostService {
 
     getcompany(): Observable<Post[]>{
       const id = this.auth.currentUser.uid;
-      console.log(id);
+ 
     
       const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
       return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
@@ -98,7 +98,7 @@ export class PostService {
 
     getemployer(): Observable<Post[]>{
       const id = this.auth.currentUser.uid;
-      console.log(id);
+ 
     
       const cakesRef = doc(this.firestore, `employers/${id}/profile/${id}`)
       return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>

@@ -52,7 +52,7 @@ export class GmapService {
 
 
   search_map(query: string):Observable<MapboxOutput> {
-    console.log(query);
+ 
     const url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=';
     return this.http.get(url + query + '&types=geocode|establishment&key='
     + environment.google) as Observable<MapboxOutput>
@@ -60,7 +60,7 @@ export class GmapService {
   }
 
   geocode(query: string):Observable<MapboxOutput> {
-    console.log(query);
+ 
     const url = 'https://maps.googleapis.com/maps/api/geocode/json?place_id=';
     return this.http.get(url + query + '&key='
     + environment.google) as Observable<MapboxOutput>
@@ -75,7 +75,7 @@ export class GmapService {
   }
 
   geocodeinput(query: any):Observable<MapboxOutput> {
-    console.log(query)
+ 
     const url = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
     return this.http.get(url + query.input + '&components=country:PH&key='
     + environment.google) as Observable<MapboxOutput>
