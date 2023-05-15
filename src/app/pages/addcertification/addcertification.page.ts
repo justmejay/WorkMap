@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service'; 
 import {
   getDownloadURL,
@@ -52,7 +52,8 @@ export class AddcertificationPage implements OnInit {
     private firestore: ProfilingService,
     private router: Router,
     private storage: Storage,
-    private auth: Auth
+    private auth: Auth,
+    private toastcontroller: ToastController
  
   ) {
 
@@ -112,10 +113,10 @@ export class AddcertificationPage implements OnInit {
 
         await loading.dismiss();
         await this.router.navigateByUrl('/certifications', { replaceUrl: true });
-      this.showAlert('Add success', 'Great job building your profile!');
+      this.presentToast('Add success. Great job building your profile!');
 
         } else {
-      this.showAlert('Add failed', 'Please try again!');
+      this.presentToast('Add failed. Please try again!');
     }
   }
 
@@ -128,6 +129,15 @@ export class AddcertificationPage implements OnInit {
       buttons: ['OK'],
     });
     await alert.present();
+  }
+
+  async presentToast(message: any){
+    const toast = await this.toastcontroller.create({
+      message,
+      duration: 5000
+    });
+
+    await toast.present();
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
@@ -16,7 +16,8 @@ export class CertificationsPage implements OnInit {
     private profile: ProfilingService,
     private router: Router,
     private loadingController: LoadingController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private toastController : ToastController
   ) {
     
     this.profile.getcertification().subscribe(res=>{
@@ -47,7 +48,7 @@ export class CertificationsPage implements OnInit {
     await this.profile.deletecdoc(id);
 
     await loading.dismiss();
-    this.showAlert('Delete success', 'Data Updated');
+    this.presentToast('Delete success. Data Updated');
 
 
 
@@ -62,6 +63,14 @@ export class CertificationsPage implements OnInit {
       buttons: ['OK'],
     });
     await alert.present();
+  }
+
+  async presentToast(message: any){
+    const toast = await this.toastController.create({
+      message,
+      duration: 1000,
+    });
+    await toast.present();
   }
 
 }

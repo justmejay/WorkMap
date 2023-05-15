@@ -24,7 +24,7 @@ import { ProfilingService } from 'src/app/services/profiling.service';
 export class DashboardPage implements OnInit {
   job: any = [];
   vschool: any;
-  button: boolean = false;
+  button: boolean = true;
   userarray: any = [];
   userspec: any;
 
@@ -77,13 +77,17 @@ export class DashboardPage implements OnInit {
 
             this.profile.verifyrfile().then(res =>{
               const e = res;
-
+             
+                
               if (a >= 1 && b >= 1 && c>=1 && d>=1 && e>=1 ){
               
                 this.button = false;
+
               }else{
                 this.button  = true;
               }
+
+
 
             });
 
@@ -118,6 +122,60 @@ export class DashboardPage implements OnInit {
 
   
     this.router.navigate(['applytojob'], {queryParams:{jobid:any, cid:id}});
+  }
+
+  async revalidated(){
+    this.profile.verifyschool().then(res =>{
+      const a = res;
+
+      this.profile.verifyexp().then(res =>{
+        const b = res;
+
+
+        this.profile.verifycertifications().then(res =>{
+
+          const c = res;
+
+          this.profile.verifyresume().then(res =>{
+            const d = res;
+
+
+            this.profile.verifyrfile().then(res =>{
+              const e = res;
+             
+                
+              if (a >= 1 && b >= 1 && c>=1 && d>=1 && e>=1 ){
+              
+                this.button = false;
+
+              }else{
+                this.button  = true;
+              }
+
+
+
+            });
+
+
+            
+
+          });
+
+        });
+      });
+
+      
+
+
+    });
+  }
+
+
+  handleRefresh(event) {
+    setTimeout(() => {
+      this.revalidated();
+      event.target.complete();
+    }, 2000);
   }
 
 }
