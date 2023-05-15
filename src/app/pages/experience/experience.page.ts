@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
@@ -9,11 +9,14 @@ import { ProfilingService } from 'src/app/services/profiling.service';
   styleUrls: ['./experience.page.scss'],
 })
 export class ExperiencePage implements OnInit {
-  experience: any = []
+  experience: any = [];
+  
 
   constructor(private profile: ProfilingService, private router: Router,
     private loadingController: LoadingController,
-    private alertController: AlertController) {
+    private alertController: AlertController,
+    private toastController: ToastController
+    ) {
 
     this.profile.getexperience().subscribe(res=>{
       this.experience = res;
@@ -45,9 +48,21 @@ export class ExperiencePage implements OnInit {
     await this.profile.deleteedoc(id);
 
     await loading.dismiss();
-    this.showAlert('Delete success', 'Data Updated');
+    this.presentToast('Delete success. Data Updated');
 
 
+
+  }
+
+  
+  async presentToast(message: any) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 1500,
+      position: 'bottom',
+    });
+
+    await toast.present();
 
   }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
@@ -17,7 +17,8 @@ export class SchoolPage implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private loadingController: LoadingController,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private toastController: ToastController
   ) { 
 
 
@@ -53,11 +54,22 @@ export class SchoolPage implements OnInit {
     await this.profile.deletesdoc(id);
 
     await loading.dismiss();
-    this.showAlert('Delete success', 'Data Updated');
+    this.presentToast('Delete success. Data Updated');
 
 
 
   
+
+  }
+
+  async presentToast(message: any) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 1500,
+      position: 'bottom',
+    });
+
+    await toast.present();
 
   }
 

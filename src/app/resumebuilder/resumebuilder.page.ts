@@ -7,13 +7,15 @@ import { ProfilingService } from '../services/profiling.service';
   templateUrl: './resumebuilder.page.html',
   styleUrls: ['./resumebuilder.page.scss'],
 })
-export class ResumebuilderPage implements OnInit {
+export class ResumebuilderPage implements OnInit { 
   profile: any = [];
   address: any = [];
   resume: any = [];
   certifications: any = []; 
   school: any = [];
   experience: any = [];
+  pref: any = [];
+
 
   constructor(
     private firestore: ProfilingService,
@@ -21,6 +23,8 @@ export class ResumebuilderPage implements OnInit {
   ) {
     this.firestore.getprofile().subscribe(res=>{
       this.profile = res;
+      this.parse();
+
 
     })
     this.firestore.getaddress().subscribe(res=>{
@@ -28,10 +32,19 @@ export class ResumebuilderPage implements OnInit {
       console.log(this.address)
 
     })
+
+    this.firestore.getpref().subscribe(res=>{
+      this.pref = res;
+      this.pref = this.pref.specialization;
+      console.log(this.pref)
+
+    })
     this.firestore.getcertification().subscribe(res=>{
       this.certifications = res;
 
     })
+
+    
 
     this.firestore.getexperience().subscribe(res=>{
       this.experience = res;
@@ -52,56 +65,26 @@ export class ResumebuilderPage implements OnInit {
   ngOnInit() {
   }
 
+  async parse(){
 
-  async ref(){
-    const alert = await this.alertCtrl.create({
-      header: 'Character Reference',
-      inputs: [
-        {
-          name: 'MotherName',
-          placeholder: 'Enter Mother Name',
-          type: 'text',
-          value: `${this.resume.mo}`
-        },
-        {
-          name: 'MotherContact',
-          placeholder: 'Enter Mother Contact',
-          type: 'number',
-          value: `${this.resume.moc}`
+  
+    
+    if (this.profile.ea == '1'){
+      this.profile.ea = 'High School Diploma';
+    }else  if (this.profile.ea == '2'){
+      this.profile.ea = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.profile.ea == '3'){
+      this.profile.ea = 'Bachelors/College Degree';
+    }else if (this.profile.ea == 'Post Graduate Diploma/Masters Degree'){
+      this.profile.ea = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.profile.ea == '5'){
+      this.profile.ea = 'Professional License (Passed Board/Professional/License Exams)';
+    }else if (this.profile.ea == '6'){
+      this.profile.ea = 'Doctorate Degree';
+    }
 
-        },
-        {
-          name: 'FatherName',
-          placeholder: 'Enter Father Name',
-          type: 'text',
-          value: `${this.resume.fa}`
-
-        },
-        {
-          name: 'FatherContact',
-          placeholder: 'Enter Father Contact',
-          type: 'number',
-          value: `${this.resume.fac}`
+  }asum
 
 
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        },
-        {
-          text: 'Update',
-          handler: (res) =>{
-            this.firestore.editref({mo: res.MotherName, moc: res.MotherContact, fa: res.FatherName, fac: res.FatherContact,})
-            //this.dataService.addNoteWithCustomId({title: res.title, text: res.text})
-          }
-        }
-      ]
-    });
-    await alert.present();
-
-  }
-
+ 
 }
