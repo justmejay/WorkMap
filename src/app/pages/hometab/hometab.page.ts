@@ -61,9 +61,11 @@ export class HometabPage implements OnInit {
     const fname = profile.fname
     const mname = profile.mname
     const lname = profile.lname
+    
+    const cname = null
 
   
-    this.router.navigate(['addpost'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname,}});
+    this.router.navigate(['addpost'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname, pcname: cname,}});
   }
 
   

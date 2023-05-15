@@ -36,8 +36,8 @@ export class AuthService {
   ) { }
 
 
-  async signup({fname, mname, lname, suffix, cs, religion, sex, bday, age, contact, citizenship, specialization, homeaddress, currentaddress, currentcoords, }: 
-    {fname: any, mname: any, lname: any, suffix: any, cs: any, religion: any, sex : any , bday: any, age: any, contact:any, citizenship:any, specialization: any, selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
+  async signup({fname, mname, lname, suffix, cs, religion, sex, bday, age, contact,ea, citizenship, specialization, homeaddress, currentaddress, currentcoords, }: 
+    {fname: any, mname: any, lname: any, suffix: any, cs: any, religion: any,ea: any, sex : any , bday: any, age: any, contact:any, citizenship:any, specialization: any, selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
      }, email: any, 
     password: any,
     
@@ -59,7 +59,7 @@ export class AuthService {
       const imageUrl = ""
 
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
-      await setDoc(userDocRef1, {uid: userget, profileimg: "", aboutme: "", cs, religion,  fname, mname, lname, suffix, sex, contact, citizenship, bday, age, email });
+      await setDoc(userDocRef1, {uid: userget, profileimg: "", aboutme: "", cs, religion,  fname, mname, lname, suffix, sex, contact, citizenship, bday, age, email, ea });
       
        
 

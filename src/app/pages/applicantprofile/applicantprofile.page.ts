@@ -26,6 +26,7 @@ export class ApplicantprofilePage implements OnInit {
 
     this.firestore.getprofile().subscribe(res=>{
       this.profile = res;
+      this.parse();
 
     })
     this.firestore.getaddress().subscribe(res=>{
@@ -60,31 +61,23 @@ export class ApplicantprofilePage implements OnInit {
 
   }
 
-  async about(){
-    const alert = await this.alertCtrl.create({
-      header: 'Tell me about yourself',
-      inputs: [
-        {
-          name: 'AboutMe',
-          type: 'textarea',
-          value:  `${this.profile.aboutme}`
-        },
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel'
-        },
-        {
-          text: 'Update',
-          handler: (res) =>{
-            this.firestore.editaboutme(res.AboutMe)
-            //this.dataService.addNoteWithCustomId({title: res.title, text: res.text})
-          }
-        }
-      ]
-    });
-    await alert.present();
+  async parse(){
+
+  
+    
+    if (this.profile.ea == '1'){
+      this.profile.ea = 'High School Diploma';
+    }else  if (this.profile.ea == '2'){
+      this.profile.ea = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.profile.ea == '3'){
+      this.profile.ea = 'Bachelors/College Degree';
+    }else if (this.profile.ea == 'Post Graduate Diploma/Masters Degree'){
+      this.profile.ea = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.profile.ea == '5'){
+      this.profile.ea = 'Professional License (Passed Board/Professional/License Exams)';
+    }else if (this.profile.ea == '6'){
+      this.profile.ea = 'Doctorate Degree';
+    }
 
   }
 }

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EditexperiencePageRoutingModule } from './editexperience-routing.module';
 
 import { EditexperiencePage } from './editexperience.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { EditexperiencePage } from './editexperience.page';
     FormsModule,
     IonicModule,
     EditexperiencePageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2SearchPipeModule
   ],
   declarations: [EditexperiencePage]
 })

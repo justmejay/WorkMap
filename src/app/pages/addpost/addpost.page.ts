@@ -76,6 +76,7 @@ export class AddpostPage implements OnInit {
       fname: [this.post.pfname],
       mname: [this.post.pmname],
       lname: [this.post.plname],
+      cname: [this.post.pcname],
     });
   }
 
