@@ -163,10 +163,10 @@
                   <ion-label position="stacked" class="cardsubtitle">Date Obtained: </ion-label>
                   <ion-input position="stacked" class="custominput" [readonly]="true" value=" {{c.year}}"></ion-input>
                 
-                <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label>
+                <!-- <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label>
                 <a href="{{c.fpath}}">
                   <ion-button shape="round" expand="block" class="download">Download</ion-button>
-                </a>
+                </a> -->
              
       
               </div>
@@ -186,9 +186,9 @@
               </ion-card-header>
           <ion-card-content class="ion-padding" *ngIf="resume">
             <!-- <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label> -->
-           <a  href="{{resume.fpath}}"> 
-            <ion-button class="download" *ngIf="resume?.fpath" expand="block" shape="round">Download</ion-button>
-          </a>
+           <!-- <a  href="{{resume.fpath}}">  -->
+            <ion-button class="download" *ngIf="resume?.fpath" expand="block" shape="round">Fulfilled</ion-button>
+          <!-- </a> -->
           </ion-card-content>
         </ion-card>
         <ion-button class="save" size="large" shape="round" expand="block" [routerLink]="['/dashboard']">Save</ion-button>

@@ -3018,6 +3018,8 @@ export class EditexperiencePage implements OnInit {
   get jtitle() {
     return this.credentials.get('jtitle ');
   }
+  balancer: any;
+  selectevent: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -3036,6 +3038,8 @@ export class EditexperiencePage implements OnInit {
         this.exdetails = res;
         console.log(this.exdetails);
         this.term = this.exdetails.jposition;
+        this.balancer = this.term;
+
       });
       });
    }
@@ -3078,9 +3082,10 @@ export class EditexperiencePage implements OnInit {
     this.textbox = searchTerm;
 
 
-    if (searchTerm == ""){
+    if (searchTerm == "" || this.balancer == this.term){
       this.queryinit = [];
-    }else{
+    }
+    else {
         this.queryinit = this.filteredquery;
     }
     
@@ -3088,10 +3093,9 @@ export class EditexperiencePage implements OnInit {
 
   select(filter: any){
     this.term = filter;
-    this.queryinit = [];
     this.selectedjp = filter;
+    this.balancer =  filter;
     this.queryinit = [];
-
     
   }
 

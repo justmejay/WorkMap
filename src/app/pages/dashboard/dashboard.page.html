@@ -5,6 +5,8 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
+    
+
     <ion-card class="hamburgcard">
    
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="">
@@ -53,6 +55,15 @@
   </ion-header>
 
   <ion-content class="ion-padding ">
+      <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" >
+        <ion-refresher-content
+          pullingIcon="chevron-down-circle-outline"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+
       <div class="alert" [hidden]="!button" style="color: black;text-align: center;">
         <ion-label [hidden]="!button"  class="alert">Complete your resume before applying!</ion-label>
       </div>
