@@ -171,7 +171,7 @@ export class ProfilingService {
     {cname: any, caddress: any, jtitle: any, datet: any,jposition: any, yoe: any, datef: any }, experience: any ){
 
     try {
-      console.log("exp: id" + experience)
+ 
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/experience/${experience}`);
       const user = await updateDoc(userDocRef3, {cname, caddress, jtitle, jposition, yoe});
@@ -409,7 +409,7 @@ export class ProfilingService {
     try {
       
       const userget = this.auth.currentUser?.uid;
-      console.log(userget)
+ 
       const userDocRef3 = collection(this.firestore, `application/`);
       const user = await addDoc(userDocRef3, {uid: userget, name, bday, age, homeaddress, currentaddress, cs, religion, specialization, mo, moc, fa, fac, schoolname, course, level, yearg, cname, caddress, jtitle, datef, datet, reason, cnname, orgn, year, fpath, fpathr});
      
@@ -444,7 +444,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("cname", "!=", "" ));
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
 
     
@@ -457,7 +457,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("schoolname", "!=", "" ))
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
   }
 
@@ -468,7 +468,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("name", "!=", "" ));
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
     
   }
@@ -480,7 +480,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("fa", "!=", "" ));
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
     
   }
@@ -492,7 +492,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("fpath", "!=", "" ));
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
     
   }
@@ -506,7 +506,7 @@ export class ProfilingService {
       await uploadString(storageRef, cameraFile.base64String, 'base64');
 
       const imageUrl = await getDownloadURL(storageRef);
-      console.log(imageUrl);
+ 
       const user = this.auth.currentUser.uid;
 
       const userDocRef = doc(this.firestore, `users/${user}/profile/${user}`);

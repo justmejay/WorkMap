@@ -34,7 +34,7 @@ export class MoresignupcPage implements OnInit {
   ) { 
     this.activatedRoute.queryParams.subscribe((params) =>{
       this.authdetails = params;
-      console.log(this.authdetails)
+ 
 
       
 
@@ -199,7 +199,7 @@ export class MoresignupcPage implements OnInit {
   }
 
   checkl(){
-    console.log(this.credentials.value);
+ 
   }
 
  

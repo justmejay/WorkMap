@@ -47,16 +47,16 @@ export class CompanyService {
     private auth: Auth,
   ) {
 
-    // console.log(Date.now())
+ 
     // const date: Date = new Date(1682515211967);
 
-    // console.log(date.toLocaleString());  
+ 
    }
 
 
   getcompany(): Observable<Company[]>{
     const userget = this.auth.currentUser.uid;
-    console.log(userget);
+ 
   
     const cakesRef = doc(this.firestore, `employers/${userget}/company/${userget}`)
     return docData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
@@ -64,7 +64,7 @@ export class CompanyService {
 
   getemployer(): Observable<Company[]>{
     const userget = this.auth.currentUser.uid;
-    console.log(userget);
+ 
   
     const cakesRef = doc(this.firestore, `employers/${userget}/profile/${userget}`)
     return docData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
@@ -97,7 +97,7 @@ export class CompanyService {
      
       return true;
     } catch (e) {
-      console.log(e);
+ 
       return null;
     }
   }
@@ -126,7 +126,7 @@ export class CompanyService {
      
       return true;
     } catch (e) {
-      console.log(e);
+ 
       return null;
     }
   }
@@ -143,7 +143,7 @@ export class CompanyService {
 
     const date2 = date.toLocaleString();
       const userget = this.auth.currentUser?.uid;
-      console.log(userget)
+ 
       const userDocRef3 = collection(this.firestore, `joblist/`);
       const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jspecialization, jtype, jdescription, timestamp: date2, listid: "",state: true });
 
