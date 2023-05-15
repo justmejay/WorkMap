@@ -140,6 +140,8 @@ export class MoresignupaddressPage implements OnInit {
       contact: [this.authdetails.contact],
       citizenship: [this.authdetails.citizenship],
       specialization: [this.authdetails.specialization],
+      ea: [this.authdetails.ea],
+
       
 
 
@@ -293,6 +295,14 @@ async getCurrent(){
 }
 
 async getCurrentc(){
+
+  const loading =  await this.loadingController.create({
+    message: 'Finding You',
+    spinner: 'lines'
+  });
+
+  await loading.present();
+  
   const coordinates = await Geolocation.getCurrentPosition();
   const test =  await this.map.rgeocode(coordinates.coords.latitude, coordinates.coords.longitude).subscribe(res => {
     this.selectedCurrent = res.results[0].formatted_address;
@@ -303,8 +313,8 @@ async getCurrentc(){
 
 
 
-  
    });
+   await loading.dismiss();
   
 }
 
