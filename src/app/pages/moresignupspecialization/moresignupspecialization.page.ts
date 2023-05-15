@@ -3152,7 +3152,8 @@ export class MoresignupspecializationPage implements OnInit {
       contact: this.authdetails.contact, 
       citizenship: this.authdetails.citizenship, 
       email: this.authdetails.email,
-      password: this.authdetails.password} });
+      password: this.authdetails.password,
+      ea: this.authdetails.ea} });
 
 
     // if (user) {

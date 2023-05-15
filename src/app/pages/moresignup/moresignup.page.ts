@@ -58,6 +58,10 @@ export class MoresignupPage implements OnInit {
    get fname() {
     return this.credentials.get('fname');
   }
+  
+  get ea() {
+    return this.credentials.get('ea');
+  }
   get mname() {
     return this.credentials.get('mname');
   }
@@ -122,6 +126,7 @@ export class MoresignupPage implements OnInit {
       sex: ['', [Validators.required]],
       bday: ['', [Validators.required]],
       age: ['', [Validators.required]],
+      ea: ['', [Validators.required]],
       contact: ['', [Validators.required]],
       citizenship: ['', [Validators.required]],
       // currentcoords: [this.currentcoords, ],
@@ -171,7 +176,8 @@ export class MoresignupPage implements OnInit {
                                                                     contact: this.contact.value,
                                                                     citizenship: this.citizenship.value, 
                                                                     email: this.authdetails.email,
-                                                                    password: this.authdetails.password}});
+                                                                    password: this.authdetails.password,
+                                                                    ea: this.ea.value}});
 
     // if (user) {
     //   await this.auth.logout();

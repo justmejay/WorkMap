@@ -108,6 +108,8 @@ export class EditpersonalinfoPage implements OnInit {
       cs: ['', [Validators.required]],
       religion: ['', [Validators.required]],
       citizenship: ['', [Validators.required]],
+      ea: ['', [Validators.required]],
+
     });
     
   }
