@@ -106,6 +106,13 @@ export class ProfilingService {
     return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
 
+  getpref(): Observable<User[]>{
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = doc(this.firestore, `users/${id}/preferred/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
   getcertification(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   
@@ -139,14 +146,14 @@ export class ProfilingService {
 
 
 
-  async addex({cname, caddress, jtitle, datet, datef }: 
-    {cname: any, caddress: any, jtitle: any, datet: any, datef: any } ){
+  async addex({cname, caddress, jtitle, yoe, jposition }: 
+    {cname: any, caddress: any, jtitle: any, yoe: any, jposition: any  } ){
 
     try {
       
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = collection(this.firestore, `users/${userget}/experience`);
-      const user = await addDoc(userDocRef3, {cname, caddress, jtitle, datef, datet});
+      const user = await addDoc(userDocRef3, {cname, caddress, jtitle,yoe, jposition});
      
       return user;
     } catch (e) {
@@ -160,14 +167,14 @@ export class ProfilingService {
     return docData(cakesByIdRef, {idField: 'id'}) as Observable <User>
   }
 
-  async editex({cname, caddress, jtitle, datet, datef }: 
-    {cname: any, caddress: any, jtitle: any, datet: any, datef: any }, experience: any ){
+  async editex({cname, caddress, jtitle, jposition, yoe }: 
+    {cname: any, caddress: any, jtitle: any, datet: any,jposition: any, yoe: any, datef: any }, experience: any ){
 
     try {
       console.log("exp: id" + experience)
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/experience/${experience}`);
-      const user = await updateDoc(userDocRef3, {cname, caddress, jtitle, datef, datet});
+      const user = await updateDoc(userDocRef3, {cname, caddress, jtitle, jposition, yoe});
      
       return true;
     } catch (e) {
@@ -510,6 +517,19 @@ export class ProfilingService {
     } catch (e) {
       return null;
       
+    }
+  }
+
+  async updatepref(specialization: any){
+
+    try {
+      const userget = this.auth.currentUser?.uid;
+      const userDocRef3 = doc(this.firestore, `users/${userget}/preferred/${userget}`);
+      const user = await updateDoc(userDocRef3, {specialization});
+     
+      return true;
+    } catch (e) {
+      return null;
     }
   }
   

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
@@ -34,7 +34,8 @@ export class EditschoolPage implements OnInit {
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private alertController: AlertController,
-    private router: Router
+    private router: Router,
+    private toastController: ToastController
 
   ) {
     this.activatedRoute.queryParams.subscribe((params) =>{
@@ -72,11 +73,11 @@ export class EditschoolPage implements OnInit {
 
     if (user) {
       this.router.navigateByUrl('/school', { replaceUrl: true });
-      this.showAlert('Edit success', 'Data updated!');
+      this.presentToast('Edit success. Data updated!');
 
 
         } else {
-      this.showAlert('Edit failed', 'Please try again!');
+      this.presentToast('Edit failed. Please try again!');
     }
   }
 
@@ -89,6 +90,17 @@ export class EditschoolPage implements OnInit {
       buttons: ['OK'],
     });
     await alert.present();
+  }
+
+  async presentToast(message: any) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 1500,
+      position: 'bottom',
+    });
+
+    await toast.present();
+
   }
 
 }

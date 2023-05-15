@@ -44,9 +44,9 @@
         <ion-label position="stacked" class="cardsubtitle">Citizenship: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{profile.citizenship}}" [readonly]="true"></ion-input>
 
-        <!-- <ion-label position="stacked" class="cardsubtitle">Specialization: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{profile.specialization}}" [readonly]="true"></ion-input> -->
-    </ion-card-content>
+        <ion-label position="stacked" class="cardsubtitle">Highest Educational Attainment: </ion-label>
+        <ion-input position="stacked" class="custominput" value=" {{profile.ea}}" [readonly]="true"></ion-input>
+        </ion-card-content>
   </ion-card>
 
 <!-- Preferred job positions -->
@@ -58,11 +58,7 @@
       </div>
     </ion-card-header>
     <ion-card-content>
-        <ion-input position="stacked" class="custominput" placeholder="Web Developer"></ion-input>
-        <ion-input position="stacked" class="custominput" placeholder="Front End Developer"></ion-input>
-        <ion-input position="stacked" class="custominput" placeholder="UI/UX Designer"></ion-input>
-        <ion-input position="stacked" class="custominput" placeholder="Full Stack Developer"></ion-input>
-        <ion-input position="stacked" class="custominput" placeholder="Back End Developer"></ion-input>
+        <ion-input *ngFor="let a of pref" position="stacked" class="custominput" value="{{a}}" ></ion-input>
     </ion-card-content>
   </ion-card>
 
@@ -138,11 +134,11 @@
                 <ion-label position="stacked" class="cardsubtitle">Job Title: </ion-label>
                 <ion-input position="stacked" class="custominput" value=" {{e.jtitle}}" [readonly]="true"></ion-input>
 
-                <ion-label position="stacked" class="cardsubtitle">From: </ion-label>
-                <ion-input position="stacked" class="custominput" value=" {{e.datef}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked" class="cardsubtitle">Job Position: </ion-label>
+                <ion-input position="stacked" class="custominput" value=" {{e.jposition}}" [readonly]="true"></ion-input>
 
-                <ion-label position="stacked" class="cardsubtitle">To: </ion-label>
-                <ion-input position="stacked" class="custominput" value=" {{e.datet}}" [readonly]="true"></ion-input>
+                <ion-label position="stacked" class="cardsubtitle">Year of Experience </ion-label>
+                <ion-input position="stacked" class="custominput" value=" {{e.yoe}}" [readonly]="true"></ion-input>
             </div>
               
           </ion-card-content>

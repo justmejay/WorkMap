@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
@@ -33,7 +33,8 @@ export class EditcharPage implements OnInit {
     private fb: FormBuilder,
     private loadingController: LoadingController,
     private alertController: AlertController,
-    private router: Router
+    private router: Router,
+    private toastController: ToastController
   ) {
     this.profile.getresume().subscribe(res=>{
       this.resume = res;
@@ -65,11 +66,11 @@ export class EditcharPage implements OnInit {
 
     if (user) {
       this.router.navigateByUrl('/resumebuilder', { replaceUrl: true });
-      this.showAlert('Edit success', 'Data updated!');
+      this.presentToast('Edit success. Data updated!');
 
 
         } else {
-      this.showAlert('Edit failed', 'Please try again!');
+      this.presentToast('Edit failed. Please try again!');
     }
   }
 
@@ -77,15 +78,17 @@ export class EditcharPage implements OnInit {
 
 
 
-
-
-  async showAlert(header: any, message: any) {
-    const alert = await this.alertController.create({
-      header,
+  async presentToast(message: any) {
+    const toast = await this.toastController.create({
       message,
-      buttons: ['OK'],
+      duration: 1500,
+      position: 'bottom',
     });
-    await alert.present();
+
+    await toast.present();
+
   }
+
+ 
 
 }

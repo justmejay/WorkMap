@@ -24,7 +24,6 @@ export class MoresignupspecializationPage implements OnInit {
   queryinit: any[];
   checkeditems: any = [];
   checkeds: number = 0;
-
   textbox: any = "test";
   filteredquery: any = [
     {
@@ -3041,40 +3040,7 @@ export class MoresignupspecializationPage implements OnInit {
 
    }
 
-  // get fname() {
-  //   return this.credentials.get('fname');
-  // }
-  // get mname() {
-  //   return this.credentials.get('mname');
-  // }
-  // get lname() {
-  //   return this.credentials.get('lname');
-  // }
-  // get suffix() {
-  //   return this.credentials.get('suffix');
-  // }
-
-  // get cs() {
-  //   return this.credentials.get('cs'); 
-  // }
-
-  // get religion() {
-  //   return this.credentials.get('religion'); 
-  // }
-  
-  // get sex() {
-  //   return this.credentials.get('sex'); 
-  // }
-
-  // get bday() {
-  //   return this.credentials.get('bday');
-  // }
-  // get age() {
-  //   return this.credentials.get('age');
-  // }
-  // get contact() {
-  //   return this.credentials.get('contact');
-  // }
+ 
 
   get specialization() {
     return this.credentials.get('specialization'); 
@@ -3084,28 +3050,12 @@ export class MoresignupspecializationPage implements OnInit {
  
  
 
-  // get homeaddress() {
-  //   return this.credentials.get('homeaddress'); 
-  // }
-
-  // get currentaddress() {
-  //   return this.credentials.get('currentaddress'); 
-  // }
+  
 
   ngOnInit() {
 
     this.credentials = this.fb.group({
-      // fname: ['', [Validators.required]],
-      // mname: ['', ],
-      // lname: ['', [Validators.required]],
-      // suffix: ['', ],
-      // cs: ['', [Validators.required]],
-      // religion: ['', [Validators.required]],
-      // sex: ['', [Validators.required]],
-      // bday: ['', [Validators.required]],
-      // age: ['', [Validators.required]],
-      // contact: ['', [Validators.required]],
-      // currentcoords: [this.currentcoords, ],
+     
       
       
       specialization: ['', [Validators.required]],
@@ -3114,30 +3064,13 @@ export class MoresignupspecializationPage implements OnInit {
     });
 
    
-    // this.credscurrent = this.fb.group({
-    //   currentaddress: ['', [Validators.required]],
-    // });
-
-    // this.auth.getsearch().subscribe(res =>{
-    //     console.log(res);
-    // });
+    
 
   }
 
 
   async signup() {
 
-    // const loading = await this.loadingController.create({
-    //   spinner: "dots",
-    //   message: "Signing up!"
-    // });   
-    //  await loading.present();
-
-    // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password);
-    // await loading.dismiss();
-    // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password);
-    // this.router.navigateByUrl('/moresignupaddress', { replaceUrl: true });
-    // const user = await this.auth.signup(this.credentials.value , this.authdetails.email, this.authdetails.password, this.personaldetails.fname, this.personaldetails.mname, this.personaldetails.lname,  this.personaldetails.suffix,  this.personaldetails.cs,  this.personaldetails.religion,  this.personaldetails.sex,  this.personaldetails.bday,  this.personaldetails.age,  this.personaldetails.contact, );
     this.router.navigate(['moresignupaddress'], {queryParams:{
       specialization: this.checkeditems, 
       fname: this.authdetails.fname, 
@@ -3156,13 +3089,7 @@ export class MoresignupspecializationPage implements OnInit {
       ea: this.authdetails.ea} });
 
 
-    // if (user) {
-    //   await this.auth.logout();
-    //   this.router.navigateByUrl('/forgotconfirm', { replaceUrl: true });
 
-    //     } else {
-    //   this.showAlert('Registration failed', 'Please try again!');
-    // }
   }
 
 

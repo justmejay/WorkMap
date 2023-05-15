@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { EditpreferredoptionPageRoutingModule } from './editpreferredoption-routing.module';
 
 import { EditpreferredoptionPage } from './editpreferredoption.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    EditpreferredoptionPageRoutingModule
+    EditpreferredoptionPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [EditpreferredoptionPage]
 })
