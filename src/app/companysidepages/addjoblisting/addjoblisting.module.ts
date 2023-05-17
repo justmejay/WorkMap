@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { AddjoblistingPageRoutingModule } from './addjoblisting-routing.module';
 
 import { AddjoblistingPage } from './addjoblisting.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { AddjoblistingPage } from './addjoblisting.page';
     FormsModule,
     IonicModule,
     AddjoblistingPageRoutingModule,
+    Ng2SearchPipeModule,
     ReactiveFormsModule
   ],
   declarations: [AddjoblistingPage]

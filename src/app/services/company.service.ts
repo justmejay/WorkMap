@@ -132,20 +132,20 @@ export class CompanyService {
   }
 
 
-  async addjoblisting({jdescription, jtitle, jsalary, jspecialization, jtype}: 
-    { jtitle: any, jsalary: any, jspecialization: any, jtype: any, jdescription: any } ){
+  async addjoblisting({jdescription, jtitle, jsalary, jposition, jtype, jexperience, attainment}: 
+    { jtitle: any, jsalary: any, jposition: any, jtype: any, jdescription: any, jexperience: any, attainment: any } ){
 
     try {
 
 
-      const timeStamp = Date.now();
-    const date: Date = new Date(1682515211967);
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
 
     const date2 = date.toLocaleString();
       const userget = this.auth.currentUser?.uid;
  
       const userDocRef3 = collection(this.firestore, `joblist/`);
-      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jspecialization, jtype, jdescription, timestamp: date2, listid: "",state: true });
+      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true });
 
       const id = user.id;
 
