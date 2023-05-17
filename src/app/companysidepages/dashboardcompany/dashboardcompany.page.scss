@@ -11,7 +11,6 @@ ion-menu::part(backdrop) {
   }
   ion-menu::part(container) {
     border-radius: 0 20px 20px 0;
-  
     box-shadow: 5px 8px 5px rgba(1, 31, 105, 0.18);
   }
   .hamburgtitle{
@@ -24,6 +23,7 @@ ion-menu::part(backdrop) {
     border-radius: 15px;
     box-shadow: 4px 5px 16px;
     margin-bottom: 3%;
+    --background: #FFFFFF;
 }
 .card1menu{
     --background: #FFFFFF;
@@ -39,7 +39,7 @@ ion-menu::part(backdrop) {
 }
 
 ion-content{
-    --background:#ffffff;
+    --background:#E5EBEE;
 } 
 
 // .btnheader{
