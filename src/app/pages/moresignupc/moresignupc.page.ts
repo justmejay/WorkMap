@@ -14,12 +14,14 @@ import { Geolocation } from '@capacitor/geolocation';
 })
 export class MoresignupcPage implements OnInit {
   authdetails: any = [];
+  authdetails2: any = [];
   credentials: FormGroup;
   credscurrent: FormGroup;
   addressesc: any = [];
   selectedCurrent: any;
   currentPlaceID : any;
   currentcoords: any = {lat: 0, lng: 0}
+  isToggled: boolean = false;
 
 
 
@@ -187,6 +189,12 @@ export class MoresignupcPage implements OnInit {
    };
 
    async getCurrentc(){
+    const loading = await this.loadingController.create({
+      message: 'Finding You!' ,
+      spinner: 'dots'
+    });
+    this.addressesc = [];
+    await loading.present();
     const coordinates = await Geolocation.getCurrentPosition();
     const test =  await this.map.rgeocode(coordinates.coords.latitude, coordinates.coords.longitude).subscribe(res => {
       this.selectedCurrent = res.results[0].formatted_address;
@@ -195,12 +203,31 @@ export class MoresignupcPage implements OnInit {
       this.currentPlaceID = res.results[0].place_id;
     
      });
+     await loading.dismiss();
+
     
   }
 
-  checkl(){
- 
+  samemail(event: any){
+    const a  = event.currentTarget.checked;
+    console.log(a);
+
+    this.activatedRoute.queryParams.subscribe((params) =>{
+      this.authdetails2 = params;
+      if (a == false){
+        this.credentials.value.cemail = this.authdetails2.email;
+        this.isToggled = true;
+      }else{
+        this.credentials.value.cemail = "";
+        this.isToggled = false;
+      }   
+
+      });
+
+   
   }
+
+
 
  
 
