@@ -19,8 +19,8 @@
       </ion-card-header>
       <ion-card-content>
 
-        <ion-label position="stacked">Change Company Logo:</ion-label>
-          <ion-input position="stacked" #myInput  type="file" (change)="upload($event)" class="custominput"></ion-input>
+        <ion-label position="stacked">Change Profile Picture:</ion-label>
+        <ion-button (click)="changeImage()"> Change</ion-button><br><br>
 
             <ion-label position="stacked">Company Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="cname" [value]="company.cname" class="custominput"></ion-input>
@@ -85,7 +85,7 @@
         <P  style="color: red; text-align: center;">(Adjust the Marker if not accurate!)</P>
 
         
-            <ion-input formControlName="companyaddress" [value]="company.companyaddress" position="stacked" type="text" class="custominput"></ion-input>
+            <ion-input [readonly]="true" formControlName="companyaddress" [value]="company.companyaddress" position="stacked" type="text" class="custominput"></ion-input>
       
       </ion-card-content>
     </ion-card>

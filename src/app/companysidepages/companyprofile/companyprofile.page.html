@@ -10,7 +10,7 @@
     <div class="container">
       <div class="avatar" >
         <ion-avatar class="image">
-          <img *ngIf="employer?.imageUrl; else placeholder_avatar;" [src]="employer.imageUrl" />
+          <img *ngIf="employer?.profileimg; else placeholder_avatar;" [src]="employer.profileimg" />
 
             <ng-template #placeholder_avatar>
               <div class="fallback">
