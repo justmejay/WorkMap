@@ -70,46 +70,50 @@
         </ion-card-title>
         <ion-card-subtitle>
           <!-- {{job.cname}} -->
-          Company Name, Company Address  Not Working
+          <!-- Company Name, Company Address  Not Working. NO NEED FOR COMPANY DETAILS HERE -->
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
           <ion-row class="jobposition">
-            <ion-badge class="positionbadges" color="tertiary">Web Designer</ion-badge>
-            <ion-badge class="positionbadges" color="tertiary">Web Developer</ion-badge>
-            <ion-badge class="positionbadges" color="tertiary">Graphic Designer</ion-badge>
-            <ion-badge class="positionbadges" color="tertiary">Illustrator</ion-badge>
-            <ion-badge class="positionbadges" color="tertiary">Software Engineer</ion-badge>
+            <ion-badge class="positionbadges" color="tertiary">{{job.jposition}}</ion-badge>
+
           </ion-row>
           <ion-row class="companydetails">
             <ion-col class="labelheader">Starting Salary:</ion-col>
-            <ion-col>{{job.jsalary}} pesos</ion-col>
+            <ion-col *ngIf="job?.jsalary; else placeholder_avatar;">{{job.jsalary}} pesos</ion-col>
+
+            <ng-template #placeholder_avatar>
+              <ion-col>Company did not specified</ion-col>
+            </ng-template>
+            
           </ion-row>
           <div class="jobdetails">
-            <ion-row class="jobspecialization">
-              <ion-col class="labelheader">Job Specialization: </ion-col>
-              <ion-col>{{job.jspecialization}}</ion-col>
-            </ion-row>
+
             <!-- <ion-row class="jobposition">
               <ion-col class="labelheader">Job Position:</ion-col>
               <ion-col placeholder="">Senior Developer</ion-col>
             </ion-row> -->
-            <ion-row class="jobdescription">
-              <ion-col class="labelheader">Job description:</ion-col>
-              <ion-col>{{job.jdescription}}</ion-col>
-            </ion-row>
+            
             <ion-row class="jobtype">
               <ion-col class="labelheader">Job type:</ion-col>
               <ion-col>{{job.jtype}}</ion-col>
             </ion-row>
             <ion-row class="minimum">
               <ion-col class="labelheader">Minimum experience required:</ion-col>
-              <ion-col placeholder="">3 years of coding experience</ion-col>
+              <ion-col *ngIf="job?.attainment; else placeholder_avatar1;">{{job.attainment}} year/s</ion-col>
+
+            <ng-template #placeholder_avatar1>
+              <ion-col>No experience required</ion-col>
+            </ng-template>
             </ion-row>
             <ion-row class="education">
               <ion-col class="labelheader">Educational Attainment:</ion-col>
               <ion-col placeholder="">College Graduate</ion-col>
+            </ion-row>
+            <ion-row class="jobdescription">
+              <ion-col class="labelheader">Job description:</ion-col>
+              <ion-col>{{job.jdescription}}</ion-col>
             </ion-row>
           </div>
         </ion-grid>
@@ -118,7 +122,7 @@
       <ion-buttons fill="solid" class="btns">
         
         <ion-button (click)="applicant(job)" class="save" type="Submit" size="large" expand="block" fill="solid" shape="round" [routerLink]="['/applicantlist']">
-          <ion-badge color="tertiary">18</ion-badge> Applicants</ion-button>
+          <ion-badge color="tertiary"></ion-badge> Applicants</ion-button>
       </ion-buttons>
     </ion-card>
   </ion-content>
