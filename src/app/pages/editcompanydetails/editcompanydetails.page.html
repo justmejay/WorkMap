@@ -19,8 +19,9 @@
       </ion-card-header>
       <ion-card-content>
 
-        <ion-label position="stacked">Change Profile Picture:</ion-label>
-        <ion-button (click)="changeImage()"> Change</ion-button><br><br>
+        <ion-button expand="block" shape="round" (click)="changeImage()">
+          <ion-icon name="camera-outline"></ion-icon>
+          Upload Picture</ion-button><br>
 
             <ion-label position="stacked">Company Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="cname" [value]="company.cname" class="custominput"></ion-input>

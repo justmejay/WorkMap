@@ -263,7 +263,7 @@
           <ion-input position="stacked" type="email" [readonly]="isToggled" [value]="credentials.value.cemail" formControlName="cemail" class="custominput"></ion-input>
          
           <ion-note slot="error" *ngIf="(cemail.dirty || cemail.touched) && cemail.errors">Required</ion-note>
-          <br><br>
+          
 
           <ion-label position="stacked">Company Address:</ion-label>
           <ion-input [hidden]="true"  position="stacked" [value]="currentPlaceID" formControlName="currentPlaceID" type="text" class="custominput"></ion-input>
@@ -277,7 +277,7 @@
             <ion-button class="apibuttons" shape="round" expand="block" (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
             </div>
           </form>
-            <ion-item button *ngFor="let address of addressesc" (click)="onSelectc(address)" >
+            <ion-item button *ngFor="let address of addressesc" (click)="onSelectc(address)" class="custominput">
               <ion-icon name="pin"></ion-icon>
               {{ address.description }} 
             </ion-item>
