@@ -257,8 +257,11 @@
           <br>
 
           <ion-label position="stacked">Company Email:</ion-label>
+          <div class="toggle">
+            <ion-toggle style="float:left" (click)="samemail($event)"></ion-toggle> <ion-label style="float: left;">Same with login</ion-label>
+          </div>
           <ion-input position="stacked" type="email" [readonly]="isToggled" [value]="credentials.value.cemail" formControlName="cemail" class="custominput"></ion-input>
-          <ion-toggle style="float:right" (click)="samemail($event)"></ion-toggle> <ion-label style="float: right;">Same with login</ion-label>
+         
           <ion-note slot="error" *ngIf="(cemail.dirty || cemail.touched) && cemail.errors">Required</ion-note>
           <br><br>
 
@@ -269,8 +272,10 @@
 
           <form action="" [formGroup]="credscurrent" (ngSubmit)="searchCurrent()">
             <ion-input position="stacked" [value]="selectedCurrent" formControlName="companyaddress" type="text" class="custominput"></ion-input>
-            <ion-button type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
-            <ion-button (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
+            <div class="apibutton">
+            <ion-button class="apibuttons" shape="round" expand="block" type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
+            <ion-button class="apibuttons" shape="round" expand="block" (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
+            </div>
           </form>
             <ion-item button *ngFor="let address of addressesc" (click)="onSelectc(address)" >
               <ion-icon name="pin"></ion-icon>
