@@ -44,6 +44,16 @@ ion-input.custominput{
 
 }
 
+ion-item.custominput{
+    border: solid 2px  rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: #cddbf1;
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+}
+
 .btnreg{
     display: block;
     width: 100%;

@@ -520,6 +520,52 @@ export class ProfilingService {
     }
   }
 
+  async uploadImagec(cameraFile: Photo) {
+    const user = this.auth.currentUser;
+    const path = `uploads/company/${user.uid}/profile.png`;
+    const storageRef = ref(this.storage, path);
+
+    try {
+      await uploadString(storageRef, cameraFile.base64String, 'base64');
+
+      const imageUrl = await getDownloadURL(storageRef);
+ 
+      const user = this.auth.currentUser.uid;
+
+      const userDocRef = doc(this.firestore, `employers/${user}/profile/${user}`);
+      await updateDoc(userDocRef, {
+        profileimg: imageUrl
+      });
+      return true;
+    } catch (e) {
+      return null;
+      
+    }
+  }
+
+  async uploadImagecl(cameraFile: Photo) {
+    const user = this.auth.currentUser;
+    const path = `uploads/company/${user.uid}/clogo.png`;
+    const storageRef = ref(this.storage, path);
+
+    try {
+      await uploadString(storageRef, cameraFile.base64String, 'base64');
+
+      const imageUrl = await getDownloadURL(storageRef);
+ 
+      const user = this.auth.currentUser.uid;
+
+      const userDocRef = doc(this.firestore, `employers/${user}/company/${user}`);
+      await updateDoc(userDocRef, {
+         imageUrl
+      });
+      return true;
+    } catch (e) {
+      return null;
+      
+    }
+  }
+
   async updatepref(specialization: any){
 
     try {
