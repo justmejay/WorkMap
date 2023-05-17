@@ -46,6 +46,23 @@ ion-item{
 
 }
 
+ion-item.checked{
+    display: block;
+    border: solid 1px  rgb(86, 27, 223);
+    border-radius: 45px;
+    --background: #7c43f5;
+    color: white;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    width: 98%;
+
+    ion-label{
+        color: white;
+    }
+
+}
+
 ion-input.custominput{
     border: solid 2px  rgb(53, 66, 125);
     border-radius: 15px;

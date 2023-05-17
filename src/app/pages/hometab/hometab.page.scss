@@ -21,8 +21,18 @@ h3{
     padding-left: 1rem;
 }
 ion-list{
+    display: block;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    padding: 0.8rem;
+
+    h3{
+        margin-top: 0.5rem;
+    }
+}
+ion-item{
+    display: flex;
+    flex-direction: row;
 }
 p{
     padding-left: 0.5rem;
@@ -30,5 +40,13 @@ p{
 }
 .fabdesign{
     --background: #2855A1;
+}
+
+.poster{
+    display: flex;
+    flex-direction: row;
+    ion-label{
+        padding-top: 0.8rem;
+    }
 }
 

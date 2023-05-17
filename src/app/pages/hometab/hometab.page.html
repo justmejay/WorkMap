@@ -9,7 +9,12 @@
 <ion-content>
   <ion-list *ngFor="let post of post">
     <h3>{{post.cname}}</h3>
-    <ion-label>{{post.fname}} {{post.mname}} {{post.lname}} posted 24hrs ago</ion-label>
+    <div class="poster">
+      <ion-avatar slot="start">
+        <img alt="Profile piture" src="assets/header.png" />
+      </ion-avatar>
+      <ion-label>{{post.fname}} {{post.mname}} {{post.lname}} posted 24hrs ago</ion-label>
+    </div>
     <h3>{{post.ptitle}}</h3>
     <span>
 
