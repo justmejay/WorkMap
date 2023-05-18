@@ -61,10 +61,11 @@ export class HometabcompanyPage implements OnInit {
     const fname = profile.fname
     const mname = profile.mname
     const lname = profile.lname
+    const profileimg = profile.profileimg
     const cname = company.cname
-
+    
   
-    this.router.navigate(['addpostcompany'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname, pcname: cname,}});
+    this.router.navigate(['addpostcompany'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname, pprofileimg: profileimg, pcname: cname, }});
   }
 
 }

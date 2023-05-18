@@ -10,6 +10,7 @@ import {
   getDownloadURL,
   ref,
   Storage,
+  StorageReference,
   uploadString,
 } from '@angular/fire/storage';
 
@@ -42,15 +43,19 @@ export class PostService {
     private storage: Storage,
   ) { }
 
-  async addpost({ptitle, pdescription, fname, mname, lname, cname,}: 
-    { ptitle: any, pdescription: any, fname: any, mname: any, lname: any, cname: any,} ){
+  async addpost({ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp}: 
+    { ptitle: any, pdescription: any, fname: any, mname: any, lname: any, cname: any, profileimg: any, timeStamp: any} ){
 
     try {
+
+      const timeStamp = Date.now();
+      const date: Date = new Date(timeStamp);
+      const date2 = date.toLocaleString();
 
       const userget = this.auth.currentUser?.uid;
  
       const userDocRef3 = collection(this.firestore, `post/`);
-      const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname, cname });
+      const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp: date2,});
 
       
 
@@ -81,6 +86,7 @@ export class PostService {
   
     }
 
+
     getprofile(): Observable<Post[]>{
       const id = this.auth.currentUser.uid;
     
@@ -104,3 +110,5 @@ export class PostService {
       return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
     }
 }
+
+

@@ -57,6 +57,7 @@ export class AddpostPage implements OnInit {
       console.log(this.post.pfname)
       console.log(this.post.pmname)
       console.log(this.post.plname)
+      console.log(this.post.pprofileimg)
 
       
 
@@ -77,6 +78,7 @@ export class AddpostPage implements OnInit {
       mname: [this.post.pmname],
       lname: [this.post.plname],
       cname: [this.post.pcname],
+      profileimg: [this.post.pprofileimg],
     });
   }
 
@@ -106,6 +108,7 @@ export class AddpostPage implements OnInit {
     });    await loading.present();
 
     const user = await this.firestore.addpost(this.credentials.value);
+    console.log(this.credentials.value)
     await loading.dismiss();
 
     if (user) {
