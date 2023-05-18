@@ -3082,7 +3082,7 @@ export class AddjoblistingPage implements OnInit {
     this.credentials = this.fb.group({
       jtitle: ['', [Validators.required]],
       jsalary: ['', []],
-      jposition: ['', [Validators.required]],
+      jposition: [this.checkeditems, []],
       jtype: ['', [Validators.required]],
       jdescription: ['', [Validators.required]],
       jexperience: ['', []],
@@ -3148,16 +3148,50 @@ export class AddjoblistingPage implements OnInit {
   }
 
   async check(event: any, filter: any){
-    this.credentials.value.jposition = filter.position;
-    this.queryinit = [];
-    this.term = "";
-    this.determine = false;
+    if (this.checkeds+1 == 5){
+        this.queryinit = [];
+        this.term = "";
+        console.log(this.credentials.value)
+    }
+    const a = event.currentTarget.checked;
+    const b = event.currentTarget.value;
+
+
+    if (a == false){
+        
+    const rank = this.checkeds;
+
+    for( var i = 0; i<=4; i++ ){
+
+        if (this.checkeditems[i] == null){
+            this.checkeditems[i] = filter.position; 
+            console.log(this.checkeditems);
+            this.checkeds++;
+            break;
+        }
+    }
+    }else{
+        this.checkeds = this.checkeds - 1;
+        for( var i = 0; i<=4; i++ ){
+
+            if (this.checkeditems[i] == filter.position){
+                this.checkeditems[i] = null;
+                console.log(this.checkeditems);
+            }
+
+        }
+    }
+        console.log(this.checkeds)
+   
+
   }
   
   reset(){
-
     this.determine = true;
-
+    this.checkeds = 0;
+    this.checkeditems = [];
+    this.term = ""
+    this.queryinit = [];
     
   }
 

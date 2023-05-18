@@ -4,7 +4,7 @@ import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, de
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
-import { timeStamp } from 'console';
+import { timeEnd, timeStamp } from 'console';
 
 export interface Company{
   //id is optional and not required
@@ -145,7 +145,7 @@ export class CompanyService {
       const userget = this.auth.currentUser?.uid;
  
       const userDocRef3 = collection(this.firestore, `joblist/`);
-      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true });
+      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true, attainment, jexperience, timesort: timeStamp });
 
       const id = user.id;
 
