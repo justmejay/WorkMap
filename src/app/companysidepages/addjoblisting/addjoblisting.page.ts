@@ -3081,7 +3081,7 @@ export class AddjoblistingPage implements OnInit {
   ngOnInit() {
     this.credentials = this.fb.group({
       jtitle: ['', [Validators.required]],
-      jsalary: ['', []],
+      jsalary: ['', [Validators.required]],
       jposition: [this.checkeditems, []],
       jtype: ['', [Validators.required]],
       jdescription: ['', [Validators.required]],
