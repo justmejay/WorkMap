@@ -83,7 +83,7 @@ export class ResumebuilderPage implements OnInit {
       this.profile.ea = 'Doctorate Degree';
     }
 
-  }asum
+  }
 
 
  

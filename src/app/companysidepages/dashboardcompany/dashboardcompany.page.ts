@@ -38,18 +38,56 @@ export class DashboardcompanyPage implements OnInit {
 
       
     this.firestore.getcompany().subscribe(res=>{
-      this.job = res;
-      console.log(this.job)
+
       this.company = res;
 
 
-    })
+    });
     
     this.firestore.getjobc().subscribe(res=>{
       this.job = res;
+      console.log(res.length);
 
+      if (res.length == 1){
+        console.log(" i run")
+        if (this.job.attainment == '1'){
+          this.job.attainment = 'High School Diploma';
+        }else  if (this.job.attainment == '2'){
+          this.job.attainment = 'Vocational Diploma/Short Course Certificate';
+        }else if (this.job.attainment == '3'){
+          this.job.attainment = 'Bachelors/College Degree';
+        }else if (this.job.attainment == 'Post Graduate Diploma/Masters Degree'){
+          this.job.attainment = 'Vocational Diploma/Short Course Certificate';
+        }else if (this.job.attainment == '5'){
+          this.job.attainment = 'Professional License (Passed Board/Professional/License Exams)';
+        }else if (this.job.attainment == '6'){
+          this.job.attainment = 'Doctorate Degree';
+        }
+      }else{
 
+        for (var i=0; i< res.length; i++){
+
+          if (this.job.attainment[i] == '1'){
+            this.job.attainment[i] = 'High School Diploma';
+          }else  if (this.job.attainment[i] == '2'){
+            this.job.attainment[i] = 'Vocational Diploma/Short Course Certificate';
+          }else if (this.job.attainment[i] == '3'){
+            this.job.attainment[i] = 'Bachelors/College Degree';
+          }else if (this.job.attainment[i] == 'Post Graduate Diploma/Masters Degree'){
+            this.job.attainment[i] = 'Vocational Diploma/Short Course Certificate';
+          }else if (this.job.attainment[i] == '5'){
+            this.job.attainment[i] = 'Professional License (Passed Board/Professional/License Exams)';
+          }else if (this.job.attainment[i] == '6'){
+            this.job.attainment[i] = 'Doctorate Degree';
+          }
       
+  
+        }
+        
+      }
+
+    
+
 
     })
    }
@@ -75,6 +113,26 @@ export class DashboardcompanyPage implements OnInit {
     const any = job.listid
   
     this.router.navigate(['applicantlist'], {queryParams:{jobid:any}});
+  }
+
+
+  async parse(){
+
+  
+    if (this.job.attainment == '1'){
+      this.job.attainment = 'High School Diploma';
+    }else  if (this.job.attainment == '2'){
+      this.job.attainment = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.job.attainment == '3'){
+      this.job.attainment = 'Bachelors/College Degree';
+    }else if (this.job.attainment == 'Post Graduate Diploma/Masters Degree'){
+      this.job.attainment = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.job.attainment == '5'){
+      this.job.attainment = 'Professional License (Passed Board/Professional/License Exams)';
+    }else if (this.job.attainment == '6'){
+      this.job.attainment = 'Doctorate Degree';
+    }
+
   }
 
 }

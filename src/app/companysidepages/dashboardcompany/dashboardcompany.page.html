@@ -101,15 +101,18 @@
             </ion-row>
             <ion-row class="minimum">
               <ion-col class="labelheader">Minimum experience required:</ion-col>
-              <ion-col *ngIf="job?.attainment; else placeholder_avatar1;">{{job.attainment}} year/s</ion-col>
+              <ion-col *ngIf="job?.jexperience; else placeholder_avatar1;">{{job.jexperience}} year/s</ion-col>
 
             <ng-template #placeholder_avatar1>
-              <ion-col>No experience required</ion-col>
+              <ion-col>No experience required</ion-col> 
             </ng-template>
             </ion-row>
             <ion-row class="education">
               <ion-col class="labelheader">Educational Attainment:</ion-col>
-              <ion-col placeholder="">College Graduate</ion-col>
+              <ion-col *ngIf="job?.attainment; else placeholder_avatar3;" placeholder="">{{job.attainment}}</ion-col>
+              <ng-template #placeholder_avatar3>
+                <ion-col>No minimum education required</ion-col> 
+              </ng-template>
             </ion-row>
             <ion-row class="jobdescription">
               <ion-col class="labelheader">Job description:</ion-col>
