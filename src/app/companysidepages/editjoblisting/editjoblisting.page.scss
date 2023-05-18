@@ -21,6 +21,7 @@ ion-item{
     border-radius: 15px;
     --background: rgb(242, 237, 245);
     color: black;
+    margin-bottom: 0.5rem;
 }
 ion-input{
     border: solid 2px  rgb(53, 66, 125);
@@ -42,6 +43,7 @@ ion-select{
 ion-label{
     font-size: medium;
     padding-left: 3%;
+    // padding-top: 0.5rem;
 }
 ion-textarea{
     // border: solid 2px rgb(53, 66, 125);
@@ -51,6 +53,11 @@ ion-textarea{
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
 }
+
+.selectitem{
+    border: none;
+}
+  
 .benefits{
     display: flex;
     flex-direction: column;
@@ -62,4 +69,49 @@ ion-textarea{
     --background: #2F7EF5;
     // margin: 0%;
     text-transform: initial;
+}
+
+.minexp{
+    display: flex;
+    flex-direction: row;
+    ion-input{
+        height: 50px;
+        margin-bottom: 0.5rem;
+    }
+    ion-list{
+        margin-top: 0.2rem;
+    }
+}
+
+// ion-item.jobposition{
+//     border: solid 2px  #7953A9;
+//     border-radius: 45px;
+//     --background: #B9BFFF;
+//     color: black;
+//     margin-bottom: 0.1rem;
+//     padding: 0;
+// }
+
+ion-item.checked{
+    display: block;
+    border: solid 1px  rgb(86, 27, 223);
+    border-radius: 45px;
+    --background: #7c43f5;
+    color: white;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    margin-bottom: 0.2rem;
+    width: 98%;
+
+    ion-label{
+        color: white;
+    }
+
+}
+.joblisting{
+    display: flex;
+    flex-direction: row;
+    ion-label{
+      padding: 0;
+    }
 }

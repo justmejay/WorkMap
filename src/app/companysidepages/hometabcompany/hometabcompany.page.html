@@ -9,11 +9,16 @@
   <ion-content>
     <ion-list *ngFor="let post of post">
       <h3>{{post.cname}}</h3>
-      <ion-label>{{post.fname}} {{post.mname}} {{post.lname}} posted 24hrs ago</ion-label>
+      <div class="poster">
+        <ion-avatar slot="start">
+          <img alt="Profile piture" src="assets/header.png" />
+        </ion-avatar>
+        <ion-label>{{post.fname}} {{post.mname}} {{post.lname}} posted 24hrs ago</ion-label>
+      </div>
       <h3>{{post.ptitle}}</h3>
       <span>
   
-        <img *ngIf="post?.imageUrl; else placeholder_avatar;" [src]="post.imageUrl" />
+        <!-- <img *ngIf="post?.imageUrl; else placeholder_avatar;" [src]="post.imageUrl" /> -->
   
         <ng-template #placeholder_avatar>
           <!-- <div class="fallback">
@@ -28,7 +33,7 @@
         <ion-button fill="clear">Like</ion-button>
       </div> -->
     </ion-list>
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="addpost(profile, company)">
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
       <ion-fab-button class="fabdesign">
         <ion-icon name="add-circle"></ion-icon>
       </ion-fab-button>
