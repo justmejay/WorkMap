@@ -3,32 +3,33 @@
       <ion-buttons [routerLink]="['/dashboardcompany']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
-      <ion-title>Add Job Listing</ion-title>
+      <ion-title>Edit Job Listing</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngIf="job" class="ion-padding ">
+<ion-content  class="ion-padding ">
   <div>
-    <form [formGroup]="credentials" (ngSubmit)="addjoblisting()">
-      <ion-card>
+    <form [formGroup]="credentials" (ngSubmit)="editjoblisting()">
+    <!-- <form [formGroup]="credentials" > -->
+      <ion-card  *ngIf="jobs" >
         <ion-card-header class="jobdetails">
           <ion-card-title>Job Listing Details</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <ion-label>Job Titles <h6 style="color: red;font-size: smaller;">*required</h6> </ion-label>
-          <ion-input placeholder="Webdeveloper" position="stacked" type="text" formControlName="jtitle" ></ion-input>
+          <ion-input placeholder="Webdeveloper" position="stacked" type="text" formControlName="jtitle" value="{{jobs.jtitle}}" ></ion-input>
           <ion-label>Starting Salary: <h6 style="color: red;font-size: smaller;">*required</h6> </ion-label>
-          <ion-input placeholder="35,000" position="stacked" type="number" formControlName="jsalary" ></ion-input>
+          <ion-input placeholder="35,000" position="stacked" type="number" formControlName="jsalary" value="{{jobs.jsalary}}"></ion-input>
           
 
-        <div class="jobposition">
+        <!-- <div class="jobposition">
           <ion-label>Job Position <ion-label style="color: red;font-size: smaller;">*required. 5 MAX</ion-label></ion-label>
           <ion-button class="reset" shape="round" (click)="reset()" style="float: right;">
           <ion-icon name="arrow-undo-outline"></ion-icon>
         </ion-button>
-        </div>
+        </div> -->
         <!-- <ion-input [hidden]="determine" [readonly]="true" [value]="credentials.value.jposition"  formControlName="jposition" placeholder="Senior Developer" position="stacked" type="text" ></ion-input> -->
-        <ion-input [hidden]="!determine" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [ngModelOptions]="{standalone: true}"
+        <!-- <ion-input [hidden]="!determine" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [ngModelOptions]="{standalone: true}"
         [(ngModel)]="term" placeholder="Senior Developer" position="stacked" type="text" ></ion-input>
 
         <ion-item *ngFor="let filter of queryinit | filter:term">
@@ -47,7 +48,7 @@
           </ion-label>
 
         </ion-item>
-
+ -->
 
 
           
@@ -56,12 +57,12 @@
 
         <ion-label>Job Description <h6 style="color: red;font-size: smaller;">*required</h6></ion-label>
         <ion-item>
-          <ion-textarea placeholder="Description" position="stacked" type="textarea" formControlName="jdescription" ></ion-textarea>
+          <ion-textarea placeholder="Description" position="stacked" type="textarea" formControlName="jdescription" value="{{jobs.jdescription}}"></ion-textarea>
         </ion-item>
 
         <ion-label>Job Type <h6 style="color: red;font-size: smaller;">*required</h6></ion-label>
         <ion-item lines="none">
-          <ion-select label="Default label" interface="action-sheet" placeholder="Select job type" class="jobtype" formControlName="jtype">
+          <ion-select label="Default label" interface="action-sheet" placeholder="Select job type" class="jobtype" formControlName="jtype" value="{{jobs.jtype}}">
             <ion-select-option value="Full Time">Full Time</ion-select-option>
             <ion-select-option value="Hybrid">Hybrid</ion-select-option>
             <ion-select-option value="Work from home">Work from home</ion-select-option>
@@ -69,11 +70,11 @@
         </ion-item>
 
         <ion-label>Minimum Experience: <h6 style="color: red;font-size: smaller;">*blank if not applicable</h6> </ion-label>
-        <ion-input formControlName="jexperience" placeholder="Experience in Years" type="number" ></ion-input>
+        <ion-input formControlName="jexperience" value="{{jobs.jexperience}}" placeholder="Experience in Years" type="number" ></ion-input>
           
         <ion-label>Educational Attainment <h6 style="color: red;font-size: smaller;">*leave blank if not applicable</h6></ion-label>
         <ion-item lines="none" >
-          <ion-select label="Default label" formControlName="attainment" interface="action-sheet" placeholder="Select Educational Attainment">
+          <ion-select label="Default label" formControlName="attainment" value="{{jobs.attainment}}" interface="action-sheet" placeholder="Select Educational Attainment">
             <ion-select-option class="popoverselect" value="">No Minimum Education Required</ion-select-option>
             <ion-select-option class="popoverselect" value="1">High School Diploma</ion-select-option>
             <ion-select-option class="popoverselect" value="2">Vocational Diploma/Short Course Certificate</ion-select-option>
@@ -87,7 +88,8 @@
         </ion-card-content>
       </ion-card>
 
-      <ion-button class="uploadjoblisting" [disabled]="!(credentials.valid && checkeditems != '') " type="submit" expand="block" size="large" shape="round">Submit</ion-button>
+      <!-- <ion-button class="uploadjoblisting" [disabled]="!(credentials.valid && checkeditems != '') " type="submit" expand="block" size="large" shape="round">Submit</ion-button> -->
+      <ion-button class="uploadjoblisting" type="submit" expand="block" size="large" shape="round">Submit</ion-button>
 
     </form>
   </div>

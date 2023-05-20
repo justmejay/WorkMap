@@ -115,6 +115,14 @@ export class DashboardcompanyPage implements OnInit {
     this.router.navigate(['applicantlist'], {queryParams:{jobid:any}});
   }
 
+  edit(job:any){
+    const any = job.listid
+
+    this.router.navigate(['editjoblist'], {queryParams:{jobid:any}});
+
+
+  }
+
 
   async parse(){
 

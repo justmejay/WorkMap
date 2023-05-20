@@ -206,10 +206,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/privacypolicy/privacypolicy.module').then( m => m.PrivacypolicyPageModule)
   },
   {
-    path: 'editjoblisting',
-    loadChildren: () => import('./companysidepages/editjoblisting/editjoblisting.module').then( m => m.EditjoblistingPageModule)
-  },
-  {
     path: 'notificationuser',
     loadChildren: () => import('./pages/notificationuser/notificationuser.module').then( m => m.NotificationuserPageModule)
   },
@@ -244,9 +240,14 @@ const routes: Routes = [
   {
     path: 'applicantlist',
     loadChildren: () => import('./companysidepages/applicantlist/applicantlist.module').then( m => m.ApplicantlistPageModule)
-  },  {
+  },
+  {
     path: 'editpreferredoption',
     loadChildren: () => import('./pages/editpreferredoption/editpreferredoption.module').then( m => m.EditpreferredoptionPageModule)
+  },
+  {
+    path: 'editjoblist',
+    loadChildren: () => import('./companysidepages/editjoblist/editjoblist.module').then( m => m.EditjoblistPageModule)
   },
 
 
