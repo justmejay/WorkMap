@@ -70,6 +70,7 @@ export interface User{
   homeaddress: string;
   lat: string;
   lng: string;
+  ea: number
 
 
 
@@ -98,6 +99,13 @@ export class ProfilingService {
     const cakesRef = doc(this.firestore, `users/${id}/profile/${id}/`)
     return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
+  getprofilepref(): Observable<User[]>{
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = doc(this.firestore, `users/${id}/preferred/${id}/`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
 
   getaddress(): Observable<User[]>{
     const id = this.auth.currentUser.uid;

@@ -76,12 +76,12 @@
       <ion-card-content>
         <ion-grid>
           <ion-row class="jobposition">
-            <ion-badge class="positionbadges" color="tertiary">{{job.jposition}}</ion-badge>
+            <ion-badge class="positionbadges" *ngFor="let job of job.jposition" color="tertiary">{{job}}</ion-badge>
 
           </ion-row>
           <ion-row class="companydetails">
             <ion-col class="labelheader">Starting Salary:</ion-col>
-            <ion-col *ngIf="job?.jsalary; else placeholder_avatar;">{{job.jsalary}} pesos</ion-col>
+            <ion-col *ngIf="job?.jsalary; else placeholder_avatar;">{{job.jsalary}} peso/s</ion-col>
 
             <ng-template #placeholder_avatar>
               <ion-col>Company did not specified</ion-col>

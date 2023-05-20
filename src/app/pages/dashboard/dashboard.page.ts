@@ -27,7 +27,7 @@ export class DashboardPage implements OnInit {
   button: boolean = true;
   userarray: any = [];
   userspec: any;
-
+  earray: any =[];
   constructor(
     private firestore: CompanyService,
     private fb: FormBuilder,
@@ -41,18 +41,34 @@ export class DashboardPage implements OnInit {
     private profile: ProfilingService
   ) {
 
-      this.profile.getprofile().subscribe(res =>{
+      this.profile.getprofilepref().subscribe(res =>{
 
         this.userarray = res;
         this.userspec = this.userarray.specialization;
 
-        this.firestore.getjobs(this.userspec).subscribe(res=>{
+        this.profile.getprofile().subscribe(res =>{
+
+          this.earray = res;
+
+          this.earray = this.earray.ea;
+          console.log(this.earray)
+
+          this.firestore.getjobs(this.userspec, this.earray).subscribe(res=>{
+
+            this.job = res;
+          this.job.sort((a, b) => {
+              return b.timesort - a.timesort;
+            });
+            console.log(this.job);
+   
+          });
+  
 
 
-          this.job = res;
- 
         });
 
+
+       
 
 
 
@@ -60,16 +76,15 @@ export class DashboardPage implements OnInit {
 
      
 
-     this.profile.verifyschool().then(res =>{
+     
+   }
+
+  ngOnInit() {
+
+    
+    this.profile.verifyschool().then(res =>{
       const a = res;
 
-      this.profile.verifyexp().then(res =>{
-        const b = res;
-
-
-        this.profile.verifycertifications().then(res =>{
-
-          const c = res;
 
           this.profile.verifyresume().then(res =>{
             const d = res;
@@ -79,7 +94,7 @@ export class DashboardPage implements OnInit {
               const e = res;
              
                 
-              if (a >= 1 && b >= 1 && c>=1 && d>=1 && e>=1 ){
+              if (a >= 1  && d>=1 && e>=1 ){
               
                 this.button = false;
 
@@ -96,8 +111,8 @@ export class DashboardPage implements OnInit {
 
           });
 
-        });
-      });
+
+  
 
       
 
@@ -105,10 +120,9 @@ export class DashboardPage implements OnInit {
     });
 
     
-     
-   }
 
-  ngOnInit() {
+
+
   }
 
   logout(){
