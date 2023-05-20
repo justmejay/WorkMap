@@ -33,6 +33,15 @@ export interface Company{
   contact:number,
   email:string,
 
+  //joblist
+  jtitle: string,
+  jsalary: number,
+  jtype: string,
+  jdescription: string,
+  jexperience: string,
+  attainment: string,
+
+
   
 }
 
@@ -189,6 +198,25 @@ export class CompanyService {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `joblist/${state}`);
       const user = await updateDoc(userDocRef3, {state: value});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  getjobe(id: any): Observable<Company[]>{
+    const cakesRef = doc(this.firestore, `joblist/${id}`)
+    // const q = query(cakesRef, where("listid", "==", id ))
+    return docData(cakesRef, {idField: 'id'}) as Observable<[Company]> 
+  }
+
+  async editjoblisting({jtitle, jsalary, jtype, jdescription, jexperience, attainment,}: 
+    {jtitle: any, jsalary: any, jtype: any, jdescription:any, jexperience, attainment: any,}, id: any){
+
+    try {
+      const userDocRef3 = doc(this.firestore, `joblist/${id}`);
+      const user = await updateDoc(userDocRef3, {jtitle, jsalary, jtype, jdescription, jexperience, attainment,});
      
       return true;
     } catch (e) {
