@@ -17,8 +17,8 @@ import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-addjoblisting',
-  templateUrl: '/addjoblisting.page.html',
-  styleUrls: ['/addjoblisting.page.scss'],
+  templateUrl: './addjoblisting.page.html',
+  styleUrls: ['./addjoblisting.page.scss'],
 })
 export class AddjoblistingPage implements OnInit {
   job: any = [];
