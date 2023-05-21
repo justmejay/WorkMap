@@ -55,59 +55,93 @@
   </ion-header>
 
   <ion-content class="ion-padding ">
-      <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" >
+      <!-- <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" >
         <ion-refresher-content
           pullingIcon="chevron-down-circle-outline"
           pullingText="Pull to refresh"
           refreshingSpinner="circles"
           refreshingText="Refreshing...">
         </ion-refresher-content>
-      </ion-refresher>
+      </ion-refresher> -->
+      
 
       <div class="alert" [hidden]="!button" style="color: black;text-align: center;">
         <ion-label [hidden]="!button"  class="alert">Complete your resume before applying!</ion-label>
       </div>
-    <ion-card class="joblisting" *ngFor="let job of job">
-      <ion-card-header>
-        <div class="cardhead">
+      
+
+
+      <ion-card *ngFor="let job of job" class="joblisting">
+        <ion-card-header>
+        
           <ion-card-title>
             {{job.jtitle}}
+            <ion-button class="viewmore" fill="clear" [routerLink]="['/aboutcompany']">View more
+              <ion-icon  name="information-circle" class="edit" ></ion-icon>
+            </ion-button>
           </ion-card-title>
-          <ion-button class="viewmore" fill="clear" [routerLink]="['/aboutcompany']">View more
-            <ion-icon  name="information-circle" class="edit" ></ion-icon>
-          </ion-button>
-        </div>
-        <ion-card-subtitle>
-          {{job.cname}}
-        </ion-card-subtitle>
+          <ion-card-subtitle>
+            <!-- {{job.cname}} -->
+            <!-- Company Name, Company Address  Not Working. NO NEED FOR COMPANY DETAILS HERE -->
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row class="jobposition">
+              <ion-badge class="positionbadges" *ngFor="let job of job.jposition" color="tertiary">{{job}}</ion-badge>
+  
+            </ion-row>
+            <ion-row class="companydetails">
+              <ion-col class="labelheader">Starting Salary:</ion-col>
+              <ion-col *ngIf="job?.jsalary; else placeholder_avatar;">{{job.jsalary}} peso/s</ion-col>
+  
+              <ng-template #placeholder_avatar>
+                <ion-col>Company did not specified</ion-col>
+              </ng-template>
+              
+            </ion-row>
+            <div class="jobdetails">
+  
+              <!-- <ion-row class="jobposition">
+                <ion-col class="labelheader">Job Position:</ion-col>
+                <ion-col placeholder="">Senior Developer</ion-col>
+              </ion-row> -->
+              
+              <ion-row class="jobtype">
+                <ion-col class="labelheader">Job type:</ion-col>
+                <ion-col>{{job.jtype}}</ion-col>
+              </ion-row>
+              <ion-row class="minimum">
+                <ion-col class="labelheader">Minimum experience required:</ion-col>
+                <ion-col *ngIf="job?.jexperience; else placeholder_avatar1;">{{job.jexperience}} year/s</ion-col>
+  
+              <ng-template #placeholder_avatar1>
+                <ion-col>No experience required</ion-col> 
+              </ng-template>
+              </ion-row>
+              <ion-row class="education">
+                <ion-col class="labelheader">Educational Attainment:</ion-col>
+                <ion-col *ngIf="job?.attainment; else placeholder_avatar3;" placeholder="">{{job.attainment}}</ion-col>
+                <ng-template #placeholder_avatar3>
+                  <ion-col>No minimum education required</ion-col> 
+                </ng-template>
+              </ion-row>
+              <ion-row class="jobdescription">
+                <ion-col class="labelheader">Job description:</ion-col>
+                <ion-col>{{job.jdescription}}</ion-col>
+              </ion-row>
+            </div>
+          </ion-grid>
+          <ion-label class="timeposted">Date Posted: {{job.timestamp}}</ion-label>
+        </ion-card-content>
+          
+          <ion-button size="large" [disabled]="button" class="jobcardinfo" (click)="apply(job)" >Apply Now</ion-button>
 
-      </ion-card-header>
-      <ion-card-content>
-        <ion-grid>
-          <ion-row class="jobposition">
-            <ion-badge class="positionbadges" *ngFor="let job of job.jposition" color="tertiary">{{job}}</ion-badge>
-         
-          </ion-row>
-        </ion-grid>
-        <div class="companydetails">
-          <ion-label>Company Address: {{job.caddress}}</ion-label>
-          <ion-label></ion-label>
-          <ion-label>Starting Salary: {{job.jsalary}} pesos</ion-label>
-          <ion-label></ion-label>
-        </div>
-        <div class="jobdetails">
-          <div class="jobspecialization">
-            <ion-label>Job Specialization: {{job.jspecialization}}</ion-label>
-            <ion-label></ion-label>
-          </div>
-          <div class="jobtype">
-            <ion-label>{{job.jtype}}</ion-label>
-          </div>
-        </div>
-      </ion-card-content>
-      <ion-label class="ion-padding timeposted">Posted 24 hours ago</ion-label>
-    <ion-button size="large" [disabled]="button" class="jobcardinfo" (click)="apply(job)" >Apply Now</ion-button>
-    </ion-card>
+      </ion-card>
+
+
+
+
   </ion-content>
 
   <ion-footer>
