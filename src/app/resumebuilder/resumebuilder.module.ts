@@ -13,7 +13,7 @@ import { ResumebuilderPage } from './resumebuilder.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ResumebuilderPageRoutingModule
+    ResumebuilderPageRoutingModule,
   ],
   declarations: [ResumebuilderPage]
 })

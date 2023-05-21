@@ -1,3 +1,18 @@
+
+
+.alert{
+    display: block;
+    background: rgb(240, 154, 154);
+    width: 80%;
+    border-radius: 45px;
+    margin: auto;
+    ion-label{
+        padding: 0.2rem;
+        text-align: center;
+    }
+}
+
+
 ion-header{
     display: block;
     position: relative;
@@ -23,6 +38,7 @@ ion-menu::part(backdrop) {
     border-radius: 15px;
     box-shadow: 4px 5px 16px;
     margin-bottom: 3%;
+    --background: #FFFFFF;
 }
 .card1menu{
     --background: #FFFFFF;
@@ -41,9 +57,18 @@ ion-content{
     --background:#E5EBEE;
 } 
 
+// .btnheader{
+//     width: auto;
+//     font-size: 40px;
+//     color: #ffffff; 
+//     padding: 0%; 
+// }
 .btn{
-    font-size: 40px;
-    color: #ffffff;  
+    color: #ffffff; 
+}
+.activetoggle{
+    display: flex;
+    flex-direction: row;
 }
 ion-tabs{
     display: flex;
@@ -91,71 +116,75 @@ ion-card-subtitle{
 }
 ion-card-content{
     color: black;
+    padding: 1rem;
 }
-ion-label{
-    margin-top: 0.3rem;
-    font-size: medium;
-    color: #000000;
-    font-weight: 300;
+.hamburgcard{
+    --background: #ffffff;
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
 }
-ion-label.cardsubtitle{
-    font-size: 1.5em;
-    font-weight: 500;
-}
-ion-label.jobinfo{
-    padding-left: 0.8rem;
-    font-size: 1em;
-    font-weight: 500;
-}
-.companydetails{
-    display: flex;
-    flex-direction: column;
-}
-.jobspecialization{
-    display: flex;
-    flex-direction: column;
-}
+// .companydetails{
+//     display: flex;
+//     flex-direction: row;
+// }
+// .jobdetails{
+//     display: flex;
+//     flex-direction: column;
+// }
+// .jobtype{
+//     display: flex;
+//     flex-direction: column;
+// }
+// .jobspecialization{
+//     display: flex;
+//     flex-direction: column;
+// }
+// .jobdescription{
+//     display: flex;
+//     flex-direction: column;
+// }
 .timeposted{
-    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #2F7EF5;
 }
 .jobcardinfo{
     display: block;
-    width: 80%;
-    --border-radius: 50px;
-    --background: #142680;
+    width: 100%;
+    --border-radius: 0px 0px 10px 10px;
+    --background: #2F7EF5;
+    margin: 0%;
     text-transform: initial;
-    -ms-transform: translate(50%, 50%);
-    transform: translate(10%, 0%);
-    margin-top: 1rem;
+}
+.togglestatus{
+    padding-top: 0.6rem;
+}
+ion-label{
+    padding-left: 0.5rem;
+}
+// .labelheader{
+//     font-size: 20px;
+//     font-weight: 300;
+// }
+ion-icon{
+    --background:#ffffff;
+}
+.btns{
+    display: flex; 
+    flex-direction:column; 
+    align-items: stretch;
+    padding: 0 10%;
     margin-bottom: 1rem;
 }
-
-// .tabicon{
-//     --background: 2855A1;
-// }
-
-// ion-tab-button {
-//     --color: #2F7EF5;
-//   }
-
-.alert{
-    display: block;
-    background: rgb(240, 154, 154);
-    width: 80%;
-    border-radius: 45px;
-    margin: auto;
-    ion-label{
-        padding: 0.2rem;
-        text-align: center;
-    }
-}
-.viewmore{
-    --color: white;
+.save{
+    --background: #182b8b;;
+    // --border-color: #2855A1;
+    // --border-style: solid;
+    // --border-width: 2px;
+    color: #FFFFFF;
+    margin-top: 4%;
     text-transform: initial;
-}
-.cardhead{
-    display: flex;
-    flex-direction: row;
+    padding-left: 1rem;
 }
 ion-badge {
     border-radius: 50px;
