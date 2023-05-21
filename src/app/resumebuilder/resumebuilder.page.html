@@ -58,7 +58,7 @@
       </div>
     </ion-card-header>
     <ion-card-content>
-        <ion-input *ngFor="let a of pref" position="stacked" class="custominput" value="{{a}}" ></ion-input>
+        <ion-input *ngFor="let a of pref" position="stacked" class="custominput" value="{{a}}" [readonly]="true"></ion-input>
     </ion-card-content>
   </ion-card>
 
@@ -72,16 +72,16 @@
     </ion-card-header>
     <ion-card-content>
         <ion-label position="stacked" class="cardsubtitle">Name of Mother: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{resume.mo}} "></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{resume.mo}} " [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{resume.moc}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Name of Father: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{resume.fa}}" ></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{resume.fa}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{resume.fac}}"></ion-input>
+        <ion-input position="stacked" class="custominput" value=" {{resume.fac}}" [readonly]="true"></ion-input>
     </ion-card-content>
   </ion-card>
 

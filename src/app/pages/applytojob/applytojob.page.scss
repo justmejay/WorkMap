@@ -11,9 +11,6 @@ ion-header{
     }
 }
 
-ion-toolbar{
-    --background:  #2855A1;
-}
 
 .container{
     // border: 2px solid #3AB3C1;
@@ -104,7 +101,7 @@ ion-textarea{
     margin-top: 0.5rem;
 }
 ion-card-content{
-    color: white;
+    color: black;
     margin: auto;
 }
 ion-label.cardsubtitle{
@@ -115,21 +112,9 @@ ion-icon{
     height: 21px;
     width: 21px;
 }
-ion-button{
-    text-transform: initial;
-}
+
 ion-button.resume{
     margin-bottom: 10%;
     --background: #70AFFA;
     --border-style: solid 2px #2855A1;
-    text-transform: initial;
-}
-ion-item{
-    --background: #71a8fa;
-    --color: white;
-    text-shadow: 1px 1px 5px rgb(148, 148, 148);
-    overflow-wrap: break-word;
-}
-.wrap-it{
-     overflow-wrap: break-word;
 }
