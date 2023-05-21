@@ -23,13 +23,20 @@
 
         <div class="jobposition">
           <ion-label>Job Position <ion-label style="color: red;font-size: smaller;">*required. 5 MAX</ion-label></ion-label>
-          <ion-button class="reset" shape="round" (click)="reset()" style="float: right;">
+          <!-- <ion-button class="reset" shape="round" (click)="reset()" style="float: right;">
           <ion-icon name="arrow-undo-outline"></ion-icon>
-        </ion-button>
+        </ion-button> -->
         </div>
+
         <!-- <ion-input [hidden]="determine" [readonly]="true" [value]="credentials.value.jposition"  formControlName="jposition" placeholder="Senior Developer" position="stacked" type="text" ></ion-input> -->
-        <ion-input [hidden]="!determine" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [ngModelOptions]="{standalone: true}"
-        [(ngModel)]="term" placeholder="Senior Developer" position="stacked" type="text" ></ion-input>
+        <ion-item>
+          <ion-input [hidden]="!determine" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [ngModelOptions]="{standalone: true}"
+        [(ngModel)]="term" placeholder="Senior Developer" position="stacked" type="text" style="border:none;">
+          </ion-input>
+          <!-- <ion-icon name="close-outline"></ion-icon>-->
+          <ion-icon name="arrow-undo-outline" class="reset" (click)="reset()"></ion-icon>          
+
+        </ion-item>
 
         <ion-item *ngFor="let filter of queryinit | filter:term">
           <ion-checkbox [disabled]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" [checked]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" 

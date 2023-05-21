@@ -68,8 +68,6 @@ ion-input.custominput{
     border-radius: 15px;
     --background: #cddbf1;
     color: black;
-    margin-bottom: 0.5rem;
-    margin-top: 0.5rem;
 
 
 }
@@ -127,7 +125,7 @@ ion-checkbox{
 }
 
 .reset{
-    margin-top: 0.5rem;
+    // margin-top: 0.5rem;
     margin-right: 0.5rem;
     float: right;
 }
@@ -139,4 +137,8 @@ ion-icon{
 ion-card-header{
     display: flex;
     flex-direction: row;
+}
+
+ion-item.customitem{
+    height: 50px;
 }

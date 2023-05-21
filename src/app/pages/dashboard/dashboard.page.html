@@ -73,13 +73,13 @@
 
       <ion-card *ngFor="let job of job" class="joblisting">
         <ion-card-header>
-        
+          <ion-button class="viewmore" fill="clear" [routerLink]="['/aboutcompany']" style="float: right;">View more
+            <ion-icon  name="information-circle" class="edit" ></ion-icon>
+          </ion-button>
           <ion-card-title>
             {{job.jtitle}}
-            <ion-button class="viewmore" fill="clear" [routerLink]="['/aboutcompany']">View more
-              <ion-icon  name="information-circle" class="edit" ></ion-icon>
-            </ion-button>
           </ion-card-title>
+          
           <ion-card-subtitle>
             <!-- {{job.cname}} -->
             <!-- Company Name, Company Address  Not Working. NO NEED FOR COMPANY DETAILS HERE -->
