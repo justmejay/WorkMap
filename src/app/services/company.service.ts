@@ -29,7 +29,7 @@ export interface Company{
   fname:string,
   mname:string,
   lname:string,
-  citizenship,
+  citizenship: string,
   contact:number,
   email:string,
 
@@ -40,6 +40,7 @@ export interface Company{
   jdescription: string,
   jexperience: string,
   attainment: string,
+  jposition: any,
 
 
   
@@ -218,12 +219,12 @@ export class CompanyService {
     return docData(cakesRef, {idField: 'id'}) as Observable<[Company]> 
   }
 
-  async editjoblisting({jtitle, jsalary, jtype, jdescription, jexperience, attainment,}: 
-    {jtitle: any, jsalary: any, jtype: any, jdescription:any, jexperience, attainment: any,}, id: any){
+  async editjoblisting({jtitle, jsalary, jtype, jdescription, jexperience, attainment, jposition}: 
+    {jtitle: any, jsalary: any, jtype: any, jdescription:any, jexperience, attainment: any, jposition: any}, id: any){
 
     try {
       const userDocRef3 = doc(this.firestore, `joblist/${id}`);
-      const user = await updateDoc(userDocRef3, {jtitle, jsalary, jtype, jdescription, jexperience, attainment,});
+      const user = await updateDoc(userDocRef3, {jtitle, jsalary, jtype, jdescription, jexperience, attainment, jposition,});
      
       return true;
     } catch (e) {
