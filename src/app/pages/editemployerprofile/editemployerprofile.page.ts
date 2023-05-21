@@ -146,6 +146,10 @@ export class EditemployerprofilePage implements OnInit {
     }
   }
 
+  testsub(){
+    console.log(this.credentials.value);
+  }
+
 
 
   async upload(event: any){

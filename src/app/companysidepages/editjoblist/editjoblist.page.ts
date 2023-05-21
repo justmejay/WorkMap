@@ -3072,12 +3072,12 @@ term: any = "";
   ngOnInit() {
     this.credentials = this.fb.group({
       jtitle: ['', [Validators.required]],
-      jsalary: ['', [Validators.required]],
-      jposition: [this.checkeditems, []],
+      jsalary: ['', []],
+      jposition: ['', [Validators.required]],
       jtype: ['', [Validators.required]],
       jdescription: ['', [Validators.required]],
-      jexperience: ['', [Validators.required]],
-      attainment: ['', [Validators.required]],
+      jexperience: ['', []],
+      attainment: ['', []],
 
     });
   }
@@ -3099,11 +3099,11 @@ term: any = "";
 
     if (joblisting) {
       this.router.navigateByUrl('/dashboardcompany', { replaceUrl: true });
-      this.showAlert('Update success', '');
+      this.presentToast('Update success');
 
 
         } else {
-      this.showAlert('Update failed', 'Please try again!');
+      this.presentToast('Update failed. Please try again!');
     }
   }
 
@@ -3128,6 +3128,10 @@ term: any = "";
 
     await toast.present();
 
+  }
+
+  checktest(){
+    console.log(this.credentials.value);
   }
 
 
