@@ -31,12 +31,11 @@
         </ion-card>
         
         <h3>Home Address</h3>
-        <ion-item> 
-          <ion-toggle (ionChange)="checked($event)"></ion-toggle> <h5>Same with Current Address</h5>
-        </ion-item>
         <ion-card >
-    
           <ion-card-content >
+            <ion-item> 
+              <ion-toggle (ionChange)="checked($event)"></ion-toggle> <h5>Same with Current Address</h5>
+            </ion-item>
               <ion-item>
                 <ion-input position="stacked" placeholder="eh" [readonly]="isChecked"   type="text" formControlName="homeaddress" [value]="address.homeaddress" class="custominput"></ion-input>
               </ion-item>

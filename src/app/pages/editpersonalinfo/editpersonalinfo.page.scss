@@ -35,7 +35,8 @@ ion-label{
 ion-item{
     border: solid 2px #136cd2;
     border-radius: 15px; 
-    margin-bottom: 3%;
+    margin-bottom: 0.5rem;
+    
 }
 ion-input{
     border-radius: 15px;
@@ -74,7 +75,12 @@ ion-note{
 .selectitem{
     border: none;
 }
-  
+.changepfp{
+    display: block;
+    flex-direction: row;
+   
+}
 
-
- 
+ion-button{
+    text-transform: initial;
+}
