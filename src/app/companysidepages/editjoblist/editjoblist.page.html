@@ -90,8 +90,8 @@
 
         </ion-card-content>
       </ion-card>
-      <!-- <ion-button (click)="checktest()">check</ion-button> -->
-      <ion-button class="uploadjoblisting" [disabled]="!(credentials.valid) " type="submit" expand="block" size="large" shape="round">Save</ion-button>
+      <ion-button (click)="checktest()">check</ion-button>
+      <ion-button class="uploadjoblisting" [disabled]="!(credentials.valid && checkeditems.length != 0 ) " type="submit" expand="block" size="large" shape="round">Save</ion-button>
 
     </form>
   </div>

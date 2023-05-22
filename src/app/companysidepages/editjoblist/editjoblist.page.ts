@@ -3073,7 +3073,7 @@ term: any = "";
     this.credentials = this.fb.group({
       jtitle: ['', [Validators.required]],
       jsalary: ['', []],
-      jposition: ['', [Validators.required]],
+      jposition: ['', []],
       jtype: ['', [Validators.required]],
       jdescription: ['', [Validators.required]],
       jexperience: ['', []],
