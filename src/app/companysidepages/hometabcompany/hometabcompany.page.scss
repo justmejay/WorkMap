@@ -9,50 +9,100 @@ ion-header{
 ion-toolbar{
     --background:  #2855A1;
 }
+.container{
+    // border: 2px solid #3AB3C1;
+    padding-bottom: .5rem;
+}
 ion-title{
-    --color: white;
+    --color: rgb(255, 255, 255);
 }
-ion-label{
-    margin-top: 0.5rem;
-    padding-left: 0.8rem;
-}
-h3{
-    margin-top: 0rem;
-    padding-left: 1rem;
-}
-ion-list{
-    display: block;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    padding: 0.8rem;
-
-    h3{
-        margin-top: 0.5rem;
-    }
-}
-ion-item{
-    display: flex;
-    flex-direction: row;
-}
-p{
-    padding-left: 0.5rem;
-    text-align: justify;
-}
-.fabdesign{
-    --background: #2855A1;
+ion-card{
+    --background: #ffffff;
+    // box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 0.8rem;
+    // border: solid 3px  rgb(53, 66, 125);
 }
 
+ion-card-header{
+    --background: #fff;
+    color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+}
+
+
+ion-label.cardsubtitle{
+    font-size: 1.2em;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    padding-bottom: 0.5rem;
+}
 .poster{
     display: flex;
-    flex-direction: row;
-    ion-label{
-        padding-top: 0.8rem;
+    color: rgb(0, 0, 0);
+    align-items: center;
+
+    .pfp{
+        margin: .9rem;
+        border: solid 1px  rgb(53, 66, 125);
     }
+    .label{
+        align-items: center;
+    }
+}
+
+ion-list{
+    display: block;
+    padding: 0;
+    margin: 0;
+    // margin-top: 0.5rem;
+    // margin-bottom: 0.5rem;
+    // padding: 0.8rem;
+}
+
+ion-card-content{
+    margin: 0;
+    padding: 0 0 .5rem 0;
+
+}
+
+ion-label.title{
+    padding-left: 0.5rem;
+    font-size: 1.3rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.post{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0.5rem;
+    padding: 0;
+    align-items: stretch;
+
+    img{
+        padding:0;
+        margin: 0;
+    }
+}
+
+p{
+    font-size: .9rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: justify;
+    color:black;
+
 }
 
 .timeposted{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    font-size:.7rem;
+    padding: .7rem;
     color: #2F7EF5;
 }
 
+.fabdesign{
+    --background: #2855A1;
+}
