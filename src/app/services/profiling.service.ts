@@ -99,6 +99,13 @@ export class ProfilingService {
     const cakesRef = doc(this.firestore, `users/${id}/profile/${id}/`)
     return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
+
+  getcoords(): Observable<User[]>{
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = doc(this.firestore, `users/${id}/address/${id}/`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
   getprofilepref(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   

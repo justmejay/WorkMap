@@ -210,6 +210,12 @@ export class ApplicationService {
     return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 
+
+  getcompanydata(id: any): Observable<User[]>{
+    const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
   
 
 
