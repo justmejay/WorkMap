@@ -8,20 +8,19 @@
 </ion-header>
 
 <ion-content>
-
-  <div class="map" #map></div>
-
-
-  <ion-card style="margin-top: 80%;" class="cardcontainer">
+    <img alt="Profile piture" src="assets/header.png" />
+  <ion-card class="cardcontainer">
     <ion-card-header>
         <ion-card-title>Company Details</ion-card-title>
       </ion-card-header>
     <ion-card-content>
         <ion-label position="stacked" class="cardsubtitle">Company Name: </ion-label>
         <ion-input position="stacked" class="custominput" placeholder="Apple, Inc." [readonly]="true"></ion-input>
-      
+<!--       
         <ion-label position="stacked" class="cardsubtitle">Company Address: </ion-label>
         <ion-input position="stacked" class="custominput" placeholder="Specified Address" [readonly]="true"></ion-input>
+
+          <div class="map" #map></div> -->
       
         <ion-label position="stacked" class="cardsubtitle">Company Contact Number: </ion-label>
         <ion-input position="stacked" class="custominput" placeholder="09010203040" [readonly]="true"></ion-input>
@@ -29,6 +28,15 @@
         <ion-label position="stacked" class="cardsubtitle">Company Email Address: </ion-label>
         <ion-input position="stacked" class="custominput" placeholder="appleinc@icloud.com" [readonly]="true"></ion-input>
       
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="cardcontainermap">
+    <ion-card-header>
+      <ion-card-title>Company Address</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <div class="map" #map></div>
     </ion-card-content>
   </ion-card>
 

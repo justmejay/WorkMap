@@ -54,7 +54,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content class="ion-padding ">
+  <ion-content>
       <!-- <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)" >
         <ion-refresher-content
           pullingIcon="chevron-down-circle-outline"
@@ -63,7 +63,16 @@
           refreshingText="Refreshing...">
         </ion-refresher-content>
       </ion-refresher> -->
-      
+      <div class="sort">
+        <ion-item lines="none">
+          <ion-label>Sort by:</ion-label>
+          <ion-select>
+            <ion-select-option>Recent</ion-select-option>
+            <ion-select-option>Distance</ion-select-option>
+            <ion-select-option>Closest Match</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
 
       <div class="alert" [hidden]="!button" style="color: black;text-align: center;">
         <ion-label [hidden]="!button"  class="alert">Complete your resume before applying!</ion-label>
@@ -73,10 +82,21 @@
 
       <ion-card *ngFor="let job of job" class="joblisting">
         <ion-card-header>
-          <ion-card-title>
-            {{job.jtitle}}({{job.distance}} from you)
-            
-          </ion-card-title>
+          <ion-grid>
+            <ion-row>
+              <ion-card-title>
+                {{job.jtitle}}
+              </ion-card-title>
+            </ion-row>
+            <ion-row>
+              <ion-card-subtitle>
+                <ion-badge class="success" color="primary">
+                  <ion-icon name="location-outline"></ion-icon>
+                  {{job.distance}} from your location
+                </ion-badge>
+              </ion-card-subtitle>
+            </ion-row>
+          </ion-grid>
           <ion-button class="viewmore" fill="clear" (click)="gocdata(job)">View more
             <ion-icon  name="information-circle" class="edit" ></ion-icon>
           </ion-button>
