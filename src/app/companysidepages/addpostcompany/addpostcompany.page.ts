@@ -96,6 +96,7 @@ export class AddpostcompanyPage implements OnInit {
 
   }
 
+
   async getSafeUrl() { 
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.base64Image);     
 }
@@ -139,4 +140,7 @@ export class AddpostcompanyPage implements OnInit {
     await alert.present();
   }
 
+  undoimage(){
+    this.base64Image = null;
+  }
 }

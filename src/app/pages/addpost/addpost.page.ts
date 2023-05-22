@@ -138,6 +138,10 @@ export class AddpostPage implements OnInit {
     await alert.present();
   }
 
+  undoimage(){
+    this.base64Image = null;
+  }
+
   
 
   
