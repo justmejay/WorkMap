@@ -19,8 +19,15 @@
         </div> -->
       </ng-template>
       </ion-avatar>
-      <ion-label><b>{{post.cname}}</b></ion-label>
-      <ion-label>{{post.fname}} {{post.mname}} {{post.lname}} posted an update</ion-label>
+      <ion-label>
+        {{ post.fname }} {{ post.mname }} {{ post.lname }}
+        <ng-container *ngIf="post.cname; else cname">
+          of <b>{{ post.cname }}</b> posted an update
+        </ng-container>
+        <ng-template #cname>
+          posted an update
+        </ng-template>
+      </ion-label>
     </div>
     <h3>{{post.ptitle}}</h3>
     <span>
