@@ -8,7 +8,7 @@
   </ion-header>
   <ion-content>
     <ion-list *ngFor="let post of post">
-      <h3>{{post.cname}}</h3>
+      <!-- <h3>{{post.cname}}</h3> -->
       <div class="poster">
         <ion-avatar slot="start">
           <img *ngIf="post?.profileimg; else placeholder_avatar;" [src]="post.profileimg" />
@@ -19,7 +19,8 @@
           </div> -->
         </ng-template>
         </ion-avatar>
-        <ion-label>{{post.fname}} {{post.mname}} {{post.lname}} posted 24hrs ago</ion-label>
+        <ion-label><b>{{post.cname}}</b></ion-label>
+        <ion-label>{{post.fname}} {{post.mname}} {{post.lname}} posted an update</ion-label>
       </div>
       <h3>{{post.ptitle}}</h3>
       <span>
@@ -38,6 +39,7 @@
       <!-- <div class="actionbuttons">
         <ion-button fill="clear">Like</ion-button>
       </div> -->
+      <ion-label class="timeposted">Date Posted: {{post.timeStamp}}</ion-label>
     </ion-list>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end"  (click)="addpost(profile, company)">
       <ion-fab-button class="fabdesign">
