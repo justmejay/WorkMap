@@ -74,9 +74,10 @@
       <ion-card *ngFor="let job of job" class="joblisting">
         <ion-card-header>
           <ion-card-title>
-            {{job.jtitle}}
+            {{job.jtitle}}({{job.distance}} from you)
+            
           </ion-card-title>
-          <ion-button class="viewmore" fill="clear" [routerLink]="['/aboutcompany']">View more
+          <ion-button class="viewmore" fill="clear" (click)="gocdata(job)">View more
             <ion-icon  name="information-circle" class="edit" ></ion-icon>
           </ion-button>
           <!-- <ion-card-subtitle>

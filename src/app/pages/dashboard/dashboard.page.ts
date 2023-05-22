@@ -15,6 +15,8 @@ import {
 import { Auth } from '@angular/fire/auth';
 import { Profiler } from 'inspector';
 import { ProfilingService } from 'src/app/services/profiling.service';
+import { GmapService } from 'src/app/services/gmap.service';
+import { ApplicationService } from 'src/app/services/application.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,6 +30,9 @@ export class DashboardPage implements OnInit {
   userarray: any = [];
   userspec: any;
   earray: any =[];
+  fpdata: any = [];
+  fcdata: any = [];
+  distancestorage: any = [];
   constructor(
     private firestore: CompanyService,
     private fb: FormBuilder,
@@ -38,7 +43,9 @@ export class DashboardPage implements OnInit {
     private storage: Storage,
     private authd: Auth,
     private nc: NavController,
-    private profile: ProfilingService
+    private profile: ProfilingService,
+    private maps: GmapService,
+    private app: ApplicationService
   ) {
 
 
@@ -159,13 +166,20 @@ export class DashboardPage implements OnInit {
                     console.log(this.earray)
           
                     this.firestore.getjobs(this.userspec, this.earray).subscribe(res=>{
+
+
           
                     this.job = res;
+                      console.log(this.job);
                     this.job.sort((a, b) => {
                         return b.timesort - a.timesort;
                       });
 
                       for (var i=0; i< res.length; i++){
+
+                        this.computedistance(this.job[i]);
+                      
+                        
           
                         if (this.job[i].attainment == '0'){
                         this.job[i].attainment = 'No Minimum Education Required';
@@ -320,6 +334,38 @@ export class DashboardPage implements OnInit {
 
 
     });
+  }
+
+  gocdata(data: any){
+    console.log(data);
+
+    this.router.navigate(['aboutcompany'], {queryParams:{id: data.uid}});
+
+  }
+
+  computedistance(uid: any){
+    this.app.getcompanydata(uid.uid).subscribe(res=>{
+
+      this.fcdata = res;
+      console.log(this.fcdata);
+
+      this.profile.getcoords().subscribe(res=>{
+        this.fpdata = res;
+        console.log(this.fpdata)
+
+        this.maps.distancecompute(this.fcdata.lat,this.fcdata.lng, this.fpdata.clat, this.fpdata.clng).subscribe(res=>{
+          var storage = res;
+          console.log(uid);
+
+          uid.distance = storage.rows[0].elements[0].distance.text;
+
+
+        });
+
+      });
+
+    });
+
   }
 
 

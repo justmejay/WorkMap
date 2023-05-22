@@ -69,3 +69,18 @@ ion-textarea{
     margin-bottom: 0.10rem;
     margin-top: 0.5rem;
 }
+
+.map {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+    margin-top: -2%;
+  }
+
+  .map.visible {
+    opacity: 1;
+  }
+
