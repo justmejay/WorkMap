@@ -113,6 +113,7 @@ ion-card-header{
 ion-card-title{
     color: whitesmoke;
     padding-top: 0.8rem;
+    font-size: 30px;
 }
 ion-card-subtitle{
     color: whitesmoke;
@@ -211,8 +212,31 @@ ion-badge {
   }
 
   .viewmore{
+    padding-top: 0.3rem;
     color: white;
     text-transform: initial;
     margin-left: auto;
     margin-right: 0;
+  }
+
+  ion-row{
+    margin-top: 0.5rem;
+    padding-bottom: 0.2rem;
+  }
+
+  ion-badge.distance {
+    border-radius: 50px;
+    --color: white;
+    --padding-end: 20px;
+    --padding-start: 20px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .sort{
+    position: -webkit-sticky;
+    position: static;
+    width: 100%;
+    margin-bottom: 0.8rem;
   }
