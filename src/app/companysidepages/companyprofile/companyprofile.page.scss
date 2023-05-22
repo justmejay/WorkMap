@@ -78,14 +78,14 @@ ion-card.cardcontainer {
 ion-card-header{
     --background: #277dff;
     color: whitesmoke;
-    margin: 0%;
+    margin-bottom: 0.2rem;
 }
 ion-card-title{
     color: whitesmoke;
 }
 
 ion-card-content{
-    color: black;
+    color: rgb(255, 255, 255);
     margin: auto;
 }
 
@@ -113,6 +113,7 @@ ion-icon{
 ion-label.cardsubtitle{
     font-size: 1.2em;
     font-weight: 500;
+    color: white;
 }
 
 ion-button.resume{

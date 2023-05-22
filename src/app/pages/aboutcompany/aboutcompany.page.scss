@@ -28,7 +28,8 @@ ion-card.cardcontainer {
 ion-card-header{
     --background: #277dff;
     color: whitesmoke;
-    margin: 0%;
+    // margin: 0%;
+    margin-bottom: 0.5rem;
 }
 ion-card-title{
     color: whitesmoke;
@@ -45,6 +46,7 @@ ion-card-content{
 ion-label.cardsubtitle{
     font-size: 1.2em;
     font-weight: 500;
+    color: white;
 }
 
 
