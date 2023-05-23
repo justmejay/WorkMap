@@ -4,6 +4,7 @@ import { ApplicationService } from 'src/app/services/application.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProfilingService } from 'src/app/services/profiling.service';
 import { LoadingController } from '@ionic/angular';
+import { CompanyService } from 'src/app/services/company.service'
 
 @Component({
   selector: 'app-aboutcompany',
@@ -24,28 +25,34 @@ export class AboutcompanyPage implements OnInit {
   source_marker: any;
   work_marker: any;
 
+  cdetails: any = [];
+
   constructor(
     private maps: GmapService,
     private rendere: Renderer2,
     private app: ApplicationService,
     private activatedRoute: ActivatedRoute,
     private profile: ProfilingService,
-    private loadingController: LoadingController
+    private loadingController: LoadingController,
+    private company: CompanyService,
 
   ) { 
     this.activatedRoute.queryParams.subscribe((params) =>{
 
       this.cdata = params;
-      console.log(this.cdata);
+      // console.log(this.cdata);
+      console.log(this.cdata.id)
+
+     
 
       this.app.getcompanydata(this.cdata.id).subscribe(res=>{
 
         this.fcdata = res;
-        console.log(this.fcdata)
+        // console.log(this.fcdata)
 
         this.profile.getcoords().subscribe(res=>{
           this.fpdata = res;
-          console.log(this.fpdata)
+          // console.log(this.fpdata)
           this.draw();
 
         
@@ -55,6 +62,11 @@ export class AboutcompanyPage implements OnInit {
         });
 
       });
+
+      this.company.getcompanyid(this.cdata.id).subscribe(res=>{
+        this.cdetails = res;
+        console.log(this.cdetails)
+      })
  
       });
   }
