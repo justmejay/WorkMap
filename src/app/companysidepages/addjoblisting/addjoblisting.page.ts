@@ -3087,6 +3087,10 @@ export class AddjoblistingPage implements OnInit {
       jdescription: ['', [Validators.required]],
       jexperience: ['', []],
       attainment: ['', []],
+      lat: ['', []],
+      lng: ['', []],
+
+
 
     });
     

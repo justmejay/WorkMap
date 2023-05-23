@@ -84,7 +84,8 @@
             <ion-select-option class="popoverselect" value="6">Doctorate Degree</ion-select-option>
           </ion-select>
         </ion-item>
-
+        <ion-input formControlName="lat" [hidden]="true"  [value]="job.lat"></ion-input>
+        <ion-input formControlName="lng"  [hidden]="true" [value]="job.lng"></ion-input> 
         </ion-card-content>
       </ion-card>
 

@@ -66,10 +66,10 @@
       <div class="sort">
         <ion-item lines="none">
           <ion-label>Sort by:</ion-label>
-          <ion-select>
-            <ion-select-option>Recent</ion-select-option>
-            <ion-select-option>Distance</ion-select-option>
-            <ion-select-option>Closest Match</ion-select-option>
+          <ion-select  [(ngModel)]="term" (ionChange)="filter()">
+            <ion-select-option value="recent">Recent</ion-select-option>
+            <ion-select-option value="distance">Distance</ion-select-option>
+            <!-- <ion-select-option>Closest Match</ion-select-option> -->
           </ion-select>
         </ion-item>
       </div>
