@@ -12,7 +12,7 @@
     <form [formGroup]="credentials" (ngSubmit)="addpost()"> 
       <ion-card>
         <ion-card-header>
-          <ion-card-title>What's on your mind?</ion-card-title>
+          <ion-card-title>What's to post?</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <ion-input formControlName="ptitle" placeholder="Insert post title"></ion-input>
@@ -25,15 +25,14 @@
               </div> -->
             <!-- </ng-template> -->
             <ion-button expand="block" color="danger" shape="round" (click)="undoimage()">Delete</ion-button>
-            <ion-button shape="round" expand="block" (click)="addImage()">
-              <ion-icon name="image-outline" ></ion-icon>Upload Image
-            </ion-button>
           </div>
           <div class="videoview"></div>
           <div class="linkview"></div>
         </ion-card-content>
         <!-- <ion-button fill="clear">
           <ion-icon name="attach"></ion-icon>Link</ion-button> -->
+        <ion-button fill="clear" (click)="addImage()">
+          <ion-icon name="image-outline" ></ion-icon>Image</ion-button>
         <!-- <ion-button fill="clear">
           <ion-icon name="play-outline"></ion-icon>Video</ion-button> -->
       </ion-card>
