@@ -34,6 +34,7 @@
         [(ngModel)]="term" placeholder="Senior Developer" position="stacked" type="text" style="border:none;">
           </ion-input>
           <!-- <ion-icon name="close-outline"></ion-icon>-->
+          <ion-icon name="backspace-outline" class="reset"></ion-icon>
           <ion-icon name="arrow-undo-outline" class="reset" (click)="reset()"></ion-icon>          
 
         </ion-item>
@@ -49,9 +50,10 @@
           <ng-container>
             
           </ng-container>
-          <ion-label>
-            {{c}}
-          </ion-label>
+          <ion-label>{{c}}</ion-label>
+          <ion-button class="uncheck" fill="clear">
+            <ion-icon name="close-circle-outline"></ion-icon>
+          </ion-button>
 
         </ion-item>
 
