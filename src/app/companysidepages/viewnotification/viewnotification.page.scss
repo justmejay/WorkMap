@@ -19,14 +19,17 @@ ion-card.maincard {
 .maincardpfp{
     display: flex;
     flex-direction: row;
+    align-items: center;
+
    ion-card-title{
-    padding-top: 0.7rem;
-    padding-left: 1rem;
+    // padding-top: 0.7rem;
+    padding-left: 0.7rem;
    }
 }
 ion-card-header.maincard{
     --background: #2F7EF5;
     color: whitesmoke;
+    padding: 0;
 }
 ion-card-title{
     color: whitesmoke;
@@ -37,7 +40,9 @@ ion-card-content.maincard{
     background-color:#a4c7fb;
     color: black;
 }
-
+ion-thumbnail{
+    margin: 0.5rem 0 0.5rem 0.5rem;
+}
 .profilepic{
     height: 15%;
     width: 15%;
@@ -68,6 +73,7 @@ ion-card-content.maincard{
     --border-width: 2px;
     color: #FFFFFF;
     margin-top: 4%;
+    margin-bottom: 4%;
 }
 
 // RESUME BUILDER SCSS
@@ -107,7 +113,7 @@ ion-input.custominput{
     margin-top: 0.5rem;
 }
 ion-textarea{
-    border: solid 1px  rgb(143, 92, 172);
+    border: solid 2px rgb(53, 66, 125);
     border-radius: 15px;
     --background: rgb(242, 237, 245);
     color: black;

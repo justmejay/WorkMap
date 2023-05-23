@@ -206,6 +206,19 @@
                 </a>
                 </ion-card-content>
               </ion-card>
+
+              <ion-card class="subcard" *ngIf="resume">
+                <ion-card-header class="subcard">
+                  <div style="display: flex; justify-content: space-between;">
+                    <ion-card-title>Reason for Applying Job</ion-card-title>
+                    <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editchar']"></ion-icon> -->
+                  </div>
+                </ion-card-header>
+                <ion-card-content class="subcard">
+                  <ion-textarea autosize [readonly]="true"></ion-textarea>
+
+                </ion-card-content>
+              </ion-card>
     </ion-card-content>
   </ion-card>
 
