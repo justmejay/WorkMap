@@ -232,4 +232,10 @@ export class CompanyService {
     }
   }
 
+  getcompanyid(id: any): Observable<Company[]>{
+
+    const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    return docData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
+  }
+
 }
