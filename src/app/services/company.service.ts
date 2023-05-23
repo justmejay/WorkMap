@@ -142,8 +142,8 @@ export class CompanyService {
   }
 
 
-  async addjoblisting({jdescription, jtitle, jsalary, jposition, jtype, jexperience, attainment}: 
-    { jtitle: any, jsalary: any, jposition: any, jtype: any, jdescription: any, jexperience: any, attainment: any } ){
+  async addjoblisting({jdescription, jtitle, jsalary, lat, lng,jposition, jtype, jexperience, attainment}: 
+    { jtitle: any, jsalary: any, jposition: any,lat:any, lng: any, jtype: any, jdescription: any, jexperience: any, attainment: any } ){
 
     try {
 
@@ -155,7 +155,7 @@ export class CompanyService {
       const userget = this.auth.currentUser?.uid;
  
       const userDocRef3 = collection(this.firestore, `joblist/`);
-      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true, attainment, jexperience, timesort: timeStamp, distance: "" });
+      const user = await addDoc(userDocRef3, {uid: userget, jtitle,lat,lng, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true, attainment, jexperience, timesort: timeStamp, distance: "", distancesort: 0 });
 
       const id = user.id;
 

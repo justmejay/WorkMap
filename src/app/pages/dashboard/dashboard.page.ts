@@ -17,6 +17,7 @@ import { Profiler } from 'inspector';
 import { ProfilingService } from 'src/app/services/profiling.service';
 import { GmapService } from 'src/app/services/gmap.service';
 import { ApplicationService } from 'src/app/services/application.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,8 +34,12 @@ export class DashboardPage implements OnInit {
   fpdata: any = [];
   fcdata: any = [];
   distancestorage: any = [];
+  term: any = "recent";
 
   profiles: any = [];
+  initusub: any;
+  sortedarray: any = []; 
+  
 
   constructor(
     private firestore: CompanyService,
@@ -56,81 +61,7 @@ export class DashboardPage implements OnInit {
       console.log(this.profiles);
     });
 
-
-
-
-    // this.profile.verifyschool().then(res =>{
-    //   const a = res;
-
-
-    //       this.profile.verifyresume().then(res =>{
-    //         const d = res;
-
-
-    //         this.profile.verifyrfile().then(res =>{
-    //           const e = res;
-             
-                
-    //           if (a >= 1  && d>=1 && e>=1 ){
-              
-    //             this.button = false;
-
-    //             this.profile.getprofilepref().subscribe(res =>{
-
-    //               this.userarray = res;
-    //               this.userspec = this.userarray.specialization;
-          
-    //               this.profile.getprofile().subscribe(res =>{
-          
-    //                 this.earray = res;
-          
-    //                 this.earray = this.earray.ea;
-    //                 console.log(this.earray)
-          
-    //                 this.firestore.getjobs(this.userspec, this.earray).subscribe(res=>{
-          
-    //                 this.job = res;
-    //                 this.job.sort((a, b) => {
-    //                     return b.timesort - a.timesort;
-    //                   });
-    //                   console.log(this.job);
-             
-    //                 });
-            
-          
-          
-    //               });
-          
-          
-                 
-          
-          
-          
-    //             });
-          
-
-    //           }else{
-    //             this.button  = true;
-    //           }
-
-
-
-    //         });
-
-
-            
-
-    //       });
-
-
-  
-
-      
-
-
-    // });
-
-      
+    this.filter();
      
 
      
@@ -138,124 +69,7 @@ export class DashboardPage implements OnInit {
 
   async ngOnInit() {
  
-   
 
-    const loading = await this.loadingController.create({
-      message:'Validating',
-      spinner: 'dots'
-    });
-
-    await loading.present();
-
-    await this.profile.verifyschool().then(res =>{
-      const a = res;
-
-
-          this.profile.verifyresume().then(res =>{
-            const d = res;
-
-
-            this.profile.verifyrfile().then(res =>{
-              const e = res;
-             
-                
-              if (a >= 1  && d>=1 && e>=1 ){
-              
-                this.button = false;
-
-                this.profile.getprofilepref().subscribe(res =>{
-
-                  this.userarray = res;
-                  this.userspec = this.userarray.specialization;
-          
-                  this.profile.getprofile().subscribe(res =>{
-          
-                    this.earray = res;
-          
-                    this.earray = this.earray.ea;
-                    console.log(this.earray)
-          
-                    this.firestore.getjobs(this.userspec, this.earray).subscribe(res=>{
-
-
-          
-                    this.job = res;
-                      console.log(this.job);
-                    this.job.sort((a, b) => {
-                        return b.timesort - a.timesort;
-                      });
-
-                      for (var i=0; i< res.length; i++){
-
-                        this.computedistance(this.job[i]);
-                      
-                        
-          
-                        if (this.job[i].attainment == '0'){
-                        this.job[i].attainment = 'No Minimum Education Required';
-                        }else if (this.job[i].attainment == '1'){
-                          this.job[i].attainment = 'High School Diploma';
-                        }else  if (this.job[i].attainment == '2'){
-                          this.job[i].attainment = 'Vocational Diploma/Short Course Certificate';
-                        }else if (this.job[i].attainment == '3'){
-                          this.job[i].attainment = 'Bachelors/College Degree';
-                        }else if (this.job[i].attainment == 'Post Graduate Diploma/Masters Degree'){
-                          this.job[i].attainment = 'Vocational Diploma/Short Course Certificate';
-                        }else if (this.job[i].attainment == '5'){
-                          this.job[i].attainment = 'Professional License (Passed Board/Professional/License Exams)';
-                        }else if (this.job[i].attainment == '6'){
-                          this.job[i].attainment = 'Doctorate Degree';
-                        }
-                    
-                
-                
-                      
-                    }
-                      console.log(this.job);
-             
-                    });
-            
-          
-          
-                  });
-          
-          
-                 
-          
-          
-          
-                });
-          
-
-              }else{
-                this.button  = true;
-              }
-
-
-
-            });
-
-
-            
-
-          });
-
-
-  
-
-      
-
-
-    });
-
-      
-
-    await loading.dismiss();
-
-
-
-
-   
 
     
 
@@ -314,9 +128,8 @@ export class DashboardPage implements OnInit {
                     this.firestore.getjobs(this.userspec, this.earray).subscribe(res=>{
           
                     this.job = res;
-                    this.job.sort((a, b) => {
-                        return b.timesort - a.timesort;
-                      });
+                    
+                   
                       console.log(this.job);
              
                     });
@@ -361,31 +174,181 @@ export class DashboardPage implements OnInit {
   }
 
   computedistance(uid: any){
-    this.app.getcompanydata(uid.uid).subscribe(res=>{
-
-      this.fcdata = res;
-      console.log(this.fcdata);
-
-      this.profile.getcoords().subscribe(res=>{
-        this.fpdata = res;
-        console.log(this.fpdata)
-
-        this.maps.distancecompute(this.fcdata.lat,this.fcdata.lng, this.fpdata.clat, this.fpdata.clng).subscribe(res=>{
-          var storage = res;
-          console.log(uid);
-
-          uid.distance = storage.rows[0].elements[0].distance.text;
-
-
-        });
-
-      });
-
-    });
-
+    
   }
 
+  async filter(){
+    
+      const loading = await this.loadingController.create({
+        message:'Validating',
+        spinner: 'dots'
+      });
+  
+      await loading.present();
 
+  
+      await this.profile.verifyschool().then(async res =>{
+        const a = res;
+  
+  
+          await  this.profile.verifyresume().then(async res =>{
+              const d = res;
+  
+  
+              await this.profile.verifyrfile().then(async res =>{
+                const e = res;
+               
+                  
+                if (a >= 1  && d>=1 && e>=1 ){
+                
+                  this.button = false;
+  
+                   this.profile.getprofilepref().subscribe(res =>{
+  
+                    this.userarray = res;
+                    this.userspec = this.userarray.specialization;
+            
+                    this.profile.getprofile().subscribe(async res =>{
+            
+                      this.earray = res;
+            
+                      this.earray = this.earray.ea;
+                      console.log(this.earray)
+            
+                  this.firestore.getjobs(this.userspec, this.earray).subscribe(async res=>{
+  
+  
+            
+                      this.job = res;
+                    
+                   
+                     
+                      
+  
+                        for (let i=0; i< res.length; i++){
+                      
+                            this.profile.getcoords().subscribe(res=>{
+                              this.fpdata = res;
+                              console.log(this.fpdata)
+                      
+                              this.maps.distancecompute(this.job[i].lat,this.job[i].lng, this.fpdata.clat, this.fpdata.clng).subscribe(res=>{
+                                  console.log(res);
+                                this.job[i].distance = res.rows[0].elements[0].distance.text;
+                                this.job[i].distancesort = res.rows[0].elements[0].distance.value;
+
+
+                            if(this.term == "recent"){
+                              timer(100).subscribe(x => { 
+                                this.job.sort((a, b) => {
+                                  
+                               return b.timesort - b.timesort;
+                                });                    
+                              });
+
+                            }else if( this.term == "distance"){
+                              timer(100).subscribe(x => { 
+                                this.job.sort((a, b) => {
+                                  
+                               return a.distancesort - b.distancesort;
+                                });                    
+                              });
+
+                            }
+                        
+                        console.log(this.job);
+
+
+
+                      
+                              });
+                      
+                            });
+  
+  
+            
+                          if (this.job[i].attainment == '0'){
+                          this.job[i].attainment = 'No Minimum Education Required';
+                          }else if (this.job[i].attainment == '1'){
+                            this.job[i].attainment = 'High School Diploma';
+                          }else  if (this.job[i].attainment == '2'){
+                            this.job[i].attainment = 'Vocational Diploma/Short Course Certificate';
+                          }else if (this.job[i].attainment == '3'){
+                            this.job[i].attainment = 'Bachelors/College Degree';
+                          }else if (this.job[i].attainment == 'Post Graduate Diploma/Masters Degree'){
+                            this.job[i].attainment = 'Vocational Diploma/Short Course Certificate';
+                          }else if (this.job[i].attainment == '5'){
+                            this.job[i].attainment = 'Professional License (Passed Board/Professional/License Exams)';
+                          }else if (this.job[i].attainment == '6'){
+                            this.job[i].attainment = 'Doctorate Degree';
+                          }
+
+
+                       
+                      
+                  
+                         
+                      }
+
+                      const test = this.job;
+                      
+
+
+                        
+                      });
+
+                   
+                     
+              
+            
+            
+                    });
+            
+            
+                   
+            
+            
+            
+                  });
+            
+  
+                }else{
+                  this.button  = true;
+                }
+
+            
+  
+  
+  
+              });
+  
+  
+              
+  
+            });
+  
+  
+    
+  
+        
+  
+  
+      });
+  
+        
+  
+      await loading.dismiss();
+  
+  
+  
+  
+     
+  
+      
+  
+
+   
+  }
+ 
 
 
 }
