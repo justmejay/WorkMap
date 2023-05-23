@@ -59,6 +59,7 @@ ion-input.custominput{
     color: black;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    padding-left: 5px;
     // text-align: justify;
 }
 ion-textarea{
@@ -71,11 +72,10 @@ ion-textarea{
 }
 
 .map {
-    margin-bottom: 0.5rem;
     position: absolute;
     height: 40vh;
-    width: 95%;
-    background-color: transparent;
+    width: 90vw;
+    // background-color: transparent;
     opacity: 0;
     transition: opacity 150ms ease-in;
     border-radius: 15px;
@@ -91,5 +91,5 @@ ion-textarea{
     border-radius: 15px;
     margin-bottom: 1rem;
     // border: solid 3px  rgb(53, 66, 125);
-    height: 50vh;
+    height: 55vh;
 }

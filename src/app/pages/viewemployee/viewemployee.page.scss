@@ -53,6 +53,7 @@ ion-input.custominput{
     color: black;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    padding-left: 3px;
     // text-align: justify;
 }
 ion-textarea{
@@ -100,4 +101,8 @@ ion-badge {
   .positionbadges{
     margin-bottom: 0.5rem;
     margin-right: 0.3rem;
+  }
+
+  .jobposition{
+    margin-left: 50px;
   }
