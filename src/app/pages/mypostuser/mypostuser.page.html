@@ -12,7 +12,6 @@
     <ion-list *ngFor="let post of post">
       <!-- <h3>{{post.cname}}</h3> -->
       <ion-card>
-        
         <ion-card-header>
           <div class="poster">
             <ion-avatar slot="start" class="pfp">
@@ -35,10 +34,6 @@
                 </ng-template>
               </ion-label>
             </div>
-            <div class="actions">
-              <ion-icon name="trash"></ion-icon>
-              <ion-icon name="create" [routerLink]="['']"></ion-icon> 
-            </div>
           </div>
         </ion-card-header>
   
@@ -59,7 +54,9 @@
         <!-- <div class="actionbuttons">
           <ion-button fill="clear">Like</ion-button>
         </div> -->
-          <ion-label class="timeposted">Date Posted: {{post.timeStamp}}</ion-label>         
+          <ion-label class="timeposted">Date Posted: {{post.timeStamp}}</ion-label>
+          <ion-icon name="trash"></ion-icon>
+          <ion-icon name="create" [routerLink]="['']"></ion-icon>          
         </ion-card-content>
       </ion-card>
     </ion-list>
