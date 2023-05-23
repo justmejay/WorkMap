@@ -248,15 +248,24 @@ const routes: Routes = [
   {
     path: 'editjoblist',
     loadChildren: () => import('./companysidepages/editjoblist/editjoblist.module').then( m => m.EditjoblistPageModule)
-  },  {
+  },
+  {
     path: 'mypostuser',
     loadChildren: () => import('./pages/mypostuser/mypostuser.module').then( m => m.MypostuserPageModule)
   },
   {
     path: 'mypostcompany',
-    loadChildren: () => import('./pages/mypostcompany/mypostcompany.module').then( m => m.MypostcompanyPageModule)
+    loadChildren: () => import('./companysidepages/mypostcompany/mypostcompany.module').then( m => m.MypostcompanyPageModule)
+  },
+  {
+    path: 'editpostuser',
+    loadChildren: () => import('./pages/editpostuser/editpostuser.module').then( m => m.EditpostuserPageModule)
+  },  {
+    path: 'editpostcompany',
+    loadChildren: () => import('./companysidepages/editpostcompany/editpostcompany.module').then( m => m.EditpostcompanyPageModule)
   },
 
+  
 
 
 
