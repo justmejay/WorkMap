@@ -75,6 +75,14 @@ export class MypostuserPage implements OnInit {
   ngOnInit(
     
   ) {
+    
+  }
+
+  edit(post:any){
+    const id = post.listid
+
+  
+    this.router.navigate(['editpostuser'], {queryParams:{postid:id,}});
   }
 
 }

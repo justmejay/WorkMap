@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
+import { Auth, idToken } from '@angular/fire/auth';
 import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -118,6 +118,29 @@ export class PostService {
       const q = query(cakesRef, where("uid", "==", id ))
       return collectionData(q, {idField: 'id'}) as Observable<[Post]> 
     }
+
+    getpostid(id: any): Observable<Post[]>{
+      const cakesRef = doc(this.firestore, `post/${id}`)
+      return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
+    }
+
+    async editpost({ptitle, pdescription}: 
+      {ptitle: any, pdescription: any}, id: any){
+  
+      try {
+        const userDocRef3 = doc(this.firestore, `post/${id}`);
+        const user = await updateDoc(userDocRef3, {ptitle, pdescription, });
+       
+        return true;
+      } catch (e) {
+        return null;
+      }
+    }
+
+   
+  
+
+    
 }
 
 

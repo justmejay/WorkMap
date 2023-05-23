@@ -3,22 +3,22 @@
         <ion-buttons [routerLink]="['/hometab']" slot="start">
         <ion-icon style="width: 50px; color: white;" name="arrow-back-outline"> </ion-icon>
         </ion-buttons>
-        <ion-title>Add New Post</ion-title> 
+        <ion-title>Edit Post</ion-title> 
     </ion-toolbar>
   </ion-header>
 
 <ion-content>
   <div>
-    <form [formGroup]="credentials" (ngSubmit)="addpost()"> 
-      <ion-card>
+    <form [formGroup]="credentials" (ngSubmit)="editpost()"> 
+      <ion-card *ngIf="post">
         <ion-card-header>
           <ion-card-title>What's to post?</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-input formControlName="ptitle" placeholder="Insert post title"></ion-input>
-          <ion-textarea formControlName="pdescription"  placeholder="lorem ipsum"></ion-textarea>
+          <ion-input formControlName="ptitle" value="{{post.ptitle}}" placeholder="Insert post title"></ion-input>
+          <ion-textarea formControlName="pdescription" value="{{post.pdescription}}" placeholder="lorem ipsum"></ion-textarea>
           <div class="imageview">
-            <img [src]="base64Image" />
+            <img [src]="this.base64Image" />
             <!-- <ng-template #placeholder_avatar> -->
               <!-- <div class="fallback">
                 <p>Select Image</p>
@@ -32,11 +32,11 @@
         <!-- <ion-button fill="clear">
           <ion-icon name="attach"></ion-icon>Link</ion-button> -->
         <ion-button fill="clear" (click)="addImage()">
-          <ion-icon name="image-outline" ></ion-icon>Image</ion-button>
+          <ion-icon name="image-outline" ></ion-icon>Change image</ion-button>
         <!-- <ion-button fill="clear">
           <ion-icon name="play-outline"></ion-icon>Video</ion-button> -->
       </ion-card>
-      <ion-button expand="block" shape="round" size="large"  type="submit">Add post</ion-button>
+      <ion-button expand="block" shape="round" size="large"  type="submit">Update post</ion-button>
     </form>
   </div>
   

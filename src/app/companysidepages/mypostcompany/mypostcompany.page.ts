@@ -77,4 +77,12 @@ export class MypostcompanyPage implements OnInit {
   ) {
   }
 
+  edit(post:any){
+    const id = post.listid
+
+  
+    this.router.navigate(['editpostcompany'], {queryParams:{postid:id,}});
+  }
+
 }
+
