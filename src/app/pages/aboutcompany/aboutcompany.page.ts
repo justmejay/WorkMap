@@ -46,8 +46,7 @@ export class AboutcompanyPage implements OnInit {
      
 
       this.app.getcompanydata(this.cdata.id).subscribe(res=>{
-
-        this.fcdata = res;
+        this.cdetails = res;
         // console.log(this.fcdata)
 
         this.profile.getcoords().subscribe(res=>{
@@ -55,18 +54,11 @@ export class AboutcompanyPage implements OnInit {
           // console.log(this.fpdata)
           this.draw();
 
-        
-
-
-
         });
 
       });
 
-      this.company.getcompanyid(this.cdata.id).subscribe(res=>{
-        this.cdetails = res;
-        console.log(this.cdetails)
-      })
+
  
       });
   }
@@ -96,7 +88,7 @@ export class AboutcompanyPage implements OnInit {
 
     this.work_marker = new googleMaps.Marker({
       map: this.map,
-      position: {lat: this.fcdata.lat, lng: this.fcdata.lng},
+      position: {lat: this.cdetails.lat, lng: this.cdetails.lng},
       icon: 'https://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=corporate|00FFFF'
     });
 
@@ -119,7 +111,7 @@ export class AboutcompanyPage implements OnInit {
 
     this.directionsService.route({
       origin: {lat: this.fpdata.clat, lng: this.fpdata.clng},
-      destination: {lat: this.fcdata.lat, lng: this.fcdata.lng},
+      destination: {lat: this.cdetails.lat, lng: this.cdetails.lng},
       travelMode: 'DRIVING',
       provideRouteAlternatives: false
     }, (response, status) => {
