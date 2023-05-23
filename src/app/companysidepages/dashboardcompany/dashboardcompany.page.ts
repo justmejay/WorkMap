@@ -25,6 +25,8 @@ export class DashboardcompanyPage implements OnInit {
   company: any = [];
   isCheck: boolean;
 
+  employer: any = [];
+
   constructor(
     private firestore: CompanyService,
     private fb: FormBuilder,
@@ -33,8 +35,16 @@ export class DashboardcompanyPage implements OnInit {
     private auth: AuthService,
     private router: Router,
     private storage: Storage,
-    private authd: Auth
+    private authd: Auth,
   ) {
+
+    this.firestore.getemployer().subscribe(res=>{
+
+      this.employer = res;
+
+
+    });
+
 
       
     this.firestore.getcompany().subscribe(res=>{
@@ -103,6 +113,13 @@ export class DashboardcompanyPage implements OnInit {
     const any = job.listid
   
     this.router.navigate(['applicantlist'], {queryParams:{jobid:any}});
+  }
+
+  posts(employer:any){
+    const id = employer.uid
+
+  
+    this.router.navigate(['mypostcompany'], {queryParams:{usid:id,}});
   }
 
   edit(job:any){

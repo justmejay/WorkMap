@@ -112,6 +112,12 @@ export class PostService {
       const cakesRef = doc(this.firestore, `employers/${id}/profile/${id}`)
       return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
     }
+
+    getpostuser(id: any): Observable<Post[]>{
+      const cakesRef = collection(this.firestore, 'post/')
+      const q = query(cakesRef, where("uid", "==", id ))
+      return collectionData(q, {idField: 'id'}) as Observable<[Post]> 
+    }
 }
 
 
