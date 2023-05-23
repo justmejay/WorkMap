@@ -56,7 +56,7 @@
         </div> -->
           <ion-label class="timeposted">Date Posted: {{post.timeStamp}}</ion-label>
           <ion-icon name="trash"></ion-icon>
-          <ion-icon name="create" [routerLink]="['']"></ion-icon>          
+          <ion-icon name="create" (click)="edit(post)"></ion-icon>          
         </ion-card-content>
       </ion-card>
     </ion-list>
