@@ -33,6 +33,9 @@ export class DashboardPage implements OnInit {
   fpdata: any = [];
   fcdata: any = [];
   distancestorage: any = [];
+
+  profiles: any = [];
+
   constructor(
     private firestore: CompanyService,
     private fb: FormBuilder,
@@ -45,8 +48,15 @@ export class DashboardPage implements OnInit {
     private nc: NavController,
     private profile: ProfilingService,
     private maps: GmapService,
-    private app: ApplicationService
+    private app: ApplicationService,
   ) {
+
+    this.profile.getprofile().subscribe(res => {
+      this.profiles = res;
+      console.log(this.profiles);
+    });
+
+
 
 
     // this.profile.verifyschool().then(res =>{
@@ -264,6 +274,13 @@ export class DashboardPage implements OnInit {
 
   
     this.router.navigate(['applytojob'], {queryParams:{jobid:any, cid:id}});
+  }
+
+  posts(profiles:any){
+    const id = profiles.uid
+
+  
+    this.router.navigate(['mypostuser'], {queryParams:{usid:id,}});
   }
 
   async revalidated(){
