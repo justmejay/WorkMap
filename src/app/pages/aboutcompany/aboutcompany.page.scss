@@ -70,26 +70,39 @@ ion-textarea{
     margin-top: 0.5rem;
 }
 
+// .map {
+//     margin-bottom: 0.5rem;
+//     position: absolute;
+//     height: 40vh;
+//     width: 95%;
+//     background-color: transparent;
+//     opacity: 0;
+//     transition: opacity 150ms ease-in;
+//     border-radius: 15px;
+//   }
+
+//   .map.visible {
+//     opacity: 1;
+//   }
 .map {
-    margin-bottom: 0.5rem;
-    position: absolute;
-    height: 40vh;
-    width: 95%;
+    position: relative;
+    height: 300px;
+    width: 100%;
     background-color: transparent;
     opacity: 0;
     transition: opacity 150ms ease-in;
     border-radius: 15px;
   }
-
-  .map.visible {
+  
+.map.visible {
     opacity: 1;
   }
 
-  ion-card.cardcontainermap {
-    --background: #71a8fa;
-    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-    margin-bottom: 1rem;
-    // border: solid 3px  rgb(53, 66, 125);
-    height: 50vh;
-}
+//   ion-card.cardcontainermap {
+//     --background: #71a8fa;
+//     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+//     border-radius: 15px;
+//     margin-bottom: 1rem;
+//     border: solid 3px  rgb(53, 66, 125);
+//     height: 50vh;
+// }
