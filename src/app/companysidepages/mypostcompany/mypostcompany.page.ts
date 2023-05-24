@@ -1,7 +1,7 @@
 import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertController, LoadingController, NavController } from '@ionic/angular';
+import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { PostService } from 'src/app/services/post.service'; 
 import {
@@ -37,6 +37,7 @@ export class MypostcompanyPage implements OnInit {
     private authd: Auth,
     private nc: NavController,
     private activatedRoute: ActivatedRoute,
+    private toastController : ToastController
     
   ) {
 
@@ -84,5 +85,31 @@ export class MypostcompanyPage implements OnInit {
     this.router.navigate(['editpostcompany'], {queryParams:{postid:id,}});
   }
 
+  async delete(post: any){
+    const loading = await this.loadingController.create({
+      spinner: "dots",
+      message: "Deleting up!"
+    });    await loading.present();
+
+    const id = post.id;
+    await this.firestore.deletepost(id);
+    await this.firestore.deletepic(id)
+
+    await loading.dismiss();
+    this.presentToast('Post successfully deleted!');
+
+
+  }
+
+
+  async presentToast(message: any){
+    const toast = await this.toastController.create({
+      message,
+      duration: 1000,
+    });
+    await toast.present();
+  }
+
 }
+
 

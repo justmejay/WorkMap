@@ -7,10 +7,10 @@ import { collectionGroup, CollectionReference, query, Query, queryEqual, updateD
 import { timeStamp } from 'console';
 import { Photo } from '@capacitor/camera';
 import {
+  deleteObject,
   getDownloadURL,
   ref,
   Storage,
-  StorageReference,
   uploadString,
 } from '@angular/fire/storage';
 
@@ -137,7 +137,17 @@ export class PostService {
       }
     }
 
-   
+    deletepost(id: any){
+      const cakeRef = doc(this.firestore, `post/${id}`)
+      return deleteDoc(cakeRef)
+    }
+
+    async deletepic(id: any){
+  
+      const fileStoragePath = `post/${id}/post.png`;
+      const storageRef = ref(this.storage, fileStoragePath);
+      await deleteObject(storageRef);
+    }
   
 
     

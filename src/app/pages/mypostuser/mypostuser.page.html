@@ -55,7 +55,7 @@
           <ion-button fill="clear">Like</ion-button>
         </div> -->
           <ion-label class="timeposted">Date Posted: {{post.timeStamp}}</ion-label>
-          <ion-icon name="trash"></ion-icon>
+          <ion-icon name="trash" (click)="delete(post)" ></ion-icon>
           <ion-icon name="create" (click)="edit(post)"></ion-icon>          
         </ion-card-content>
       </ion-card>
