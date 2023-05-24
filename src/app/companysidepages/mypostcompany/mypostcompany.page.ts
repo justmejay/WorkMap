@@ -64,6 +64,10 @@ export class MypostcompanyPage implements OnInit {
       this.firestore.getpostuser(this.employer.usid).subscribe(res=> {
         this.post = res;
         console.log(this.post)
+
+        this.post.sort((a, b) => {
+          return b.timesort - a.timesort;
+        });
       })
 
     })
