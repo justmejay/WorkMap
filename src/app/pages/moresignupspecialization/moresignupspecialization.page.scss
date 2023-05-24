@@ -17,10 +17,7 @@ ion-card {
     --background: #71a8fa;
     color: azure;
 }
-ion-card-title{
-    color: azure;
-    font-weight: 300;
-}
+
 ion-card-content{
     color: white;
     margin: auto;
@@ -124,12 +121,6 @@ ion-checkbox{
     color: black;
 }
 
-.reset{
-    // margin-top: 0.5rem;
-    margin-right: 0.5rem;
-    float: right;
-}
-
 ion-icon{
     --background: white;
 }
@@ -141,4 +132,19 @@ ion-card-header{
 
 ion-item.customitem{
     height: 50px;
+}
+
+.reset{
+    // margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    float: right;
+}
+ion-card-title{
+    color: white;
+}
+
+.uncheck{
+    margin-left: auto;
+    margin-right: 0;
+    color: white;
 }
