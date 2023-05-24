@@ -96,7 +96,7 @@
       </ion-card-header>
       <ion-card-content>
             <ion-label position="stacked">Company Overview:</ion-label>
-            <ion-textarea formControlName="cdetails" [value]="company.cdetails" autogrow="true" class="custominput"></ion-textarea>
+            <ion-textarea autoGrow="true" formControlName="cdetails" [value]="company.cdetails" autogrow="true" class="custominput"></ion-textarea>
 
           <ion-note slot="error" *ngIf="(cdetails.dirty || cdetails.touched) && cdetails.errors">Required</ion-note>
       </ion-card-content>
