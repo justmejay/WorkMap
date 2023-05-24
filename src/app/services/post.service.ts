@@ -55,7 +55,7 @@ export class PostService {
       const userget = this.auth.currentUser?.uid;
  
       const userDocRef3 = collection(this.firestore, `post/`);
-      const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp: date2, listid: ""});
+      const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp: date2, listid: "", timesort: timeStamp,});
 
       const id = user.id;
 

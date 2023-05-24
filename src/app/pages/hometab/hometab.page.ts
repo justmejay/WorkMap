@@ -41,6 +41,10 @@ export class HometabPage implements OnInit {
       this.firestore.getpost().subscribe(res=>{
         this.post = res;
         console.log(this.post)
+
+        this.post.sort((a, b) => {
+          return b.timesort - a.timesort;
+        });
       })
 
       this.firestore.getprofile().subscribe(res => {
