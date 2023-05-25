@@ -85,6 +85,8 @@ export interface Application{
   experiencedetails: any,
 
   job:any;
+  jobid: any;
+  uid: any;
 }
 
 
@@ -156,9 +158,22 @@ export class ApplicationService {
 
  
   addApplication(application:Application){
-    const user  = this.auth.currentUser
+    console.log(application);
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
     const applicationRef = collection(this.firestore, `application`)
-    const pass =  addDoc (applicationRef, application)
+    const pass =  addDoc (applicationRef, {application, timeStamp, time: date2})
+
+
+     const applicationRef1 = collection(this.firestore, `joblist/${application.jobid}/exceptions/`)
+    const pass1 =  addDoc (applicationRef1, {uid: application.uid})
+
+
+
+
+
 
     return pass;
 

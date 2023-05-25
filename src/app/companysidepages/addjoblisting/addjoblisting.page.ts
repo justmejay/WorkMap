@@ -3140,6 +3140,11 @@ export class AddjoblistingPage implements OnInit {
   }
 
 
+  clear(){
+    this.term = "";
+  }
+
+
 
 
   async showAlert(header: any, message: any) {

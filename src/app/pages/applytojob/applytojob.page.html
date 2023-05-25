@@ -173,7 +173,7 @@
           <ion-label position="stacked" class="cardsubtitle"> Resume Attachments</ion-label>
           <!-- <a href="{{resume.fpath}}"formControlName="fpathr" ><ion-button color="success" >Download</ion-button>
           </a> -->
-          <ion-input position="stacked" [readonly]="true" class="custominput" value="{{resumedetails.fpath}}"></ion-input>
+          <ion-input position="stacked" [readonly]="true" class="custominput" value="Supplied"></ion-input>
       </ion-card-content>
     </ion-card>
 
@@ -189,7 +189,7 @@
 
       </ion-card-content>
     </ion-card>
-    <ion-button size="large" shape="round" expand="block" (click)="addApplication()">Submit Application</ion-button>
+    <ion-button size="large" [disabled]="!credentials.valid" shape="round" expand="block" (click)="addApplication()">Submit Application</ion-button>
   </form>
   </ion-content>
 
