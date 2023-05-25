@@ -161,6 +161,9 @@ export class CompanyService {
 
       const userDocRef4 = doc(this.firestore, `joblist/${id}`);
       const user2 = await updateDoc(userDocRef4, {listid: id });
+
+      const userDocRef5 = collection(this.firestore, `joblist/${id}/exceptions/`);
+      const user3 = await addDoc(userDocRef5, {userid: "initial"});
       
 
 
@@ -204,8 +207,8 @@ export class CompanyService {
 
     try {
       const userget = this.auth.currentUser?.uid;
-      const userDocRef3 = doc(this.firestore, `joblist/${state}`);
-      const user = await updateDoc(userDocRef3, {state: value});
+      const userDocRef3 = collection(this.firestore, `joblist/${state}`);
+      const user = await addDoc(userDocRef3, {state: value});
      
       return true;
     } catch (e) {

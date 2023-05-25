@@ -3173,4 +3173,10 @@ export class MoresignupspecializationPage implements OnInit {
     this.term = ""
     this.queryinit = [];
   }
+
+  clear(){
+    this.term = "";
+  }
+
+
 }

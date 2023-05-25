@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ApplicationService } from 'src/app/services/application.service';
 // import { CompanyService } from 'src/app/services/company.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -60,6 +60,7 @@ export class ApplytojobPage implements OnInit {
     private storage: Storage,
     private authd: Auth,
     private activatedRoute: ActivatedRoute,
+    private toastController: ToastController
   ) { 
 
     this.activatedRoute.queryParams.subscribe((params) =>{
@@ -90,9 +91,7 @@ export class ApplytojobPage implements OnInit {
 
     })
 
-    // this.firestore.getjob().subscribe(res =>{
-    //     this.job = res;
-    //   });
+ 
 
     this.job = params;
     console.log(this.job)
@@ -119,6 +118,12 @@ export class ApplytojobPage implements OnInit {
   }
 
   async addApplication() {
+
+    const loading  =  await this.loadingController.create({
+      message: 'Submitting Application',
+      spinner: 'dots',
+    });
+    await loading.present();
     const application = {
       addressdetails: this.addressdetails,
       resumedetails: this.resumedetails,
@@ -141,8 +146,15 @@ export class ApplytojobPage implements OnInit {
       ...this.credentials.value,
       ...id
     });
-    
+    await loading.dismiss();
     this.router.navigateByUrl('/dashboard', { replaceUrl: true });
+    const present = await this.toastController.create({
+      message: 'Application Success',
+      duration: 1000
+    });
+    await present.present();
+   
+
   }
   
   

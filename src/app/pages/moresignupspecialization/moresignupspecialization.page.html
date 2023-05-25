@@ -23,7 +23,7 @@
           <!-- <ion-searchbar  show-clear-button="focus" value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" animated="true" placeholder="Job Positions"></ion-searchbar> -->
           <ion-item class="customitem">
             <ion-input value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" placeholder="Job Positions" position="stacked" type="text"></ion-input>
-            <ion-icon name="backspace-outline" class="reset"></ion-icon>
+            <ion-icon name="backspace-outline" (click)="clear()" class="reset"></ion-icon>
             <ion-icon name="arrow-undo-outline" class="reset" (click)="reset()" ></ion-icon>          
           </ion-item>
 
@@ -41,9 +41,9 @@
                     <ion-label>
                       {{c}}
                     </ion-label> 
-                    <ion-button class="uncheck" fill="clear">
+                    <!-- <ion-button class="uncheck" fill="clear">
                       <ion-icon name="close-circle-outline"></ion-icon>
-                    </ion-button>
+                    </ion-button> -->
                   </ion-item>
 
       </ion-card-content>
