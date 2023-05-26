@@ -15,6 +15,67 @@ import {
 } from '@angular/fire/storage';
 import { Auth } from '@angular/fire/auth';
 
+export interface User{
+  //id is optional and not required
+  //profile
+  id?: string,
+  profileimg: string,
+  specialization: string,
+  age: number,
+  bday: string,
+  contact: number, 
+  email: string,
+  fname: string,
+  gender: string,
+  lname: string,
+  mname: string,
+  suffix: string,
+  aboutme: string,
+  exception: any,
+  
+
+  //certifications
+
+  fpath: string,
+  name: string,
+  orgn: string, 
+  year: number,
+
+  //experience
+  caddress: string,
+  cname: string,
+  datef: string,
+  datet: string,
+  jtitle: string,
+
+  //school
+  course:string,
+  level: string,
+  ongoing: string,
+  schoolname: string,
+  yearg: string,
+  
+
+  //addressadd
+  clat: string;
+  clng: string;
+  currentPlaceID: string;
+  currentaddress: string;
+  homePlaceID: string;
+  homeaddress: string;
+  lat: string;
+  lng: string;
+
+  job:any;
+
+
+
+
+
+  
+}
+
+
 @Component({
   selector: 'app-applytojob',
   templateUrl: './applytojob.page.html',
@@ -27,6 +88,7 @@ export class ApplytojobPage implements OnInit {
   certificationsdetails: any = []; 
   schooldetails: any = [];
   experiencedetails: any = [];
+  listdetails: any = [];
 
   reas: any = [];
   credentials: FormGroup;
@@ -91,6 +153,8 @@ export class ApplytojobPage implements OnInit {
 
     })
 
+   
+
  
 
     this.job = params;
@@ -99,8 +163,19 @@ export class ApplytojobPage implements OnInit {
     console.log(this.cid)
 
     
+    this.firestore.getjoblist(this.job.jobid).subscribe(res=>{
+     this.listdetails = res;
+     console.log(this.profiledetails.uid);
+     
+    if(res.length == undefined){
+      this.listdetails.exception[0] = this.profiledetails.uid;
+    }else{
+      console.log("irun")
+      this.listdetails.exception[res.length] = this.profiledetails.uid;
+    }
+    console.log(this.listdetails)
 
-
+    });
 
 
      });
@@ -119,6 +194,8 @@ export class ApplytojobPage implements OnInit {
 
   async addApplication() {
 
+
+
     const loading  =  await this.loadingController.create({
       message: 'Submitting Application',
       spinner: 'dots',
@@ -135,6 +212,7 @@ export class ApplytojobPage implements OnInit {
       mname: this.profiledetails.mname,
       lname: this.profiledetails.lname,
       profileimg: this.profiledetails.profileimg,
+      
     };
 
     const id = {
@@ -144,8 +222,8 @@ export class ApplytojobPage implements OnInit {
     const get = await this.firestore.addApplication({
       ...application, 
       ...this.credentials.value,
-      ...id
-    });
+      ...id,
+    }, this.listdetails.exception);
     await loading.dismiss();
     this.router.navigateByUrl('/dashboard', { replaceUrl: true });
     const present = await this.toastController.create({

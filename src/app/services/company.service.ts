@@ -155,15 +155,15 @@ export class CompanyService {
       const userget = this.auth.currentUser?.uid;
  
       const userDocRef3 = collection(this.firestore, `joblist/`);
-      const user = await addDoc(userDocRef3, {uid: userget, jtitle,lat,lng, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true, attainment, jexperience, timesort: timeStamp, distance: "", distancesort: 0 });
+      const user = await addDoc(userDocRef3, {uid: userget, jtitle,lat,lng, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true, attainment, jexperience, timesort: timeStamp, distance: "", distancesort: 0,exception: [] });
 
       const id = user.id;
 
       const userDocRef4 = doc(this.firestore, `joblist/${id}`);
       const user2 = await updateDoc(userDocRef4, {listid: id });
 
-      const userDocRef5 = collection(this.firestore, `joblist/${id}/exceptions/`);
-      const user3 = await addDoc(userDocRef5, {userid: "initial"});
+      // const userDocRef5 = collection(this.firestore, `joblist/${id}/exceptions/`);
+      // const user3 = await addDoc(userDocRef5, {userid: "initial"});
       
 
 
@@ -194,9 +194,10 @@ export class CompanyService {
   getjobs(spec: any, ea: any): Observable<Company[]>{
     console.log(spec);
     console.log(ea);
-
+  const uid = this.auth.currentUser.uid;
+  console.log(uid);
     const cakesRef = collection(this.firestore, 'joblist')
-    const q = query(cakesRef, where("state", "==", true), where("jposition", "array-contains-any", spec), where("attainment", "<=", ea ))
+    const q = query(cakesRef, where("state", "==", true), where("jposition", "array-contains-any", spec),where("attainment", "<=", ea))
     return collectionData(q, {idField: 'userget'}) as Observable<[Company]> 
 
     

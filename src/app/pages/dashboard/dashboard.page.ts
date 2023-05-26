@@ -122,14 +122,14 @@ export class DashboardPage implements OnInit {
           
                     this.earray = res;
           
-                    this.earray = this.earray.ea;
                     console.log(this.earray)
           
-                    this.firestore.getjobs(this.userspec, this.earray).subscribe(res=>{
+                    this.firestore.getjobs(this.userspec, this.earray.ea).subscribe(res=>{
           
                     this.job = res;
                     
                    
+                      console.log(this.job);
                       console.log(this.job);
              
                     });
