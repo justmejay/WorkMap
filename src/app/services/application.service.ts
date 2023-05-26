@@ -31,6 +31,8 @@ export interface User{
   mname: string,
   suffix: string,
   aboutme: string,
+  exception: any,
+  
 
   //certifications
 
@@ -87,6 +89,7 @@ export interface Application{
   job:any;
   jobid: any;
   uid: any;
+  exception: any;
 }
 
 
@@ -156,8 +159,16 @@ export class ApplicationService {
     return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 
+  getjoblist(id: any): Observable<User[]>{
+  
+    const cakesRefe = doc(this.firestore, `joblist/${id}`)
+    return docData(cakesRefe, {idField: 'id'}) as Observable<User[]>
+  }
+
+
  
-  addApplication(application:Application){
+  addApplication(application:Application, list: any){
+    console.log(list);
     console.log(application);
     const timeStamp = Date.now();
     const date: Date = new Date(timeStamp);
@@ -167,8 +178,8 @@ export class ApplicationService {
     const pass =  addDoc (applicationRef, {application, timeStamp, time: date2})
 
 
-     const applicationRef1 = collection(this.firestore, `joblist/${application.jobid}/exceptions/`)
-    const pass1 =  addDoc (applicationRef1, {uid: application.uid})
+     const applicationRef1 = doc(this.firestore, `joblist/${application.jobid}/`)
+      const pass1 =  updateDoc (applicationRef1, {exception: list});
 
 
 
