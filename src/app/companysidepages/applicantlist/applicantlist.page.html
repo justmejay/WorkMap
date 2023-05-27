@@ -20,10 +20,17 @@
 
 <ion-item button detail="true" (click)="profiledetails(jobs)" *ngFor="let jobs of jobs">
   <ion-avatar slot="start">
-    <img alt="Profile piture" src="assets/header.png" />
+    <img alt="Profile piture" *ngIf="jobs.application?.profileimg; else alt" src="jobs.application.profileimg" />
+    <ng-template #alt>
+
+      <img alt="Profile piture" src="assets/header.png" />
+
+    </ng-template>
+
+
   </ion-avatar>
   <ion-label>
-    <ion-label>{{jobs.fname}} {{jobs.mname}} {{jobs.lname}}</ion-label>
+    <ion-label>{{jobs.application.fname}} {{jobs.application.mname}} {{jobs.application.lname}}</ion-label>
     <ion-label *ngFor="let title of title">has applied in your "{{title.jtitle}}" Listing</ion-label>
   </ion-label>
 </ion-item>

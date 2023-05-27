@@ -23,7 +23,6 @@ import { Auth } from '@angular/fire/auth';
 export class ApplicantlistPage implements OnInit {
 
   job: any = [];
-  
   jobid: any;
 
   jobs: any = [];

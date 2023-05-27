@@ -13,6 +13,7 @@ import {
   deleteObject
 } from '@angular/fire/storage';
 import { Auth } from '@angular/fire/auth';
+import { ApplicationService } from 'src/app/services/application.service';
 
 @Component({
   selector: 'app-dashboardcompany',
@@ -24,6 +25,7 @@ export class DashboardcompanyPage implements OnInit {
   dateposted: any;
   company: any = [];
   isCheck: boolean;
+  notifcount: any;
 
   employer: any = [];
 
@@ -36,11 +38,19 @@ export class DashboardcompanyPage implements OnInit {
     private router: Router,
     private storage: Storage,
     private authd: Auth,
+    private app: ApplicationService
   ) {
 
     this.firestore.getemployer().subscribe(res=>{
 
       this.employer = res;
+
+
+    });
+
+    this.app.getnotif().subscribe(res=>{
+
+      this.notifcount = res.length;
 
 
     });
