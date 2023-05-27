@@ -268,7 +268,15 @@ const routes: Routes = [
   {
     path: 'viewapplicants',
     loadChildren: () => import('./companysidepages/viewapplicants/viewapplicants.module').then( m => m.ViewapplicantsPageModule)
+  },  {
+    path: 'aboutus',
+    loadChildren: () => import('./pages/aboutus/aboutus.module').then( m => m.AboutusPageModule)
   },
+  {
+    path: 'aboutusc',
+    loadChildren: () => import('./companysidepages/aboutusc/aboutusc.module').then( m => m.AboutuscPageModule)
+  },
+
 
   
 
