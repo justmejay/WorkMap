@@ -197,7 +197,7 @@ export class CompanyService {
   const uid = this.auth.currentUser.uid;
   console.log(uid);
     const cakesRef = collection(this.firestore, 'joblist')
-    const q = query(cakesRef, where("state", "==", true), where("jposition", "array-contains-any", spec),where("attainment", "<=", ea))
+    const q = query(cakesRef, where("state", "==", true), where("jposition", "array-contains-any", spec), where("attainment", "<=", ea));
     return collectionData(q, {idField: 'userget'}) as Observable<[Company]> 
 
     

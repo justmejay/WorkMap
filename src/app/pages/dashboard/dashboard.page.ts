@@ -39,6 +39,8 @@ export class DashboardPage implements OnInit {
   profiles: any = [];
   initusub: any;
   sortedarray: any = []; 
+  finalbook: any = [];
+  verdict: boolean = false;
   
 
   constructor(
@@ -128,9 +130,13 @@ export class DashboardPage implements OnInit {
           
                     this.job = res;
                     
-                   
-                      console.log(this.job);
-                      console.log(this.job);
+                      console.log(this.job[0].exception.length);
+
+                      // for (var i = 0;i<res.length;i++){
+
+                      //  for 
+
+                      // }
              
                     });
             
@@ -212,15 +218,36 @@ export class DashboardPage implements OnInit {
             
                       this.earray = res;
             
-                      this.earray = this.earray.ea;
+                      this.earray = this.earray;
                       console.log(this.earray)
             
-                  this.firestore.getjobs(this.userspec, this.earray).subscribe(async res=>{
+                  this.firestore.getjobs(this.userspec, this.earray.ea).subscribe(async res=>{
+
+
   
   
             
                       this.job = res;
-                    
+                      console.log(this.job[0].exception.length);
+
+                      for (var i = 0;i<res.length;i++){
+
+                       for (var j = 0; j<this.job[i].exception.length ; j++){
+                        console.log(this.job[i].exception[j]);
+                        console.log(this.earray)
+
+                          if (this.job[i].exception[j] == this.earray.uid){
+                            this.verdict = true;
+                          }
+
+                          if (this.verdict == false){
+                            this.finalbook.push(this.job[i]);
+                          }
+
+
+                       }
+
+                      }
                    
                      
                       
