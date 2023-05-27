@@ -167,7 +167,7 @@ export class ApplicationService {
 
 
  
-  addApplication(application:Application, list: any){
+  async addApplication(application:Application, list: any){
     console.log(list);
     console.log(application);
     const timeStamp = Date.now();
@@ -175,11 +175,14 @@ export class ApplicationService {
 
     const date2 = date.toLocaleString();
     const applicationRef = collection(this.firestore, `application`)
-    const pass =  addDoc (applicationRef, {application, timeStamp, time: date2})
+    const pass = await addDoc (applicationRef, {application, timeStamp, time: date2})
 
 
      const applicationRef1 = doc(this.firestore, `joblist/${application.jobid}/`)
       const pass1 =  updateDoc (applicationRef1, {exception: list});
+
+    const applicationRefx = doc(this.firestore, `notifications/${pass.id}`)
+    const passx =  setDoc (applicationRefx, {application, timeStamp, time: date2})
 
 
 
@@ -193,7 +196,7 @@ export class ApplicationService {
   
   getapplicants(id: any): Observable<User[]>{
     const cakesRef = collection(this.firestore, 'application/')
-    const q = query(cakesRef, where("jobid", "==", id ))
+    const q = query(cakesRef, where("application.jobid", "==", id ))
     return collectionData(q, {idField: 'id'}) as Observable<[User]> 
   }
 
@@ -240,6 +243,14 @@ export class ApplicationService {
   getcompanydata(id: any): Observable<User[]>{
     const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
     return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
+  getnotif(): Observable<User[]>{
+    const uid = this.auth.currentUser.uid ;
+     console.log(uid);
+    const cakesRef = collection(this.firestore, `notifications`);
+    const q = query(cakesRef, where("application.cid", "==",uid ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 
   

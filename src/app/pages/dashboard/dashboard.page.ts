@@ -228,23 +228,25 @@ export class DashboardPage implements OnInit {
   
             
                       this.job = res;
-                      console.log(this.job[0].exception.length);
+                      console.log(this.job);
 
                       for (var i = 0;i<res.length;i++){
 
-                       for (var j = 0; j<this.job[i].exception.length ; j++){
-                        console.log(this.job[i].exception[j]);
-                        console.log(this.earray)
-
-                          if (this.job[i].exception[j] == this.earray.uid){
-                            this.verdict = true;
-                          }
-
-                          if (this.verdict == false){
-                            this.finalbook.push(this.job[i]);
-                          }
-
-
+                       if(this.job[i].exception.length == 0){
+                        this.finalbook.push(this.job[i]);
+                       }else{
+                        for (var j = 0; j<this.job[i].exception.length ; j++){
+                          console.log(this.job[i].exception[j]);
+                          console.log(this.earray)
+  
+                            if (this.job[i].exception[j] == this.earray.uid){
+                              this.verdict = true;
+                            }
+  
+                            if (this.verdict == false){
+                              this.finalbook.push(this.job[i]);
+                            }
+                         }
                        }
 
                       }
