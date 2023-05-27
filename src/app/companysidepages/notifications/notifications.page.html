@@ -8,7 +8,7 @@
 </ion-header>
 
   <ion-content>
-    <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
       <ng-template>
         <div class="block">
           <ion-button expand="block" color="danger" shape="round">Delete Notification</ion-button>
@@ -37,5 +37,26 @@
         <!-- <ion-button class="review" type="Submit"  expand="block" fill="solid" shape="round" [routerLink]="['/viewnotification']">Review Application</ion-button> -->
       </ion-card-content>
     </ion-card>
+    
+      <ion-item class="clickable"  button detail="true" [routerLink]="['/viewnotification']">
+        <ion-avatar slot="start">
+          <img alt="Profile piture" src="assets/header.png" />
+        </ion-avatar>
+        <ion-label>
+          <ion-label>John D. Dow</ion-label>
+          <ion-label class="ion-text-wrap">has applied to your "JobTitle" listing.</ion-label>
+          <ion-label>9:50 AM</ion-label>
+        </ion-label>
+      </ion-item>
+  
+      <ion-item class="static" button detail="true" [routerLink]="['/viewemployee']">
+        <ion-avatar slot="start">
+          <img alt="Profile piture" src="assets/header.png" />
+        </ion-avatar>
+        <ion-label>
+          <ion-label class="ion-text-wrap">John D. Dow's contract will end on DD/MM/YYYY</ion-label>
+          <ion-label>9:50 AM</ion-label>
+        </ion-label>
+      </ion-item>
   </ion-content>
 

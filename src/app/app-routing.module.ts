@@ -171,7 +171,7 @@ const routes: Routes = [
   },
   {
     path: 'viewemployee',
-    loadChildren: () => import('./pages/viewemployee/viewemployee.module').then( m => m.ViewemployeePageModule)
+    loadChildren: () => import('./companysidepages/viewemployee/viewemployee.module').then( m => m.ViewemployeePageModule)
   },
   {
     path: 'rateemployee',
@@ -260,9 +260,14 @@ const routes: Routes = [
   {
     path: 'editpostuser',
     loadChildren: () => import('./pages/editpostuser/editpostuser.module').then( m => m.EditpostuserPageModule)
-  },  {
+  },
+  {
     path: 'editpostcompany',
     loadChildren: () => import('./companysidepages/editpostcompany/editpostcompany.module').then( m => m.EditpostcompanyPageModule)
+  },
+  {
+    path: 'viewapplicants',
+    loadChildren: () => import('./companysidepages/viewapplicants/viewapplicants.module').then( m => m.ViewapplicantsPageModule)
   },
 
   
