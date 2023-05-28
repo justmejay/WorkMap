@@ -18,13 +18,13 @@
           <ion-input formControlName="ptitle" placeholder="Insert post title"></ion-input>
           <ion-textarea formControlName="pdescription"  placeholder="lorem ipsum"></ion-textarea>
           <div class="imageview">
-            <img *ngIf="post?.imageUrl; else placeholder_avatar;" [src]="post.imageUrl" />
-            <ng-template #placeholder_avatar>
+            <img [src]="base64Image" />
+            <!-- <ng-template #placeholder_avatar> -->
               <!-- <div class="fallback">
                 <p>Select Image</p>
               </div> -->
-            </ng-template>
-            <ion-button expand="block" color="danger" shape="round">Delete</ion-button>
+            <!-- </ng-template> -->
+            <ion-button expand="block" color="danger" shape="round" (click)="undoimage()">Delete</ion-button>
           </div>
           <div class="videoview"></div>
           <div class="linkview"></div>

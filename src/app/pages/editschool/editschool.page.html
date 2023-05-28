@@ -27,25 +27,16 @@
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Level:</ion-label>
-            <ion-select  value="{{sch.level}}" formControlName="level" placeholder="Select Level">
+            <ion-select  value="{{sch.level}}" formControlName="level" interface="action-sheet" placeholder="Select Level">
               <ion-select-option value="Primary">Primary</ion-select-option>
               <ion-select-option value="Secondary">Secondary</ion-select-option>
               <ion-select-option value="College">College</ion-select-option>
             </ion-select>
           </ion-item>
-          <ion-item >
+          <ion-item>
             <ion-label position="stacked">Year Graduated:</ion-label>
-            <ion-input position="stacked" value="{{sch.yearg}}" formControlName="yearg" type="date"></ion-input>
-          
-
-              <ion-modal [keepContentsMounted]="true">
-                <ng-template>
-                  <ion-icon name="calendar-number-outline"></ion-icon>
-                  <ion-datetime id="date" datetime="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
-                </ng-template>
-              </ion-modal>
-
-        </ion-item>
+            <ion-input   value="{{sch.yearg}}" position="stacked" formControlName="yearg" type="number" class="custominput"></ion-input>
+          </ion-item>
         
       </ion-card-content>
     </ion-card>

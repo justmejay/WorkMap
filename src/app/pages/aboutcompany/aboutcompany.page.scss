@@ -10,7 +10,9 @@ ion-header{
         color: white;
     }
 }
-
+.btn{
+    color: #ffffff; 
+}
 ion-card{
     --background: #71a8fa;
     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
@@ -28,7 +30,8 @@ ion-card.cardcontainer {
 ion-card-header{
     --background: #277dff;
     color: whitesmoke;
-    margin: 0%;
+    // margin: 0%;
+    margin-bottom: 0.5rem;
 }
 ion-card-title{
     color: whitesmoke;
@@ -45,6 +48,7 @@ ion-card-content{
 ion-label.cardsubtitle{
     font-size: 1.2em;
     font-weight: 500;
+    color: white;
 }
 
 
@@ -67,3 +71,49 @@ ion-textarea{
     margin-bottom: 0.10rem;
     margin-top: 0.5rem;
 }
+
+// .map {
+//     margin-bottom: 0.5rem;
+//     position: absolute;
+//     height: 40vh;
+//     width: 95%;
+//     background-color: transparent;
+//     opacity: 0;
+//     transition: opacity 150ms ease-in;
+//     border-radius: 15px;
+//   }
+
+//   .map.visible {
+//     opacity: 1;
+//   }
+.map {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    background-color: transparent;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+    border-radius: 15px;
+  }
+  
+.map.visible {
+    opacity: 1;
+  }
+
+//   ion-card.cardcontainermap {
+//     --background: #71a8fa;
+//     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+//     border-radius: 15px;
+//     margin-bottom: 1rem;
+//     border: solid 3px  rgb(53, 66, 125);
+//     height: 50vh;
+// }
+.companylogo {
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+  }

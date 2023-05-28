@@ -41,6 +41,10 @@ export class HometabPage implements OnInit {
       this.firestore.getpost().subscribe(res=>{
         this.post = res;
         console.log(this.post)
+
+        this.post.sort((a, b) => {
+          return b.timesort - a.timesort;
+        });
       })
 
       this.firestore.getprofile().subscribe(res => {
@@ -60,12 +64,13 @@ export class HometabPage implements OnInit {
     const uid = profile.uid
     const fname = profile.fname
     const mname = profile.mname
+    const profileimg = profile.profileimg
     const lname = profile.lname
     
     const cname = null
 
   
-    this.router.navigate(['addpost'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname, pcname: cname,}});
+    this.router.navigate(['addpost'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname, pprofileimg: profileimg, pcname: cname,}});
   }
 
   

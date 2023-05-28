@@ -13,6 +13,7 @@ import {
   deleteObject
 } from '@angular/fire/storage';
 import { Auth } from '@angular/fire/auth';
+import { ApplicationService } from 'src/app/services/application.service';
 
 @Component({
   selector: 'app-dashboardcompany',
@@ -24,6 +25,9 @@ export class DashboardcompanyPage implements OnInit {
   dateposted: any;
   company: any = [];
   isCheck: boolean;
+  notifcount: any;
+
+  employer: any = [];
 
   constructor(
     private firestore: CompanyService,
@@ -33,23 +37,67 @@ export class DashboardcompanyPage implements OnInit {
     private auth: AuthService,
     private router: Router,
     private storage: Storage,
-    private authd: Auth
+    private authd: Auth,
+    private app: ApplicationService
   ) {
+
+    this.firestore.getemployer().subscribe(res=>{
+
+      this.employer = res;
+
+
+    });
+
+    this.app.getnotif().subscribe(res=>{
+
+      this.notifcount = res.length;
+
+
+    });
+
 
       
     this.firestore.getcompany().subscribe(res=>{
-      this.job = res;
-      console.log(this.job)
+
       this.company = res;
 
 
-    })
+    });
     
     this.firestore.getjobc().subscribe(res=>{
       this.job = res;
+      console.log(res.length);
 
+      this.job.sort((a, b) => {
+        return b.timesort - a.timesort;
+      });
 
+   
+        for (var i=0; i< res.length; i++){
+          
+          if (this.job[i].attainment == '0'){
+          this.job[i].attainment = 'No Minimum Education Required';
+          }else if (this.job[i].attainment == '1'){
+            this.job[i].attainment = 'High School Diploma';
+          }else  if (this.job[i].attainment == '2'){
+            this.job[i].attainment = 'Vocational Diploma/Short Course Certificate';
+          }else if (this.job[i].attainment == '3'){
+            this.job[i].attainment = 'Bachelors/College Degree';
+          }else if (this.job[i].attainment == 'Post Graduate Diploma/Masters Degree'){
+            this.job[i].attainment = 'Vocational Diploma/Short Course Certificate';
+          }else if (this.job[i].attainment == '5'){
+            this.job[i].attainment = 'Professional License (Passed Board/Professional/License Exams)';
+          }else if (this.job[i].attainment == '6'){
+            this.job[i].attainment = 'Doctorate Degree';
+          }
       
+  
+  
+        
+      }
+
+    
+
 
     })
    }
@@ -75,6 +123,41 @@ export class DashboardcompanyPage implements OnInit {
     const any = job.listid
   
     this.router.navigate(['applicantlist'], {queryParams:{jobid:any}});
+  }
+
+  posts(employer:any){
+    const id = employer.uid
+
+  
+    this.router.navigate(['mypostcompany'], {queryParams:{usid:id,}});
+  }
+
+  edit(job:any){
+    const any = job.listid
+
+    this.router.navigate(['editjoblist'], {queryParams:{jobid:any}});
+
+
+  }
+
+
+  async parse(){
+
+  
+    if (this.job.attainment == '1'){
+      this.job.attainment = 'High School Diploma';
+    }else  if (this.job.attainment == '2'){
+      this.job.attainment = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.job.attainment == '3'){
+      this.job.attainment = 'Bachelors/College Degree';
+    }else if (this.job.attainment == 'Post Graduate Diploma/Masters Degree'){
+      this.job.attainment = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.job.attainment == '5'){
+      this.job.attainment = 'Professional License (Passed Board/Professional/License Exams)';
+    }else if (this.job.attainment == '6'){
+      this.job.attainment = 'Doctorate Degree';
+    }
+
   }
 
 }

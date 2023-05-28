@@ -171,7 +171,7 @@ const routes: Routes = [
   },
   {
     path: 'viewemployee',
-    loadChildren: () => import('./pages/viewemployee/viewemployee.module').then( m => m.ViewemployeePageModule)
+    loadChildren: () => import('./companysidepages/viewemployee/viewemployee.module').then( m => m.ViewemployeePageModule)
   },
   {
     path: 'rateemployee',
@@ -204,10 +204,6 @@ const routes: Routes = [
   {
     path: 'privacypolicy',
     loadChildren: () => import('./pages/privacypolicy/privacypolicy.module').then( m => m.PrivacypolicyPageModule)
-  },
-  {
-    path: 'editjoblisting',
-    loadChildren: () => import('./companysidepages/editjoblisting/editjoblisting.module').then( m => m.EditjoblistingPageModule)
   },
   {
     path: 'notificationuser',
@@ -244,10 +240,45 @@ const routes: Routes = [
   {
     path: 'applicantlist',
     loadChildren: () => import('./companysidepages/applicantlist/applicantlist.module').then( m => m.ApplicantlistPageModule)
-  },  {
+  },
+  {
     path: 'editpreferredoption',
     loadChildren: () => import('./pages/editpreferredoption/editpreferredoption.module').then( m => m.EditpreferredoptionPageModule)
   },
+  {
+    path: 'editjoblist',
+    loadChildren: () => import('./companysidepages/editjoblist/editjoblist.module').then( m => m.EditjoblistPageModule)
+  },
+  {
+    path: 'mypostuser',
+    loadChildren: () => import('./pages/mypostuser/mypostuser.module').then( m => m.MypostuserPageModule)
+  },
+  {
+    path: 'mypostcompany',
+    loadChildren: () => import('./companysidepages/mypostcompany/mypostcompany.module').then( m => m.MypostcompanyPageModule)
+  },
+  {
+    path: 'editpostuser',
+    loadChildren: () => import('./pages/editpostuser/editpostuser.module').then( m => m.EditpostuserPageModule)
+  },
+  {
+    path: 'editpostcompany',
+    loadChildren: () => import('./companysidepages/editpostcompany/editpostcompany.module').then( m => m.EditpostcompanyPageModule)
+  },
+  {
+    path: 'viewapplicants',
+    loadChildren: () => import('./companysidepages/viewapplicants/viewapplicants.module').then( m => m.ViewapplicantsPageModule)
+  },  {
+    path: 'aboutus',
+    loadChildren: () => import('./pages/aboutus/aboutus.module').then( m => m.AboutusPageModule)
+  },
+  {
+    path: 'aboutusc',
+    loadChildren: () => import('./companysidepages/aboutusc/aboutusc.module').then( m => m.AboutuscPageModule)
+  },
+
+
+  
 
 
 

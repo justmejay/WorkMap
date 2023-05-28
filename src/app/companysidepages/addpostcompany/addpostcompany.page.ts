@@ -58,6 +58,7 @@ export class AddpostcompanyPage implements OnInit {
         console.log(this.post.pmname)
         console.log(this.post.plname)
         console.log(this.post.pcname)
+        console.log(this.post.pprofileimg)
 
         
 
@@ -77,6 +78,7 @@ export class AddpostcompanyPage implements OnInit {
       mname: [this.post.pmname],
       lname: [this.post.plname],
       cname: [this.post.pcname],
+      profileimg: [this.post.pprofileimg],
     });
   }
 
@@ -94,10 +96,12 @@ export class AddpostcompanyPage implements OnInit {
 
   }
 
+
   async getSafeUrl() { 
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.base64Image);     
 }
 
+  
   async addpost() {
 
     const loading = await this.loadingController.create({
@@ -106,6 +110,7 @@ export class AddpostcompanyPage implements OnInit {
     });    await loading.present();
 
     const user = await this.firestore.addpost(this.credentials.value);
+    console.log(this.credentials.value)
     await loading.dismiss();
 
     if (user) {
@@ -135,4 +140,7 @@ export class AddpostcompanyPage implements OnInit {
     await alert.present();
   }
 
+  undoimage(){
+    this.base64Image = null;
+  }
 }

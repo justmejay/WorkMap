@@ -1,94 +1,104 @@
 <ion-header >
   <ion-toolbar>
       <ion-buttons [routerLink]="" slot="start">
-        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline" [routerLink]="['/applicantlist']">  </ion-icon>
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline" [routerLink]="['/']">  </ion-icon>
       </ion-buttons> 
-      <!-- <ion-buttons slot="end">
+      <ion-buttons slot="end">
         <ion-icon style="width: 50px; color: white;" name="ellipsis-vertical" id="open-modal">  </ion-icon>
-      </ion-buttons> -->
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+  <ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
     <ng-template>
       <div class="block">
-        <ion-button expand="block" color="primary" shape="round" [routerLink]="['/messageviewcompany']">Message</ion-button>
-        <ion-button expand="block" color="danger" shape="round">Delete Notification</ion-button>
-        <ion-button expand="block" color="primary" shape="round">Cancel</ion-button>
+        <ion-button expand="block" color="primary" shape="round" [routerLink]="['/messageviewcompany']">Message Applicant</ion-button>
+        <!-- <ion-button expand="block" color="primary" shape="round">Cancel</ion-button> -->
       </div>
     </ng-template>
   </ion-modal>
-  <ion-card class="maincard" *ngIf="profile">
+
+  <!-- THIS IS A PLACEHOLDER with updated design
+  ORIGINAL CARD IS NOT WORKING
+  ORIGINAL CARD ABOVE WAS COMMENTED OUT -->
+  <ion-card class="maincard">
     <ion-card-header class="maincard">
       <div class="maincardpfp">
         <ion-thumbnail slot="start">
-          <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-        </ion-thumbnail>
-        <ion-card-title>{{profile.fname}} {{profile.mname}} {{profile.lname}}</ion-card-title>
+          <img class="profilepicimage" *ngIf="jobdata.application?.profileimg; else ph" alt="Silhouette of mountains" src="{{jobdata.application.profileimg}}" />
+          <ng-template #ph>
+            <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ng-template>      
+          </ion-thumbnail>
+        <ion-card-title>{{pdetails.fname}} {{pdetails.lname}}</ion-card-title>
         <!-- <ion-icon style="float: right; font-size: 30px;" name="information-circle" class="edit"></ion-icon> -->
       </div>
     </ion-card-header>
     <ion-card-content class="maincard">
-        <ion-card class="subcard" *ngIf="profile">
+        <ion-card class="subcard">
           <ion-card-header class="subcard">
             <ion-card-title>Personal Information</ion-card-title>
           </ion-card-header>
           <ion-card-content class="subcard">
             
               <ion-label position="stacked" class="cardsubtitle">Name: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.fname}} {{pdetails.lname}}" [readonly]="true"></ion-input>
       
       
-              <ion-label position="stacked" class="cardsubtitle">Date of Birth: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.bday}}" [readonly]="true"></ion-input>
-      
+              <ion-label position="stacked" class="cardsubtitle">Birthday: </ion-label>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.bday}}" [readonly]="true"></ion-input>
       
               <ion-label position="stacked" class="cardsubtitle">Age: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.age}}" [readonly]="true"></ion-input>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.age}}" [readonly]="true"></ion-input>
+              
+              <ion-label position="stacked" class="cardsubtitle">Sex: </ion-label>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.sex}}" [readonly]="true"></ion-input>
       
+              <ion-label position="stacked" class="cardsubtitle">Contact Number: </ion-label>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.contact}}" [readonly]="true"></ion-input>
+              
+              <ion-label position="stacked" class="cardsubtitle">Citizenship: </ion-label>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.citizenship}}" [readonly]="true"></ion-input>
+              
+              <ion-label position="stacked" class="cardsubtitle">Email Address: </ion-label>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.email}}" [readonly]="true" ></ion-input>
+
+              <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.cs}}" [readonly]="true"></ion-input>
+            
+              <ion-label position="stacked" class="cardsubtitle">Religion: </ion-label>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.religion}}" [readonly]="true"></ion-input>
+      
+              <ion-label position="stacked" class="cardsubtitle">Educational Attainment: </ion-label>
+              <ion-input position="stacked" class="custominput" value="{{pdetails.ea}}" [readonly]="true"></ion-input>
+              
               <ion-label position="stacked" class="cardsubtitle">Home Address: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{address.homeaddress}}" [readonly]="true"></ion-input>
+              <ion-input position="stacked" class="custominput" value="{{bdetails.homeaddress}}" [readonly]="true"></ion-input>
       
               <ion-label position="stacked" class="cardsubtitle">Current Address: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{address.currentaddress}}" [readonly]="true"></ion-input>
-      
-              <ion-label position="stacked" class="cardsubtitle">Religion: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.religion}}" [readonly]="true"></ion-input>
-      
-              <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.cs}}" [readonly]="true"></ion-input>
-            
-              <ion-label position="stacked" class="cardsubtitle">Contact: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.contact}}" [readonly]="true"></ion-input>
-      
-              <ion-label position="stacked" class="cardsubtitle">Citizenship: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.citizenship}}" [readonly]="true"></ion-input>
-      
-              <ion-label position="stacked" class="cardsubtitle">Specialization: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{profile.specialization}}" [readonly]="true"></ion-input>
+              <ion-input position="stacked" class="custominput" value="{{bdetails.currentaddress}}" [readonly]="true"></ion-input>
           </ion-card-content>
         </ion-card>
       
-        <ion-card class="subcard" *ngIf="resume">
+        <ion-card  class="subcard">
           <ion-card-header class="subcard">
             <div style="display: flex; justify-content: space-between;">
-              <ion-card-title>Character Reference</ion-card-title>
-              <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editchar']"></ion-icon> -->
+              <ion-card-title >Character Reference</ion-card-title>
             </div>
           </ion-card-header>
           <ion-card-content class="subcard">
               <ion-label position="stacked" class="cardsubtitle">Name of Mother: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{resume.mo}}"></ion-input>
+              <ion-input position="stacked" class="custominput" value="{{loopdata.mo}}"></ion-input>
       
               <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{resume.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
+              <ion-input position="stacked" class="custominput" value="{{loopdata.moc}}" placeholder="09xx-xxx-xxxx"></ion-input>
       
               <ion-label position="stacked" class="cardsubtitle">Name of Father: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{resume.fa}}" ></ion-input>
+              <ion-input position="stacked" class="custominput" value="{{loopdata.fa}}" ></ion-input>
       
               <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
-              <ion-input position="stacked" class="custominput" value="{{resume.fac}}"></ion-input>
+              <ion-input position="stacked" class="custominput" value="{{loopdata.fac}}"></ion-input>
           </ion-card-content>
         </ion-card>
       
@@ -97,23 +107,22 @@
                 <ion-card-header class="subcard">
                   <div style="display: flex; justify-content: space-between;">
                     <ion-card-title>Educational Background</ion-card-title>
-                    <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/school']"></ion-icon> -->
                   </div>
                 </ion-card-header>
-                <ion-card-content class="subcard" *ngFor="let s of school">
+                <ion-card-content class="subcard">
       
-                  <div style=" margin-top: 5%;"> 
+                  <div *ngFor="let ed of educdata"  style=" margin-top: 5%;"> 
                       <ion-label position="stacked" class="cardsubtitle">School Name: </ion-label>
-                      <ion-input position="stacked" class="custominput" value="{{s.schoolname}}" [readonly]="true"></ion-input>
+                      <ion-input position="stacked" class="custominput" value="{{ed.schoolname}}" [readonly]="true"></ion-input>
       
                       <ion-label position="stacked" class="cardsubtitle">Course: </ion-label>
-                      <ion-input position="stacked" class="custominput" value="{{s.course}}" [readonly]="true"></ion-input>
+                      <ion-input position="stacked" class="custominput" value="{{ed.course}}" [readonly]="true"></ion-input>
       
                       <ion-label position="stacked" class="cardsubtitle">Level: </ion-label>
-                      <ion-input position="stacked" class="custominput" value="{{s.level}}" [readonly]="true"></ion-input>
+                      <ion-input position="stacked" class="custominput" value="{{ed.level}}" [readonly]="true"></ion-input>
       
                       <ion-label position="stacked" class="cardsubtitle">Year Graduated: </ion-label>
-                      <ion-input position="stacked" class="custominput" value="{{s.yearg}}" [readonly]="true"></ion-input>
+                      <ion-input position="stacked" class="custominput" value="{{ed.yearg}}" [readonly]="true"></ion-input>
                   </div>
                   
                 </ion-card-content>
@@ -127,51 +136,55 @@
                 <ion-card-header class="subcard">
                   <div style="display: flex; justify-content: space-between;">
                     <ion-card-title>Work Experience</ion-card-title>
-                    <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/experience']"></ion-icon> -->
                   </div >
                 </ion-card-header>
-                <ion-card-content class="subcard" *ngFor="let e of experience">
-                  <div style="margin-top: 5%;">
+                <ion-card-content class="subcard" >
+                  <div *ngFor="let ex of expdata" style="margin-top: 5%;">
                       <ion-label position="stacked" class="cardsubtitle">Company Name: </ion-label>
-                      <ion-input position="stacked" class="custominput" value="{{e.cname}}" [readonly]="true"></ion-input>
+                      <ion-input position="stacked" class="custominput" value="{{ex.cname}}" [readonly]="true"></ion-input>
               
                       <ion-label position="stacked" class="cardsubtitle">Company Address: </ion-label>
-                      <ion-input position="stacked" class="custominput" value="{{e.caddress}}" [readonly]="true"></ion-input>
+                      <ion-input position="stacked" class="custominput" value="{{ex.caddress}}" [readonly]="true"></ion-input>
       
                       <ion-label position="stacked" class="cardsubtitle">Job Title: </ion-label>
-                      <ion-input position="stacked" class="custominput" value="{{e.jtitle}}" [readonly]="true"></ion-input>
+                      <ion-input position="stacked" class="custominput" value="{{ex.jtitle}}" [readonly]="true"></ion-input>
+                      
+                      <ion-label position="stacked" class="cardsubtitle">Job Position: </ion-label>
+                      <ion-input position="stacked" class="custominput" value="{{ex.jposition}}" [readonly]="true"></ion-input>
       
-                      <ion-label position="stacked" class="cardsubtitle">From: </ion-label>
+                      <ion-label position="stacked" class="cardsubtitle">Year of Experience </ion-label>
+                      <ion-input position="stacked" class="custominput" value="{{ex.yoe}}" [readonly]="true"></ion-input>
+                      
+                      <!-- <ion-label position="stacked" class="cardsubtitle">From: </ion-label>
                       <ion-input position="stacked" class="custominput" value="{{e.datef}}" [readonly]="true"></ion-input>
       
                       <ion-label position="stacked" class="cardsubtitle">To: </ion-label>
-                      <ion-input position="stacked" class="custominput" value="{{e.datet}}" [readonly]="true"></ion-input>
+                      <ion-input position="stacked" class="custominput" value="{{e.datet}}" [readonly]="true"></ion-input> -->
                   </div>
                     
                 </ion-card-content>
               </ion-card>
-      
+
       <!-- Certifications -->
               <ion-card class="subcard">
                 <ion-card-header class="subcard">
                   <div style="display: flex; justify-content: space-between;">
                     <ion-card-title>Certifications</ion-card-title>
-                    <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/certifications']"></ion-icon> -->
                   </div >
                 </ion-card-header>
-                <ion-card-content class="subcard" *ngFor="let c of certifications">
-                  <div style="margin-top: 5%;">
+                <ion-card-content class="subcard" >
+                  <div *ngFor="let cert of certdata" style="margin-top: 5%;">
                         <ion-label position="stacked" class="cardsubtitle">Certification Name: </ion-label>
-                        <ion-input position="stacked" class="custominput" value="{{c.name}}" [readonly]="true"></ion-input>
+                        <ion-input position="stacked" class="custominput" value="{{cert.name}}" [readonly]="true"></ion-input>
                       
                         <ion-label position="stacked" class="cardsubtitle">Organization: </ion-label>
-                        <ion-input position="stacked" class="custominput" [readonly]="true" value="{{c.orgn}}"></ion-input>
+                        <ion-input position="stacked" class="custominput" [readonly]="true" value="{{cert.orgn}}"></ion-input>
                     
                         <ion-label position="stacked" class="cardsubtitle">Date Obtained: </ion-label>
-                        <ion-input position="stacked" class="custominput" [readonly]="true" value="{{c.year}}"></ion-input>
+                        <ion-input position="stacked" class="custominput" [readonly]="true" value="{{cert.year}}"></ion-input>
                       
                       <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label>
-                      <a href="{{c.fpath}}">
+                      <a href="{{cert.fpath}}">
                         <ion-button shape="round" expand="block" class="download">Download</ion-button>
                       </a>
                    
@@ -188,11 +201,24 @@
                     <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editresume']"></ion-icon> -->
                   </div >
                     </ion-card-header>
-                <ion-card-content class="subcard" *ngIf="resume">
+                <ion-card-content class="subcard">
                   <!-- <ion-label position="stacked" class="cardsubtitle">Attachment</ion-label> -->
-                 <a  href="{{resume.fpath}}"> 
+                 <a  href="{{loopdata.fpath}}"> 
                   <ion-button class="download" expand="block" shape="round">Download</ion-button>
                 </a>
+                </ion-card-content>
+              </ion-card>
+
+              <ion-card class="subcard">
+                <ion-card-header class="subcard">
+                  <div style="display: flex; justify-content: space-between;">
+                    <ion-card-title>Reason for Applying Job</ion-card-title>
+                    <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editchar']"></ion-icon> -->
+                  </div>
+                </ion-card-header>
+                <ion-card-content class="subcard">
+                  <ion-textarea [value]="reason" autoGrow="true" [readonly]="true"></ion-textarea>
+
                 </ion-card-content>
               </ion-card>
     </ion-card-content>

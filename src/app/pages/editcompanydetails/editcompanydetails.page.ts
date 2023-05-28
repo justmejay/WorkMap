@@ -1,7 +1,7 @@
 import { Component, Renderer2,OnInit,ElementRef,ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { CompanyService } from 'src/app/services/company.service'; 
 import {
@@ -14,6 +14,8 @@ import {
 } from '@angular/fire/storage';
 import { Auth } from '@angular/fire/auth';
 import { GmapService } from 'src/app/services/gmap.service';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { ProfilingService } from 'src/app/services/profiling.service';
 
 @Component({
   selector: 'app-editcompanydetails',
@@ -104,7 +106,10 @@ export class EditcompanydetailsPage implements OnInit {
     private storage: Storage,
     private authd: Auth,
     private gmaps: GmapService,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private firestore2: ProfilingService,
+    private toastController: ToastController
+
 
   ) { 
     this.firestore.getcompany().subscribe(res=>{
@@ -135,6 +140,29 @@ export class EditcompanydetailsPage implements OnInit {
     this.loadMapCurrent();
   }
 
+
+  async changeImage() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Prompt, // Camera, Photos or Prompt!
+    });
+
+    if (image) {
+      const loading = await this.loadingController.create();
+      await loading.present();
+
+      const result = await this.firestore2.uploadImagecl(image);
+      loading.dismiss();
+
+      if (result) {
+        this.toastPresent('Company Picture Updated!')
+      }
+
+    }
+  }
+
   async editcompany() {
 
     const loading = await this.loadingController.create({
@@ -158,10 +186,10 @@ export class EditcompanydetailsPage implements OnInit {
 
     if (employer) {
       this.router.navigateByUrl('/companyprofile', { replaceUrl: true });
-      this.showAlert('Edit success', 'Data updated!');
+      this.toastPresent('Edit success. Data updated!');
 
         } else {
-      this.showAlert('Edit failed', 'Please try again!');
+      this.toastPresent('Edit failed. Please try again!');
     }
   }
 
@@ -257,6 +285,14 @@ export class EditcompanydetailsPage implements OnInit {
        });
 
     });
+  }
+
+  async toastPresent(message: any){
+    const toast =  await this.toastController.create({
+      message,
+      duration: 1000
+    });
+    await toast.present();
   }
 
 }

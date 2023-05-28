@@ -31,6 +31,8 @@ export interface User{
   mname: string,
   suffix: string,
   aboutme: string,
+  exception: any,
+  
 
   //certifications
 
@@ -85,6 +87,9 @@ export interface Application{
   experiencedetails: any,
 
   job:any;
+  jobid: any;
+  uid: any;
+  exception: any;
 }
 
 
@@ -154,11 +159,43 @@ export class ApplicationService {
     return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 
+  getjoblist(id: any): Observable<User[]>{
+  
+    try{
+      const cakesRefe = doc(this.firestore, `joblist/${id}`)
+      return docData(cakesRefe, {idField: 'id'}) as Observable<User[]>
+
+    }catch(e){
+      console.log(e);
+      return null;
+    }
+   
+
+  }
+
+
  
-  addApplication(application:Application){
-    const user  = this.auth.currentUser
+  async addApplication(application:Application, list: any){
+    console.log(list);
+    console.log(application);
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
     const applicationRef = collection(this.firestore, `application`)
-    const pass =  addDoc (applicationRef, application)
+    const pass = await addDoc (applicationRef, {application, timeStamp, time: date2, reason: ""});
+
+
+     const applicationRef1 = doc(this.firestore, `joblist/${application.jobid}/`)
+      const pass1 =  updateDoc (applicationRef1, {exception: list});
+
+    const applicationRefx = doc(this.firestore, `notifications/${pass.id}`)
+    const passx =  setDoc (applicationRefx, {application, timeStamp, time: date2})
+
+
+
+
+
 
     return pass;
 
@@ -167,9 +204,16 @@ export class ApplicationService {
   
   getapplicants(id: any): Observable<User[]>{
     const cakesRef = collection(this.firestore, 'application/')
-    const q = query(cakesRef, where("jobid", "==", id ))
+    const q = query(cakesRef, where("application.jobid", "==", id ))
     return collectionData(q, {idField: 'id'}) as Observable<[User]> 
   }
+
+  getapplication(id: any): Observable<User[]>{
+    console.log(id);
+    const cakesRef = doc(this.firestore, `application/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]> 
+  }
+
 
   getjtitle(id: any): Observable<User[]>{
     const cakesRef = collection(this.firestore, 'joblist/')
@@ -207,6 +251,20 @@ export class ApplicationService {
   getcertifications(id: any): Observable<User[]>{
     const cakesRef = collection(this.firestore, `users/${id}/certifications`)
     const q = query(cakesRef, where("name", "!=", "" ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]>
+  }
+
+
+  getcompanydata(id: any): Observable<User[]>{
+    const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
+  getnotif(): Observable<User[]>{
+    const uid = this.auth.currentUser.uid ;
+     console.log(uid);
+    const cakesRef = collection(this.firestore, `notifications`);
+    const q = query(cakesRef, where("application.cid", "==",uid ))
     return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 

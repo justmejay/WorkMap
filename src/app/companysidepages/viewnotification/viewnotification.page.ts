@@ -13,6 +13,7 @@ import {
   deleteObject
 } from '@angular/fire/storage';
 import { Auth } from '@angular/fire/auth';
+import { ProfilingService } from 'src/app/services/profiling.service';
 
 
 @Component({
@@ -23,18 +24,19 @@ import { Auth } from '@angular/fire/auth';
 export class ViewnotificationPage implements OnInit {
 
   jobs: any = [];
+  
+  jobdata: any = [];
+  pdetails: any = [];
+  bdetails: any = [];
+  loopdata: any = [];
+  expdata: any = [];
+  educdata: any = [];
+  certdata: any = [];
+  reason: any;
 
-  profile: any = [];
 
-  address: any = [];
+  
 
-  resume: any = [];
-
-  school: any = [];
-
-  experience: any = [];
-
-  certifications: any = [];
 
 
 
@@ -48,46 +50,54 @@ export class ViewnotificationPage implements OnInit {
     private storage: Storage,
     private authd: Auth,
     private activatedRoute: ActivatedRoute,
+    private app: ApplicationService,
+    private profile: ProfilingService
   ) { 
+
     this.activatedRoute.queryParams.subscribe((params) =>{
 
       this.jobs = params;
-      console.log(this.jobs.usid)
+      console.log(this.jobs.id);
 
-      this.firestore.getprofiles(this.jobs.usid).subscribe(res => {
-        this.profile = res;
-        console.log(this.profile);
-      });
+      this.app.getapplication(this.jobs.id).subscribe(res=>{
+        this.jobdata = res;
+        this.bdetails = this.jobdata.application.addressdetails;
+        this.loopdata = this.jobdata.application.resumedetails;
+        this.expdata =  this.jobdata.application.experiencedetails;
+        this.educdata =  this.jobdata.application.schooldetails;
+        this.certdata =  this.jobdata.application.certificationsdetails;
+        this.reason = this.jobdata.application.reason;
 
-      this.firestore.getaddresss(this.jobs.usid).subscribe(res => {
-        this.address = res;
-        console.log(this.address);
-      });
 
-      this.firestore.getresumes(this.jobs.usid).subscribe(res => {
-        this.resume = res;
-        console.log(this.resume);
-      });
-
-      this.firestore.getschools(this.jobs.usid).subscribe(res => {
-        this.school = res;
-        console.log(this.school);
-      });
       
-      this.firestore.getexperiences(this.jobs.usid).subscribe(res => {
-        this.experience = res;
-        console.log(this.experience);
+       this.profile.getprofilebyid(this.jobdata.application.uid).subscribe(res=> {
+        this.pdetails = res;
+
+        if (this.pdetails.ea == '1'){
+          this.pdetails.ea = 'High School Diploma';
+        }else  if (this.pdetails.ea == '2'){
+          this.pdetails.ea = 'Vocational Diploma/Short Course Certificate';
+        }else if (this.pdetails.ea == '3'){
+          this.pdetails.ea = 'Bachelors/College Degree';
+        }else if (this.pdetails.ea == 'Post Graduate Diploma/Masters Degree'){
+          this.pdetails.ea = 'Vocational Diploma/Short Course Certificate';
+        }else if (this.pdetails.ea == '5'){
+          this.pdetails.ea = 'Professional License (Passed Board/Professional/License Exams)';
+        }else if (this.pdetails.ea == '6'){
+          this.pdetails.ea = 'Doctorate Degree';
+        }
+
+
+       });
       });
 
-      this.firestore.getcertifications(this.jobs.usid).subscribe(res => {
-        this.certifications = res;
-        console.log(this.certifications);
-      });
-
-  })
+  });
+    
 }
 
   ngOnInit() {
+
+   
   }
 
  

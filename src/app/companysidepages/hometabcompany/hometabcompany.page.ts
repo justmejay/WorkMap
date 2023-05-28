@@ -40,6 +40,10 @@ export class HometabcompanyPage implements OnInit {
       this.firestore.getpost().subscribe(res=>{
         this.post = res;
         console.log(this.post)
+
+        this.post.sort((a, b) => {
+          return b.timesort - a.timesort;
+        });
       })
 
       this.firestore.getcompany().subscribe(res => {
@@ -61,10 +65,11 @@ export class HometabcompanyPage implements OnInit {
     const fname = profile.fname
     const mname = profile.mname
     const lname = profile.lname
+    const profileimg = profile.profileimg
     const cname = company.cname
-
+    
   
-    this.router.navigate(['addpostcompany'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname, pcname: cname,}});
+    this.router.navigate(['addpostcompany'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname, pprofileimg: profileimg, pcname: cname, }});
   }
 
 }

@@ -69,5 +69,31 @@ ion-card-content{
     color: #FFFFFF;
     margin-top: 4%;
 }
+ion-item.clickable {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    --background: #a4c8fd;
+    --color: #151515;
+    --border-radius: 45px;
+    ion-label{
+        --color: #151515;
+    }
+  }
+  ion-item.static {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    --background: #f7c8c8;
+    --color: #151515;
+    --border-radius: 45px;
+    ion-label{
+        --color: #151515;
+    }
+  }
 
+  .time{
+    color: blue;
+  }
 
+  

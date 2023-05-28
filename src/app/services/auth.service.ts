@@ -45,7 +45,7 @@ export class AuthService {
      ){
 
     try {
-      console.log
+ 
       const user = await createUserWithEmailAndPassword(
         this.auth,
         email, 
@@ -55,7 +55,7 @@ export class AuthService {
 
         
       const userget = this.auth.currentUser?.uid;
-      console.log(userget);
+ 
       const imageUrl = ""
 
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
@@ -100,7 +100,7 @@ export class AuthService {
     password: any ){
 
     try {
-      console.log
+ 
       const user = await createUserWithEmailAndPassword(
         this.auth,
         email, 
@@ -109,7 +109,7 @@ export class AuthService {
 
         
       const userget = this.auth.currentUser?.uid;
-      console.log(userget);
+ 
       const imageUrl = ""
       
 
@@ -163,7 +163,7 @@ export class AuthService {
       const user = await sendPasswordResetEmail(this.auth, uemail);
       return user;
     } catch (e) {
-      console.log(e);
+ 
       return null;
     }
   }

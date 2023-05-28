@@ -4,12 +4,14 @@
     <ion-row>
     <ion-img src="assets/header2.png"></ion-img>
 
-      <ion-col>
-        <ion-button [routerLink]="['/searchengine']" expand="block" shape="round" size="large" color="primary">Look for Job</ion-button>
-        <span class="divider line one-line">or</span>
-        <ion-button [routerLink]="['/authentication']" expand="block" shape="round" size="large" color="success">Login Here!</ion-button>
-        
-      </ion-col>
+        <ion-col>
+          <div class="bgimage">
+            <ion-button [routerLink]="['/searchengine']" expand="block" shape="round" size="large" color="primary">Look for Job</ion-button>
+          <span class="divider line one-line">or</span>
+          <ion-button [routerLink]="['/authentication']" expand="block" shape="round" size="large" color="success">Login Here!</ion-button>
+          
+          </div>
+        </ion-col>
     </ion-row>
   </ion-grid>
 

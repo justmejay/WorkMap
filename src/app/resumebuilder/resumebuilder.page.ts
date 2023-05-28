@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { ProfilingService } from '../services/profiling.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-resumebuilder',
@@ -20,6 +22,8 @@ export class ResumebuilderPage implements OnInit {
   constructor(
     private firestore: ProfilingService,
     private alertCtrl: AlertController,
+    private router: Router,
+    private loadingCtrl: LoadingController,
   ) {
     this.firestore.getprofile().subscribe(res=>{
       this.profile = res;
@@ -65,6 +69,23 @@ export class ResumebuilderPage implements OnInit {
   ngOnInit() {
   }
 
+   routes(){
+    this.router.navigate(['/dashboard'])
+  .then(async () => {
+    const loading = await this.loadingCtrl.create({
+      message: 'Validating',
+      spinner: 'dots',
+    });
+    await loading.present();
+
+    window.location.reload();
+
+    await loading.dismiss();
+
+
+  });
+  }
+
   async parse(){
 
   
@@ -83,7 +104,7 @@ export class ResumebuilderPage implements OnInit {
       this.profile.ea = 'Doctorate Degree';
     }
 
-  }asum
+  }
 
 
  

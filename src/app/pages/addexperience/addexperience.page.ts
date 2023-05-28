@@ -15,6 +15,7 @@ export class AddexperiencePage implements OnInit {
   queryinit: any = [];
   textbox: any;
   selectedjp: any;
+  selectevent: boolean = false;
   filteredquery: any = [
     {
         "position": "Territory Manager",
@@ -3040,18 +3041,22 @@ export class AddexperiencePage implements OnInit {
 
     if (searchTerm == ""){
       this.queryinit = [];
-    }else{
+    }else if (this.selectevent == true && searchTerm != ""){ 
+        this.queryinit = [];
+        
+    }
+    else {
         this.queryinit = this.filteredquery;
+
     }
     
   }
 
   select(filter: any){
+    this.selectevent = true;
     this.term = filter;
-    this.queryinit = [];
     this.selectedjp = filter;
     this.queryinit = [];
-
     
   }
 

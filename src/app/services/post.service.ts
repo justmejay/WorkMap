@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
+import { Auth, idToken } from '@angular/fire/auth';
 import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
@@ -7,6 +7,7 @@ import { collectionGroup, CollectionReference, query, Query, queryEqual, updateD
 import { timeStamp } from 'console';
 import { Photo } from '@capacitor/camera';
 import {
+  deleteObject,
   getDownloadURL,
   ref,
   Storage,
@@ -42,17 +43,24 @@ export class PostService {
     private storage: Storage,
   ) { }
 
-  async addpost({ptitle, pdescription, fname, mname, lname, cname,}: 
-    { ptitle: any, pdescription: any, fname: any, mname: any, lname: any, cname: any,} ){
+  async addpost({ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp}: 
+    { ptitle: any, pdescription: any, fname: any, mname: any, lname: any, cname: any, profileimg: any, timeStamp: any} ){
 
     try {
 
-      const userget = this.auth.currentUser?.uid;
-      console.log(userget)
-      const userDocRef3 = collection(this.firestore, `post/`);
-      const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname, cname });
+      const timeStamp = Date.now();
+      const date: Date = new Date(timeStamp);
+      const date2 = date.toLocaleString();
 
-      
+      const userget = this.auth.currentUser?.uid;
+ 
+      const userDocRef3 = collection(this.firestore, `post/`);
+      const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp: date2, listid: "", timesort: timeStamp,});
+
+      const id = user.id;
+
+      const userDocRef4 = doc(this.firestore, `post/${id}`);
+      const user2 = await updateDoc(userDocRef4, {listid: id });
 
 
       return user;
@@ -81,6 +89,7 @@ export class PostService {
   
     }
 
+
     getprofile(): Observable<Post[]>{
       const id = this.auth.currentUser.uid;
     
@@ -90,7 +99,7 @@ export class PostService {
 
     getcompany(): Observable<Post[]>{
       const id = this.auth.currentUser.uid;
-      console.log(id);
+ 
     
       const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
       return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
@@ -98,9 +107,50 @@ export class PostService {
 
     getemployer(): Observable<Post[]>{
       const id = this.auth.currentUser.uid;
-      console.log(id);
+ 
     
       const cakesRef = doc(this.firestore, `employers/${id}/profile/${id}`)
       return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
     }
+
+    getpostuser(id: any): Observable<Post[]>{
+      const cakesRef = collection(this.firestore, 'post/')
+      const q = query(cakesRef, where("uid", "==", id ))
+      return collectionData(q, {idField: 'id'}) as Observable<[Post]> 
+    }
+
+    getpostid(id: any): Observable<Post[]>{
+      const cakesRef = doc(this.firestore, `post/${id}`)
+      return docData(cakesRef, {idField: 'id'}) as Observable<[Post]>
+    }
+
+    async editpost({ptitle, pdescription}: 
+      {ptitle: any, pdescription: any}, id: any){
+  
+      try {
+        const userDocRef3 = doc(this.firestore, `post/${id}`);
+        const user = await updateDoc(userDocRef3, {ptitle, pdescription, });
+       
+        return true;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    deletepost(id: any){
+      const cakeRef = doc(this.firestore, `post/${id}`)
+      return deleteDoc(cakeRef)
+    }
+
+    async deletepic(id: any){
+  
+      const fileStoragePath = `post/${id}/post.png`;
+      const storageRef = ref(this.storage, fileStoragePath);
+      await deleteObject(storageRef);
+    }
+  
+
+    
 }
+
+

@@ -43,7 +43,7 @@
 
         <ion-item>
           <ion-label position="stacked">Attachment: (docx, pdf, pdf, png, jpeg)</ion-label>
-          <ion-input #myInput  type="file" (change)="upload($event)" position="stacked"></ion-input>
+          <ion-input #myInput accept=".docx, .pdf, .jpeg, .png, .jpg"  type="file" (change)="upload($event)" position="stacked"></ion-input>
         </ion-item>
 
         

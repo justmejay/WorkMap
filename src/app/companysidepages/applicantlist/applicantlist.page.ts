@@ -23,7 +23,6 @@ import { Auth } from '@angular/fire/auth';
 export class ApplicantlistPage implements OnInit {
 
   job: any = [];
-  
   jobid: any;
 
   jobs: any = [];
@@ -82,10 +81,10 @@ export class ApplicantlistPage implements OnInit {
   }
 
   profiledetails(jobs:any){
-    const any = jobs.uid
+    const any = jobs;
     console.log(any)
   
-    this.router.navigate(['viewnotification'], {queryParams:{usid:any}});
+    this.router.navigate(['viewnotification'], {queryParams:{id: jobs.id}});
   }
 
 }

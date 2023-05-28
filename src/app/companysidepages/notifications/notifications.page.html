@@ -8,7 +8,7 @@
 </ion-header>
 
   <ion-content>
-    <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
       <ng-template>
         <div class="block">
           <ion-button expand="block" color="danger" shape="round">Delete Notification</ion-button>
@@ -16,21 +16,21 @@
         </div>
       </ng-template>
     </ion-modal>
-    <ion-card style="background-color: #71a8fa">
-      <ion-card-header>
-        <div style="display: flex; justify-content: flex-end; margin: 5% 5% 0 0;">
-          <ion-icon style="font-size: 30px; color: white;" name="ellipsis-horizontal" id="open-modal"></ion-icon>
-        </div>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-item lines="none" >
-            <ion-thumbnail slot="start">
-              <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-            </ion-thumbnail>
-            <ion-label class="my-card">John Doe has applied for your "Web Development" job listing </ion-label>            
-        </ion-item>
-        <ion-button class="review" type="Submit"  expand="block" fill="solid" shape="round" [routerLink]="['/viewnotification']">Review Application</ion-button>
-      </ion-card-content>
-    </ion-card>
+    
+      <ion-item  (click)="viewapply(n)" *ngFor="let n of notifications" class="clickable"  button detail="true" [routerLink]="['/viewnotification']">
+        <ion-avatar slot="start">
+       
+          <img class="profilepicimage" *ngIf="n.application?.profileimg; else ph" src="{{n.application.profileimg}}" />
+          <ng-template #ph>
+            <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ng-template>        </ion-avatar>
+        <ion-label>
+          <ion-label>{{n.application.fname}} {{n.application.lname}}</ion-label>
+          <ion-label class="ion-text-wrap"> has applied to your "{{n.application.mname}}" listing.</ion-label>
+          <ion-label class="time">{{n.time}}</ion-label>
+        </ion-label>
+      </ion-item>
+  
+    
   </ion-content>
 

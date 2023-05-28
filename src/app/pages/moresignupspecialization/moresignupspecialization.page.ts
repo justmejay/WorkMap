@@ -3028,7 +3028,7 @@ export class MoresignupspecializationPage implements OnInit {
   ) {
     this.activatedRoute.queryParams.subscribe((params) =>{
       this.authdetails = params;
-      console.log(this.authdetails)
+ 
 
       });
 
@@ -3094,7 +3094,7 @@ export class MoresignupspecializationPage implements OnInit {
 
 
   async onselect(filter: any){
-    console.log(filter);
+ 
   }
 
 
@@ -3146,7 +3146,7 @@ export class MoresignupspecializationPage implements OnInit {
 
         if (this.checkeditems[i] == null){
             this.checkeditems[i] = filter.position; 
-            console.log(this.checkeditems);
+ 
             this.checkeds++;
             break;
         }
@@ -3157,12 +3157,12 @@ export class MoresignupspecializationPage implements OnInit {
 
             if (this.checkeditems[i] == filter.position){
                 this.checkeditems[i] = null;
-                console.log(this.checkeditems);
+ 
             }
 
         }
     }
-        console.log(this.checkeds)
+ 
    
 
   }
@@ -3173,4 +3173,10 @@ export class MoresignupspecializationPage implements OnInit {
     this.term = ""
     this.queryinit = [];
   }
+
+  clear(){
+    this.term = "";
+  }
+
+
 }

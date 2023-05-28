@@ -9,7 +9,7 @@
       <!-- <ion-button fill="clear" class="card1menu" expand="block">
         <ion-icon slot="start" name="bookmarks-outline" style="color: #1ccdf9;"></ion-icon>
         Saved</ion-button> -->
-      <ion-button fill="clear" class="card1menu" expand="block">
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/aboutusc']">
         <ion-icon slot="start" name="information-circle-outline"></ion-icon>
         About Us</ion-button>
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/privacypolicy']">
@@ -19,9 +19,9 @@
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/employees']">
         <ion-icon slot="start" name="person" style="color: #42505d;" ></ion-icon>
          Employees</ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/subscriptions']">
+      <!-- <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/subscriptions']">
         <ion-icon slot="start" name="diamond-outline" style="color: #42505d;"></ion-icon>
-        Get Premium</ion-button>
+        Get Premium</ion-button> -->
         <!-- <ion-button fill="clear" class="card1menu" expand="block">
           <ion-icon slot="start" name="briefcase" style="color: #42505d;"></ion-icon>
           Review Application</ion-button> -->
@@ -60,7 +60,7 @@
   <ion-content   class="ion-padding ">
     <ion-card *ngFor="let job of job" class="joblisting">
       <ion-card-header>
-        <ion-icon class="edit" name="create-outline" style="float: right; height: 25px; width: 25px" [routerLink]="['/editjoblisting']"></ion-icon>
+        <ion-icon class="edit" name="create-outline" style="float: right; height: 25px; width: 25px" (click)="edit(job)"></ion-icon>
         <div class="activetoggle">
           <ion-toggle (ionChange)="checked($event, job)" [checked]="job.state" style="float: right;"></ion-toggle>
           <ion-label class="togglestatus">Active</ion-label>
@@ -70,46 +70,53 @@
         </ion-card-title>
         <ion-card-subtitle>
           <!-- {{job.cname}} -->
-          Company Name, Company Address  Not Working
+          <!-- Company Name, Company Address  Not Working. NO NEED FOR COMPANY DETAILS HERE -->
         </ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
           <ion-row class="jobposition">
-            <ion-badge class="positionbadges" color="tertiary">Web Designer</ion-badge>
-            <ion-badge class="positionbadges" color="tertiary">Web Developer</ion-badge>
-            <ion-badge class="positionbadges" color="tertiary">Graphic Designer</ion-badge>
-            <ion-badge class="positionbadges" color="tertiary">Illustrator</ion-badge>
-            <ion-badge class="positionbadges" color="tertiary">Software Engineer</ion-badge>
+            <ion-badge class="positionbadges" *ngFor="let job of job.jposition" color="tertiary">{{job}}</ion-badge>
+
           </ion-row>
           <ion-row class="companydetails">
             <ion-col class="labelheader">Starting Salary:</ion-col>
-            <ion-col>{{job.jsalary}} pesos</ion-col>
+            <ion-col *ngIf="job?.jsalary; else placeholder_avatar;">{{job.jsalary}} peso/s</ion-col>
+
+            <ng-template #placeholder_avatar>
+              <ion-col>Company did not specified</ion-col>
+            </ng-template>
+            
           </ion-row>
           <div class="jobdetails">
-            <ion-row class="jobspecialization">
-              <ion-col class="labelheader">Job Specialization: </ion-col>
-              <ion-col>{{job.jspecialization}}</ion-col>
-            </ion-row>
+
             <!-- <ion-row class="jobposition">
               <ion-col class="labelheader">Job Position:</ion-col>
               <ion-col placeholder="">Senior Developer</ion-col>
             </ion-row> -->
-            <ion-row class="jobdescription">
-              <ion-col class="labelheader">Job description:</ion-col>
-              <ion-col>{{job.jdescription}}</ion-col>
-            </ion-row>
+            
             <ion-row class="jobtype">
               <ion-col class="labelheader">Job type:</ion-col>
               <ion-col>{{job.jtype}}</ion-col>
             </ion-row>
             <ion-row class="minimum">
               <ion-col class="labelheader">Minimum experience required:</ion-col>
-              <ion-col placeholder="">3 years of coding experience</ion-col>
+              <ion-col *ngIf="job?.jexperience; else placeholder_avatar1;">{{job.jexperience}} year/s</ion-col>
+
+            <ng-template #placeholder_avatar1>
+              <ion-col>No experience required</ion-col> 
+            </ng-template>
             </ion-row>
             <ion-row class="education">
               <ion-col class="labelheader">Educational Attainment:</ion-col>
-              <ion-col placeholder="">College Graduate</ion-col>
+              <ion-col *ngIf="job?.attainment; else placeholder_avatar3;" placeholder="">{{job.attainment}}</ion-col>
+              <ng-template #placeholder_avatar3>
+                <ion-col>No minimum education required</ion-col> 
+              </ng-template>
+            </ion-row>
+            <ion-row class="jobdescription">
+              <ion-col class="labelheader">Job description:</ion-col>
+              <ion-col>{{job.jdescription}}</ion-col>
             </ion-row>
           </div>
         </ion-grid>
@@ -118,7 +125,7 @@
       <ion-buttons fill="solid" class="btns">
         
         <ion-button (click)="applicant(job)" class="save" type="Submit" size="large" expand="block" fill="solid" shape="round" [routerLink]="['/applicantlist']">
-          <ion-badge color="tertiary">18</ion-badge> Applicants</ion-button>
+          <ion-badge color="tertiary"></ion-badge> Applicants</ion-button>
       </ion-buttons>
     </ion-card>
   </ion-content>
@@ -131,6 +138,9 @@
         <ion-tab-bar >
           <ion-tab-button [routerLink]="['/hometabcompany']">
             <ion-icon name="home"></ion-icon>Home
+          </ion-tab-button>
+          <ion-tab-button (click)="posts(employer)">
+            <ion-icon name="archive"></ion-icon>My Post
           </ion-tab-button>
           <ion-tab-button [routerLink]="['/dashboardcompany']">
             <ion-icon name="briefcase"></ion-icon>Job Listing 
@@ -150,7 +160,7 @@
           </ion-tab-button>
 
           <ion-tab-button tab="notification">
-            <ion-badge color="danger">1</ion-badge>
+            <ion-badge color="danger">{{notifcount}}</ion-badge>
             <ion-icon name="notifications" [routerLink]="['/notifications']"></ion-icon>Notification
           </ion-tab-button>
           

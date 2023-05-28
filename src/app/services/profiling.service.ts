@@ -70,6 +70,7 @@ export interface User{
   homeaddress: string;
   lat: string;
   lng: string;
+  ea: number
 
 
 
@@ -98,6 +99,27 @@ export class ProfilingService {
     const cakesRef = doc(this.firestore, `users/${id}/profile/${id}/`)
     return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
+
+  getprofilebyid(id: any): Observable<User[]>{
+  
+    const cakesRef = doc(this.firestore, `users/${id}/profile/${id}/`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
+
+  getcoords(): Observable<User[]>{
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = doc(this.firestore, `users/${id}/address/${id}/`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+  getprofilepref(): Observable<User[]>{
+    const id = this.auth.currentUser.uid;
+  
+    const cakesRef = doc(this.firestore, `users/${id}/preferred/${id}/`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
 
   getaddress(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
@@ -171,7 +193,7 @@ export class ProfilingService {
     {cname: any, caddress: any, jtitle: any, datet: any,jposition: any, yoe: any, datef: any }, experience: any ){
 
     try {
-      console.log("exp: id" + experience)
+ 
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/experience/${experience}`);
       const user = await updateDoc(userDocRef3, {cname, caddress, jtitle, jposition, yoe});
@@ -409,7 +431,7 @@ export class ProfilingService {
     try {
       
       const userget = this.auth.currentUser?.uid;
-      console.log(userget)
+ 
       const userDocRef3 = collection(this.firestore, `application/`);
       const user = await addDoc(userDocRef3, {uid: userget, name, bday, age, homeaddress, currentaddress, cs, religion, specialization, mo, moc, fa, fac, schoolname, course, level, yearg, cname, caddress, jtitle, datef, datet, reason, cnname, orgn, year, fpath, fpathr});
      
@@ -444,7 +466,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("cname", "!=", "" ));
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
 
     
@@ -457,7 +479,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("schoolname", "!=", "" ))
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
   }
 
@@ -468,7 +490,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("name", "!=", "" ));
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
     
   }
@@ -480,7 +502,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("fa", "!=", "" ));
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
     
   }
@@ -492,7 +514,7 @@ export class ProfilingService {
     const q = query(cakesRef, where("fpath", "!=", "" ));
     const b = getCountFromServer(q);
     const c = (await b).data().count;   
-    console.log(c);
+ 
     return c;
     
   }
@@ -506,12 +528,58 @@ export class ProfilingService {
       await uploadString(storageRef, cameraFile.base64String, 'base64');
 
       const imageUrl = await getDownloadURL(storageRef);
-      console.log(imageUrl);
+ 
       const user = this.auth.currentUser.uid;
 
       const userDocRef = doc(this.firestore, `users/${user}/profile/${user}`);
       await updateDoc(userDocRef, {
         profileimg: imageUrl
+      });
+      return true;
+    } catch (e) {
+      return null;
+      
+    }
+  }
+
+  async uploadImagec(cameraFile: Photo) {
+    const user = this.auth.currentUser;
+    const path = `uploads/company/${user.uid}/profile.png`;
+    const storageRef = ref(this.storage, path);
+
+    try {
+      await uploadString(storageRef, cameraFile.base64String, 'base64');
+
+      const imageUrl = await getDownloadURL(storageRef);
+ 
+      const user = this.auth.currentUser.uid;
+
+      const userDocRef = doc(this.firestore, `employers/${user}/profile/${user}`);
+      await updateDoc(userDocRef, {
+        profileimg: imageUrl
+      });
+      return true;
+    } catch (e) {
+      return null;
+      
+    }
+  }
+
+  async uploadImagecl(cameraFile: Photo) {
+    const user = this.auth.currentUser;
+    const path = `uploads/company/${user.uid}/clogo.png`;
+    const storageRef = ref(this.storage, path);
+
+    try {
+      await uploadString(storageRef, cameraFile.base64String, 'base64');
+
+      const imageUrl = await getDownloadURL(storageRef);
+ 
+      const user = this.auth.currentUser.uid;
+
+      const userDocRef = doc(this.firestore, `employers/${user}/company/${user}`);
+      await updateDoc(userDocRef, {
+         imageUrl
       });
       return true;
     } catch (e) {

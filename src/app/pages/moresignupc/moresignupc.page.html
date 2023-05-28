@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar> 
       <ion-buttons [routerLink]="['/authentication']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
@@ -38,7 +38,204 @@
             <br>
 
             <ion-label position="stacked">Citizenship:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="citizenship" class="custominput"></ion-input>
+            <ion-item class="custominput">
+              <ion-select interface="action-sheet" formControlName="citizenship" aria-label="fruit" placeholder="Select fruit">
+                <ion-select-option value="">-- select one --</ion-select-option>
+                <ion-select-option value="filipino">Filipino</ion-select-option>
+                <ion-select-option value="afghan">Afghan</ion-select-option>
+                <ion-select-option value="albanian">Albanian</ion-select-option>
+                <ion-select-option value="algerian">Algerian</ion-select-option>
+                <ion-select-option value="american">American</ion-select-option>
+                <ion-select-option value="andorran">Andorran</ion-select-option>
+                <ion-select-option value="angolan">Angolan</ion-select-option>
+                <ion-select-option value="antiguans">Antiguans</ion-select-option>
+                <ion-select-option value="argentinean">Argentinean</ion-select-option>
+                <ion-select-option value="armenian">Armenian</ion-select-option>
+                <ion-select-option value="australian">Australian</ion-select-option>
+                <ion-select-option value="austrian">Austrian</ion-select-option>
+                <ion-select-option value="azerbaijani">Azerbaijani</ion-select-option>
+                <ion-select-option value="bahamian">Bahamian</ion-select-option>
+                <ion-select-option value="bahraini">Bahraini</ion-select-option>
+                <ion-select-option value="bangladeshi">Bangladeshi</ion-select-option>
+                <ion-select-option value="barbadian">Barbadian</ion-select-option>
+                <ion-select-option value="barbudans">Barbudans</ion-select-option>
+                <ion-select-option value="batswana">Batswana</ion-select-option>
+                <ion-select-option value="belarusian">Belarusian</ion-select-option>
+                <ion-select-option value="belgian">Belgian</ion-select-option>
+                <ion-select-option value="belizean">Belizean</ion-select-option>
+                <ion-select-option value="beninese">Beninese</ion-select-option>
+                <ion-select-option value="bhutanese">Bhutanese</ion-select-option>
+                <ion-select-option value="bolivian">Bolivian</ion-select-option>
+                <ion-select-option value="bosnian">Bosnian</ion-select-option>
+                <ion-select-option value="brazilian">Brazilian</ion-select-option>
+                <ion-select-option value="british">British</ion-select-option>
+                <ion-select-option value="bruneian">Bruneian</ion-select-option>
+                <ion-select-option value="bulgarian">Bulgarian</ion-select-option>
+                <ion-select-option value="burkinabe">Burkinabe</ion-select-option>
+                <ion-select-option value="burmese">Burmese</ion-select-option>
+                <ion-select-option value="burundian">Burundian</ion-select-option>
+                <ion-select-option value="cambodian">Cambodian</ion-select-option>
+                <ion-select-option value="cameroonian">Cameroonian</ion-select-option>
+                <ion-select-option value="canadian">Canadian</ion-select-option>
+                <ion-select-option value="cape verdean">Cape Verdean</ion-select-option>
+                <ion-select-option value="central african">Central African</ion-select-option>
+                <ion-select-option value="chadian">Chadian</ion-select-option>
+                <ion-select-option value="chilean">Chilean</ion-select-option>
+                <ion-select-option value="chinese">Chinese</ion-select-option>
+                <ion-select-option value="colombian">Colombian</ion-select-option>
+                <ion-select-option value="comoran">Comoran</ion-select-option>
+                <ion-select-option value="congolese">Congolese</ion-select-option>
+                <ion-select-option value="costa rican">Costa Rican</ion-select-option>
+                <ion-select-option value="croatian">Croatian</ion-select-option>
+                <ion-select-option value="cuban">Cuban</ion-select-option>
+                <ion-select-option value="cypriot">Cypriot</ion-select-option>
+                <ion-select-option value="czech">Czech</ion-select-option>
+                <ion-select-option value="danish">Danish</ion-select-option>
+                <ion-select-option value="djibouti">Djibouti</ion-select-option>
+                <ion-select-option value="dominican">Dominican</ion-select-option>
+                <ion-select-option value="dutch">Dutch</ion-select-option>
+                <ion-select-option value="east timorese">East Timorese</ion-select-option>
+                <ion-select-option value="ecuadorean">Ecuadorean</ion-select-option>
+                <ion-select-option value="egyptian">Egyptian</ion-select-option>
+                <ion-select-option value="emirian">Emirian</ion-select-option>
+                <ion-select-option value="equatorial guinean">Equatorial Guinean</ion-select-option>
+                <ion-select-option value="eritrean">Eritrean</ion-select-option>
+                <ion-select-option value="estonian">Estonian</ion-select-option>
+                <ion-select-option value="ethiopian">Ethiopian</ion-select-option>
+                <ion-select-option value="fijian">Fijian</ion-select-option>
+                <ion-select-option value="finnish">Finnish</ion-select-option>
+                <ion-select-option value="french">French</ion-select-option>
+                <ion-select-option value="gabonese">Gabonese</ion-select-option>
+                <ion-select-option value="gambian">Gambian</ion-select-option>
+                <ion-select-option value="georgian">Georgian</ion-select-option>
+                <ion-select-option value="german">German</ion-select-option>
+                <ion-select-option value="ghanaian">Ghanaian</ion-select-option>
+                <ion-select-option value="greek">Greek</ion-select-option>
+                <ion-select-option value="grenadian">Grenadian</ion-select-option>
+                <ion-select-option value="guatemalan">Guatemalan</ion-select-option>
+                <ion-select-option value="guinea-bissauan">Guinea-Bissauan</ion-select-option>
+                <ion-select-option value="guinean">Guinean</ion-select-option>
+                <ion-select-option value="guyanese">Guyanese</ion-select-option>
+                <ion-select-option value="haitian">Haitian</ion-select-option>
+                <ion-select-option value="herzegovinian">Herzegovinian</ion-select-option>
+                <ion-select-option value="honduran">Honduran</ion-select-option>
+                <ion-select-option value="hungarian">Hungarian</ion-select-option>
+                <ion-select-option value="icelander">Icelander</ion-select-option>
+                <ion-select-option value="indian">Indian</ion-select-option>
+                <ion-select-option value="indonesian">Indonesian</ion-select-option>
+                <ion-select-option value="iranian">Iranian</ion-select-option>
+                <ion-select-option value="iraqi">Iraqi</ion-select-option>
+                <ion-select-option value="irish">Irish</ion-select-option>
+                <ion-select-option value="israeli">Israeli</ion-select-option>
+                <ion-select-option value="italian">Italian</ion-select-option>
+                <ion-select-option value="ivorian">Ivorian</ion-select-option>
+                <ion-select-option value="jamaican">Jamaican</ion-select-option>
+                <ion-select-option value="japanese">Japanese</ion-select-option>
+                <ion-select-option value="jordanian">Jordanian</ion-select-option>
+                <ion-select-option value="kazakhstani">Kazakhstani</ion-select-option>
+                <ion-select-option value="kenyan">Kenyan</ion-select-option>
+                <ion-select-option value="kittian and nevisian">Kittian and Nevisian</ion-select-option>
+                <ion-select-option value="kuwaiti">Kuwaiti</ion-select-option>
+                <ion-select-option value="kyrgyz">Kyrgyz</ion-select-option>
+                <ion-select-option value="laotian">Laotian</ion-select-option>
+                <ion-select-option value="latvian">Latvian</ion-select-option>
+                <ion-select-option value="lebanese">Lebanese</ion-select-option>
+                <ion-select-option value="liberian">Liberian</ion-select-option>
+                <ion-select-option value="libyan">Libyan</ion-select-option>
+                <ion-select-option value="liechtensteiner">Liechtensteiner</ion-select-option>
+                <ion-select-option value="lithuanian">Lithuanian</ion-select-option>
+                <ion-select-option value="luxembourger">Luxembourger</ion-select-option>
+                <ion-select-option value="macedonian">Macedonian</ion-select-option>
+                <ion-select-option value="malagasy">Malagasy</ion-select-option>
+                <ion-select-option value="malawian">Malawian</ion-select-option>
+                <ion-select-option value="malaysian">Malaysian</ion-select-option>
+                <ion-select-option value="maldivan">Maldivan</ion-select-option>
+                <ion-select-option value="malian">Malian</ion-select-option>
+                <ion-select-option value="maltese">Maltese</ion-select-option>
+                <ion-select-option value="marshallese">Marshallese</ion-select-option>
+                <ion-select-option value="mauritanian">Mauritanian</ion-select-option>
+                <ion-select-option value="mauritian">Mauritian</ion-select-option>
+                <ion-select-option value="mexican">Mexican</ion-select-option>
+                <ion-select-option value="micronesian">Micronesian</ion-select-option>
+                <ion-select-option value="moldovan">Moldovan</ion-select-option>
+                <ion-select-option value="monacan">Monacan</ion-select-option>
+                <ion-select-option value="mongolian">Mongolian</ion-select-option>
+                <ion-select-option value="moroccan">Moroccan</ion-select-option>
+                <ion-select-option value="mosotho">Mosotho</ion-select-option>
+                <ion-select-option value="motswana">Motswana</ion-select-option>
+                <ion-select-option value="mozambican">Mozambican</ion-select-option>
+                <ion-select-option value="namibian">Namibian</ion-select-option>
+                <ion-select-option value="nauruan">Nauruan</ion-select-option>
+                <ion-select-option value="nepalese">Nepalese</ion-select-option>
+                <ion-select-option value="new zealander">New Zealander</ion-select-option>
+                <ion-select-option value="ni-vanuatu">Ni-Vanuatu</ion-select-option>
+                <ion-select-option value="nicaraguan">Nicaraguan</ion-select-option>
+                <ion-select-option value="nigerien">Nigerien</ion-select-option>
+                <ion-select-option value="north korean">North Korean</ion-select-option>
+                <ion-select-option value="northern irish">Northern Irish</ion-select-option>
+                <ion-select-option value="norwegian">Norwegian</ion-select-option>
+                <ion-select-option value="omani">Omani</ion-select-option>
+                <ion-select-option value="pakistani">Pakistani</ion-select-option>
+                <ion-select-option value="palauan">Palauan</ion-select-option>
+                <ion-select-option value="panamanian">Panamanian</ion-select-option>
+                <ion-select-option value="papua new guinean">Papua New Guinean</ion-select-option>
+                <ion-select-option value="paraguayan">Paraguayan</ion-select-option>
+                <ion-select-option value="peruvian">Peruvian</ion-select-option>
+                <ion-select-option value="polish">Polish</ion-select-option>
+                <ion-select-option value="portuguese">Portuguese</ion-select-option>
+                <ion-select-option value="qatari">Qatari</ion-select-option>
+                <ion-select-option value="romanian">Romanian</ion-select-option>
+                <ion-select-option value="russian">Russian</ion-select-option>
+                <ion-select-option value="rwandan">Rwandan</ion-select-option>
+                <ion-select-option value="saint lucian">Saint Lucian</ion-select-option>
+                <ion-select-option value="salvadoran">Salvadoran</ion-select-option>
+                <ion-select-option value="samoan">Samoan</ion-select-option>
+                <ion-select-option value="san marinese">San Marinese</ion-select-option>
+                <ion-select-option value="sao tomean">Sao Tomean</ion-select-option>
+                <ion-select-option value="saudi">Saudi</ion-select-option>
+                <ion-select-option value="scottish">Scottish</ion-select-option>
+                <ion-select-option value="senegalese">Senegalese</ion-select-option>
+                <ion-select-option value="serbian">Serbian</ion-select-option>
+                <ion-select-option value="seychellois">Seychellois</ion-select-option>
+                <ion-select-option value="sierra leonean">Sierra Leonean</ion-select-option>
+                <ion-select-option value="singaporean">Singaporean</ion-select-option>
+                <ion-select-option value="slovakian">Slovakian</ion-select-option>
+                <ion-select-option value="slovenian">Slovenian</ion-select-option>
+                <ion-select-option value="solomon islander">Solomon Islander</ion-select-option>
+                <ion-select-option value="somali">Somali</ion-select-option>
+                <ion-select-option value="south african">South African</ion-select-option>
+                <ion-select-option value="south korean">South Korean</ion-select-option>
+                <ion-select-option value="spanish">Spanish</ion-select-option>
+                <ion-select-option value="sri lankan">Sri Lankan</ion-select-option>
+                <ion-select-option value="sudanese">Sudanese</ion-select-option>
+                <ion-select-option value="surinamer">Surinamer</ion-select-option>
+                <ion-select-option value="swazi">Swazi</ion-select-option>
+                <ion-select-option value="swedish">Swedish</ion-select-option>
+                <ion-select-option value="swiss">Swiss</ion-select-option>
+                <ion-select-option value="syrian">Syrian</ion-select-option>
+                <ion-select-option value="taiwanese">Taiwanese</ion-select-option>
+                <ion-select-option value="tajik">Tajik</ion-select-option>
+                <ion-select-option value="tanzanian">Tanzanian</ion-select-option>
+                <ion-select-option value="thai">Thai</ion-select-option>
+                <ion-select-option value="togolese">Togolese</ion-select-option>
+                <ion-select-option value="tongan">Tongan</ion-select-option>
+                <ion-select-option value="trinidadian or tobagonian">Trinidadian or Tobagonian</ion-select-option>
+                <ion-select-option value="tunisian">Tunisian</ion-select-option>
+                <ion-select-option value="turkish">Turkish</ion-select-option>
+                <ion-select-option value="tuvaluan">Tuvaluan</ion-select-option>
+                <ion-select-option value="ugandan">Ugandan</ion-select-option>
+                <ion-select-option value="ukrainian">Ukrainian</ion-select-option>
+                <ion-select-option value="uruguayan">Uruguayan</ion-select-option>
+                <ion-select-option value="uzbekistani">Uzbekistani</ion-select-option>
+                <ion-select-option value="venezuelan">Venezuelan</ion-select-option>
+                <ion-select-option value="vietnamese">Vietnamese</ion-select-option>
+                <ion-select-option value="welsh">Welsh</ion-select-option>
+                <ion-select-option value="yemenite">Yemenite</ion-select-option>
+                <ion-select-option value="zambian">Zambian</ion-select-option>
+                <ion-select-option value="zimbabwean">Zimbabwean</ion-select-option>
+                
+              </ion-select>
+            </ion-item>
             <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
 
       </ion-card-content>
@@ -60,9 +257,13 @@
           <br>
 
           <ion-label position="stacked">Company Email:</ion-label>
-          <ion-input position="stacked" type="email" formControlName="cemail" class="custominput"></ion-input>
+          <div class="toggle">
+            <ion-toggle style="float:left" (click)="samemail($event)"></ion-toggle> <ion-label style="float: left;">Same with login</ion-label>
+          </div>
+          <ion-input position="stacked" type="email" [readonly]="isToggled" [value]="credentials.value.cemail" formControlName="cemail" class="custominput"></ion-input>
+         
           <ion-note slot="error" *ngIf="(cemail.dirty || cemail.touched) && cemail.errors">Required</ion-note>
-          <br>
+          
 
           <ion-label position="stacked">Company Address:</ion-label>
           <ion-input [hidden]="true"  position="stacked" [value]="currentPlaceID" formControlName="currentPlaceID" type="text" class="custominput"></ion-input>
@@ -71,10 +272,12 @@
 
           <form action="" [formGroup]="credscurrent" (ngSubmit)="searchCurrent()">
             <ion-input position="stacked" [value]="selectedCurrent" formControlName="companyaddress" type="text" class="custominput"></ion-input>
-            <ion-button type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
-            <ion-button (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
+            <div class="apibutton">
+            <ion-button class="apibuttons" shape="round" expand="block" type="submit"><ion-icon name="search-outline"></ion-icon></ion-button>
+            <ion-button class="apibuttons" shape="round" expand="block" (click)="getCurrentc()"> <ion-icon name="location-outline"></ion-icon></ion-button>
+            </div>
           </form>
-            <ion-item button *ngFor="let address of addressesc" (click)="onSelectc(address)" >
+            <ion-item button *ngFor="let address of addressesc" (click)="onSelectc(address)" class="custominput">
               <ion-icon name="pin"></ion-icon>
               {{ address.description }} 
             </ion-item>

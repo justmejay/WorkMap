@@ -3,7 +3,7 @@
       <ion-buttons [routerLink]="['/moresignup']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
-      <ion-title>Setup your account</ion-title> 
+      <ion-title>Choose your preferred job positions</ion-title> 
   </ion-toolbar>
 </ion-header>
 
@@ -11,16 +11,22 @@
 <div >
    
     <ion-card class="custom-card">
-      <ion-button class="reset" shape="round" (click)="reset()">
+      <!-- <ion-button class="reset" shape="round" (click)="reset()">
         <ion-icon name="arrow-undo-outline"></ion-icon>
-      </ion-button>
+      </ion-button> -->
       <ion-card-header>
-        <ion-card-title>Select your preferred Job positions?</ion-card-title>
+        <ion-card-title>Select up to 5</ion-card-title> 
         
       </ion-card-header>
       <ion-card-content>
        
-          <ion-searchbar  show-clear-button="focus" value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" animated="true" placeholder="Job Positions"></ion-searchbar>
+          <!-- <ion-searchbar  show-clear-button="focus" value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" animated="true" placeholder="Job Positions"></ion-searchbar> -->
+          <ion-item class="customitem">
+            <ion-input value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" placeholder="Job Positions" position="stacked" type="text"></ion-input>
+            <ion-icon name="backspace-outline" (click)="clear()" class="reset"></ion-icon>
+            <ion-icon name="arrow-undo-outline" class="reset" (click)="reset()" ></ion-icon>          
+          </ion-item>
+
                 <ion-item *ngFor="let filter of queryinit | filter:term">
                   <ion-checkbox [disabled]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" [checked]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" 
                   [disabled]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" value="{{filter.position}}" (click)="check($event, filter)" >
@@ -28,14 +34,16 @@
                   <ion-label>{{filter.position}}</ion-label>
                 </ion-item>
 
-                  <ion-item *ngFor="let c of checkeditems">
+                  <ion-item *ngFor="let c of checkeditems" class="checked">
                     <ng-container>
                       
                     </ng-container>
                     <ion-label>
                       {{c}}
                     </ion-label> 
-
+                    <!-- <ion-button class="uncheck" fill="clear">
+                      <ion-icon name="close-circle-outline"></ion-icon>
+                    </ion-button> -->
                   </ion-item>
 
       </ion-card-content>

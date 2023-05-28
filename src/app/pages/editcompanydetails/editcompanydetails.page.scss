@@ -44,7 +44,7 @@ ion-input.custominput{
     color: black;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
-
+    padding-left: 3px;
 }
 ion-select{
     // border: solid 2px  rgb(53, 66, 125);
@@ -84,6 +84,7 @@ h2{
     background-color: transparent;
     opacity: 0;
     transition: opacity 150ms ease-in;
+    border-radius: 15px;
   }
   
 .map.visible {
@@ -102,10 +103,14 @@ h2{
     flex: 1;
 }
 
+ion-button{
+    text-transform: initial;
+    padding-right: 0.2rem;
+}
 
-
-
-
+ion-card-title{
+    color: white;
+}
   
 
 

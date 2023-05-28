@@ -1,0 +1,86 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+}
+
+ion-toolbar{
+    --background:  #2855A1;
+    color: white;
+}
+.container{
+    // border: 2px solid #3AB3C1;
+    padding-bottom: 3%;
+}
+
+ion-card{
+    --background: rgb(255, 255, 255);
+    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+.maincardpfp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+ion-card-header.maincard{
+    --background: #2F7EF5;
+    color: whitesmoke;
+    padding: 0;
+}
+
+ion-avatar.logo{
+    // margin: 0.5rem 0 0.5rem 0.5rem;
+    width: 80px ;
+    height: 80px;
+}
+
+ion-card-header.team{
+    --background: #277dff;
+    color: whitesmoke;
+    margin: 0%;
+}
+ion-card-title{
+    color: whitesmoke;
+}
+
+ion-card-content{
+    color: black;
+    margin: auto;
+    text-align: justify;
+    padding-top: 10px;
+
+    ion-text{
+        text-indent: 20px;
+        p{
+        font-size: 1rem;
+        }
+    }
+}
+
+ion-label.cardsubtitle{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+ion-card-content.contact{
+    color: black;
+    padding: 0;
+    text-align: justify;
+    margin-bottom: 1rem;
+
+    ion-icon{
+        font-size: 2rem;
+    }
+
+    ion-thumbnail{
+        width: 2rem ;
+        height: 2rem;
+        text-align: center;
+    }
+}

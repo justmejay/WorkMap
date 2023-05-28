@@ -4,7 +4,7 @@ import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, de
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
-import { timeStamp } from 'console';
+import { timeEnd, timeStamp } from 'console';
 
 export interface Company{
   //id is optional and not required
@@ -29,9 +29,19 @@ export interface Company{
   fname:string,
   mname:string,
   lname:string,
-  citizenship,
+  citizenship: string,
   contact:number,
   email:string,
+
+  //joblist
+  jtitle: string,
+  jsalary: number,
+  jtype: string,
+  jdescription: string,
+  jexperience: string,
+  attainment: string,
+  jposition: any,
+
 
   
 }
@@ -47,16 +57,16 @@ export class CompanyService {
     private auth: Auth,
   ) {
 
-    // console.log(Date.now())
+ 
     // const date: Date = new Date(1682515211967);
 
-    // console.log(date.toLocaleString());  
+ 
    }
 
 
   getcompany(): Observable<Company[]>{
     const userget = this.auth.currentUser.uid;
-    console.log(userget);
+ 
   
     const cakesRef = doc(this.firestore, `employers/${userget}/company/${userget}`)
     return docData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
@@ -64,7 +74,7 @@ export class CompanyService {
 
   getemployer(): Observable<Company[]>{
     const userget = this.auth.currentUser.uid;
-    console.log(userget);
+ 
   
     const cakesRef = doc(this.firestore, `employers/${userget}/profile/${userget}`)
     return docData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
@@ -97,7 +107,7 @@ export class CompanyService {
      
       return true;
     } catch (e) {
-      console.log(e);
+ 
       return null;
     }
   }
@@ -126,31 +136,34 @@ export class CompanyService {
      
       return true;
     } catch (e) {
-      console.log(e);
+ 
       return null;
     }
   }
 
 
-  async addjoblisting({jdescription, jtitle, jsalary, jspecialization, jtype}: 
-    { jtitle: any, jsalary: any, jspecialization: any, jtype: any, jdescription: any } ){
+  async addjoblisting({jdescription, jtitle, jsalary, lat, lng,jposition, jtype, jexperience, attainment}: 
+    { jtitle: any, jsalary: any, jposition: any,lat:any, lng: any, jtype: any, jdescription: any, jexperience: any, attainment: any } ){
 
     try {
 
 
-      const timeStamp = Date.now();
-    const date: Date = new Date(1682515211967);
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
 
     const date2 = date.toLocaleString();
       const userget = this.auth.currentUser?.uid;
-      console.log(userget)
+ 
       const userDocRef3 = collection(this.firestore, `joblist/`);
-      const user = await addDoc(userDocRef3, {uid: userget, jtitle, jsalary, jspecialization, jtype, jdescription, timestamp: date2, listid: "",state: true });
+      const user = await addDoc(userDocRef3, {uid: userget, jtitle,lat,lng, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true, attainment, jexperience, timesort: timeStamp, distance: "", distancesort: 0,exception: [] });
 
       const id = user.id;
 
       const userDocRef4 = doc(this.firestore, `joblist/${id}`);
       const user2 = await updateDoc(userDocRef4, {listid: id });
+
+      // const userDocRef5 = collection(this.firestore, `joblist/${id}/exceptions/`);
+      // const user3 = await addDoc(userDocRef5, {userid: "initial"});
       
 
 
@@ -166,11 +179,7 @@ export class CompanyService {
     return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
   }
 
-  getjobs(spec: any): Observable<Company[]>{
-    const cakesRef = collection(this.firestore, 'joblist')
-    const q = query(cakesRef, where("state", "==", true ), where("jspecialization", "==", spec ))
-    return collectionData(q, {idField: 'userget'}) as Observable<[Company]> 
-  }
+
 
 
 
@@ -182,18 +191,55 @@ export class CompanyService {
     return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
   }
 
+  getjobs(spec: any, ea: any): Observable<Company[]>{
+    console.log(spec);
+    console.log(ea);
+  const uid = this.auth.currentUser.uid;
+  console.log(uid);
+    const cakesRef = collection(this.firestore, 'joblist')
+    const q = query(cakesRef, where("state", "==", true), where("jposition", "array-contains-any", spec), where("attainment", "<=", ea));
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]> 
+
+    
+  }
+
   
   async editstatus(state: any, value: boolean){
 
     try {
       const userget = this.auth.currentUser?.uid;
-      const userDocRef3 = doc(this.firestore, `joblist/${state}`);
-      const user = await updateDoc(userDocRef3, {state: value});
+      const userDocRef3 = collection(this.firestore, `joblist/${state}`);
+      const user = await addDoc(userDocRef3, {state: value});
      
       return true;
     } catch (e) {
       return null;
     }
+  }
+
+  getjobe(id: any): Observable<Company[]>{
+    const cakesRef = doc(this.firestore, `joblist/${id}`)
+    // const q = query(cakesRef, where("listid", "==", id ))
+    return docData(cakesRef, {idField: 'id'}) as Observable<[Company]> 
+  }
+
+  async editjoblisting({jtitle, jsalary, jtype, jdescription, jexperience, attainment, jposition}: 
+    {jtitle: any, jsalary: any, jtype: any, jdescription:any, jexperience, attainment: any, jposition: any}, id: any){
+
+    try {
+      const userDocRef3 = doc(this.firestore, `joblist/${id}`);
+      const user = await updateDoc(userDocRef3, {jtitle, jsalary, jtype, jdescription, jexperience, attainment, jposition,});
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  getcompanyid(id: any): Observable<Company[]>{
+
+    const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    return docData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
   }
 
 }
