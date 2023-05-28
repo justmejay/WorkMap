@@ -161,8 +161,16 @@ export class ApplicationService {
 
   getjoblist(id: any): Observable<User[]>{
   
-    const cakesRefe = doc(this.firestore, `joblist/${id}`)
-    return docData(cakesRefe, {idField: 'id'}) as Observable<User[]>
+    try{
+      const cakesRefe = doc(this.firestore, `joblist/${id}`)
+      return docData(cakesRefe, {idField: 'id'}) as Observable<User[]>
+
+    }catch(e){
+      console.log(e);
+      return null;
+    }
+   
+
   }
 
 
@@ -175,7 +183,7 @@ export class ApplicationService {
 
     const date2 = date.toLocaleString();
     const applicationRef = collection(this.firestore, `application`)
-    const pass = await addDoc (applicationRef, {application, timeStamp, time: date2})
+    const pass = await addDoc (applicationRef, {application, timeStamp, time: date2, reason: ""});
 
 
      const applicationRef1 = doc(this.firestore, `joblist/${application.jobid}/`)
@@ -199,6 +207,13 @@ export class ApplicationService {
     const q = query(cakesRef, where("application.jobid", "==", id ))
     return collectionData(q, {idField: 'id'}) as Observable<[User]> 
   }
+
+  getapplication(id: any): Observable<User[]>{
+    console.log(id);
+    const cakesRef = doc(this.firestore, `application/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]> 
+  }
+
 
   getjtitle(id: any): Observable<User[]>{
     const cakesRef = collection(this.firestore, 'joblist/')

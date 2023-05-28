@@ -18,9 +18,9 @@
 
 <ion-content >
 
-<ion-item button detail="true" (click)="profiledetails(jobs)" *ngFor="let jobs of jobs" [routerLink]="['/viewapplicants']">
+<ion-item button detail="true" (click)="profiledetails(jobs)" *ngFor="let jobs of jobs" >
   <ion-avatar slot="start">
-    <img alt="Profile piture" *ngIf="jobs.application?.profileimg; else alt" src="jobs.application.profileimg" />
+    <img alt="Profile piture" *ngIf="jobs.application?.profileimg; else alt" src="{{jobs.application.profileimg}}" />
     <ng-template #alt>
       <img alt="Profile piture" src="assets/header.png" />
     </ng-template>
