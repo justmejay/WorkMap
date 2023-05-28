@@ -3,25 +3,21 @@
       <ion-buttons [routerLink]="" slot="start">
         <ion-icon style="width: 50px; color: white;" name="arrow-back-outline" [routerLink]="['/']">  </ion-icon>
       </ion-buttons> 
-      <ion-buttons slot="end">
+      <!-- <ion-buttons slot="end">
         <ion-icon style="width: 50px; color: white;" name="ellipsis-vertical" id="open-modal">  </ion-icon>
-      </ion-buttons>
+      </ion-buttons> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+  <!-- <ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
     <ng-template>
       <div class="block">
         <ion-button expand="block" color="primary" shape="round" [routerLink]="['/messageviewcompany']">Message Applicant</ion-button>
-        <!-- <ion-button expand="block" color="primary" shape="round">Cancel</ion-button> -->
+        <ion-button expand="block" color="primary" shape="round">Cancel</ion-button>
       </div>
     </ng-template>
-  </ion-modal>
-
-  <!-- THIS IS A PLACEHOLDER with updated design
-  ORIGINAL CARD IS NOT WORKING
-  ORIGINAL CARD ABOVE WAS COMMENTED OUT -->
+  </ion-modal> -->
   <ion-card class="maincard">
     <ion-card-header class="maincard">
       <div class="maincardpfp">
@@ -33,7 +29,13 @@
           </ion-thumbnail>
         <ion-card-title>{{pdetails.fname}} {{pdetails.lname}}</ion-card-title>
         <!-- <ion-icon style="float: right; font-size: 30px;" name="information-circle" class="edit"></ion-icon> -->
+        <div class="messagebutton">
+          <ion-button fill="clear" slot="end" [routerLink]="['/messageviewcompany']">
+            <ion-icon style="font-size: 30px; color: white;" name="chatbubble-ellipses-outline" ></ion-icon>
+          </ion-button>
+        </div>
       </div>
+      
     </ion-card-header>
     <ion-card-content class="maincard">
         <ion-card class="subcard">
