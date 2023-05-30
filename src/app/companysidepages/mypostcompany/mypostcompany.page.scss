@@ -16,7 +16,7 @@ ion-toolbar{
 ion-title{
     --color: rgb(255, 255, 255);
 }
-ion-card{
+.mypost{
     --background: #ffffff;
     // box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
@@ -24,7 +24,7 @@ ion-card{
     // border: solid 3px  rgb(53, 66, 125);
 }
 
-ion-card-header{
+.header{
     --background: #fff;
     color: rgb(0, 0, 0);
     margin: 0;
@@ -61,7 +61,7 @@ ion-list{
     // padding: 0.8rem;
 }
 
-ion-card-content{
+.content{
     margin: 0;
     padding: 0 0 .5rem 0;
 

@@ -11,8 +11,8 @@
   <div class="container">
   <ion-list *ngFor="let post of post">
     <!-- <h3>{{post.cname}}</h3> -->
-    <ion-card>
-      <ion-card-header>
+    <div class="mypost">
+      <div class="header">
         <div class="poster">
           <ion-avatar slot="start" class="pfp">
             <img *ngIf="post?.profileimg; else placeholder_avatar;" [src]="post.profileimg" />
@@ -35,10 +35,11 @@
             </ion-label>
           </div>
         </div>
-      </ion-card-header>
+      </div>
 
-      <ion-card-content>
+      <div class="content">
         <div class="post">
+          <ion-label class="title">{{post.ptitle}}</ion-label>
           <img *ngIf="post?.imageUrl; else placeholder_avatar;" [src]="post.imageUrl" />
   
           <ng-template #placeholder_avatar>
@@ -48,15 +49,14 @@
           </ng-template>
         </div>
 
-        <ion-label class="title">{{post.ptitle}}</ion-label>
         <p>{{post.pdescription}}</p>
       <!-- <ion-button expand="block" fill="clear">https://www.sampleattachedlink.com</ion-button> -->
       <!-- <div class="actionbuttons">
         <ion-button fill="clear">Like</ion-button>
       </div> -->
         <ion-label class="timeposted">Date Posted: {{post.timeStamp}}</ion-label>
-      </ion-card-content>
-    </ion-card>
+      </div>
+    </div>
   </ion-list>
 </div>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end" (click)="addpost(profile)">

@@ -276,6 +276,10 @@ const routes: Routes = [
     path: 'aboutusc',
     loadChildren: () => import('./companysidepages/aboutusc/aboutusc.module').then( m => m.AboutuscPageModule)
   },
+  {
+    path: 'privacypolicycompany',
+    loadChildren: () => import('./companysidepages/privacypolicycompany/privacypolicycompany.module').then( m => m.PrivacypolicycompanyPageModule)
+  },
 
 
   
