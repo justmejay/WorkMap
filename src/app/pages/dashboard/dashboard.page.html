@@ -83,10 +83,13 @@
       <ion-card *ngFor="let job of finalbook" class="joblisting">
         <ion-card-header>
           <ion-grid>
-            <ion-row>
+            <ion-row class="jobtitle">
               <ion-card-title>
                 {{job.jtitle}}
               </ion-card-title>
+              <ion-button class="viewmore" fill="clear" (click)="gocdata(job)">
+                <ion-icon  name="information-circle" class="edit" ></ion-icon>
+              </ion-button>
             </ion-row>
             <ion-row>
               <ion-card-subtitle>
@@ -97,9 +100,8 @@
               </ion-card-subtitle>
             </ion-row>
           </ion-grid>
-          <ion-button class="viewmore" fill="clear" (click)="gocdata(job)">View more
-            <ion-icon  name="information-circle" class="edit" ></ion-icon>
-          </ion-button>
+
+          
           <!-- <ion-card-subtitle>
             {{job.cname}}
              Company Name, Company Address  Not Working. NO NEED FOR COMPANY DETAILS HERE

@@ -216,6 +216,8 @@ ion-badge {
     color: white;
     text-transform: initial;
     margin:0;
+    // text-align: right;
+    // padding-left: 2rem;
     // padding-top: 0.3rem;
     // margin-left: auto;
     // margin-right: 0;
@@ -225,7 +227,14 @@ ion-badge {
     margin-top: 0.5rem;
     padding-bottom: 0.2rem;
   }
-
+  
+.jobtitle{
+    display: flex;
+    margin-top: 0.5rem;
+    padding-bottom: 0.2rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
   ion-badge.distance {
     border-radius: 50px;
     --color: white;

@@ -12,13 +12,19 @@
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/aboutusc']">
         <ion-icon slot="start" name="information-circle-outline"></ion-icon>
         About Us</ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/privacypolicy']">
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/privacypolicycompany']">
         <ion-icon slot="start" name="shield-half-outline" style="color: #42505d;"></ion-icon>
         Privacy Policy
       </ion-button>
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/employees']">
         <ion-icon slot="start" name="person" style="color: #42505d;" ></ion-icon>
          Employees</ion-button>
+      <ion-button fill="clear" class="card1menu" expand="block" (click)="posts(employer)">
+        <ion-icon slot="start" name="archive" style="color: #42505d;"></ion-icon>
+        My Post</ion-button>
+        <!-- <ion-tab-button (click)="posts(employer)">
+          <ion-icon name="archive"></ion-icon>My Post
+        </ion-tab-button> -->
       <!-- <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/subscriptions']">
         <ion-icon slot="start" name="diamond-outline" style="color: #42505d;"></ion-icon>
         Get Premium</ion-button> -->
@@ -139,9 +145,9 @@
           <ion-tab-button [routerLink]="['/hometabcompany']">
             <ion-icon name="home"></ion-icon>Home
           </ion-tab-button>
-          <ion-tab-button (click)="posts(employer)">
+          <!-- <ion-tab-button (click)="posts(employer)">
             <ion-icon name="archive"></ion-icon>My Post
-          </ion-tab-button>
+          </ion-tab-button> -->
           <ion-tab-button [routerLink]="['/dashboardcompany']">
             <ion-icon name="briefcase"></ion-icon>Job Listing 
           </ion-tab-button>

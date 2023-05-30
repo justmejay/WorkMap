@@ -23,6 +23,9 @@ ion-card-header{
     --background: #277dff;
     color: whitesmoke;
     margin: 0%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 ion-card-title{
     color: whitesmoke;
