@@ -19,6 +19,11 @@
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/resumebuilder']">
         <ion-icon slot="start" name="newspaper" style="color: #42505d;"></ion-icon>
          Resume Builder</ion-button>
+
+         <ion-button fill="clear" class="card1menu" expand="block" (click)="posts(profiles)">
+          <ion-icon slot="start" name="archive" style="color: #42505d;"></ion-icon>
+          My Post</ion-button>
+
       <ion-button [disabled]="true" fill="clear" class="card1menu" expand="block" [routerLink]="['/subscriptions']">
         <ion-icon slot="start"  name="diamond-outline" style="color: #42505d;"></ion-icon>
         Get Premium</ion-button>
@@ -176,9 +181,9 @@
             <ion-icon class="tabicon" name="home"></ion-icon>Home
           </ion-tab-button>
 
-          <ion-tab-button (click)="posts(profiles)">
+          <!-- <ion-tab-button (click)="posts(profiles)">
             <ion-icon name="archive"></ion-icon>My Post
-          </ion-tab-button>
+          </ion-tab-button> -->
 
           <ion-tab-button [routerLink]="['/dashboard']">
             <ion-icon class="tabicon" name="compass"></ion-icon>Discover
