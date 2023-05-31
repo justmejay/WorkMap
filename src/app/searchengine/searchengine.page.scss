@@ -55,29 +55,73 @@ ion-card-content{
 ion-icon{
     padding: 0.5rem;
 }
-.selectlocation{
-    width: 100%;
-}
-.selectjobspecialization{
-    width: 100%;
-}
+// .selectlocation{
+//     width: 100%;
+// }
+// .selectjobspecialization{
+//     width: 100%;
+// }
+// .sort{
+//     width: 100%;
+// }
 .searchbutton{
     text-transform: initial;
     --background:#2F7EF5;
     --color: white;
+    border-radius: 45px;
 }
 .timeposted{
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: #2F7EF5;
 }
-ion-badge {
+
+  ion-searchbar{
+    border-radius: 45px;
+  }
+  ion-item{
+    width: 100%;
+  }
+  ion-row{
+    width: 100%;
+  }
+  .checked{
+    display: flex;
+    flex-direction: row;
+    ion-label{
+        padding-top: 7px;
+    }
+    ion-icon{
+        margin-left: 4px;
+        margin-right: 0px;
+    }
+  }
+  .checkbox{
+    ion-label{
+        padding-left: 4px;
+    }
+  }
+  ion-badge {
     border-radius: 50px;
     --color: white;
     --padding-end: 20px;
     --padding-start: 20px;
   }
+  ion-badge.bchecked{
+    margin-left: 2px;
+}
+
   .positionbadges{
     margin-bottom: 0.5rem;
     margin-right: 0.3rem;
+  }
+
+  .viewmore{
+    color: white;
+    text-transform: initial;
+    // text-align: right;
+    // padding-left: 2rem;
+    // padding-top: 0.3rem;
+    margin-left: auto;
+    margin-right: 0;
   }

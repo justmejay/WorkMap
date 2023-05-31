@@ -9,62 +9,103 @@
 
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-searchbar animated="true" placeholder="Job Title" show-clear-button="focus"></ion-searchbar>
+    </ion-row>
+    <ion-row>
+      <ion-searchbar search-icon="briefcase-outline" placeholder="Job Position" show-clear-button="focus"></ion-searchbar>
+      <!-- <ion-icon name="arrow-undo-outline" class="reset"></ion-icon> -->
+    </ion-row>
+    <ion-row>
+      <ion-row>
+        <ion-item lines="none" class="checkbox">
+          <ion-checkbox>Job Position Select</ion-checkbox>
+          <ion-label> Webdeveloper</ion-label>
+        </ion-item>
+      </ion-row>
+      <ion-row>
+          <ion-badge class="bchecked">
+            <div class="checked">
+              <ion-label>Web Developer</ion-label>
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </div>
+          </ion-badge>
+          <ion-badge class="bchecked">
+            <div class="checked">
+              <ion-label>Graphic Designer</ion-label>
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </div>
+          </ion-badge>
+      </ion-row>
+    </ion-row>
+    <ion-row>
+      <div class="sort">
+        <ion-item lines="none">
+        <ion-icon name="filter-outline"></ion-icon>
+          <ion-select class="selectjobspecialization" placeholder="Sort Job Listings by:" interface="action-sheet">
+            <ion-select-option value="recent">Recent</ion-select-option>
+            <ion-select-option value="distance">Nearest distance</ion-select-option>
+            <ion-select-option value="closest">Closest Match</ion-select-option>
+            <ion-select-option value="highest">Highest Pay</ion-select-option>
+            <ion-select-option value="lowest">Lowest Pay</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class="sortsalary">
+        <ion-item lines="none">
+          <ion-icon name="wallet-outline"></ion-icon>
+          <ion-select class="selectsalaryrange" placeholder="Sort Salary Range by:" interface="action-sheet">
+            <ion-select-option value="ten">0 - 10,000 pesos</ion-select-option>
+            <ion-select-option value="twenty">10,000 - 20,000 pesos</ion-select-option>
+            <ion-select-option value="thirty">20,000 - 30,000 pesos</ion-select-option>
+            <ion-select-option value="fifty">30,000 - 50,000 pesos</ion-select-option>
+            <ion-select-option value="hundred">50,000 - 100,000 pesos</ion-select-option>
+            <ion-select-option value="hundredplus">100,000+ pesos</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+    </ion-row>
+  </ion-grid>
   <div class="searchengine">
-    <ion-searchbar animated="true" placeholder="Job Title"></ion-searchbar>
-    <!-- <div class="location">
-      <ion-icon name="location-outline"></ion-icon>
-      <ion-select class="selectlocation" placeholder="Select Place">
-        <ion-select-option value="">Address 1</ion-select-option>
-        <ion-select-option value="">Address 2</ion-select-option>
-        <ion-select-option value="">Address 3</ion-select-option>
-      </ion-select>
-    </div> -->
-    <div class="jobspecialization">
-      <ion-icon name="briefcase-outline"></ion-icon>
-      <ion-select class="selectjobspecialization" placeholder="Job Specialization">
-        <ion-select-option value="">Accounting/Finance</ion-select-option>
-        <ion-select-option value="">Admin/Human Resources</ion-select-option>
-        <ion-select-option value="">Agriculture, Forestry & Fishery</ion-select-option>
-        <ion-select-option value="">Armed Forces</ion-select-option>
-        <ion-select-option value="">Arts/Media/Communication</ion-select-option>
-        <ion-select-option value="">Building/Construction</ion-select-option>
-        <ion-select-option value="">Computer/Information Technology</ion-select-option>
-        <ion-select-option value="">Craft & Related Trade Workers</ion-select-option>
-        <ion-select-option value="">Education/Training</ion-select-option>
-        <ion-select-option value="">Engineering</ion-select-option>
-        <ion-select-option value="">Healthcare</ion-select-option>
-        <ion-select-option value="">Hotel/Restaurant</ion-select-option>
-        <ion-select-option value="">Manufacturing</ion-select-option>
-        <ion-select-option value="">Plant & Machine Operators & Assemblers</ion-select-option>
-        <ion-select-option value="">Sales/Marketing</ion-select-option>
-        <ion-select-option value="">Sciences</ion-select-option>
-      </ion-select>
-    </div>
-    <ion-button expand="block" class="searchbutton">Search Job Listing</ion-button>
+    <ion-button shape="round" expand="block" class="searchbutton">Search Job Listing</ion-button>
   </div>
   <div class="results">
     <ion-card class="joblisting">
       <ion-card-header>
-        <ion-card-title>
-          Looking for Web Dev
-        </ion-card-title>
-        <ion-card-subtitle>
-          <!-- {{job.cname}} -->
-          <!-- Company Name, Company Address  Not Working. NO NEED FOR COMPANY DETAILS HERE -->
-        </ion-card-subtitle>
+        <ion-grid>
+          <ion-row class="jobtitle">
+            <ion-card-title>
+             Looking for Web Developer mga slapsoil
+            </ion-card-title>
+            <ion-button class="viewmore" fill="clear">
+              <ion-icon  name="information-circle" class="edit" ></ion-icon>
+            </ion-button>
+          </ion-row>
+          <ion-row>
+            <ion-card-subtitle>
+              <ion-badge class="success" color="primary">
+                <ion-icon name="location-outline"></ion-icon>
+                <ion-label>69,420km from your location</ion-label>
+              </ion-badge>
+            </ion-card-subtitle>
+          </ion-row>
+        </ion-grid>
       </ion-card-header>
       <ion-card-content>
         <ion-grid>
           <ion-row class="jobposition">
-            <ion-badge class="positionbadges" color="tertiary"></ion-badge>
+            <ion-badge class="positionbadges" color="tertiary">Web developer</ion-badge>
 
           </ion-row>
           <ion-row class="companydetails">
             <ion-col class="labelheader">Starting Salary:</ion-col>
-            <ion-col> peso/s</ion-col>
+            <ion-col>14,000 peso/s</ion-col>
 
             <ng-template #placeholder_avatar>
-              <ion-col>Company did not specify</ion-col>
+              <ion-col>Company did not specified</ion-col>
             </ng-template>
             
           </ion-row>
@@ -77,11 +118,11 @@
             
             <ion-row class="jobtype">
               <ion-col class="labelheader">Job type:</ion-col>
-              <ion-col></ion-col>
+              <ion-col>Full time</ion-col>
             </ion-row>
             <ion-row class="minimum">
               <ion-col class="labelheader">Minimum experience required:</ion-col>
-              <ion-col> year/s</ion-col>
+              <ion-col>15 year/s</ion-col>
 
             <ng-template #placeholder_avatar1>
               <ion-col>No experience required</ion-col> 
@@ -89,20 +130,22 @@
             </ion-row>
             <ion-row class="education">
               <ion-col class="labelheader">Educational Attainment:</ion-col>
-              <ion-col></ion-col>
+              <ion-col placeholder="">Master's Degree</ion-col>
               <ng-template #placeholder_avatar3>
                 <ion-col>No minimum education required</ion-col> 
               </ng-template>
             </ion-row>
             <ion-row class="jobdescription">
               <ion-col class="labelheader">Job description:</ion-col>
-              <ion-col></ion-col>
+              <ion-col>Do everything we say and don't complain</ion-col>
             </ion-row>
           </div>
         </ion-grid>
-        <ion-label class="timeposted">Date Posted: </ion-label>
+        <ion-label class="timeposted">Date Posted: MM/DD/YYYY</ion-label>
       </ion-card-content>
-      <ion-button size="large" class="jobcardinfo" >Apply Now</ion-button>
+        
+        <ion-button size="large" class="jobcardinfo" >Apply Now</ion-button>
+
     </ion-card>
   </div>
 </ion-content>
