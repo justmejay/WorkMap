@@ -97,7 +97,7 @@ export class MypostcompanyPage implements OnInit {
 
     const id = post.id;
     await this.firestore.deletepost(id);
-    await this.firestore.deletepic(id)
+    this.firestore.deletepic(id)
 
     await loading.dismiss();
     this.presentToast('Post successfully deleted!');
