@@ -102,12 +102,51 @@ export class AddpostcompanyPage implements OnInit {
 }
 
   
-  async addpost() {
+async addpost() {
 
-    const loading = await this.loadingController.create({
-      spinner: "dots",
-      message: "Adding up!"
-    });    await loading.present();
+  const loading = await this.loadingController.create({
+    spinner: "dots",
+    message: "Adding up!"
+  });    await loading.present();
+
+ 
+
+  if (this.base64Image == null) {
+    const user = await this.firestore.addpost(this.credentials.value);
+    console.log(this.credentials.value)
+    await loading.dismiss();
+    // await this.firestore.deletepic(this.post.listid)
+
+    // if (user) {
+    //   this.firestore.getImageData(this.image, user.id);
+      
+    //   const uid = this.post.uid;
+
+    //   // this.router.navigateByUrl('/hometab', { replaceUrl: true });
+    //   this.router.navigate(['hometab'], {queryParams:{usid: uid}});
+    //   this.showAlert('Add success', '');
+
+
+    //     } else {
+    //   this.showAlert('Add failed', 'Please try again!');
+    // }
+
+    if (user) {
+
+      
+      const uid = this.post.uid;
+
+      // this.router.navigateByUrl('/hometab', { replaceUrl: true });
+      this.router.navigate(['hometabcompany'], {queryParams:{usid: uid}});
+      this.showAlert('Add success', '');
+
+
+        } else {
+      this.showAlert('Add failed', 'Please try again!');
+    }
+    
+    
+  } else {
 
     const user = await this.firestore.addpost(this.credentials.value);
     console.log(this.credentials.value)
@@ -127,6 +166,13 @@ export class AddpostcompanyPage implements OnInit {
       this.showAlert('Add failed', 'Please try again!');
     }
   }
+
+  
+
+
+ 
+}
+
 
 
 
