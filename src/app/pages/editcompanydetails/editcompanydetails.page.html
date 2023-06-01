@@ -23,31 +23,35 @@
           <ion-icon name="camera-outline"></ion-icon>
           Upload Picture</ion-button><br>
 
+          <ion-item>
             <ion-label position="stacked">Company Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="cname" [value]="company.cname" class="custominput"></ion-input>
-
+          </ion-item>
           <ion-note slot="error" *ngIf="(cname.dirty || cname.touched) && cname.errors">Required</ion-note>
 
+          <ion-item>
             <ion-label position="stacked">Company Contact Number:</ion-label>
             <ion-input position="stacked" type="number" formControlName="ccontact" [value]="company.ccontact" class="custominput"></ion-input>
-
+          </ion-item>
           <ion-note slot="error" *ngIf="(ccontact.dirty || ccontact.touched) && ccontact.errors">Required</ion-note>
 
+          <ion-item>
             <ion-label position="stacked">Company Email Address:</ion-label>
             <ion-input position="stacked" type="text" formControlName="cemail" [value]="company.cemail" class="custominput"></ion-input>
-
+          </ion-item>
           <ion-note slot="error" *ngIf="(cemail.dirty || cemail.touched) && cemail.errors">Required</ion-note>
-
+          
+          <ion-item>
             <ion-label position="stacked">Company Size (number of employees):</ion-label>
             <ion-input position="stacked" type="number" formControlName="csize" [value]="company.csize" class="custominput"></ion-input>
-
+          </ion-item>
           <ion-note slot="error" *ngIf="(csize.dirty || csize.touched) && csize.errors">Required</ion-note>
           
           <ion-label position="stacked">Average Processing Time:</ion-label>
           <div class="process">
             <div>
               <h2>Select Duration:</h2>
-              <ion-item class="drop">
+              <ion-item class="drop custominput">
                 <ion-select formControlName="cprocessingtime1" [value]="company.cprocessingtime1" interface="popover" placeholder="Select" expand="block">
                   <ion-select-option value="day/s">Day/s</ion-select-option>
                   <ion-select-option value="week/s">Week/s</ion-select-option>
@@ -60,7 +64,7 @@
             
             <div>
               <h2>Input Amount:</h2>
-                <ion-item>
+                <ion-item class="custominput">
                   <ion-input type="number" formControlName="cprocessingtime2" [value]="company.cprocessingtime2" class=" drop"></ion-input>  
                 </ion-item>
                 <ion-note slot="error" *ngIf="(cprocessingtime2.dirty || cprocessingtime2.touched) && cprocessingtime2.errors">Required</ion-note>
@@ -68,9 +72,10 @@
           </div>
 
             <br>
+
             <ion-label position="stacked">Benefits:</ion-label>
             <ion-textarea formControlName="cbenefits" [value]="company.cbenefits" autogrow="true" class="custominput"></ion-textarea>
-
+            
           <ion-note slot="error" *ngIf="(cbenefits.dirty || cbenefits.touched) && cbenefits.errors">Required</ion-note>
 
       </ion-card-content>
@@ -97,7 +102,6 @@
       <ion-card-content>
             <ion-label position="stacked">Company Overview:</ion-label>
             <ion-textarea autoGrow="true" formControlName="cdetails" [value]="company.cdetails" autogrow="true" class="custominput"></ion-textarea>
-
           <ion-note slot="error" *ngIf="(cdetails.dirty || cdetails.touched) && cdetails.errors">Required</ion-note>
       </ion-card-content>
     </ion-card>

@@ -32,7 +32,7 @@
             <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
             <br>
 
-            <ion-label position="stacked">Contact:</ion-label>
+            <ion-label position="stacked">Contact Number:</ion-label>
             <ion-input position="stacked" type="number" formControlName="contact" class="custominput"></ion-input>
             <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
             <br>
@@ -238,6 +238,10 @@
             </ion-item>
             <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
 
+            <ion-label position="stacked">TIN Number:</ion-label>
+            <ion-input position="stacked" type="number" formControlName="contact" class="custominput"></ion-input>
+            <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+            <br>
       </ion-card-content>
     </ion-card>
 
