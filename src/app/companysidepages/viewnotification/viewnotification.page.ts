@@ -1,7 +1,7 @@
 import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController} from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { ApplicationService } from 'src/app/services/application.service'; 
 import {
@@ -51,7 +51,8 @@ export class ViewnotificationPage implements OnInit {
     private authd: Auth,
     private activatedRoute: ActivatedRoute,
     private app: ApplicationService,
-    private profile: ProfilingService
+    private profile: ProfilingService,
+    private toastController: ToastController,
   ) { 
 
     this.activatedRoute.queryParams.subscribe((params) =>{
@@ -98,6 +99,67 @@ export class ViewnotificationPage implements OnInit {
   ngOnInit() {
 
    
+  }
+
+  async accept(jobdata){
+    const id = jobdata.id
+
+
+    const loading = await this.loadingController.create({
+      message: 'Accepting Application...',
+
+      duration: 1000,
+      spinner: 'dots',
+  
+    });
+    await loading.present();
+    await this.firestore.getaccepted(id)
+    this.showAlert('Success', 'Application Accepted!')
+
+  }
+
+  async reject(jobdata){
+    const id = jobdata.id
+
+    const prompt = await this.alertController.create({
+      header: 'Reject Application?',
+      inputs: [
+        {
+          name: 'reason',
+          type: 'text',
+          value: '',
+          placeholder: 'Reason for rejection'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            // Handle cancel button action if needed
+          }
+        },
+        {
+          text: 'Reject',
+          handler: (jobdata) => {
+            this.firestore.getrejected(id, jobdata.reason);
+            this.showAlert('Success', 'Application Rejected!')
+          }
+        }
+      ]
+    });
+  
+    await prompt.present();
+  }
+
+
+  async showAlert(header, message) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
  
