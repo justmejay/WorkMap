@@ -85,6 +85,25 @@ ion-icon{
   ion-row{
     width: 100%;
   }
+
+.jobtitle{
+    display: flex;
+    // margin-top: 0.5rem;
+    // padding-bottom: 0.5rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.viewmore{
+  margin:0;
+  color: white;
+  text-transform: initial;
+  // text-align: right;
+  // padding-left: 2rem;
+  // padding-top: 0.3rem;
+  // margin-left: auto;
+  // margin-right: 0;
+}
   .checked{
     display: flex;
     flex-direction: row;
@@ -101,12 +120,25 @@ ion-icon{
         padding-left: 4px;
     }
   }
+
   ion-badge {
     border-radius: 50px;
     --color: white;
+    margin-top: 0.3rem;
     --padding-end: 20px;
-    --padding-start: 20px;
+    --padding-start: 20px
   }
+
+.distance{
+  display: flex;
+  align-items: center;
+    ion-icon{
+      font-size: 1rem;
+      padding:0 .3rem 0 0;
+    }
+
+}
+
   ion-badge.bchecked{
     margin-left: 2px;
 }
@@ -114,14 +146,4 @@ ion-icon{
   .positionbadges{
     margin-bottom: 0.5rem;
     margin-right: 0.3rem;
-  }
-
-  .viewmore{
-    color: white;
-    text-transform: initial;
-    // text-align: right;
-    // padding-left: 2rem;
-    // padding-top: 0.3rem;
-    margin-left: auto;
-    margin-right: 0;
   }
