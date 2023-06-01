@@ -68,6 +68,9 @@ export interface User{
 
   job:any;
 
+  status: string;
+  reason: string;
+
 
 
 
@@ -183,14 +186,14 @@ export class ApplicationService {
 
     const date2 = date.toLocaleString();
     const applicationRef = collection(this.firestore, `application`)
-    const pass = await addDoc (applicationRef, {application, timeStamp, time: date2, reason: ""});
+    const pass = await addDoc (applicationRef, {application, timeStamp, time: date2, reason: "", status: "Pending"});
 
 
      const applicationRef1 = doc(this.firestore, `joblist/${application.jobid}/`)
       const pass1 =  updateDoc (applicationRef1, {exception: list});
 
     const applicationRefx = doc(this.firestore, `notifications/${pass.id}`)
-    const passx =  setDoc (applicationRefx, {application, timeStamp, time: date2})
+    const passx =  setDoc (applicationRefx, {application, timeStamp, time: date2, reason: "", status: "Pending"})
 
 
 
@@ -267,6 +270,21 @@ export class ApplicationService {
     const q = query(cakesRef, where("application.cid", "==",uid ))
     return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
+
+  getaccepted(id:any){
+
+    const cakeRef = doc(this.firestore, `application/${id}`)
+    const comp = "Accepted"
+    return updateDoc (cakeRef, {status: comp } )
+  }
+
+  getrejected(id:any, reasonr: any){
+
+    const cakeRef = doc(this.firestore, `application/${id}`)
+    const comp = "Rejected"
+    return updateDoc (cakeRef, {status: comp, reason: reasonr } )
+  }
+
 
   
 

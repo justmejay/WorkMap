@@ -227,8 +227,11 @@
 
 
               <ion-buttons fill="solid" class="btns">
-                <ion-button class="reject" type="Submit"  expand="block" fill="solid" shape="round" >Reject Application</ion-button>
-                <ion-button class="accept" type="Submit"  expand="block" fill="solid" shape="round" >Accept Application</ion-button>
+                <ion-button (click)="reject(jobdata)" class="reject" *ngIf="jobdata.status == 'Pending';" type="Submit"  expand="block" fill="solid" shape="round" >Reject Application</ion-button>
+                <ion-button (click)="accept(jobdata)" *ngIf="jobdata.status == 'Pending';" class="accept" type="Submit"  expand="block" fill="solid" shape="round" >Accept Application</ion-button>
+                
+                <ion-button class="reject" *ngIf="jobdata.status == 'Rejected';" expand="block" fill="solid" shape="round" >Application Rejected</ion-button>
+                <ion-button *ngIf="jobdata.status == 'Accepted';" class="accept" expand="block" fill="solid" shape="round" >Application Accepted</ion-button>
               </ion-buttons>
 
               
