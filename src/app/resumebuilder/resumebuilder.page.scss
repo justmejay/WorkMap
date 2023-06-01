@@ -70,6 +70,7 @@ ion-card-content{
     color: black;
     margin: auto;
 }
+
 ion-label.cardsubtitle{
     font-size: 1.2em;
     font-weight: 500;
@@ -92,6 +93,7 @@ ion-button{
     display: block;
 }
 .download{
+    margin-top: 1rem;
     --background: #142680;
     text-transform: initial;
 }

@@ -22,22 +22,26 @@
           <ion-icon name="camera-outline"></ion-icon>
           Upload Picture</ion-button><br>
 
-
+          <ion-item>
             <ion-label position="stacked">First Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="fname" value="{{employer.fname}}" class="custominput"></ion-input>
+          </ion-item>
 
           <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
-
+          
+          <ion-item>
             <ion-label position="stacked">Middle Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="mname" value="{{employer.mname}}" class="custominput"></ion-input>
-
+          </ion-item>
           <ion-note slot="error" *ngIf="(mname.dirty || mname.touched) && mname.errors">Required</ion-note>
-
+          
+          <ion-item>
             <ion-label position="stacked">Last Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="lname" value="{{employer.lname}}" class="custominput"></ion-input>
-
+          </ion-item>
           <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
-
+          
+          
           <ion-label position="stacked">Citizenship:</ion-label>
 
             <ion-item class="custominput">
@@ -241,15 +245,24 @@
 
             </ion-item>
          
-        <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
-
+            <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
+            
+            <ion-item>
             <ion-label position="stacked">Contact Number:</ion-label>
             <ion-input position="stacked" type="number" formControlName="contact" value="{{employer.contact}}" class="custominput"></ion-input>
-
-          <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
-
+            </ion-item>
+            <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+            
+            <ion-item>
             <ion-label position="stacked">Email Address:</ion-label>
             <ion-input position="stacked" type="text" formControlName="email" value="{{employer.email}}"  class="custominput"></ion-input>
+            </ion-item>
+
+            <ion-item>
+            <ion-label position="stacked">TIN Number:</ion-label>
+            <ion-input position="stacked" type="number" formControlName="contact" value="{{employer.contact}}" class="custominput"></ion-input>
+            </ion-item>
+            <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
 
       </ion-card-content>
     </ion-card> 
