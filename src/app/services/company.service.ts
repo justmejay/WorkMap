@@ -492,5 +492,10 @@ export class CompanyService {
     return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
   }
 
+  deletejob(id: any){
+    const cakeRef = doc(this.firestore, `joblist/${id}`)
+    return deleteDoc(cakeRef)
+  }
+
 
 }
