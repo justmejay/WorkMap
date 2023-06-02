@@ -7,109 +7,144 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> 
-  <ion-avatar>
-    <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-  </ion-avatar>
-  <ion-item>
-    <ion-label position="stacked">Employer Name:</ion-label>
-    <ion-input [readonly]="true" value="Mario"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Birthday:</ion-label>
-    <ion-input [readonly]="true" value="MM/DD/YYYY"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Age:</ion-label>
-    <ion-input [readonly]="true" value="20"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Contact No:</ion-label>
-    <ion-input [readonly]="true" value="09458654125"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">citizenship:</ion-label>
-    <ion-input [readonly]="true" value="Filipino"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Civil Status:</ion-label>
-    <ion-input [readonly]="true" value="Single"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Email Address:</ion-label>
-    <ion-input [readonly]="true" value="sample@gmail.com"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Religion:</ion-label>
-    <ion-input [readonly]="true" value="Others"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Educational Attainment:</ion-label>
-    <ion-input [readonly]="true" value="Bachelor's Degree"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Home Address:</ion-label>
-    <ion-input [readonly]="true" value="sample address"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Current Address:</ion-label>
-    <ion-input [readonly]="true" value="sample address"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">About you:</ion-label>
-    <ion-textarea [readonly]="true" value="">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit laboriosam mollitia consectetur, facilis earum assumenda rem itaque sapiente repudiandae corrupti modi explicabo voluptatem nostrum ab impedit tempora totam delectus voluptates.
-    </ion-textarea>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Company Name:</ion-label>
-    <ion-input [readonly]="true" value="Nintendo"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Company Address:</ion-label>
-    <ion-input [readonly]="true" value="Tokyo, Japan"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Company Contact No:</ion-label>
-    <ion-input [readonly]="true" value="123"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Company Email Address:</ion-label>
-    <ion-input [readonly]="true" value="Nintendo@gmail.com"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Company Size:</ion-label>
-    <ion-input [readonly]="true" value="5000"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Average Processing Time:</ion-label>
-    <ion-input [readonly]="true" value="3 days"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Benefits:</ion-label>
-    <ion-input [readonly]="true" value="Early access to nintendo products"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">About Company:</ion-label>
-    <ion-textarea [readonly]="true" value="Nintendo. We love super mario"></ion-textarea>
-  </ion-item>
-  <ion-item>
-    <ion-label>Certificate:</ion-label>
-    <ion-button id="open-modal" slot="end">View</ion-button>
-      <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-        <ng-template>
-          <div class="block">
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg"/>
-          </div>
-        </ng-template>
-    </ion-modal>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">Business Registration Number:</ion-label>
-    <ion-input [readonly]="true" value="111-11-111"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">TIN number:</ion-label>
-    <ion-input [readonly]="true" value="111-111-111"></ion-input>
-  </ion-item>
+<ion-content [fullscreen]="true" class="ion-padding"> 
+  <div class="container">
+    <div class="avatar" >
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+    </div>
+
+    <ion-card class="cardcontainer">
+      <ion-card-content>
+        <ion-label position="stacked" class="cardsubtitle">Employer Name:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="Mario"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Birthday:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="MM/DD/YYYY"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Age:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="20"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Contact No:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="09458654125"></ion-input>
+
+        <ion-label position="stacked" class="cardsubtitle">Citizenship:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="Filipino"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Civil Status:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="Single"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Email Address:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="sample@gmail.com"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Religion:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="Others"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Educational Attainment:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="Bachelor's Degree"></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardcontainer">
+      <ion-card-header>
+        <div style="display: flex; justify-content: space-between;">
+          <ion-card-title>Home Address</ion-card-title>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardcontainer">
+      <ion-card-header>
+        <div style="display: flex; justify-content: space-between;">
+          <ion-card-title>Current Address</ion-card-title>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardcontainer">
+      <ion-card-header>
+        <div style="display: flex; justify-content: space-between;">
+          <ion-card-title>About you</ion-card-title>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        
+        <ion-textarea autosize [readonly]="true"></ion-textarea>
+        
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardcontainer">
+      <ion-card-content>
+        <ion-label position="stacked" class="cardsubtitle">Company Name:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="Nintendo"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company Address:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="Tokyo, Japan"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company Contact No:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="123"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company Email Address:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="Nintendo@gmail.com"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company Size:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="5000"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Average Processing Time:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="3 days"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Benefits:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="Early access to nintendo products"></ion-input>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardcontainer">
+      <ion-card-header>
+        <div style="display: flex; justify-content: space-between;">
+          <ion-card-title>About Company</ion-card-title>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        
+          <ion-textarea autosize [readonly]="true"></ion-textarea>
+        
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardcontainer">
+      <ion-card-header>
+        <div style="display: flex; justify-content: space-between;">
+          <ion-card-title>Certificate</ion-card-title>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-button id="open-modal" slot="end" expand="block" shape="round">View</ion-button>
+          <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+            <ng-template>
+              <div class="block">
+                <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg"/>
+              </div>
+            </ng-template>
+        </ion-modal>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="cardcontainer">
+      <ion-card-content>
+        <ion-label position="stacked" class="cardsubtitle">Business Registration Number:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="111-11-111"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">TIN number:</ion-label>
+        <ion-input position="stacked" class="custominput" [readonly]="true" value="111-111-111"></ion-input>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

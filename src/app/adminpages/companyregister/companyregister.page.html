@@ -4,28 +4,8 @@
       <ion-label class="ion-padding hamburgtitle">Menu</ion-label>
     </ion-toolbar>
   </ion-header>
+
   <ion-content class="ion-padding">
-    
-
-    <ion-card class="hamburgcard">
-   
-      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/aboutus']">
-        <ion-icon slot="start" name="information-circle-outline" style="color: #42505d;"></ion-icon>
-        About Us</ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/privacypolicy']">
-        <ion-icon slot="start" name="shield-half-outline" style="color: #42505d;"></ion-icon>
-        Privacy Policy
-      </ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/']">
-        <ion-icon slot="start" name="newspaper" style="color: #42505d;"></ion-icon>
-         Support</ion-button>
-
-    </ion-card>
-    <!-- <ion-card class="hamburgcard">
-      <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="settings" style="color: #42505d;"></ion-icon>
-        Settings</ion-button>
-    </ion-card> -->
     <ion-card class="hamburgcard">
       <ion-button fill="clear" class="card1menu" expand="block">
         <ion-icon slot="start" name="log-out-outline" style="color:#42505d;"></ion-icon>
@@ -40,74 +20,136 @@
       <ion-buttons fill="solid" slot="start">
         <ion-menu-button class="btn"></ion-menu-button>
       </ion-buttons>
-      
-      <ion-buttons fill="solid" slot="end">
-        <ion-button [routerLink]="['/']" type="">
-          <ion-icon class="btn" name="person-circle" slot="icon-only"></ion-icon>
-        </ion-button>
-      </ion-buttons>
+
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-grid>
-      <ion-row>Company Registration</ion-row>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          Company Registration
+        </ion-card-title>
+      </ion-card-header>
+
+    <!-- <ion-card class="innercard">
+      <ion-grid>
+      
       <ion-row>
         <ion-col>
           Employee Name:
         </ion-col>
         <ion-col>
-          Company Name
-        </ion-col>
-        <ion-col>
-          Status
-        </ion-col>
-        <ion-col>
-          Date
-        </ion-col>
-        <ion-col>
-          Action
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col>
           Mario
         </ion-col>
-        <ion-col>
-          Nintendo
-        </ion-col>
-        <ion-col>
-          <ion-badge color="success">
-            Completed
-          </ion-badge>
-        </ion-col>
-        <ion-col>
-          MM/DD/YYYY
-        </ion-col>
-        <ion-col>
-          <ion-button [routerLink]="['/companyreview']">View</ion-button>
-        </ion-col>
       </ion-row>
+      
       <ion-row>
         <ion-col>
-          Luigi
+          Company Name:
         </ion-col>
         <ion-col>
           Nintendo
         </ion-col>
+      </ion-row>
+
+      <ion-row>
         <ion-col>
-          <ion-badge color="danger">
-            Incomplete
-          </ion-badge>
+          Status:
         </ion-col>
         <ion-col>
-          MM/DD/YYYY
+          Completed
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          Date:
+        </ion-col>
+        <ion-col>
+          DD/MM/YYY
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          Action:
         </ion-col>
         <ion-col>
           <ion-button [routerLink]="['/companyreview']">View</ion-button>
         </ion-col>
       </ion-row>
-    </ion-grid>
+
+      </ion-grid>
+    </ion-card>   -->
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Employee Name
+          </ion-col>
+          <ion-col>
+            Company Name
+          </ion-col>
+          <ion-col>
+            Status
+          </ion-col>
+          <ion-col>
+            Date
+          </ion-col>
+          <ion-col>
+            Action
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row class="detail">
+          <ion-col>
+            Luigi
+          </ion-col>
+          <ion-col>
+            Nintendo
+          </ion-col>
+          <ion-col>
+            <ion-badge color="danger">
+              Incomplete
+            </ion-badge>
+          </ion-col>
+          <ion-col>
+            MM/DD/YYYY
+          </ion-col>
+          <ion-col>
+            <ion-button shape="round" [routerLink]="['/companyreview']">View</ion-button>
+          </ion-col>
+        </ion-row >
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row class="detail">
+          <ion-col>
+            Luigi
+          </ion-col>
+          <ion-col>
+            Nintendo
+          </ion-col>
+          <ion-col>
+            <ion-badge color="danger">
+              Incomplete
+            </ion-badge>
+          </ion-col>
+          <ion-col>
+            MM/DD/YYYY
+          </ion-col>
+          <ion-col>
+            <ion-button shape="round" [routerLink]="['/companyreview']">View</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+   
+
+  </ion-card>
   </ion-content>
 
   <ion-footer>
@@ -117,7 +159,7 @@
   
         <ion-tab-bar class="lowertool">
           <ion-tab-button [routerLink]="['/dashboardadmin']">
-            <ion-icon name="people-outline"></ion-icon>Users
+            <ion-icon name="people"></ion-icon>Users
           </ion-tab-button>
 
           <!-- <ion-tab-button (click)="posts(profiles)">
@@ -125,12 +167,12 @@
           </ion-tab-button> -->
 
           <ion-tab-button [routerLink]="['/listemployees']">
-            <ion-icon name="person-outline"></ion-icon>Employers
+            <ion-icon name="person"></ion-icon>Employers
           </ion-tab-button>
 
           <ion-tab-button [routerLink]="['/companyregister']" >
             <ion-badge color="danger">1000</ion-badge>
-            <ion-icon name="document-outline"></ion-icon>Registry
+            <ion-icon name="document"></ion-icon>Registry
           </ion-tab-button>
 
           <ion-tab-button [routerLink]="['/']" >
