@@ -70,6 +70,8 @@ export class DashboardcompanyPage implements OnInit {
 
       if (this.company.status == 'Pending') {
         this.button = true;
+      } else if (this.company.status == 'Declined') {
+        this.button = true;
       } else {
         this.button = false;
       }
