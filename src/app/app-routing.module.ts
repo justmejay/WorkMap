@@ -296,6 +296,14 @@ const routes: Routes = [
     path: 'companyreview',
     loadChildren: () => import('./adminpages/companyreview/companyreview.module').then( m => m.CompanyreviewPageModule)
   },
+  {
+    path: 'viewuserproile',
+    loadChildren: () => import('./adminpages/viewuserproile/viewuserproile.module').then( m => m.ViewuserproilePageModule)
+  },
+  {
+    path: 'viewemployerprofile',
+    loadChildren: () => import('./adminpages/viewemployerprofile/viewemployerprofile.module').then( m => m.ViewemployerprofilePageModule)
+  },
 
 
   
