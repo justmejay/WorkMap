@@ -6,7 +6,7 @@
       <!-- <ion-buttons slot="end">
         <ion-icon style="width: 50px; color: white;" name="ellipsis-vertical" id="open-modal">  </ion-icon>
       </ion-buttons> -->
-  </ion-toolbar>
+  </ion-toolbar> 
 </ion-header>
 
 <ion-content>
@@ -30,7 +30,7 @@
         <ion-card-title>{{pdetails.fname}} {{pdetails.lname}}</ion-card-title>
         <!-- <ion-icon style="float: right; font-size: 30px;" name="information-circle" class="edit"></ion-icon> -->
         <div class="messagebutton">
-          <ion-button fill="clear" slot="end" [routerLink]="['/messageviewcompany']">
+          <ion-button fill="clear" slot="end" (click)="view(pdetails  )">
             <ion-icon style="font-size: 30px; color: white;" name="chatbubble-ellipses-outline" ></ion-icon>
           </ion-button>
         </div>

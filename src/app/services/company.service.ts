@@ -326,6 +326,9 @@ export class CompanyService {
 
   getinboxidc(cid: any): Observable<Company[]>{
     const uid = this.auth.currentUser.uid;
+    console.log(cid);
+    console.log(uid);
+
     const cakesRef = collection(this.firestore, `inbox/`)
     const q = query(cakesRef, where("uid", "==", cid ), where("cid", "==", uid ) )
     return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
@@ -426,7 +429,7 @@ export class CompanyService {
 
 
             const userDocRef3 = collection(this.firestore, `inbox/`);
-            const user = await addDoc(userDocRef3, {cid, uid: userget,cname,fname, lname, cimage, profileimg});
+            const user = await addDoc(userDocRef3, {uid: cid, cid: userget,cname,fname, lname, cimage, profileimg});
       
             const userDocRef4 = collection(this.firestore, `messages/`);
             const user2 = await addDoc(userDocRef4, {cid: userget, userget: cid ,message, timeStamp, date2, inboxid: user.id, type: "company" });

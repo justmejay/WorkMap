@@ -162,6 +162,13 @@ export class ViewnotificationPage implements OnInit {
     await alert.present();
   }
 
+  view(data){
+    
+    console.log(data);
+    this.router.navigate(['messageviewcompany'], {queryParams:{id: data.uid}});
+
+  }
+
  
 
 }
