@@ -1,0 +1,95 @@
+<ion-menu contentId="main-content">
+  <ion-header collapse="fade">
+    <ion-toolbar class="hamburgermenu">
+      <ion-label class="ion-padding hamburgtitle">Menu</ion-label>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    
+
+    <ion-card class="hamburgcard">
+   
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/aboutus']">
+        <ion-icon slot="start" name="information-circle-outline" style="color: #42505d;"></ion-icon>
+        About Us</ion-button>
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/privacypolicy']">
+        <ion-icon slot="start" name="shield-half-outline" style="color: #42505d;"></ion-icon>
+        Privacy Policy
+      </ion-button>
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/']">
+        <ion-icon slot="start" name="newspaper" style="color: #42505d;"></ion-icon>
+         Support</ion-button>
+
+    </ion-card>
+    <!-- <ion-card class="hamburgcard">
+      <ion-button fill="clear" class="card1menu" expand="block">
+        <ion-icon slot="start" name="settings" style="color: #42505d;"></ion-icon>
+        Settings</ion-button>
+    </ion-card> -->
+    <ion-card class="hamburgcard">
+      <ion-button fill="clear" class="card1menu" expand="block">
+        <ion-icon slot="start" name="log-out-outline" style="color:#42505d;"></ion-icon>
+        Logout</ion-button>
+    </ion-card>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar class="uppertool">
+      <ion-buttons fill="solid" slot="start">
+        <ion-menu-button class="btn"></ion-menu-button>
+      </ion-buttons>
+      
+      <ion-buttons fill="solid" slot="end">
+        <ion-button [routerLink]="['/applicantprofile']" type="">
+          <ion-icon class="btn" name="person-circle" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label> User Name #1</ion-label>
+      <ion-button slot="end">Delete</ion-button>
+    </ion-item>
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-tabs>
+        <ion-router-outlet></ion-router-outlet>
+  
+        <ion-tab-bar class="lowertool">
+          <ion-tab-button [routerLink]="['/dashboardadmin']">
+            <ion-icon name="people-outline"></ion-icon>Users
+          </ion-tab-button>
+
+          <!-- <ion-tab-button (click)="posts(profiles)">
+            <ion-icon name="archive"></ion-icon>My Post
+          </ion-tab-button> -->
+
+          <ion-tab-button [routerLink]="['/listemployees']">
+            <ion-icon name="person-outline"></ion-icon>Employers
+          </ion-tab-button>
+
+          <ion-tab-button [routerLink]="['/companyregister']" >
+            <ion-badge color="danger">1000</ion-badge>
+            <ion-icon name="document-outline"></ion-icon>Registry
+          </ion-tab-button>
+
+          <ion-tab-button [routerLink]="['/']" >
+            <ion-badge color="danger">1000</ion-badge>
+            <ion-icon class="tabicon" name="chatbubble"></ion-icon>Messages
+          </ion-tab-button>
+          
+        </ion-tab-bar>
+      </ion-tabs>
+    </ion-toolbar>
+  </ion-footer>
+
+</div>  

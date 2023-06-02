@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar> 
+      <ion-buttons [routerLink]="['/companyregister']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-title>Employee's Company</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content> 
+  <ion-avatar>
+    <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+  </ion-avatar>
+  <ion-item>
+    <ion-label position="stacked">Company Name:</ion-label>
+    <ion-input [readonly]="true" value="Nintendo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Company Address:</ion-label>
+    <ion-input [readonly]="true" value="Tokyo, Japan"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Company Contact No:</ion-label>
+    <ion-input [readonly]="true" value="123"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Company Email Address:</ion-label>
+    <ion-input [readonly]="true" value="Nintendo@gmail.com"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Company Size:</ion-label>
+    <ion-input [readonly]="true" value="5000"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Average Processing Time:</ion-label>
+    <ion-input [readonly]="true" value="3 days"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Benefits:</ion-label>
+    <ion-input [readonly]="true" value="Early access to nintendo products"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">About Company:</ion-label>
+    <ion-textarea [readonly]="true" value="Nintendo. We love super mario"></ion-textarea>
+  </ion-item>
+  <ion-item>
+    <ion-label>Certificate:</ion-label>
+    <ion-button slot="end">View</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">Business Registration Number:</ion-label>
+    <ion-input [readonly]="true" value="111-11-111"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">TIN number:</ion-label>
+    <ion-input [readonly]="true" value="111-111-111"></ion-input>
+  </ion-item>
+  <ion-button expand="block" shape="round">Accept </ion-button>
+  <ion-button expand="block" shape="round">Decline </ion-button>
+</ion-content>
