@@ -9,7 +9,8 @@
       <ion-label>{{companydata2.cname}}</ion-label>
   </ion-toolbar>
 </ion-header>
-<ion-content>
+
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-modal trigger="open-modal" #trigger  [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
       <div class="block">
@@ -39,18 +40,16 @@
   
 
   </div>
+  
 
 
-
-
-
-
-
-
-  <div class="message">
-    <ion-textarea [(ngModel)]="message"  autoGrow="true" class="messageinput" placeholder="Type Message"></ion-textarea>
-    <ion-button (click)="send()" [disabled]="message === ''"fill="clear">
-      <ion-icon   name="send"></ion-icon>
-    </ion-button>
-  </div>
 </ion-content>
+<div class="message">
+  <ion-textarea [(ngModel)]="message"  autoGrow="true" class="messageinput" placeholder="Type Message"></ion-textarea>
+
+  <ion-button (click)="send()" [disabled]="message === ''"fill="clear">
+    <ion-icon name="send"></ion-icon>
+  </ion-button>
+</div>
+
+
