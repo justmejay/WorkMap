@@ -280,6 +280,22 @@ const routes: Routes = [
     path: 'privacypolicycompany',
     loadChildren: () => import('./companysidepages/privacypolicycompany/privacypolicycompany.module').then( m => m.PrivacypolicycompanyPageModule)
   },
+  {
+    path: 'dashboardadmin',
+    loadChildren: () => import('./adminpages/dashboardadmin/dashboardadmin.module').then( m => m.DashboardadminPageModule)
+  },
+  {
+    path: 'listemployees',
+    loadChildren: () => import('./adminpages/listemployees/listemployees.module').then( m => m.ListemployeesPageModule)
+  },
+  {
+    path: 'companyregister',
+    loadChildren: () => import('./adminpages/companyregister/companyregister.module').then( m => m.CompanyregisterPageModule)
+  },
+  {
+    path: 'companyreview',
+    loadChildren: () => import('./adminpages/companyreview/companyreview.module').then( m => m.CompanyreviewPageModule)
+  },
 
 
   
