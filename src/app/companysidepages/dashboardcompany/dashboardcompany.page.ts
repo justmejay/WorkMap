@@ -1,7 +1,7 @@
 import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { CompanyService } from 'src/app/services/company.service'; 
 import {
@@ -38,7 +38,8 @@ export class DashboardcompanyPage implements OnInit {
     private router: Router,
     private storage: Storage,
     private authd: Auth,
-    private app: ApplicationService
+    private app: ApplicationService,
+    private toastController: ToastController,
   ) {
 
     this.firestore.getemployer().subscribe(res=>{
@@ -138,6 +139,30 @@ export class DashboardcompanyPage implements OnInit {
     this.router.navigate(['editjoblist'], {queryParams:{jobid:any}});
 
 
+  }
+
+
+  async delete(job: any){
+    const loading = await this.loadingController.create({
+      spinner: "dots",
+      message: "Deleting up!"
+    });    await loading.present();
+
+    const id = job.listid;
+    await this.firestore.deletejob(id);
+
+    await loading.dismiss();
+    this.presentToast('Job listing successfully deleted!');
+
+
+  }
+
+  async presentToast(message: any){
+    const toast = await this.toastController.create({
+      message,
+      duration: 1000,
+    });
+    await toast.present();
   }
 
 
