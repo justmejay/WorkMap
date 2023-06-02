@@ -74,7 +74,14 @@
               <ion-input value="{{company.brnumber}}" [readonly]="true"></ion-input>
 
               <ion-label class="cardsubtitle">Registration Certificate: </ion-label>
-              <img *ngIf="company?.imageUrl; else placeholder_avatar;" [src]="company.imageUrl" />
+              <ion-button id="open-modal" expand="block" shape="round">View</ion-button>
+              <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+                <ng-template>
+                  <div class="block">
+                    <img *ngIf="company?.imageUrl; else placeholder_avatar;" [src]="company.imageUrl" />
+                  </div>
+                </ng-template>
+              </ion-modal>
 
               <ion-label class="cardsubtitle">Company Size: </ion-label>
               <ion-input value="{{company.csize}}" [readonly]="true"></ion-input>
