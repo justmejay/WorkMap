@@ -59,6 +59,18 @@
             </div>
           </ion-card-header>
           <ion-card-content>
+
+              <ion-avatar class="image">
+                <img *ngIf="company?.imageurl; else placeholder_avatar;" [src]="company.imageurl">
+      
+                  <ng-template #placeholder_avatar>
+                    <div class="fallback">
+                      <p>Update avatar</p>
+                    </div>
+                  </ng-template>
+              </ion-avatar>
+            
+
               <ion-label class="cardsubtitle">Company Name: </ion-label>
               <ion-input value="{{company.cname}}" [readonly]="true"></ion-input>
 

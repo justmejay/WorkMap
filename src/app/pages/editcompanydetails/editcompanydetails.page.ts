@@ -168,6 +168,29 @@ export class EditcompanydetailsPage implements OnInit {
     }
   }
 
+  async changeImage2() {
+    const image2 = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Prompt, // Camera, Photos or Prompt!
+    });
+
+    if (image2) {
+      const loading = await this.loadingController.create();
+      await loading.present();
+
+      const result = await this.firestore2.uploadImagecl2(image2);
+      loading.dismiss();
+
+      if (result) {
+        this.toastPresent('Registration Certificate Updated!')
+      }
+
+    }
+  }
+
+
   async editcompany() {
 
     const loading = await this.loadingController.create({
