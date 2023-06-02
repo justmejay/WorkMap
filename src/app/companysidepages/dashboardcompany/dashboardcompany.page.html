@@ -46,9 +46,6 @@
 </ion-menu>
 
 <div class="ion-page" id="main-content">
-  <div class="alert" style="color: black;text-align: center;">
-    <ion-label  class="alert">Complete your registration before posting Job Listings!</ion-label>
-  </div>
   <ion-header>
     <ion-toolbar class="uppertool">
       <ion-buttons fill="solid" slot="start">
@@ -67,8 +64,12 @@
   </ion-header>
 
   <ion-content   class="ion-padding ">
+  <div class="alert" style="color: black;text-align: center;">
+    <ion-label  class="alert">Complete your registration before posting Job Listings!</ion-label>
+  </div>
     <ion-card *ngFor="let job of job" class="joblisting">
       <ion-card-header>
+        <ion-icon name="trash-outline" style="float: right; height: 25px; width: 25px"></ion-icon>
         <ion-icon class="edit" name="create-outline" style="float: right; height: 25px; width: 25px" (click)="edit(job)"></ion-icon>
         <div class="activetoggle">
           <ion-toggle (ionChange)="checked($event, job)" [checked]="job.state" style="float: right;"></ion-toggle>
