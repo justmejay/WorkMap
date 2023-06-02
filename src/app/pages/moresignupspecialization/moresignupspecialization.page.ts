@@ -3013,7 +3013,6 @@ export class MoresignupspecializationPage implements OnInit {
   employee: any = [];
 
 
-    public limit = 5;
 
   constructor(
     private activatedRoute: ActivatedRoute,

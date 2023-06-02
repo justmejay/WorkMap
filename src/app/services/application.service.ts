@@ -286,6 +286,23 @@ export class ApplicationService {
   }
 
 
+  getqjoblist(jparray: any): Observable<User[]>{
+    console.log(jparray);
+  
+    try{
+      const cakesRefe = collection(this.firestore, `joblist`)
+      const q = query(cakesRefe, where("jposition", "array-contains-any", jparray))
+      return collectionData(q, {idField: 'id'}) as Observable<User[]>
+
+    }catch(e){
+      console.log(e);
+      return null;
+    }
+   
+
+  }
+
+
   
 
 

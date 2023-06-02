@@ -3,37 +3,34 @@
       <ion-buttons [routerLink]="['/dashboard']" slot="start">
       <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
-      <ion-label class="title">Search</ion-label>
+      <ion-label class="title">Search</ion-label> 
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
   <ion-grid>
-    <ion-row>
+    <!-- <ion-row>
       <ion-searchbar animated="true" placeholder="Job Title" show-clear-button="focus"></ion-searchbar>
-    </ion-row>
+    </ion-row> DISABLED -->
     <ion-row>
-      <ion-searchbar search-icon="briefcase-outline" placeholder="Job Position" show-clear-button="focus"></ion-searchbar>
-      <!-- <ion-icon name="arrow-undo-outline" class="reset"></ion-icon> -->
+      <ion-searchbar [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" search-icon="briefcase-outline" placeholder="Job Position" show-clear-button="focus"></ion-searchbar>
+      <ion-icon name="backspace-outline" (click)="clear()" class="reset"></ion-icon>
+      <ion-icon name="arrow-undo-outline" class="reset" (click)="reset()" ></ion-icon>   
     </ion-row>
     <ion-row>
       <ion-row>
-        <ion-item lines="none" class="checkbox">
-          <ion-checkbox>Job Position Select</ion-checkbox>
-          <ion-label> Webdeveloper</ion-label>
+        <ion-item *ngFor="let filter of queryinit | filter:term">
+          <ion-checkbox [disabled]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" [checked]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" 
+          [disabled]="!(filter.position != checkeditems[0] && filter.position != checkeditems[1] && filter.position != checkeditems[2] && filter.position != checkeditems[3] && filter.position != checkeditems[4])" value="{{filter.position}}" (click)="check($event, filter)" >
+          </ion-checkbox>
+          <ion-label>{{filter.position}}</ion-label>
         </ion-item>
       </ion-row>
       <ion-row>
-          <ion-badge class="bchecked">
+          <ion-badge *ngFor="let c of checkeditems" class="bchecked">
             <div class="checked">
-              <ion-label>Web Developer</ion-label>
-              <ion-icon name="close-circle-outline"></ion-icon>
-            </div>
-          </ion-badge>
-          <ion-badge class="bchecked">
-            <div class="checked">
-              <ion-label>Graphic Designer</ion-label>
+              <ion-label>{{c}}</ion-label>
               <ion-icon name="close-circle-outline"></ion-icon>
             </div>
           </ion-badge>
@@ -43,12 +40,13 @@
       <div class="sort">
         <ion-item lines="none">
         <ion-icon name="filter-outline"></ion-icon>
-          <ion-select class="selectjobspecialization" placeholder="Sort Job Listings by:" interface="action-sheet">
-            <ion-select-option value="recent">Recent</ion-select-option>
-            <ion-select-option value="distance">Nearest distance</ion-select-option>
-            <ion-select-option value="closest">Closest Match</ion-select-option>
-            <ion-select-option value="highest">Highest Pay</ion-select-option>
-            <ion-select-option value="lowest">Lowest Pay</ion-select-option>
+          <ion-select required [(ngModel)]="filter" placeholder="Sort Job Listings by:" >\
+            <ion-select-option value="0">No Filter</ion-select-option>
+            <ion-select-option value="1">Recent</ion-select-option>
+            <!-- <ion-select-option value="2">Nearest distance</ion-select-option>  BUGGY-->
+            <!-- <ion-select-option disabled value="closest">Closest Match</ion-select-option>  DISABLED-->
+            <ion-select-option value="3">Highest Pay</ion-select-option>
+            <ion-select-option value="4">Lowest Pay</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
@@ -57,30 +55,32 @@
       <div class="sortsalary">
         <ion-item lines="none">
           <ion-icon name="wallet-outline"></ion-icon>
-          <ion-select class="selectsalaryrange" placeholder="Sort Salary Range by:" interface="action-sheet">
-            <ion-select-option value="ten">0 - 10,000 pesos</ion-select-option>
-            <ion-select-option value="twenty">10,000 - 20,000 pesos</ion-select-option>
-            <ion-select-option value="thirty">20,000 - 30,000 pesos</ion-select-option>
-            <ion-select-option value="fifty">30,000 - 50,000 pesos</ion-select-option>
-            <ion-select-option value="hundred">50,000 - 100,000 pesos</ion-select-option>
-            <ion-select-option value="hundredplus">100,000+ pesos</ion-select-option>
+          <ion-select class="selectsalaryrange" [(ngModel)]="sr" placeholder="Sort Salary Range by:" interface="action-sheet">
+            <ion-select-option value="0">No Filter</ion-select-option>
+            <ion-select-option value="1">0 - 10,000 pesos</ion-select-option>
+            <ion-select-option value="2">10,000 - 20,000 pesos</ion-select-option>
+            <ion-select-option value="3">20,000 - 30,000 pesos</ion-select-option>
+            <ion-select-option value="4">30,000 - 50,000 pesos</ion-select-option>
+            <ion-select-option value="5">50,000 - 100,000 pesos</ion-select-option>
+            <ion-select-option value="6">100,000+ pesos</ion-select-option>
+
           </ion-select>
         </ion-item>
       </div>
     </ion-row>
   </ion-grid>
   <div class="searchengine">
-    <ion-button shape="round" expand="block" class="searchbutton">Search Job Listing</ion-button>
+    <ion-button shape="round" (click)="searchse()" expand="block" class="searchbutton">Search Job Listing</ion-button>
   </div>
   <div class="results">
-    <ion-card class="joblisting">
+    <ion-card *ngFor="let x of finaldata" class="joblisting">
       <ion-card-header>
         <ion-grid>
           <ion-row class="jobtitle">
             <ion-card-title>
-             Looking for Web Developer mga slapsoil
+              {{x.jtitle}}
             </ion-card-title>
-            <ion-button class="viewmore" fill="clear">
+            <ion-button (click)="gocdata(x)" class="viewmore" fill="clear">
               <ion-icon  name="information-circle" class="edit" ></ion-icon>
             </ion-button>
           </ion-row>
@@ -89,7 +89,7 @@
             <ion-card-subtitle>
               <ion-badge class="distance" color="primary">
                 <ion-icon name="location-outline"></ion-icon>
-                <ion-label>69,420km from your location</ion-label>
+                <ion-label>{{x.distance}} from you</ion-label>
               </ion-badge>
             </ion-card-subtitle>
           </ion-row>
@@ -98,55 +98,51 @@
       <ion-card-content>
         <ion-grid>
           <ion-row class="jobposition">
-            <ion-badge class="positionbadges" color="tertiary">Web developer</ion-badge>
+            <ion-badge *ngFor="let j of x.jposition" class="positionbadges" color="tertiary">{{j}}</ion-badge>
             
 
           </ion-row>
           <ion-row class="companydetails">
             <ion-col class="labelheader">Starting Salary:</ion-col>
-            <ion-col>14,000 peso/s</ion-col>
-
-            <ng-template #placeholder_avatar>
-              <ion-col>Company did not specified</ion-col>
-            </ng-template>
+              <ion-col *ngIf="x?.jsalary; else placeholder_avatar;">{{x.jsalary}} peso/s</ion-col>
+  
+              <ng-template #placeholder_avatar>
+                <ion-col>Company did not specified</ion-col>
+              </ng-template>
             
           </ion-row>
           <div class="jobdetails">
 
-            <!-- <ion-row class="jobposition">
-              <ion-col class="labelheader">Job Position:</ion-col>
-              <ion-col placeholder="">Senior Developer</ion-col>
-            </ion-row> -->
             
             <ion-row class="jobtype">
               <ion-col class="labelheader">Job type:</ion-col>
-              <ion-col>Full time</ion-col>
+              <ion-col>{{x.jtype}}</ion-col>
             </ion-row>
             <ion-row class="minimum">
               <ion-col class="labelheader">Minimum experience required:</ion-col>
-              <ion-col>15 year/s</ion-col>
-
-            <ng-template #placeholder_avatar1>
-              <ion-col>No experience required</ion-col> 
-            </ng-template>
+                <ion-col *ngIf="x?.jexperience; else placeholder_avatar1;">{{x.jexperience}} year/s</ion-col>
+  
+              <ng-template #placeholder_avatar1>
+                <ion-col>No experience required</ion-col> 
+              </ng-template>
             </ion-row>
             <ion-row class="education">
               <ion-col class="labelheader">Educational Attainment:</ion-col>
-              <ion-col placeholder="">Master's Degree</ion-col>
-              <ng-template #placeholder_avatar3>
-                <ion-col>No minimum education required</ion-col> 
-              </ng-template>
+                <ion-col *ngIf="x?.attainment; else placeholder_avatar3;" placeholder="">{{x.attainment}}</ion-col>
+                <ng-template #placeholder_avatar3>
+                  <ion-col>No minimum education required</ion-col> 
+                </ng-template>
             </ion-row>
             <ion-row class="jobdescription">
               <ion-col class="labelheader">Job description:</ion-col>
-              <ion-col>Do everything we say and don't complain</ion-col>
+              <ion-col>{{x.jdescription}}</ion-col>
             </ion-row>
           </div>
         </ion-grid>
-        <ion-label class="timeposted">Date Posted: MM/DD/YYYY</ion-label>
+        <ion-label class="timeposted">Date Posted: {{x.timestamp}}</ion-label>
       </ion-card-content>
         
-        <ion-button size="large" class="jobcardinfo" >Apply Now</ion-button>
+        <ion-button size="large" (click)="apply(x)" class="jobcardinfo" >Apply Now</ion-button>
 
     </ion-card>
   </div>
