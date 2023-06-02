@@ -7,13 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { SearchenginePageRoutingModule } from './searchengine-routing.module';
 
 import { SearchenginePage } from './searchengine.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SearchenginePageRoutingModule
+    SearchenginePageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [SearchenginePage]
 })
