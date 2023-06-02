@@ -84,14 +84,24 @@ ion-item.clickable {
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
-    --background: #f7c8c8;
+    --background: #aed9f6;
     --color: #151515;
     --border-radius: 45px;
     ion-label{
         --color: #151515;
     }
   }
-
+  ion-item.staticred {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    --background: #ebacbf;
+    --color: #151515;
+    --border-radius: 45px;
+    ion-label{
+        --color: #151515;
+    }
+  }
   .time{
     color: blue;
   }

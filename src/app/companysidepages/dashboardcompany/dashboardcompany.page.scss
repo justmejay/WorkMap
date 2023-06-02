@@ -182,3 +182,16 @@ ion-badge {
     margin-bottom: 0.5rem;
     margin-right: 0.3rem;
   }
+
+  
+.alert{
+    display: block;
+    background: rgb(240, 154, 154);
+    width: 80%;
+    border-radius: 45px;
+    margin: auto;
+    ion-label{
+        padding: 0.2rem;
+        text-align: center;
+    }
+}

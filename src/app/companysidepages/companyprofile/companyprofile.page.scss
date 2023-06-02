@@ -122,3 +122,17 @@ ion-button.resume{
     --background: #70AFFA;
     --border-style: solid 2px #2855A1;
 }
+.block {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  ion-modal {
+    --height: auto;
+  }
+ion-button{
+    text-transform: initial;
+}

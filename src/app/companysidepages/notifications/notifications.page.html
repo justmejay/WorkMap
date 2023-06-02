@@ -30,6 +30,28 @@
           <ion-label class="time">{{n.time}}</ion-label>
         </ion-label>
       </ion-item>
+      <ion-item class="static" [routerLink]="['/viewnotification']">
+        <ion-avatar slot="start">
+          <img class="profilepicimage" src=""/>
+          <ng-template #ph>
+            <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ng-template>        </ion-avatar>
+        <ion-label>
+          <ion-label class="ion-text-wrap">Your CompanyName registration has been accepted.</ion-label>
+          <!-- <ion-label class="time">{{n.time}}</ion-label> -->
+        </ion-label>
+      </ion-item>
+      <ion-item class="staticred" [routerLink]="['/viewnotification']">
+        <ion-avatar slot="start">
+          <img class="profilepicimage" src=""/>
+          <ng-template #ph>
+            <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+          </ng-template>        </ion-avatar>
+        <ion-label>
+          <ion-label class="ion-text-wrap">Your CompanyName registration has been declined.</ion-label>
+          <!-- <ion-label class="time">{{n.time}}</ion-label> -->
+        </ion-label>
+      </ion-item>
   
     
   </ion-content>
