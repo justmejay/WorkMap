@@ -1,7 +1,7 @@
 import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core'; 
 import { GmapService } from 'src/app/services/gmap.service';
 import { ApplicationService } from 'src/app/services/application.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { ProfilingService } from 'src/app/services/profiling.service';
 import { LoadingController } from '@ionic/angular';
 import { CompanyService } from 'src/app/services/company.service'
@@ -35,6 +35,7 @@ export class AboutcompanyPage implements OnInit {
     private profile: ProfilingService,
     private loadingController: LoadingController,
     private company: CompanyService,
+    private router: Router
 
   ) { 
     this.activatedRoute.queryParams.subscribe((params) =>{
@@ -162,6 +163,16 @@ export class AboutcompanyPage implements OnInit {
     }catch(e){
       console.log(e)
     }
+
+  }
+
+  
+  message(data){
+
+    console.log(data)
+
+    this.router.navigate(['messageview'], {queryParams:{id: data}});
+
 
   }
 

@@ -1,41 +1,56 @@
 <ion-header >
   <ion-toolbar>
-      <ion-buttons [routerLink]="['/messagespage']" slot="start">
+      <ion-buttons [routerLink]="['/']" slot="start">
         <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-buttons slot="end" id="open-modal">
         <ion-icon style="width: 50px; color: white;" name="ellipsis-vertical">  </ion-icon>
       </ion-buttons>
-      <ion-label>John Doe's Conversation</ion-label>
+      <ion-label>{{companydata2.cname}}</ion-label>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+  <ion-modal trigger="open-modal" #trigger  [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
       <div class="block">
-        <ion-button expand="block" color="danger" shape="round">Delete Conversation</ion-button>
+        <ion-button expand="block" (click)="delete()" color="danger" shape="round">Delete Conversation</ion-button>
         <ion-button expand="block" color="primary" shape="round">Cancel</ion-button>
       </div>
     </ng-template>
   </ion-modal>
-  <div class="messagesent">
-    <ion-card class="sent">
-      <ion-card-content>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore excepturi, reprehenderit possimus laudantium eum fuga expedita aspernatur incidunt voluptatibus distinctio adipisci ad aliquam iure illo fugit. Numquam quidem maiores tempora?</p>
-      </ion-card-content>
-    </ion-card>
+
+  <div *ngFor="let m of messages">
+
+    <div  class="messagesent">
+      <ion-card *ngIf="m.type == 'client'"  class="sent">
+        <ion-card-content>
+          <p>{{m.message}}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div  class="messagereceived">
+      <ion-card *ngIf="m.type == 'company'" class="received">
+        <ion-card-content>
+          <p>{{m.message}}</p>
+        </ion-card-content>
+      </ion-card>
+    </div> 
+  
+
   </div>
-  <div class="messagereceived">
-    <ion-card class="received">
-      <ion-card-content>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore excepturi, reprehenderit possimus laudantium eum fuga expedita aspernatur incidunt voluptatibus distinctio adipisci ad aliquam iure illo fugit. Numquam quidem maiores tempora?</p>
-      </ion-card-content>
-    </ion-card>
-  </div>
+
+
+
+
+
+
+
+
   <div class="message">
-    <ion-input class="messageinput" placeholder="Type Message"></ion-input>
-    <ion-button fill="clear">
-      <ion-icon name="send"></ion-icon>
+    <ion-textarea [(ngModel)]="message"  autoGrow="true" class="messageinput" placeholder="Type Message"></ion-textarea>
+    <ion-button (click)="send()" [disabled]="message === ''"fill="clear">
+      <ion-icon   name="send"></ion-icon>
     </ion-button>
   </div>
 </ion-content>
