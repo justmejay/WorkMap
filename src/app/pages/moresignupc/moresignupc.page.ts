@@ -85,6 +85,11 @@ export class MoresignupcPage implements OnInit {
   get companyaddress() {
     return this.credentials.get('companyaddress');
   }
+
+  get brnumber() {
+    return this.credentials.get('brnumber');
+  }
+ 
  
 
 
@@ -103,6 +108,8 @@ export class MoresignupcPage implements OnInit {
       cemail: ['', [Validators.required]],
      currentcoordss: [this.currentcoords, []],
      currentPlaceID: ['', []],
+
+     brnumber: ['', [Validators.required]],
 
 
 

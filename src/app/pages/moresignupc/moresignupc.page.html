@@ -285,6 +285,14 @@
               <ion-icon name="pin"></ion-icon>
               {{ address.description }} 
             </ion-item>
+
+          <ion-label position="stacked">Business Registratio Number:</ion-label>
+          <ion-input position="stacked" type="number" formControlName="brnumber" class="custominput"></ion-input>
+          <ion-note slot="error" *ngIf="(brnumber.dirty || brnumber.touched) && brnumber.errors">Required</ion-note>
+          <br>
+
+          <ion-button expand="block" shape="round" >
+            <ion-icon name="image-outline" ></ion-icon>Upload Registration Certificate</ion-button>
             
 
       </ion-card-content>
