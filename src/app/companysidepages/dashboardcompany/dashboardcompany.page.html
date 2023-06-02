@@ -64,8 +64,8 @@
   </ion-header>
 
   <ion-content   class="ion-padding ">
-  <div class="alert" style="color: black;text-align: center;">
-    <ion-label  class="alert">Complete your registration before posting Job Listings!</ion-label>
+  <div class="alert" [hidden]="!button" style="color: black;text-align: center;">
+    <ion-label  [hidden]="!button" class="alert">Complete your registration before posting Job Listings!</ion-label>
   </div>
     <ion-card *ngFor="let job of job" class="joblisting">
       <ion-card-header>
@@ -160,7 +160,7 @@
             <ion-icon name="briefcase"></ion-icon>Review Application 
           </ion-tab-button> -->
 
-          <ion-tab-button [routerLink]="['/addjoblisting']">
+          <ion-tab-button [routerLink]="['/addjoblisting']" [disabled]="button">
             <ion-icon name="add-outline"></ion-icon>Add Job Listing
           </ion-tab-button>
 
