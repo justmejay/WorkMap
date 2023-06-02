@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable, first } from 'rxjs';
 import { AuthService } from './auth.service';
 import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
 import { timeEnd, timeStamp } from 'console';
+import { ProfilingService } from './profiling.service';
 
 export interface Company{
   //id is optional and not required
@@ -46,15 +47,83 @@ export interface Company{
   
 }
 
+export interface User{
+  //id is optional and not required
+  //profile
+  id?: string,
+  profileimg: string,
+  specialization: string,
+  age: number,
+  bday: string,
+  cs: string,
+  contact: number, 
+  citizenship: string,
+  email: string,
+  fname: string,
+  gender: string,
+  lname: string,
+  mname: string,
+  suffix: string,
+  aboutme: string,
+
+  //address
+  barangay: string,
+  country: string,
+  province: string,
+  town: string,
+  street: string,
+
+  //certifications
+
+  fpath: string,
+  name: string,
+  orgn: string, 
+  year: number,
+
+  //experience
+  caddress: string,
+  cname: string,
+  datef: string,
+  datet: string,
+  jtitle: string,
+
+  //school
+  course:string,
+  level: string,
+  ongoing: string,
+  schoolname: string,
+  yearg: string,
+  
+
+  //addressadd
+  clat: string;
+  clng: string;
+  currentPlaceID: string;
+  currentaddress: string;
+  homePlaceID: string;
+  homeaddress: string;
+  lat: string;
+  lng: string;
+  ea: number
+
+
+
+  
+}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
+  inboxid: any = [];
+  profiledata: any = [];
+  data: any=[];
 
   constructor(
     private firestore: Firestore,
     private auth: Auth,
+    private profile: ProfilingService
   ) {
 
  
@@ -241,5 +310,187 @@ export class CompanyService {
     const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
     return docData(cakesRef, {idField: 'userget'}) as Observable<[Company]>
   }
+
+  getprofilebyid(id: any): Observable<User[]>{
+  
+    const cakesRef = doc(this.firestore, `users/${id}/profile/${id}/`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
+  getinboxid(cid: any): Observable<Company[]>{
+    const uid = this.auth.currentUser.uid;
+    const cakesRef = collection(this.firestore, `inbox/`)
+    const q = query(cakesRef, where("cid", "==", cid ), where("uid", "==", uid ) )
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
+  }
+
+  getinboxidc(cid: any): Observable<Company[]>{
+    const uid = this.auth.currentUser.uid;
+    const cakesRef = collection(this.firestore, `inbox/`)
+    const q = query(cakesRef, where("uid", "==", cid ), where("cid", "==", uid ) )
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
+  }
+
+  getinbox(): Observable<Company[]>{
+    const uid = this.auth.currentUser.uid;
+    const cakesRef = collection(this.firestore, `inbox/`)
+    const q = query(cakesRef, where("uid", "==", uid ) )
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
+  }
+
+  getinboxc(): Observable<Company[]>{
+    const uid = this.auth.currentUser.uid;
+    const cakesRef = collection(this.firestore, `inbox/`)
+    const q = query(cakesRef, where("cid", "==", uid ) )
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
+  }
+
+  
+
+  async sendmessageclient(message, cid, cname, cimage){
+
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
+
+    try {
+      this.getinboxid(cid).pipe(first()).subscribe(async res=>{
+        this.inboxid = res;
+        console.log(this.inboxid);
+    
+        if (res.length == 0){
+
+          this.profile.getprofile().pipe(first()).subscribe(async res=>{
+            this.profiledata = res;
+
+            const userget = this.auth.currentUser?.uid;
+            const fname = this.profiledata.fname;
+            const lname = this.profiledata.lname;
+            const profileimg = this.profiledata.profileimg
+
+
+            const userDocRef3 = collection(this.firestore, `inbox/`);
+            const user = await addDoc(userDocRef3, {cid, uid: userget,cname,fname, lname, cimage, profileimg});
+      
+            const userDocRef4 = collection(this.firestore, `messages/`);
+            const user2 = await addDoc(userDocRef4, {cid,userget,message, timeStamp, date2, inboxid: user.id, type: "client" });
+  
+
+
+          });
+
+         
+        }else{
+          const userget = this.auth.currentUser?.uid;
+
+          const userDocRef4 = collection(this.firestore, `messages/`);
+          const user2 = await addDoc(userDocRef4, {cid,userget,message, timeStamp, date2, inboxid: this.inboxid[0].userget, type: "client" });
+
+        }
+
+      });
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async sendmessagecompany(message, cid, cname, cimage){
+
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
+
+    try {
+      
+      const userget = this.auth.currentUser?.uid;
+
+      this.getinboxidc(cid).pipe(first()).subscribe(async res=>{
+        this.inboxid = res;
+        console.log(this.inboxid);
+    
+        if (res.length == 0){
+          
+
+          this.profile.getprofilebyid(cid).pipe(first()).subscribe(async res=>{
+            this.profiledata = res;
+            console.log(this.profiledata)
+
+            const userget = this.auth.currentUser?.uid;
+            const fname = this.profiledata.fname;
+            const lname = this.profiledata.lname;
+            const profileimg = this.profiledata.profileimg
+
+
+            const userDocRef3 = collection(this.firestore, `inbox/`);
+            const user = await addDoc(userDocRef3, {cid, uid: userget,cname,fname, lname, cimage, profileimg});
+      
+            const userDocRef4 = collection(this.firestore, `messages/`);
+            const user2 = await addDoc(userDocRef4, {cid: userget, userget: cid ,message, timeStamp, date2, inboxid: user.id, type: "company" });
+  
+
+
+          });
+
+         
+        }else{
+          const userget = this.auth.currentUser?.uid;
+
+          const userDocRef4 = collection(this.firestore, `messages/`);
+          const user2 = await addDoc(userDocRef4, {cid: userget,userget: cid,message, timeStamp, date2, inboxid: this.inboxid[0].userget, type: "company" });
+
+        }
+
+      });
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async deletemessage(inboxid){
+
+    console.log(inboxid);
+
+    try {
+      
+      const userget = this.auth.currentUser?.uid;
+
+    
+      const userDocRef3 = doc(this.firestore, `inbox/${inboxid}`);
+      const user = await deleteDoc(userDocRef3);
+      
+      const userDocRef4 = collection(this.firestore, `messages/`);
+      const q = query(userDocRef4, where("inboxid", "==", inboxid ) )
+      const result =  collectionData(q, {idField: 'userget'}) as Observable<[Company]>
+
+      result.pipe(first()).subscribe(async res=>{
+        this.data = res;
+        for (let v=0; v<res.length;v++){
+          const userDocRef3 = doc(this.firestore, `messages/${this.data[v].userget}`);
+          await deleteDoc(userDocRef3);
+        }
+      });
+
+
+
+     
+      return true;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  getmessages(cid: any): Observable<Company[]>{
+    const uid = this.auth.currentUser.uid;
+    const cakesRef = collection(this.firestore, `messages/`)
+    const q = query(cakesRef, where("inboxid", "==", cid ) )
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
+  }
+
 
 }

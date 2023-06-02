@@ -9,20 +9,24 @@
 
 <ion-content>
 
-<ion-item button detail="true" [routerLink]="['/messageviewcompany']">
+<ion-item (click)="view(i)" *ngFor="let i of inbox" button detail="true" >
   <ion-avatar slot="start">
-    <img alt="Profile piture" src="assets/header.png" />
+    <img *ngIf="i?.profileimg; else temp " alt="Profile piture" src="{{i.profileimg}}" />
+
+    <ng-template #temp>
+      <img alt="Profile piture" src="assets/header.png" />
+    </ng-template>
   </ion-avatar>
   <ion-label>
-    <h3>John Wick</h3>
-    <p>Contains last message sent</p>
+    <h3>{{i.fname}} {{i.lname}}</h3>
+    <!-- <p>Contains last message sent</p> -->
   </ion-label>
 </ion-item>
 
-  <ion-fab slot="fixed" vertical="bottom" horizontal="end" [routerLink]="['/messagecreatecompany']">
+  <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end" [routerLink]="['/messagecreatecompany']">
     <ion-fab-button class="fabdesign">
       <ion-icon name="create"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
 </ion-content>
 
