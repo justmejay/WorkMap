@@ -47,6 +47,12 @@
           </ion-item>
           <ion-note slot="error" *ngIf="(brnumber.dirty || brnumber.touched) && brnumber.errors">Required</ion-note>
 
+          <ion-item>
+            <ion-label position="stacked">Registration Certificate:</ion-label>
+            <ion-button expand="block" shape="round" (click)="changeImage2()">
+              <ion-icon name="image-outline" ></ion-icon>Change Registration Certificate</ion-button>
+  
+          </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Company Size (number of employees):</ion-label>

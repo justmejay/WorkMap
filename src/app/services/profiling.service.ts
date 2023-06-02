@@ -573,6 +573,29 @@ export class ProfilingService {
     try {
       await uploadString(storageRef, cameraFile.base64String, 'base64');
 
+      const imageurl = await getDownloadURL(storageRef);
+ 
+      const user = this.auth.currentUser.uid;
+
+      const userDocRef = doc(this.firestore, `employers/${user}/company/${user}`);
+      await updateDoc(userDocRef, {
+         imageurl
+      });
+      return true;
+    } catch (e) {
+      return null;
+      
+    }
+  }
+
+  async uploadImagecl2(cameraFile: Photo) {
+    const user = this.auth.currentUser;
+    const path = `uploads/company/${user.uid}/brcert.png`;
+    const storageRef = ref(this.storage, path);
+
+    try {
+      await uploadString(storageRef, cameraFile.base64String, 'base64');
+
       const imageUrl = await getDownloadURL(storageRef);
  
       const user = this.auth.currentUser.uid;
