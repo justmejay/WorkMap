@@ -1,4 +1,3 @@
-
 ion-header{
     display: block;
     position: relative;
@@ -6,11 +5,16 @@ ion-header{
     order: -1;
     width: 100%;
     z-index: 10;
+    --color: white;
+    ion-icon{
+        --background: white;
+    }
 }
 
 ion-toolbar{
     --background:  #2855A1;
 }
+
 ion-avatar{
     margin: auto;
     width: 150px;

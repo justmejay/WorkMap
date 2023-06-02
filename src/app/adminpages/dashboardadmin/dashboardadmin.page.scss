@@ -1,0 +1,17 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+    --color: white;
+
+}
+ion-icon{
+    --background: #ffffff;
+}
+
+ion-toolbar{
+    --background:  #2855A1;
+}
