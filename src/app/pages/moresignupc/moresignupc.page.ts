@@ -5,6 +5,16 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { GmapService } from 'src/app/services/gmap.service';
 import { Geolocation } from '@capacitor/geolocation';
+import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
+import { DomSanitizer } from '@angular/platform-browser';
+import {
+  getDownloadURL,
+  ref,
+  Storage,
+  uploadString,
+  uploadBytes,
+  deleteObject
+} from '@angular/fire/storage';
 
 
 @Component({
@@ -23,6 +33,10 @@ export class MoresignupcPage implements OnInit {
   currentcoords: any = {lat: 0, lng: 0}
   isToggled: boolean = false;
 
+  public camera: any;
+  public base64Image: any;
+  public image: Photo;
+
 
 
   constructor(
@@ -32,7 +46,10 @@ export class MoresignupcPage implements OnInit {
     private alertController: AlertController,
     private auth: AuthService,
     private router: Router,
-    private map: GmapService
+    private map: GmapService,
+    private storage: Storage,
+    private sanitizer: DomSanitizer,
+
   ) { 
     this.activatedRoute.queryParams.subscribe((params) =>{
       this.authdetails = params;
@@ -127,6 +144,24 @@ export class MoresignupcPage implements OnInit {
 
   }
 
+  async addbrcert(){ 
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: false,
+      resultType: CameraResultType.Base64,
+      source: CameraSource.Camera, // Camera, Photos or Prompt!
+    });
+
+    this.base64Image = "data:image/jpeg;base64, " + image.base64String;
+    this.image = image;
+
+
+  }
+
+  async getSafeUrl() { 
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.base64Image);     
+}
+
 
   async signupc() {
 
@@ -135,7 +170,9 @@ export class MoresignupcPage implements OnInit {
       message: "Signing up!"
     });    await loading.present();
 
-    const user = await this.auth.signupc(this.credentials.value, this.authdetails.email, this.authdetails.password);
+    const user = await this.auth.signupc(this.credentials.value, this.authdetails.email, this.authdetails.password, this.image);
+    
+   
     await loading.dismiss();
 
     if (user) {

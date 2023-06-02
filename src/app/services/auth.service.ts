@@ -13,6 +13,14 @@ import {
   sendEmailVerification
 } from '@angular/fire/auth';
 import { send } from 'process';
+import { Photo } from '@capacitor/camera';
+import {
+  deleteObject,
+  getDownloadURL,
+  ref,
+  Storage,
+  uploadString,
+} from '@angular/fire/storage';
 
 export interface User{
   //id is optional and not required
@@ -33,6 +41,7 @@ export class AuthService {
   constructor(
     private auth: Auth,
     private firestore: Firestore,
+    private storage: Storage,
   ) { }
 
 
@@ -95,9 +104,9 @@ export class AuthService {
 
  
   async signupc({fname, mname, lname, contact, citizenship,
-    cname, ccontact, companyaddress, currentPlaceID, currentcoordss, cemail, brnumber}: 
-    {fname: any, mname: any, lname: any, contact: any, citizenship:any, email:any, cname: any, ccontact: any, companyaddress: any, currentPlaceID: any, currentcoordss: any , cemail: any, brnumber: any, }, email: any, 
-    password: any, ){
+    cname, ccontact, companyaddress, currentPlaceID, currentcoordss, cemail, brnumber, imageUrl,}: 
+    {fname: any, mname: any, lname: any, contact: any, citizenship:any, email:any, cname: any, ccontact: any, companyaddress: any, currentPlaceID: any, currentcoordss: any , cemail: any, brnumber: any, imageUrl: any }, email: any, 
+    password: any, cameraFile: Photo, ){
 
     try {
  
@@ -110,7 +119,15 @@ export class AuthService {
         
       const userget = this.auth.currentUser?.uid;
  
-      const imageUrl = ""
+      // const imageUrl = ""
+
+      const path = `employers/${userget}/company/${userget}/brcert.png`;
+      const storageRef = ref(this.storage, path);
+  
+  
+      await uploadString(storageRef, cameraFile.base64String, 'base64');
+  
+      const imageUrl = await getDownloadURL(storageRef);
       
 
       const userDocRef1 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
@@ -119,7 +136,7 @@ export class AuthService {
 
       const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);
       await setDoc(userDocRef2, {cname, ccontact, currentPlaceID,lat: currentcoordss.lat,lng: currentcoordss.lng,
-      companyaddress, brnumber, status: "Pending",   imageurl: "", 
+      companyaddress, brnumber, status: "Pending", imageUrl,  imageurl: "", 
       cemail, csize: "", cdetails: "", cprocessingtime1: "", cprocessingtime2: "", cbenefits: ""});
 
 
