@@ -70,6 +70,12 @@
               <ion-label class="cardsubtitle">Company Email Address: </ion-label>
               <ion-input value="{{company.cemail}}" [readonly]="true"></ion-input>
 
+              <ion-label class="cardsubtitle">Business Registration Number: </ion-label>
+              <ion-input value="{{company.brnumber}}" [readonly]="true"></ion-input>
+
+              <ion-label class="cardsubtitle">Registration Certificate: </ion-label>
+              <img *ngIf="company?.imageUrl; else placeholder_avatar;" [src]="company.imageUrl" />
+
               <ion-label class="cardsubtitle">Company Size: </ion-label>
               <ion-input value="{{company.csize}}" [readonly]="true"></ion-input>
 

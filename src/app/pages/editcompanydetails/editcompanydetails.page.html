@@ -42,6 +42,13 @@
           <ion-note slot="error" *ngIf="(cemail.dirty || cemail.touched) && cemail.errors">Required</ion-note>
           
           <ion-item>
+            <ion-label position="stacked">Business Registration Number:</ion-label>
+            <ion-input position="stacked" type="number" formControlName="brnumber" [value]="company.brnumber" class="custominput"></ion-input>
+          </ion-item>
+          <ion-note slot="error" *ngIf="(brnumber.dirty || brnumber.touched) && brnumber.errors">Required</ion-note>
+
+          
+          <ion-item>
             <ion-label position="stacked">Company Size (number of employees):</ion-label>
             <ion-input position="stacked" type="number" formControlName="csize" [value]="company.csize" class="custominput"></ion-input>
           </ion-item>

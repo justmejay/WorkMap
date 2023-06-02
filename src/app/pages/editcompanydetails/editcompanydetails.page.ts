@@ -55,6 +55,10 @@ export class EditcompanydetailsPage implements OnInit {
     return this.credentials.get('cemail');
   }
 
+  get brnumber() {
+    return this.credentials.get('brnumber');
+  }
+
   get csize() {
     return this.credentials.get('cname');
   }
@@ -126,6 +130,7 @@ export class EditcompanydetailsPage implements OnInit {
       ccontact: ['', [Validators.required]],
       newmarker: [this.newmarker, []],
       cemail: ['', []],
+      brnumber: ['', [Validators.required]],
       csize: ['', [Validators.required]],
       cprocessingtime1: ['', []],
       cprocessingtime2: ['', [Validators.required]],
