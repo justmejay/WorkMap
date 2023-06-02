@@ -29,6 +29,10 @@ export class DashboardcompanyPage implements OnInit {
 
   employer: any = [];
 
+  button: boolean = true;
+
+  companyid: any = [];
+
   constructor(
     private firestore: CompanyService,
     private fb: FormBuilder,
@@ -61,9 +65,18 @@ export class DashboardcompanyPage implements OnInit {
     this.firestore.getcompany().subscribe(res=>{
 
       this.company = res;
+      console.log(this.company.uid)
+      console.log(this.company.status)
+
+      if (this.company.status == 'Pending') {
+        this.button = true;
+      } else {
+        this.button = false;
+      }
 
 
     });
+
     
     this.firestore.getjobc().subscribe(res=>{
       this.job = res;
@@ -113,6 +126,8 @@ export class DashboardcompanyPage implements OnInit {
 
     
   }
+
+  
 
   async checked(event: any, job: any){
     const a = event.currentTarget.checked;
