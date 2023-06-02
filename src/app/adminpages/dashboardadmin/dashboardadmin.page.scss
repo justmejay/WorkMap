@@ -5,13 +5,87 @@ ion-header{
     order: -1;
     width: 100%;
     z-index: 10;
-    --color: white;
-
-}
-ion-icon{
-    --background: #ffffff;
 }
 
 ion-toolbar{
     --background:  #2855A1;
+    ion-label{
+        color: #FFFFFF;
+    }
+}
+ion-menu::part(backdrop) {
+    background-color: rgba(18, 102, 237, 0.5);
+  }
+  ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+    box-shadow: 5px 8px 5px rgba(1, 31, 105, 0.18);
+  }
+  .hamburgtitle{
+    font-size: larger;
+  }
+.hamburger{
+    --background:#E5EBEE;
+}
+.hamburgcard{
+    border-radius: 15px;
+    box-shadow: 4px 5px 16px;
+    margin-bottom: 3%;
+    --background: #FFFFFF;
+}
+.card1menu{
+    --background: #FFFFFF;
+    color: #000000;
+    text-transform: initial;
+}
+.uppertool{
+    --background:#2855A1;
+}
+
+.lowertool{
+    --background:#ffffff;
+}
+
+ion-content{
+    --background:#E5EBEE;
+} 
+.btn{
+    color: #ffffff; 
+}
+.activetoggle{
+    display: flex;
+    flex-direction: row;
+}
+ion-tabs{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    contain: layout size style;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+ion-tab-bar{
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+ion-tab-button{
+    color: #2855A1;
+}
+
+ion-card {
+    --background: #eee8ff;
+    // box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
 }
