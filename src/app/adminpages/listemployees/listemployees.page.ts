@@ -12,6 +12,10 @@ import { AlertController, LoadingController, NavController, ToastController } fr
 export class ListemployeesPage implements OnInit {
 
   employers: any = [];
+  count: any;
+  employerdata: any = [];
+  employerdetails: any = [];
+
 
   constructor(
     private firestore: AdminService,
@@ -24,9 +28,23 @@ export class ListemployeesPage implements OnInit {
   ) {
     this.firestore.getallemployers().subscribe(res=>{
       this.employers = res;
-      console.log(this.employers)
+      console.log(res)
 
-    })
+      for(let v=0;v<res.length;v++){
+        this.employerdata = [];
+
+        this.firestore.getallemployersd(this.employers[v].userget).subscribe(res=>{
+          this.employerdetails.push(res);
+          console.log(this.employerdetails);
+        });
+
+      }
+
+    });
+
+    this.firestore.getallcompany().subscribe(res=>{
+      this.count = res.length;
+    });
    }
 
   ngOnInit() {
@@ -47,7 +65,7 @@ export class ListemployeesPage implements OnInit {
     });    await loading.present();
 
     const id = employers.uid;
-    await this.firestore.deleteemployers(id);
+    await this.firestore.deleteemployers(id,employers.email);
 
     await loading.dismiss();
     this.presentToast('Employer information successfully deleted!');

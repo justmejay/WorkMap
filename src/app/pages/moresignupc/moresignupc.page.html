@@ -239,7 +239,7 @@
             <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
 
             <ion-label position="stacked">TIN Number:</ion-label>
-            <ion-input position="stacked" type="number" formControlName="contact" class="custominput"></ion-input>
+            <ion-input position="stacked" type="number" formControlName="tin" class="custominput"></ion-input>
             <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
             <br>
       </ion-card-content>
@@ -293,7 +293,7 @@
 
           <ion-button expand="block" shape="round" (click)="addbrcert()">
             <ion-icon name="image-outline" ></ion-icon>Upload Registration Certificate</ion-button>
-          <img [src]="base64Image" />
+          <img [src]="base64Image"/>
 
       </ion-card-content>
     </ion-card>

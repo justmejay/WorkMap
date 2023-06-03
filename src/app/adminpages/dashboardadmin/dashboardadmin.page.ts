@@ -10,7 +10,7 @@ import { AlertController, LoadingController, NavController, ToastController } fr
   styleUrls: ['./dashboardadmin.page.scss'],
 })
 export class DashboardadminPage implements OnInit {
-
+  count: any;
   users: any = [];
 
   constructor(
@@ -26,7 +26,11 @@ export class DashboardadminPage implements OnInit {
       this.users = res;
       console.log(this.users)
 
-    })
+    });
+
+    this.firestore.getallcompany().subscribe(res=>{
+      this.count = res.length;
+    });
    }
 
   ngOnInit() {
@@ -47,7 +51,7 @@ export class DashboardadminPage implements OnInit {
     });    await loading.present();
 
     const id = users.uid;
-    await this.firestore.deleteusers(id);
+    await this.firestore.deleteusers(id, users.email);
 
     await loading.dismiss();
     this.presentToast('User information successfully deleted!');

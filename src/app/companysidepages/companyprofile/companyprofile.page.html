@@ -45,8 +45,7 @@
               <ion-label class="cardsubtitle">Email Address: </ion-label>
               <ion-input  value="{{employer.email}}" [readonly]="true"></ion-input>
 
-              <ion-label class="cardsubtitle">TIN Number: </ion-label>
-              <ion-input  value="{{employer.contact}}" [readonly]="true"></ion-input>
+             
           </ion-card-content>
         </ion-card> 
 
@@ -63,13 +62,14 @@
             <div class="companylogo">
               <ion-avatar class="image">
                 <img *ngIf="company?.imageurl; else placeholder_avatar;" [src]="company.imageurl">
-      
+              </ion-avatar>
+
                   <ng-template #placeholder_avatar>
                     <div class="fallback">
-                      <p>Update avatar</p>
+                      <p>Unspecified</p>
                     </div>
                   </ng-template>
-              </ion-avatar>
+             
             </div>
             
 
@@ -87,15 +87,26 @@
               <ion-label class="cardsubtitle">Business Registration Number: </ion-label>
               <ion-input value="{{company.brnumber}}" [readonly]="true"></ion-input>
 
+              <ion-label class="cardsubtitle">TIN Number: </ion-label>
+              <ion-input  value="{{company.tin}}" [readonly]="true"></ion-input>
+
               <ion-label class="cardsubtitle">Registration Certificate: </ion-label>
               <ion-button id="open-modal" expand="block" shape="round">View</ion-button>
               <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
                 <ng-template>
                   <div class="block">
-                    <img *ngIf="company?.imageUrl; else placeholder_avatar;" [src]="company.imageUrl" />
+                    <img *ngIf="company?.imageUrl; else placeholder;" [src]="company.imageUrl" />
+                  </div>
+                </ng-template>
+
+                <ng-template #placeholder>
+                  <div class="fallbac2">
+                    <p>Unspecified</p>
                   </div>
                 </ng-template>
               </ion-modal>
+
+
 
               <ion-label class="cardsubtitle">Company Size: </ion-label>
               <ion-input value="{{company.csize}}" [readonly]="true"></ion-input>
@@ -104,7 +115,7 @@
               <ion-input value="{{company.cprocessingtime2}} {{company.cprocessingtime1}}" [readonly]="true"></ion-input>
 
               <ion-label class="cardsubtitle">Benefits: </ion-label>
-              <ion-textarea value="{{company.cbenefits}}" autosize  [readonly]="true"></ion-textarea>
+              <ion-textarea autoGrow="true" value="{{company.cbenefits}}" autosize  [readonly]="true"></ion-textarea>
 
               <ion-label class="cardsubtitle">About Company: </ion-label>
               <ion-textarea autoGrow="true" value="{{company.cdetails}}" autosize  [readonly]="true"></ion-textarea>

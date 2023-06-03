@@ -100,6 +100,11 @@ export class EditcompanydetailsPage implements OnInit {
   }
 
 
+  get tin() {
+    return this.credentials.get('tin');
+  }
+
+
   constructor(
     private firestore: CompanyService,
     private fb: FormBuilder,
@@ -137,6 +142,8 @@ export class EditcompanydetailsPage implements OnInit {
       cbenefits: ['', [Validators.required]],
       companyaddress: ['', [Validators.required]],
       cdetails: ['', [Validators.required]],
+      tin: ['', [Validators.required]],
+
     });
     
   }

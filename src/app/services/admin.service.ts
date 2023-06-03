@@ -51,6 +51,7 @@ export interface Company{
   providedIn: 'root'
 })
 export class AdminService {
+  certs: any = [];
 
   constructor(
     private firestore: Firestore,
@@ -109,17 +110,121 @@ export class AdminService {
   }
 
   getallemployers(): Observable<Company[]>{
-    const cakesRef = collectionGroup(this.firestore, `namee`)
+    const cakesRef = collection(this.firestore, `employers/`)
     return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
   }
 
-  deleteemployers(id: any){
-    const cakeRef = doc(this.firestore, `employers/${id}`)
-    return deleteDoc(cakeRef)
+  getallemployersd(id): Observable<Company[]>{
+    console.log(id)
+    const cakesRef = doc(this.firestore, `employers/${id}/profile/${id}`)
+    return docData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
   }
 
-  deleteusers(id: any){
-    const cakeRef = doc(this.firestore, `users/${id}`)
+
+  deleteemployers(id: any, email){
+    const profile = collection(this.firestore, `employers/${id}/profile`);
+    const profiledata =  collectionData(profile, {idField: 'userget'}) as Observable<[Company]> 
+
+    profiledata.subscribe(res=>{
+      
+      this.certs = res;
+
+      for (let v = 0;v<res.length;v++){
+        const address = doc(this.firestore, `employers/${id}/profile/${this.certs[v].userget}`);
+        deleteDoc(address);
+      }
+    });
+
+    const company = collection(this.firestore, `employers/${id}/company`);
+    const companydata =  collectionData(company, {idField: 'userget'}) as Observable<[Company]> 
+
+    profiledata.subscribe(res=>{
+      
+      this.certs = res;
+
+      for (let v = 0;v<res.length;v++){
+        const address = doc(this.firestore, `employers/${id}/company/${this.certs[v].userget}`);
+        deleteDoc(address);
+      }
+    });
+
+
+
+
+
+
+    const cakeRef = doc(this.firestore, `employers/${id}`);
+    const cakeRef2 = collection(this.firestore, `employerdeletion`);
+    addDoc (cakeRef2, {email})
     return deleteDoc(cakeRef)
+
+
+
+  }
+
+  deleteusers(id: any, email){
+    console.log(id);
+    const address = doc(this.firestore, `users/${id}/address/${id}`);
+    const name = doc(this.firestore, `users/${id}/name/${id}`);
+    const preferred = doc(this.firestore, `users/${id}/preferred/${id}`);
+    const profile = doc(this.firestore, `users/${id}/profile/${id}`);
+    const resume = doc(this.firestore, `users/${id}/resume/${id}`);
+   deleteDoc(address);
+   deleteDoc(name);
+   deleteDoc(preferred);
+   deleteDoc(profile);
+   deleteDoc(resume);
+
+    const cert = collection(this.firestore, `users/${id}/certification`);
+    const certdata =  collectionData(cert, {idField: 'userget'}) as Observable<[Company]> 
+
+    certdata.subscribe(res=>{
+      
+      this.certs = res;
+
+      for (let v = 0;v<res.length;v++){
+        const address = doc(this.firestore, `users/${id}/certifications/${this.certs[v].userget}`);
+        deleteDoc(address);
+      }
+
+
+    });
+
+
+    const exp = collection(this.firestore, `users/${id}/experience/`);
+    const expdata =  collectionData(exp, {idField: 'userget'}) as Observable<[Company]> 
+
+    expdata.subscribe(res=>{
+      
+      this.certs = res;
+
+      for (let v = 0;v<res.length;v++){
+        const address = doc(this.firestore, `users/${id}/experience/${this.certs[v].userget}`);
+        deleteDoc(address);
+      }
+
+
+    });
+    const school = collection(this.firestore, `users/${id}/school/`);
+
+    const schooldata =  collectionData(school, {idField: 'userget'}) as Observable<[Company]> 
+
+    schooldata.subscribe(res=>{
+      
+      this.certs = res;
+
+      for (let v = 0;v<res.length;v++){
+        const address = doc(this.firestore, `users/${id}/school/${this.certs[v].userget}`);
+        deleteDoc(address);
+      }
+
+
+    });
+
+    const cakeRef = doc(this.firestore, `users/${id}`);
+    const cakeRef2 = collection(this.firestore, `userdeletion`);
+    addDoc (cakeRef2, {email});
+    return deleteDoc(cakeRef);
+      
   }
 }

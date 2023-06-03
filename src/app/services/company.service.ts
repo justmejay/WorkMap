@@ -158,8 +158,8 @@ export class CompanyService {
       const userDocRef3 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
       const user = await updateDoc(userDocRef3, {fname, mname, lname, citizenship, contact});
      
-      const userDocRef4 = doc(this.firestore, `employers/${userget}/namee/${userget}`);
-      const user2 = await updateDoc(userDocRef4, {fname, mname, lname,});
+      // const userDocRef4 = doc(this.firestore, `employers/${userget}/namee/${userget}`);
+      // const user2 = await updateDoc(userDocRef4, {fname, mname, lname,});
      
       return true;
     } catch (e) {
@@ -169,13 +169,13 @@ export class CompanyService {
 
 
 
-  async editcompany({cname, ccontact, cemail, brnumber, csize,cdetails,newmarker, cprocessingtime1, cprocessingtime2, cbenefits,  companyaddress}: 
-    {cname: any, ccontact: any, cemail: any, brnumber: any, csize: any, newmarker:any, cprocessingtime1: any,  cprocessingtime2: any,  cbenefits: any,  companyaddress: any,  cdetails: any,}){
+  async editcompany({cname, ccontact, cemail, brnumber, tin, csize,cdetails,newmarker, cprocessingtime1, cprocessingtime2, cbenefits,  companyaddress}: 
+    {cname: any, ccontact: any, cemail: any, brnumber: any,tin: any, csize: any, newmarker:any, cprocessingtime1: any,  cprocessingtime2: any,  cbenefits: any,  companyaddress: any,  cdetails: any,}){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `employers/${userget}/company/${userget}`);
-      const user = await updateDoc(userDocRef3, {cname, ccontact, cemail, brnumber, csize, cprocessingtime1, cprocessingtime2, cbenefits, companyaddress, cdetails, lat: newmarker.lat, lng: newmarker.lng});
+      const user = await updateDoc(userDocRef3, {cname, ccontact, cemail,tin, brnumber, csize, cprocessingtime1, cprocessingtime2, cbenefits, companyaddress, cdetails, lat: newmarker.lat, lng: newmarker.lng});
      
       return true;
     } catch (e) {

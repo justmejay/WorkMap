@@ -11,6 +11,7 @@ export class CompanyregisterPage implements OnInit {
   
   profile: any = [];
   company: any = [];
+  selectTabs: any = "pending";
 
   
   constructor(
