@@ -159,7 +159,7 @@ ion-icon{
     display: flex; 
     flex-direction:column; 
     align-items: stretch;
-    padding: 0 10%;
+    padding: 0% 10%;
     margin-bottom: 1rem;
 }
 .save{
@@ -168,9 +168,14 @@ ion-icon{
     // --border-style: solid;
     // --border-width: 2px;
     color: #FFFFFF;
-    margin-top: 4%;
+
     text-transform: initial;
-    padding-left: 1rem;
+    // padding-left: 1rem;
+
+    ion-badge{
+     margin-right:1rem;
+        
+    }
 }
 ion-badge {
     border-radius: 50px;

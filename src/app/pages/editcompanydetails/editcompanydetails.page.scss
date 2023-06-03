@@ -59,7 +59,7 @@ ion-select{
 }
 
 ion-textarea{
-    border: solid 2px rgb(53, 66, 125);
+    border: solid 2px #136cd2;
     border-radius: 15px;
     --background: white;
     color: black;
@@ -97,7 +97,7 @@ h2{
 
 .process{
     display: flex;
-    // justify-content: space-between;
+    justify-content: space-between;
     align-items: end;
 }
 
@@ -109,6 +109,21 @@ h2{
 ion-button{
     text-transform: initial;
     padding-right: 0.2rem;
+    ion-icon{
+        margin-right: 0.5rem;
+    }
+}
+.regcert{
+    text-transform: initial;
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+
+    
+    ion-icon{
+        margin-right: 0.5rem;
+    }
 }
 
 ion-card-title{
