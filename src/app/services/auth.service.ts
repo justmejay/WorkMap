@@ -141,7 +141,7 @@ export class AuthService {
       const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);
       await setDoc(userDocRef2, {cname, ccontact, currentPlaceID,lat: currentcoordss.lat,lng: currentcoordss.lng,
       companyaddress, brnumber, status: "Pending", imageUrl,  imageurl: "", 
-      cemail, csize: "", cdetails: "", cprocessingtime1: "", cprocessingtime2: "", cbenefits: "", timeStamp: date2});
+      cemail, csize: "", cdetails: "", cprocessingtime1: "", cprocessingtime2: "", cbenefits: "", timeStamp: date2, uid: userget,});
 
 
   
