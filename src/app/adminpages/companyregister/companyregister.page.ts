@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-companyregister',
@@ -18,6 +19,8 @@ export class CompanyregisterPage implements OnInit {
     private firestore: AdminService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private auth: AuthService
+
   ) { 
 
     this.firestore.getallcompany().subscribe(res=>{
@@ -41,5 +44,12 @@ export class CompanyregisterPage implements OnInit {
   
     this.router.navigate(['companyreview'], {queryParams:{uid:id}});
   }
+
+  logout(){
+    this.auth.logout();
+    this.router.navigate(['authentication'], );
+
+  }
+
 
 }
