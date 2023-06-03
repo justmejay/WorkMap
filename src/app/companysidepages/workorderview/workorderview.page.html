@@ -1,0 +1,82 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/workorderemployees']" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label>Work Orders</ion-label>
+      <!-- <ion-buttons [routerLink]="['/']" slot="end">
+        <ion-icon style="width: 50px; color: white;" name="add-outline">  </ion-icon>
+      </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="trash-outline" style="float: right; height: 25px; width: 25px"></ion-icon>
+      <ion-icon class="edit" name="create-outline" style="float: right; height: 25px; width: 25px" [routerLink]="['/editworkorder']"></ion-icon>
+      <ion-card-title>
+        Work Order Title #1
+      </ion-card-title>
+      <ion-card-subtitle>
+        Work Order No: 1924
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>Order Date:</ion-col>
+          <ion-col>MM/DD/YYYY</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Employee Name:</ion-col>
+          <ion-col>John Doe</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Contact No:</ion-col>
+          <ion-col>09124568795</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Email:</ion-col>
+          <ion-col>sampleemail@gmail.com</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>Start Date:</ion-col>
+            <ion-col>MM/DD/YYYY</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>End Date:</ion-col>
+          <ion-col>MM/DD/YYYY</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Work Location:</ion-col>
+          <ion-col>16th Street, SM Taguig</ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+          <ion-row>Terms of Service</ion-row>
+          <ion-row>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat quidem eum quaerat laudantium molestiae vitae porro repellat eos obcaecati molestias praesentium ab dolor voluptatum rerum adipisci non, natus deserunt. Ut!
+          </ion-row>
+          <br>
+          <ion-row>Work Description</ion-row>
+          <ion-row>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat quidem eum quaerat laudantium molestiae vitae porro repellat eos obcaecati molestias praesentium ab dolor voluptatum rerum adipisci non, natus deserunt. Ut!
+          </ion-row>
+          <br>
+          <ion-row>Additional Comments</ion-row>
+          <ion-row>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat quidem eum quaerat laudantium molestiae vitae porro repellat eos obcaecati molestias praesentium ab dolor voluptatum rerum adipisci non, natus deserunt. Ut!
+          </ion-row>
+          <br>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>Labor Description</ion-row>
+          <ion-row>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat quidem eum quaerat laudantium molestiae vitae porro repellat eos obcaecati molestias praesentium ab dolor voluptatum rerum adipisci non, natus deserunt. Ut!
+          </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

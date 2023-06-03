@@ -268,7 +268,8 @@ const routes: Routes = [
   {
     path: 'viewapplicants',
     loadChildren: () => import('./companysidepages/viewapplicants/viewapplicants.module').then( m => m.ViewapplicantsPageModule)
-  },  {
+  },
+  {
     path: 'aboutus',
     loadChildren: () => import('./pages/aboutus/aboutus.module').then( m => m.AboutusPageModule)
   },
@@ -303,6 +304,26 @@ const routes: Routes = [
   {
     path: 'viewemployerprofile',
     loadChildren: () => import('./adminpages/viewemployerprofile/viewemployerprofile.module').then( m => m.ViewemployerprofilePageModule)
+  },
+  {
+    path: 'workorderlist',
+    loadChildren: () => import('./companysidepages/workorderlist/workorderlist.module').then( m => m.WorkorderlistPageModule)
+  },
+  {
+    path: 'workorderemployees',
+    loadChildren: () => import('./companysidepages/workorderemployees/workorderemployees.module').then( m => m.WorkorderemployeesPageModule)
+  },
+  {
+    path: 'workorderview',
+    loadChildren: () => import('./companysidepages/workorderview/workorderview.module').then( m => m.WorkorderviewPageModule)
+  },
+  {
+    path: 'addworkorder',
+    loadChildren: () => import('./companysidepages/addworkorder/addworkorder.module').then( m => m.AddworkorderPageModule)
+  },
+  {
+    path: 'editworkorder',
+    loadChildren: () => import('./companysidepages/editworkorder/editworkorder.module').then( m => m.EditworkorderPageModule)
   },
 
 
