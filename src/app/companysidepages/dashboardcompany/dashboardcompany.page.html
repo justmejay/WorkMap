@@ -132,10 +132,13 @@
         </ion-grid>
         <ion-label class="timeposted">Date Posted: {{job.timestamp}}</ion-label>
       </ion-card-content>
+
       <ion-buttons fill="solid" class="btns">
         
         <ion-button (click)="applicant(job)" class="save" type="Submit" size="large" expand="block" fill="solid" shape="round" [routerLink]="['/applicantlist']">
-          <ion-badge color="tertiary">10</ion-badge> Applicants</ion-button>
+          <ion-badge color="tertiary">10</ion-badge> Applicants
+        </ion-button>
+
       </ion-buttons>
     </ion-card>
   </ion-content>
