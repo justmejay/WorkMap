@@ -115,7 +115,7 @@
             {{company.timeStamp}}
           </ion-col>
           <ion-col>
-            <ion-button shape="round" [routerLink]="['/companyreview']">View</ion-button>
+            <ion-button shape="round" (click)="view(company)">View</ion-button>
           </ion-col>
         </ion-row >
       </ion-grid>
