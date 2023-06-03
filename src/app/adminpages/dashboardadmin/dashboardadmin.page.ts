@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router'
+import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-dashboardadmin',
@@ -14,7 +16,11 @@ export class DashboardadminPage implements OnInit {
   constructor(
     private firestore: AdminService,
     private router: Router,
+    private nc: NavController,
     private activatedRoute: ActivatedRoute,
+    private toastController : ToastController,
+    private loadingController: LoadingController,
+    private alertController: AlertController,
   ) {
     this.firestore.getallusers().subscribe(res=>{
       this.users = res;
@@ -34,4 +40,30 @@ export class DashboardadminPage implements OnInit {
     this.router.navigate(['viewuserproile'], {queryParams:{uid:id}});
   }
 
+  async delete(users: any){
+    const loading = await this.loadingController.create({
+      spinner: "dots",
+      message: "Deleting up!"
+    });    await loading.present();
+
+    const id = users.uid;
+    await this.firestore.deleteusers(id);
+
+    await loading.dismiss();
+    this.presentToast('User information successfully deleted!');
+
+
+  }
+
+
+  async presentToast(message: any){
+    const toast = await this.toastController.create({
+      message,
+      duration: 1000,
+    });
+    await toast.present();
+  }
+
+
 }
+

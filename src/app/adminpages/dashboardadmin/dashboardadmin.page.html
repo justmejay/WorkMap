@@ -34,7 +34,7 @@
       </ion-avatar>
       <ion-label>{{users.fname}} {{users.mname}} {{users.lname}} {{users.suffix}}</ion-label>
       <ion-button slot="end" (click)="view(users)">View</ion-button>
-      <ion-button slot="end" color="danger">Delete</ion-button>
+      <ion-button slot="end" color="danger" (click)="delete(users)">Delete</ion-button>
     </ion-item>
     </ion-card>
   </ion-content>

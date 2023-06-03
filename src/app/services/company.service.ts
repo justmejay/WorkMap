@@ -158,6 +158,9 @@ export class CompanyService {
       const userDocRef3 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
       const user = await updateDoc(userDocRef3, {fname, mname, lname, citizenship, contact});
      
+      const userDocRef4 = doc(this.firestore, `employers/${userget}/namee/${userget}`);
+      const user2 = await updateDoc(userDocRef4, {fname, mname, lname,});
+     
       return true;
     } catch (e) {
       return null;

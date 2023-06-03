@@ -23,6 +23,10 @@ export class CompanyregisterPage implements OnInit {
       this.company = res;
       console.log(this.company)
 
+      this.company.sort((a, b) => {
+        return b.timesort - a.timesort;
+      });
+
     })
   }
 

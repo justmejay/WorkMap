@@ -107,4 +107,19 @@ export class AdminService {
     const cakesRef = doc(this.firestore, `users/${id}/address/${id}`)
     return docData(cakesRef, {idField: 'id'}) as Observable<[Company]>
   }
+
+  getallemployers(): Observable<Company[]>{
+    const cakesRef = collectionGroup(this.firestore, `namee`)
+    return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
+  }
+
+  deleteemployers(id: any){
+    const cakeRef = doc(this.firestore, `employers/${id}`)
+    return deleteDoc(cakeRef)
+  }
+
+  deleteusers(id: any){
+    const cakeRef = doc(this.firestore, `users/${id}`)
+    return deleteDoc(cakeRef)
+  }
 }
