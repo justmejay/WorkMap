@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where } from '@angular/fire/firestore';
+import { doc, docData, Firestore, setDoc, addDoc, collectionData, deleteDoc, where, collection } from '@angular/fire/firestore';
 import { Observable, first } from 'rxjs';
 import { AuthService } from './auth.service';
 import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
@@ -89,5 +89,22 @@ export class AdminService {
     const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
     const comp = "Declined"
     return updateDoc (cakeRef, {status: comp } )
+  }
+
+  getallusers(): Observable<Company[]>{
+    const cakesRef = collectionGroup(this.firestore, `name`)
+    return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
+  }
+
+  getprofile(id: any): Observable<Company[]>{
+  
+    const cakesRef = doc(this.firestore, `users/${id}/profile/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[Company]>
+  }
+
+  getaddress(id: any): Observable<Company[]>{
+  
+    const cakesRef = doc(this.firestore, `users/${id}/address/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[Company]>
   }
 }

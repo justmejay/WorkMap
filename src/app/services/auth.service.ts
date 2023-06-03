@@ -70,7 +70,9 @@ export class AuthService {
       const userDocRef1 = doc(this.firestore, `users/${userget}/profile/${userget}`);
       await setDoc(userDocRef1, {uid: userget, profileimg: "", aboutme: "", cs, religion,  fname, mname, lname, suffix, sex, contact, citizenship, bday, age, email, ea });
       
-       
+      const userDocRef8 = doc(this.firestore, `users/${userget}/name/${userget}`);
+      await setDoc(userDocRef8, {uid: userget,  fname, mname, lname, suffix, profileimg: "",  });
+      
 
       const userDocRef2 = doc(this.firestore, `users/${userget}/address/${userget}`);
       await setDoc(userDocRef2, {clat: currentcoords.lat, clng: currentcoords.lng,
