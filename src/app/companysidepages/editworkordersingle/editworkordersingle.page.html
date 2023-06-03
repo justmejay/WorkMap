@@ -1,0 +1,98 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/workorderview']" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label>Work Orders</ion-label>
+      <!-- <ion-buttons [routerLink]="['/']" slot="end">
+        <ion-icon style="width: 50px; color: white;" name="add-outline">  </ion-icon>
+      </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-icon name="trash-outline" style="float: right; height: 25px; width: 25px"></ion-icon>
+      <ion-card-title>
+        <ion-label>Input Title:</ion-label>
+        <ion-input placeholder="Work Order #1"></ion-input>
+      </ion-card-title>
+      <ion-card-subtitle>
+        Work Order No: 1924 (autogenerate?)
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>Order Date:</ion-col>
+          <ion-col>MM/DD/YYYY</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Employee Name:</ion-col>
+          <ion-col>John Doe</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Contact No:</ion-col>
+          <ion-col>09124568795</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Email:</ion-col>
+          <ion-col>sampleemail@gmail.com</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Start Date:</ion-col>
+          <ion-col>
+            <ion-datetime-button datetime="datetime"></ion-datetime-button>
+            <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime id="datetime"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>End Date:</ion-col>
+        <ion-col>
+          <ion-datetime-button datetime="datetime"></ion-datetime-button>
+          <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-item lines="none">
+          <ion-select interface="action-sheet" placeholder="Job Listings">
+            <ion-select-option>Select Listing 1</ion-select-option>
+            <ion-select-option>Select Listing 2</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-row>
+      <ion-label>Work Location:</ion-label>
+      <ion-item lines="none">
+        <ion-label>Same as company location</ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
+      <ion-input placeholder="sample town, brgy, province"></ion-input>
+
+    </ion-grid>
+
+        <ion-label>Terms of Service</ion-label>
+        <ion-textarea>          </ion-textarea>
+        <br>
+        <ion-label>Work Description</ion-label>
+        <ion-textarea>          </ion-textarea>
+        <br>
+        <ion-label>Additional Comments</ion-label>
+        <ion-textarea>          </ion-textarea>
+        <br>
+        <ion-label>Labor Description</ion-label>
+        <ion-textarea>
+        </ion-textarea>
+        <br>
+        <ion-button expand="block" shape="round">Save</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

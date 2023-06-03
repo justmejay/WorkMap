@@ -328,6 +328,14 @@ const routes: Routes = [
     path: 'employeeworkorder',
     loadChildren: () => import('./pages/employeeworkorder/employeeworkorder.module').then( m => m.EmployeeworkorderPageModule)
   },
+  {
+    path: 'workorderviewall',
+    loadChildren: () => import('./companysidepages/workorderviewall/workorderviewall.module').then( m => m.WorkorderviewallPageModule)
+  },
+  {
+    path: 'editworkordersingle',
+    loadChildren: () => import('./companysidepages/editworkordersingle/editworkordersingle.module').then( m => m.EditworkordersinglePageModule)
+  },
 
 
 
