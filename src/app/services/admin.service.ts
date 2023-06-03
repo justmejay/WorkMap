@@ -58,15 +58,36 @@ export class AdminService {
     private profile: ProfilingService
   ) { }
 
-  getallprofile(): Observable<Company[]>{
-    const cakesRef = collectionGroup(this.firestore, `profile`)
-    // const q = query(cakesRef, where("schoolname", "!=", "" ))
-    return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
-  }
 
   getallcompany(): Observable<Company[]>{
     const cakesRef = collectionGroup(this.firestore, `company`)
     // const q = query(cakesRef, where("schoolname", "!=", "" ))
     return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
+  }
+
+  getcompany(id: any): Observable<Company[]>{
+  
+    const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[Company]>
+  }
+
+  getemployer(id: any): Observable<Company[]>{
+  
+    const cakesRef = doc(this.firestore, `employers/${id}/profile/${id}`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[Company]>
+  }
+
+  getaccepted(id:any){
+
+    const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    const comp = "Accepted"
+    return updateDoc (cakeRef, {status: comp } )
+  }
+
+  getdeclined(id:any){
+
+    const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    const comp = "Declined"
+    return updateDoc (cakeRef, {status: comp } )
   }
 }
