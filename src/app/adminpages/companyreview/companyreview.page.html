@@ -7,85 +7,6 @@
   </ion-toolbar>
 </ion-header>
 
-<!-- <ion-content [fullscreen]="true" class="ion-padding"> 
-  <div class="container">
-    <div class="avatar" >
-      <ion-avatar>
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
-    </div>
-
-    <ion-card class="cardcontainer">
-      <ion-card-content>
-        <ion-label position="stacked" class="cardsubtitle">Company Name:</ion-label>
-        <ion-input position="stacked" class="custominput" [readonly]="true" value="Nintendo"></ion-input>
-      
-        <ion-label position="stacked" class="cardsubtitle">Company Address:</ion-label>
-        <ion-input position="stacked" class="custominput" [readonly]="true" value="Tokyo, Japan"></ion-input>
-      
-        <ion-label position="stacked" class="cardsubtitle">Company Contact No:</ion-label>
-        <ion-input position="stacked" class="custominput" [readonly]="true" value="123"></ion-input>
-      
-        <ion-label position="stacked" class="cardsubtitle">Company Email Address:</ion-label>
-        <ion-input position="stacked" class="custominput" [readonly]="true" value="Nintendo@gmail.com"></ion-input>
-      
-        <ion-label position="stacked" class="cardsubtitle">Company Size:</ion-label>
-        <ion-input position="stacked" class="custominput" [readonly]="true" value="5000"></ion-input>
-      
-        <ion-label position="stacked" class="cardsubtitle">Average Processing Time:</ion-label>
-        <ion-input position="stacked" class="custominput" [readonly]="true" value="3 days"></ion-input>
-      
-        <ion-label position="stacked" class="cardsubtitle">Benefits:</ion-label>
-        <ion-input position="stacked" class="custominput" [readonly]="true" value="Early access to nintendo products"></ion-input>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="cardcontainer">
-      <ion-card-header>
-        <div style="display: flex; justify-content: space-between;">
-          <ion-card-title>About Company</ion-card-title>
-        </div>
-      </ion-card-header>
-      <ion-card-content>
-        
-          <ion-textarea autosize [readonly]="true"></ion-textarea>
-        
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="cardcontainer">
-      <ion-card-header>
-        <div style="display: flex; justify-content: space-between;">
-          <ion-card-title>Certificate</ion-card-title>
-        </div>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-button id="open-modal" slot="end" expand="block" shape="round">View</ion-button>
-          <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
-            <ng-template>
-              <div class="block">
-                <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg"/>
-              </div>
-            </ng-template>
-        </ion-modal>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="cardcontainer">
-      <ion-card-content>
-        <ion-label position="stacked" class="cardsubtitle">Business Registration Number:</ion-label>
-        <ion-input position="stacked" class="custominput" [readonly]="true" value="111-11-111"></ion-input>
-      
-        <ion-label position="stacked" class="cardsubtitle">TIN number:</ion-label>
-        <ion-input position="stacked" class="custominput" [readonly]="true" value="111-111-111"></ion-input>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-button expand="block" shape="round" >Accept </ion-button>
-    <ion-button expand="block" shape="round" >Decline </ion-button>
-  </div>
-</ion-content> -->
-
 <ion-content  *ngIf="employer" [fullscreen]="true" >
   <div class="container">
     <div class="avatar" >
@@ -140,6 +61,7 @@
         </ion-card-header>
         <ion-card-content>
 
+          <div class="companylogo">
             <ion-avatar class="image">
               <img *ngIf="company?.imageurl; else placeholder_avatar;" [src]="company.imageurl">
     
@@ -149,6 +71,7 @@
                   </div>
                 </ng-template>
             </ion-avatar>
+          </div>
           
 
             <ion-label class="cardsubtitle">Company Name: </ion-label>

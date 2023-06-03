@@ -1,158 +1,3 @@
-// ion-header{
-//     display: block;
-//     position: relative;
-//     -ms-flex-order: -1;
-//     order: -1;
-//     width: 100%;
-//     z-index: 10;
-//     --color: white;
-
-//     ion-icon{
-//         --background: white;
-
-//     }
-// }
-
-// ion-toolbar{
-//     --background:  #2855A1;
-//     ion-title{
-//         color: #FFFFFF;
-//     }
-// }
-
-// // ion-avatar{
-// //     margin: auto;
-// //     width: 150px;
-// //     height: 150px;
-// // }
-
-
-// // .block {
-// //     width: 100%;
-// //     height: 300px;
-// //     display: flex;
-// //     align-items: center;
-// //     justify-content: center;
-// //   }
-  
-//   ion-modal {
-//     --height: auto;
-//   }
-// ion-button{
-//     text-transform: initial;
-// }
-
-
-
-
-// .container{
-//     // border: 2px solid #3AB3C1;
-//     padding-bottom: 3%;
-// }
-
-// .avatar{
-//     margin: auto;
-//     width: 150px;
-//     height: 150px;
-//     vertical-align: top;
-//     text-align: center;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     // margin-top: 40px;
-//     // padding-bottom: 5%;
-//     flex-direction: column;
-//     // background:  #2855A1;
-// }
-
-// .image{
-//     display: flex;
-//     justify-content: center;
-//     padding-top: 5%;
-//     height: 35%;
-//     width: 35%;
-// }
-
-// .preview {
-//     margin-top: 50px;
-//     display: flex;
-//     justify-content: center;
-//   }
-  
-//   .fallback {
-//     width: 128px;
-//     height: 128px;
-//     border-radius: 50%;
-//     background: #bfbfbf;
-  
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     font-weight: 500;
-//   }
-
-// .caption {
-//     color: #ffffff;
-//     margin: 10% 0;
-//     display: block;
-//     font-weight: bold;
-//     font-size: 20px;
-// }
-// ion-card{
-//     --background: #71a8fa;
-//     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-//     border-radius: 15px;
-//     margin-bottom: 1rem;
-//     // border: solid 3px  rgb(53, 66, 125);
-// }
-// ion-card.cardcontainer {
-//     --background: #71a8fa;
-//     box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-//     border-radius: 15px;
-//     margin-bottom: 1rem;
-//     // border: solid 3px  rgb(53, 66, 125);
-// }
-// ion-card-header{
-//     --background: #277dff;
-//     color: whitesmoke;
-//     margin: 0%;
-// }
-// ion-card-title{
-//     color: whitesmoke;
-// }
-// ion-input.custominput{
-//     border: solid 2px rgb(53, 66, 125);
-//     border-radius: 15px;
-//     --background: rgb(242, 237, 245);
-//     color: black;
-//     margin-bottom: 0.5rem;
-//     margin-top: 0.5rem;
-// }
-// ion-textarea{
-//     border: solid 2px rgb(53, 66, 125);
-//     border-radius: 15px;
-//     --background: rgb(242, 237, 245);
-//     color: black;
-//     margin-bottom: 0.5rem;
-//     margin-top: 0.5rem;
-// }
-// ion-card-content{
-//     color: black;
-//     margin: auto;
-// }
-// ion-label.cardsubtitle{
-//     font-size: 1.2em;
-//     font-weight: 500;
-// }
-// ion-icon{
-//     height: 21px;
-//     width: 21px;
-// }
-
-// ion-button.resume{
-//     --background: #70AFFA;
-//     --border-style: solid 2px #2855A1;
-// }
 
 ion-header{
     display: block;
@@ -165,6 +10,9 @@ ion-header{
 
 ion-toolbar{
     --background:  #2855A1;
+    ion-title{
+        color: #FFFFFF;
+    }
 }
 
 .container{
@@ -182,6 +30,16 @@ ion-toolbar{
     // padding-bottom: 5%;
     flex-direction: column;
     background:  #2855A1;
+}
+.companylogo{
+    vertical-align: top;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 40px;
+    // padding-bottom: 5%;
+    flex-direction: column;
 }
 
 .image{
