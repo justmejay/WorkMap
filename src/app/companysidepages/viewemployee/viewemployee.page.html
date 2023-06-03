@@ -2,11 +2,19 @@
   <ion-toolbar>
       <ion-buttons [routerLink]="['/employees']"slot="start">
         <ion-icon style="width: 50px; color: white;" name="arrow-back-outline" >  </ion-icon>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-icon style="width: 50px; color: white;" name="ellipsis-vertical" id="open-modal">  </ion-icon>
       </ion-buttons> 
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+    <ng-template>
+      <ion-button expand="block" shape="round" color="danger">Terminate Employee's Term</ion-button>
+    </ng-template>
+  </ion-modal>
   <ion-card class="cardcontainer">
     <ion-card-header>
       <div style="display: flex; align-items: center;">
@@ -26,14 +34,20 @@
           <ion-label position="stacked" class="cardsubtitle">Address:</ion-label>
           <ion-input position="stacked" placeholder="address" class="custominput"[readonly]="true"></ion-input>
 
-          <ion-label position="stacked" class="cardsubtitle">Job Specialization:</ion-label>
-          <ion-input position="stacked" placeholder="IT" [readonly]="true" class="custominput"></ion-input> 
+          <ion-label position="stacked" class="cardsubtitle">Contact No:</ion-label>
+          <ion-input position="stacked" placeholder="09125685456" class="custominput"[readonly]="true"></ion-input>
+
+          <ion-label position="stacked" class="cardsubtitle">Email:</ion-label>
+          <ion-input position="stacked" placeholder="sample@gmail.com" class="custominput"[readonly]="true"></ion-input>
+
+          <!-- <ion-label position="stacked" class="cardsubtitle">Job Specialization:</ion-label>
+          <ion-input position="stacked" placeholder="IT" [readonly]="true" class="custominput"></ion-input>  -->
           
           <ion-label position="stacked" class="cardsubtitle">Job Position:</ion-label>
           <ion-input position="stacked" placeholder="Select the employee's Job Position" class="custominput"></ion-input>
 
-          <ion-label position="stacked" class="cardsubtitle">Job Order:</ion-label>
-          <ion-grid>
+          <!-- <ion-label position="stacked" class="cardsubtitle">Job Order:</ion-label> -->
+          <!-- <ion-grid>
             <ion-row>
               <ion-col>
                 <ion-input position="stacked" placeholder="Select start date" class="custominput"></ion-input>
@@ -42,7 +56,7 @@
                 <ion-input position="stacked" placeholder="Select end date" class="custominput"></ion-input>
               </ion-col>
             </ion-row>
-          </ion-grid>
+          </ion-grid> -->
           <!-- <ion-grid>
             <ion-row class="jobposition">
               <ion-badge class="positionbadges" color="tertiary">Web Designer</ion-badge>
