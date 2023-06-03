@@ -48,7 +48,7 @@
 
               <ion-select value="{{employer.citizenship}}" formControlName="citizenship" interface="action-sheet" placeholder="Select Citizenship">
                 <ion-select-option value="">-- select one --</ion-select-option>
-                <ion-select-option value="Filipino">Filipino</ion-select-option>
+                <ion-select-option value="filipino">Filipino</ion-select-option>
                 <ion-select-option value="afghan">Afghan</ion-select-option>
                 <ion-select-option value="albanian">Albanian</ion-select-option>
                 <ion-select-option value="algerian">Algerian</ion-select-option>
@@ -258,10 +258,7 @@
             <ion-input position="stacked" type="text" formControlName="email" value="{{employer.email}}"  class="custominput"></ion-input>
             </ion-item>
 
-            <ion-item>
-            <ion-label position="stacked">TIN Number:</ion-label>
-            <ion-input position="stacked" type="number" formControlName="contact" value="{{employer.contact}}" class="custominput"></ion-input>
-            </ion-item>
+            
             <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
 
       </ion-card-content>

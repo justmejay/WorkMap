@@ -71,7 +71,7 @@ export class AuthService {
       await setDoc(userDocRef1, {uid: userget, profileimg: "", aboutme: "", cs, religion,  fname, mname, lname, suffix, sex, contact, citizenship, bday, age, email, ea });
       
       const userDocRef8 = doc(this.firestore, `users/${userget}/name/${userget}`);
-      await setDoc(userDocRef8, {uid: userget,  fname, mname, lname, suffix, profileimg: "",  });
+      await setDoc(userDocRef8, {uid: userget,  fname, mname, lname, suffix, profileimg: "",email  });
       
 
       const userDocRef2 = doc(this.firestore, `users/${userget}/address/${userget}`);
@@ -105,9 +105,9 @@ export class AuthService {
   }
 
  
-  async signupc({fname, mname, lname, contact, citizenship,
+  async signupc({fname, mname, lname, contact, citizenship,tin,
     cname, ccontact, companyaddress, currentPlaceID, currentcoordss, cemail, brnumber, imageUrl,}: 
-    {fname: any, mname: any, lname: any, contact: any, citizenship:any, email:any, cname: any, ccontact: any, companyaddress: any, currentPlaceID: any, currentcoordss: any , cemail: any, brnumber: any, imageUrl: any }, email: any, 
+    {fname: any, mname: any, lname: any, contact: any, citizenship:any,tin: any, email:any, cname: any, ccontact: any, companyaddress: any, currentPlaceID: any, currentcoordss: any , cemail: any, brnumber: any, imageUrl: any }, email: any, 
     password: any, cameraFile: Photo, ){
 
     try {
@@ -126,31 +126,54 @@ export class AuthService {
       const userget = this.auth.currentUser?.uid;
  
       // const imageUrl = ""
+        if (cameraFile ==  undefined){
 
+          const userDocRef12 = doc(this.firestore, `employers/${userget}`);
+          await setDoc(userDocRef12, {data: ""});
+
+      const userDocRef1 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
+      await setDoc(userDocRef1, {fname, mname, lname, contact, citizenship, email, uid: userget, profileimg: ""});
+      
+      // const userDocRef3 = doc(this.firestore, `employers/${userget}/namee/${userget}`);
+      // await setDoc(userDocRef3, {fname, mname, lname, uid: userget, profileimg: ""});
+      
+
+      const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);
+      await setDoc(userDocRef2, {cname, ccontact, currentPlaceID,lat: currentcoordss.lat,lng: currentcoordss.lng,
+      companyaddress, brnumber,tin, status: "Pending",  imageurl: "", 
+      cemail, csize: "", cdetails: "", cprocessingtime1: "", cprocessingtime2: "", cbenefits: "", timeStamp: date2, uid: userget,});
+
+      await sendEmailVerification(this.auth.currentUser);
+
+        }else{
       const path = `employers/${userget}/company/${userget}/brcert.png`;
       const storageRef = ref(this.storage, path);
   
   
       await uploadString(storageRef, cameraFile.base64String, 'base64');
-  
       const imageUrl = await getDownloadURL(storageRef);
       
+      const userDocRef12 = doc(this.firestore, `employers/${userget}`);
+          await setDoc(userDocRef12, {data: ""});
 
       const userDocRef1 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
       await setDoc(userDocRef1, {fname, mname, lname, contact, citizenship, email, uid: userget, profileimg: ""});
       
-      const userDocRef3 = doc(this.firestore, `employers/${userget}/namee/${userget}`);
-      await setDoc(userDocRef3, {fname, mname, lname, uid: userget, profileimg: ""});
+      // const userDocRef3 = doc(this.firestore, `employers/${userget}/namee/${userget}`);
+      // await setDoc(userDocRef3, {fname, mname, lname, uid: userget, profileimg: ""});
       
 
       const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);
       await setDoc(userDocRef2, {cname, ccontact, currentPlaceID,lat: currentcoordss.lat,lng: currentcoordss.lng,
-      companyaddress, brnumber, status: "Pending", imageUrl,  imageurl: "", 
+      companyaddress, brnumber, status: "Pending", imageUrl, 
       cemail, csize: "", cdetails: "", cprocessingtime1: "", cprocessingtime2: "", cbenefits: "", timeStamp: date2, uid: userget,});
 
 
   
       await sendEmailVerification(this.auth.currentUser);
+        }
+
+      
 
      
       return user;

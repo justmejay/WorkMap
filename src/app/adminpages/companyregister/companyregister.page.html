@@ -33,115 +33,156 @@
         </ion-card-title>
       </ion-card-header>
 
-    <!-- <ion-card class="innercard">
-      <ion-grid>
-      
-      <ion-row>
-        <ion-col>
-          Employee Name:
-        </ion-col>
-        <ion-col>
-          Mario
-        </ion-col>
-      </ion-row>
-      
-      <ion-row>
-        <ion-col>
-          Company Name:
-        </ion-col>
-        <ion-col>
-          Nintendo
-        </ion-col>
-      </ion-row>
+      <div class="segment-container">
+        <ion-segment value="buttons" [(ngModel)]="selectTabs">
+          <ion-segment-button value="pending" class="all">
+            <ion-label>Pending</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="accepted" class="confirmed">
+            <ion-label>Accepted</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="declined" class="completed">
+            <ion-label>Declined</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
 
-      <ion-row>
-        <ion-col>
-          Status:
-        </ion-col>
-        <ion-col>
-          Completed
-        </ion-col>
-      </ion-row>
+      <div *ngIf="selectTabs === 'pending'" >
 
-      <ion-row>
-        <ion-col>
-          Date:
-        </ion-col>
-        <ion-col>
-          DD/MM/YYY
-        </ion-col>
-      </ion-row>
+        <ion-grid >
+          <ion-row>
+            <ion-col>
+              Company Name
+            </ion-col>
+            <ion-col>
+              Status
+            </ion-col>
+            <ion-col>
+              Date
+            </ion-col>
+            <ion-col>
+              Action
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div *ngFor="let company of company">
+          <ion-grid *ngIf="company.status == 'Pending'" >
+            <ion-row class="detail">
+              <ion-col>
+                {{company.cname}}
+              </ion-col>
+              <ion-col>
+                <ion-badge color="danger">
+                {{company.status}}
+                </ion-badge>
+              </ion-col>
+              <ion-col >
+                {{company.timeStamp}}
+              </ion-col>
+              <ion-col>
+                <ion-button shape="round" (click)="view(company)">View</ion-button>
+              </ion-col>
+            </ion-row >
+          </ion-grid>
+        </div>
+        
 
-      <ion-row>
-        <ion-col>
-          Action:
-        </ion-col>
-        <ion-col>
-          <ion-button [routerLink]="['/companyreview']">View</ion-button>
-        </ion-col>
-      </ion-row>
 
-      </ion-grid>
-    </ion-card>   -->
+      </div>
 
-      <ion-grid >
-        <ion-row>
-          <ion-col>
-            Company Name
-          </ion-col>
-          <ion-col>
-            Status
-          </ion-col>
-          <ion-col>
-            Date
-          </ion-col>
-          <ion-col>
-            Action
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      
-      <ion-grid *ngFor="let company of company">
-        <ion-row class="detail">
-          <ion-col>
-            {{company.cname}}
-          </ion-col>
-          <ion-col>
-            <ion-badge color="danger">
-            {{company.status}}
-            </ion-badge>
-          </ion-col>
-          <ion-col >
-            {{company.timeStamp}}
-          </ion-col>
-          <ion-col>
-            <ion-button shape="round" (click)="view(company)">View</ion-button>
-          </ion-col>
-        </ion-row >
-      </ion-grid>
+      <div *ngIf="selectTabs === 'accepted'" >
 
-      <!-- <ion-grid>
-        <ion-row class="detail">
-          <ion-col>
-            Luigi
-          </ion-col>
-          <ion-col>
-            Nintendo
-          </ion-col>
-          <ion-col>
-            <ion-badge color="danger">
-              Incomplete
-            </ion-badge>
-          </ion-col>
-          <ion-col>
-            MM/DD/YYYY
-          </ion-col>
-          <ion-col>
-            <ion-button shape="round" [routerLink]="['/companyreview']">View</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    -->
+        <ion-grid >
+          <ion-row>
+            <ion-col>
+              Company Name
+            </ion-col>
+            <ion-col>
+              Status
+            </ion-col>
+            <ion-col>
+              Date
+            </ion-col>
+            <ion-col>
+              Action
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+        <div *ngFor="let company of company">
+          <ion-grid *ngIf="company.status == 'Accepted'" >
+            <ion-row class="detail">
+              <ion-col>
+                {{company.cname}}
+              </ion-col>
+              <ion-col>
+                <ion-badge color="danger">
+                {{company.status}}
+                </ion-badge>
+              </ion-col>
+              <ion-col >
+                {{company.timeStamp}}
+              </ion-col>
+              <ion-col>
+                <ion-button shape="round" (click)="view(company)">View</ion-button>
+              </ion-col>
+            </ion-row >
+          </ion-grid>
+        </div>
+        
+
+
+      </div>
+
+      <div *ngIf="selectTabs === 'declined'" >
+
+        <ion-grid >
+          <ion-row>
+            <ion-col>
+              Company Name
+            </ion-col>
+            <ion-col>
+              Status
+            </ion-col>
+            <ion-col>
+              Date
+            </ion-col>
+            <ion-col>
+              Action
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div *ngFor="let company of company">
+
+          <ion-grid *ngIf="company.status == 'Decline'">
+            <ion-row class="detail">
+              <ion-col>
+                {{company.cname}}
+              </ion-col>
+              <ion-col>
+                <ion-badge color="danger">
+                {{company.status}}
+                </ion-badge>
+              </ion-col>
+              <ion-col >
+                {{company.timeStamp}}
+              </ion-col>
+              <ion-col>
+                <ion-button shape="round" (click)="view(company)">View</ion-button>
+              </ion-col>
+            </ion-row >
+          </ion-grid>
+  
+          
+        </div>
+       
+
+      </div>
+
+
+
+
+
 
   </ion-card>
   </ion-content>
@@ -165,12 +206,12 @@
           </ion-tab-button>
 
           <ion-tab-button [routerLink]="['/companyregister']" >
-            <ion-badge color="danger">1000</ion-badge>
+            <ion-badge color="danger">{{this.company.length}}</ion-badge>
             <ion-icon name="document"></ion-icon>Registry
           </ion-tab-button>
 
-          <ion-tab-button [routerLink]="['/']" >
-            <ion-badge color="danger">1000</ion-badge>
+          <ion-tab-button [disabled]="true" [routerLink]="['/']" >
+            <ion-badge color="danger">0</ion-badge>
             <ion-icon class="tabicon" name="chatbubble"></ion-icon>Messages
           </ion-tab-button>
           

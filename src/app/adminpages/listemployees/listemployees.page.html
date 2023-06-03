@@ -25,7 +25,7 @@
   </ion-header>
 
   <ion-content>
-    <ion-card *ngFor="let employers of employers">
+    <ion-card *ngFor="let employers of employerdetails">
       <ion-item>
         <ion-avatar slot="start">
            <img *ngIf="employers?.profileimg; " [src]="employers.profileimg" />
@@ -48,20 +48,16 @@
             <ion-icon name="people"></ion-icon>Users
           </ion-tab-button>
 
-          <!-- <ion-tab-button (click)="posts(profiles)">
-            <ion-icon name="archive"></ion-icon>My Post
-          </ion-tab-button> -->
-
           <ion-tab-button [routerLink]="['/listemployees']">
             <ion-icon name="person"></ion-icon>Employers
           </ion-tab-button>
 
           <ion-tab-button [routerLink]="['/companyregister']" >
-            <ion-badge color="danger">1000</ion-badge>
+            <ion-badge color="danger">{{count}}</ion-badge>
             <ion-icon name="document"></ion-icon>Registry
           </ion-tab-button>
 
-          <ion-tab-button [routerLink]="['/']" >
+          <ion-tab-button [disabled]="true" [routerLink]="['/']" >
             <ion-badge color="danger">1000</ion-badge>
             <ion-icon class="tabicon" name="chatbubble"></ion-icon>Messages
           </ion-tab-button>

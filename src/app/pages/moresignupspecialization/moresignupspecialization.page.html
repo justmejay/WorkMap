@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
       <ion-buttons [routerLink]="['/moresignup']" slot="start">
-      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      <ion-icon  style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
       <ion-title>Choose your preferred job positions</ion-title> 
   </ion-toolbar>
@@ -22,8 +22,7 @@
        
           <!-- <ion-searchbar  show-clear-button="focus" value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" animated="true" placeholder="Job Positions"></ion-searchbar> -->
           <ion-item class="customitem">
-            <ion-input value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" placeholder="Job Positions" position="stacked" type="text"></ion-input>
-            <ion-icon name="backspace-outline" (click)="clear()" class="reset"></ion-icon>
+            <ion-input [clearInput]="true" value="Show on Focus" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [(ngModel)]="term" placeholder="Job Positions" position="stacked" type="text"></ion-input>
             <ion-icon name="arrow-undo-outline" class="reset" (click)="reset()" ></ion-icon>          
           </ion-item>
 

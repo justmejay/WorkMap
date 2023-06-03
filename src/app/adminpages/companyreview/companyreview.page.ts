@@ -58,6 +58,8 @@ export class CompanyreviewPage implements OnInit {
     await loading.present();
     await this.firestore.getaccepted(id)
     this.showAlert('Success', 'Registration Accepted!')
+    this.router.navigate(['companyregister']);
+
 
   }
 
