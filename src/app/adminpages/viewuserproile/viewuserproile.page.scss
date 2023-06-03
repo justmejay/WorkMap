@@ -5,45 +5,11 @@ ion-header{
     order: -1;
     width: 100%;
     z-index: 10;
-    --color: white;
-
-    ion-icon{
-        --background: white;
-
-    }
 }
 
 ion-toolbar{
     --background:  #2855A1;
-    ion-title{
-        color: #FFFFFF;
-    }
 }
-
-// ion-avatar{
-//     margin: auto;
-//     width: 150px;
-//     height: 150px;
-// }
-
-
-// .block {
-//     width: 100%;
-//     height: 300px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//   }
-  
-  ion-modal {
-    --height: auto;
-  }
-ion-button{
-    text-transform: initial;
-}
-
-
-
 
 .container{
     // border: 2px solid #3AB3C1;
@@ -51,9 +17,6 @@ ion-button{
 }
 
 .avatar{
-    margin: auto;
-    width: 150px;
-    height: 150px;
     vertical-align: top;
     text-align: center;
     display: flex;
@@ -62,7 +25,7 @@ ion-button{
     // margin-top: 40px;
     // padding-bottom: 5%;
     flex-direction: column;
-    // background:  #2855A1;
+    background:  #2855A1;
 }
 
 .image{

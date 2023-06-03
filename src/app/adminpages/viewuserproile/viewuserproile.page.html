@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding"> 
+<!-- <ion-content [fullscreen]="true" class="ion-padding"> 
   <div class="container">
     <div class="avatar" >
       <ion-avatar>
@@ -82,4 +82,119 @@
       </ion-card-content>
     </ion-card>
   </div>
+</ion-content> -->
+
+<ion-content *ngIf="profile" [fullscreen]="true" >
+  <div class="container">
+    <div class="avatar" >
+      <ion-avatar class="image">
+        <img *ngIf="profile?.profileimg; else placeholder_avatar;" [src]="profile.profileimg" />
+
+          <ng-template #placeholder_avatar>
+            <div class="fallback">
+              <p>Update avatar</p>
+            </div>
+          </ng-template>
+      </ion-avatar>
+      <div>
+        <span  class="caption">{{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}</span>
+      </div>
+    </div>
+    <div>
+        
+        <!-- Personal Information -->
+        <ion-card *ngIf="profile" class="cardcontainer">
+          <ion-card-header>
+
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Personal Information</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editpersonalinfo']"></ion-icon>
+            </div>
+
+          </ion-card-header>
+          <ion-card-content>
+              <ion-label position="stacked" class="cardsubtitle">Name:   </ion-label>
+              <ion-input position="stacked" value=" {{profile.fname}} {{profile.mname}} {{profile.lname}} {{profile.suffix}}" [readonly]="true" class="custominput"></ion-input>
+      
+              <ion-label position="stacked" class="cardsubtitle">Birthday:</ion-label>
+              <ion-input position="stacked" value=" {{profile.bday}}" [readonly]="true" class="custominput"></ion-input>
+
+              <ion-label position="stacked" class="cardsubtitle">Age:  </ion-label>
+                <ion-input position="stacked" value=" {{profile.age}}" [readonly]="true" class="custominput"></ion-input>
+
+              <ion-label position="stacked" class="cardsubtitle">Sex:  </ion-label>
+              <ion-input position="stacked" value=" {{profile.sex}}" [readonly]="true" class="custominput"></ion-input>
+
+              <ion-label position="stacked" class="cardsubtitle">Contact Number: </ion-label>
+              <ion-input position="stacked" value=" {{profile.contact}}" [readonly]="true" class="custominput"></ion-input>
+
+              <ion-label position="stacked" class="cardsubtitle">Citizenship: </ion-label>
+              <ion-input position="stacked" value=" {{profile.citizenship}} " [readonly]="true" class="custominput"></ion-input>
+
+              <ion-label position="stacked" class="cardsubtitle">Email Address: </ion-label>
+              <ion-input position="stacked" value=" {{profile.email}}" [readonly]="true" class="custominput"></ion-input>
+
+              <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
+              <ion-input position="stacked" value=" {{profile.cs}}" [readonly]="true" class="custominput"></ion-input>
+              
+              <ion-label position="stacked" class="cardsubtitle">Religion: </ion-label>
+              <ion-input position="stacked" value=" {{profile.religion}}" [readonly]="true" class="custominput"></ion-input>
+
+              <ion-label position="stacked" class="cardsubtitle">Educational Attainment: </ion-label>
+              <ion-input position="stacked"  [readonly]="true" value="{{profile.ea}}" class="custominput"></ion-input>
+
+
+          </ion-card-content>
+        </ion-card>
+
+        <!--Address -->
+        <ion-card *ngIf="address" class="cardcontainer">
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Home Address</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editaddress']"></ion-icon>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+
+                <ion-input position="stacked" value=" {{address.homeaddress}}" [readonly]="true" class="custominput"></ion-input>
+
+
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card *ngIf="address" class="cardcontainer">
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>Current Address</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editaddress']"></ion-icon>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+
+                <ion-input position="stacked" value=" {{address.currentaddress}}" [readonly]="true" class="custominput"></ion-input>
+
+          </ion-card-content>
+        </ion-card>
+
+      
+
+        <!-- About You -->
+        <ion-card *ngIf="profile" class="cardcontainer">
+          <ion-card-header>
+            <div style="display: flex; justify-content: space-between;">
+              <ion-card-title>About you</ion-card-title>
+              <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editaboutme']"></ion-icon>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            
+              <ion-label position="stacked" class="cardsubtitle">What can you say about yourself:</ion-label>
+              <ion-textarea autosize value="{{profile.aboutme}}" [readonly]="true"></ion-textarea>
+            
+          </ion-card-content>
+        </ion-card>
+      </div> 
+  </div>
 </ion-content>
+

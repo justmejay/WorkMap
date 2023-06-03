@@ -209,6 +209,10 @@ export class ProfilingService {
 
     try {
       const userget = this.auth.currentUser?.uid;
+
+      const userDocRef4 = doc(this.firestore, `users/${userget}/name/${userget}`);
+      const user1 = await updateDoc(userDocRef4, {fname, lname, mname, suffix, });
+     
       const userDocRef3 = doc(this.firestore, `users/${userget}/profile/${userget}`);
       const user = await updateDoc(userDocRef3, {fname, cs, religion, lname, mname,suffix, bday, contact, citizenship, age , sex, ea});
      
@@ -533,6 +537,11 @@ export class ProfilingService {
 
       const userDocRef = doc(this.firestore, `users/${user}/profile/${user}`);
       await updateDoc(userDocRef, {
+        profileimg: imageUrl
+      });
+
+      const userDocRef2 = doc(this.firestore, `users/${user}/name/${user}`);
+      await updateDoc(userDocRef2, {
         profileimg: imageUrl
       });
       return true;
