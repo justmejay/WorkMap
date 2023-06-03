@@ -1,6 +1,6 @@
 <ion-header >
   <ion-toolbar>
-      <ion-buttons [routerLink]="['/']"slot="start">
+      <ion-buttons [routerLink]="['/dashboardcompany']"slot="start">
         <ion-icon style="width: 50px; color: white;" name="arrow-back-outline" >  </ion-icon>
       </ion-buttons> 
   </ion-toolbar>
@@ -28,10 +28,17 @@
         <ion-card-content>
           <ion-grid>
             <ion-row>
-              <ion-badge class="positionbadges" color="tertiary">Web Designer</ion-badge>
-              <ion-label> at Company Name</ion-label>
+              <ion-col>Job Position</ion-col>
+              <ion-col><ion-badge class="positionbadges" color="tertiary">Web Designer</ion-badge></ion-col>
             </ion-row>
             <ion-row>
+              <ion-col>Work Order status</ion-col>
+              <ion-col>
+                <ion-badge class="positionbadges" color="warning">Unassigned</ion-badge>
+                <ion-badge class="positionbadges" color="success">Assigned</ion-badge>
+              </ion-col>
+            </ion-row>
+            <!-- <ion-row>
               <ion-label>Work Duration:</ion-label>
             </ion-row>
             <ion-row>
@@ -41,7 +48,7 @@
               <ion-col>
                 <ion-label>Ends on: DD/MM/YYYY</ion-label>
               </ion-col>
-            </ion-row>
+            </ion-row> -->
           </ion-grid>
           <ion-button class="review" type="Submit"  expand="block" fill="solid" shape="round" [routerLink]="['/viewemployee']">View Employee</ion-button>
         </ion-card-content>
