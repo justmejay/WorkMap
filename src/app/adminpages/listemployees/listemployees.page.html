@@ -25,14 +25,15 @@
   </ion-header>
 
   <ion-content>
-    <ion-card>
+    <ion-card *ngFor="let employers of employers">
       <ion-item>
         <ion-avatar slot="start">
+           <img *ngIf="employers?.profileimg; " [src]="employers.profileimg" />
           <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
         </ion-avatar>
-        <ion-label> Employee Name #1</ion-label>
-        <ion-button slot="end" [routerLink]="['/viewemployerprofile']">View</ion-button>
-        <ion-button slot="end" color="danger">Delete</ion-button>
+        <ion-label>{{employers.fname}} {{employers.mname}} {{employers.lname}}</ion-label>
+        <ion-button slot="end" (click)="view(employers)">View</ion-button>
+        <ion-button slot="end" color="danger" (click)="delete(employers)">Delete</ion-button>
       </ion-item>
     </ion-card>
   </ion-content>

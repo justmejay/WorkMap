@@ -567,6 +567,11 @@ export class ProfilingService {
       await updateDoc(userDocRef, {
         profileimg: imageUrl
       });
+
+      const userDocRef2 = doc(this.firestore, `employers/${user}/namee/${user}`);
+      await updateDoc(userDocRef2, {
+        profileimg: imageUrl
+      });
       return true;
     } catch (e) {
       return null;
