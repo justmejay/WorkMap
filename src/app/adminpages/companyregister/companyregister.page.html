@@ -26,7 +26,7 @@
 
   <ion-content>
 
-    <ion-card>
+    <ion-card >
       <ion-card-header>
         <ion-card-title>
           Company Registration
@@ -84,11 +84,8 @@
       </ion-grid>
     </ion-card>   -->
 
-      <ion-grid>
+      <ion-grid >
         <ion-row>
-          <ion-col>
-            Employee Name
-          </ion-col>
           <ion-col>
             Company Name
           </ion-col>
@@ -103,22 +100,19 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-
-      <ion-grid>
+      
+      <ion-grid *ngFor="let company of company">
         <ion-row class="detail">
           <ion-col>
-            Luigi
-          </ion-col>
-          <ion-col>
-            Nintendo
+            {{company.cname}}
           </ion-col>
           <ion-col>
             <ion-badge color="danger">
-              Incomplete
+            {{company.status}}
             </ion-badge>
           </ion-col>
-          <ion-col>
-            MM/DD/YYYY
+          <ion-col >
+            {{company.timeStamp}}
           </ion-col>
           <ion-col>
             <ion-button shape="round" [routerLink]="['/companyreview']">View</ion-button>
@@ -126,7 +120,7 @@
         </ion-row >
       </ion-grid>
 
-      <ion-grid>
+      <!-- <ion-grid>
         <ion-row class="detail">
           <ion-col>
             Luigi
@@ -147,7 +141,7 @@
           </ion-col>
         </ion-row>
       </ion-grid>
-   
+    -->
 
   </ion-card>
   </ion-content>
