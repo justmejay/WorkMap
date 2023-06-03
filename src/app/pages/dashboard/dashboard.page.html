@@ -18,11 +18,18 @@
       </ion-button>
       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/resumebuilder']">
         <ion-icon slot="start" name="newspaper" style="color: #42505d;"></ion-icon>
-         Resume Builder</ion-button>
+         Resume Builder
+      </ion-button>
 
-         <ion-button fill="clear" class="card1menu" expand="block" (click)="posts(profiles)">
-          <ion-icon slot="start" name="archive" style="color: #42505d;"></ion-icon>
-          My Post</ion-button>
+      <ion-button fill="clear" class="card1menu" expand="block" (click)="posts(profiles)">
+        <ion-icon slot="start" name="archive" style="color: #42505d;"></ion-icon>
+        My Post
+      </ion-button>
+
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/employeeworkorder']">
+        <ion-icon slot="start" name="folder-open" style="color: #42505d;" ></ion-icon>
+          Work Order
+      </ion-button>
 
       <ion-button [disabled]="true" fill="clear" class="card1menu" expand="block" [routerLink]="['/subscriptions']">
         <ion-icon slot="start"  name="diamond-outline" style="color: #42505d;"></ion-icon>

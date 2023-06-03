@@ -324,7 +324,11 @@ const routes: Routes = [
   {
     path: 'editworkorder',
     loadChildren: () => import('./companysidepages/editworkorder/editworkorder.module').then( m => m.EditworkorderPageModule)
+  },  {
+    path: 'employeeworkorder',
+    loadChildren: () => import('./pages/employeeworkorder/employeeworkorder.module').then( m => m.EmployeeworkorderPageModule)
   },
+
 
 
   
