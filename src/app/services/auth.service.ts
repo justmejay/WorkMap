@@ -116,6 +116,10 @@ export class AuthService {
         password
       );
 
+      const timeStamp = Date.now();
+      const date: Date = new Date(timeStamp);
+      const date2 = date.toLocaleString();
+
         
       const userget = this.auth.currentUser?.uid;
  
@@ -137,7 +141,7 @@ export class AuthService {
       const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);
       await setDoc(userDocRef2, {cname, ccontact, currentPlaceID,lat: currentcoordss.lat,lng: currentcoordss.lng,
       companyaddress, brnumber, status: "Pending", imageUrl,  imageurl: "", 
-      cemail, csize: "", cdetails: "", cprocessingtime1: "", cprocessingtime2: "", cbenefits: ""});
+      cemail, csize: "", cdetails: "", cprocessingtime1: "", cprocessingtime2: "", cbenefits: "", timeStamp: date2});
 
 
   
