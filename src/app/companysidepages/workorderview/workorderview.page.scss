@@ -1,0 +1,25 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+    ion-toolbar{
+        --background:  #2855A1;
+        color: white;
+    }
+}
+ion-card-header{
+    --background: #277dff;
+    --color: whitesmoke;
+    ion-label{
+        --color: whitesmoke;   
+    }
+    ion-card-title{
+        --color: whitesmoke; 
+    }
+    ion-card-subtitle{
+        --color: whitesmoke; 
+    }
+}

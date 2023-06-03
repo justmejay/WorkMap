@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/workorderlist']" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label>Work Order Employees</ion-label>
+      </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item [routerLink]="['/workorderview']">
+    <ion-avatar slot="start">
+      <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </ion-avatar>
+    <ion-label>John Doe</ion-label>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/dashboardcompany']" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label>Work Orders</ion-label>
+      <ion-buttons [routerLink]="['/addworkorder']" slot="end">
+        <ion-icon style="width: 50px; color: white;" name="add-outline">  </ion-icon>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+  <ion-label>Work Order No: 1924 - Work Order Title #1</ion-label>
+  <ion-button [routerLink]="['/workorderemployees']">
+    <ion-icon name="person-outline"></ion-icon>
+  </ion-button>
+  <ion-button [routerLink]="['/workorderview']">
+    <ion-icon name="eye-outline"></ion-icon>
+  </ion-button>
+</ion-item>
+</ion-content>
