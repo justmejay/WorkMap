@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router'
 import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class DashboardadminPage implements OnInit {
     private toastController : ToastController,
     private loadingController: LoadingController,
     private alertController: AlertController,
+    private auth: AuthService
   ) {
     this.firestore.getallusers().subscribe(res=>{
       this.users = res;
@@ -66,6 +68,12 @@ export class DashboardadminPage implements OnInit {
       duration: 1000,
     });
     await toast.present();
+  }
+
+  logout(){
+    this.auth.logout();
+    this.router.navigate(['authentication']);
+
   }
 
 

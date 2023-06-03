@@ -454,6 +454,7 @@ export class ProfilingService {
     
   }
  
+ 
   verifyc(): Observable<User[]>{
     const id = this.auth.currentUser.uid;
   

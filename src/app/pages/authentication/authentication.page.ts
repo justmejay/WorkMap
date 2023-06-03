@@ -104,6 +104,10 @@ export class AuthenticationPage implements OnInit {
                 // this.router.navigate(['homecompany']);
                 this.nc.navigateRoot('dashboardcompany');
                 this.presentToast("Success. Login Success"); 
+              }else{
+                console.log("irun")
+                this.nc.navigateRoot('dashboardadmin');
+                this.presentToast("Administrator. Login Success"); 
               }
               data2.unsubscribe();
             });
