@@ -72,7 +72,7 @@
   </div>
 
 
-<ion-item class="staticred">
+<ion-item class="staticred"  [hidden]="!button" *ngIf="company.status == 'Declined'">
   <div *ngIf="company.status == 'Declined'" [hidden]="!button" style="color: black;text-align: center;">
     <ion-label  [hidden]="!button" *ngIf="company.status == 'Declined'" >Account is declined!</ion-label>
   </div>
