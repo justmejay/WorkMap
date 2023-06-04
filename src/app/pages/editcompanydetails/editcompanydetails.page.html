@@ -21,7 +21,11 @@
 
         <ion-button expand="block" shape="round" (click)="changeImage()">
           <ion-icon name="camera-outline"></ion-icon>
-          Upload Picture</ion-button><br>
+          Upload Picture</ion-button>
+                  
+          <ion-button expand="block" shape="round" (click)="changeImage2()" class="regcert">
+            <ion-icon name="image-outline" ></ion-icon> Change Registration Certificate
+          </ion-button>
 
           <ion-item>
             <ion-label position="stacked">Company Name:</ion-label>
@@ -52,15 +56,12 @@
             <ion-input position="stacked" type="number"  formControlName="tin" [value]="company.tin" class="custominput"></ion-input>
           </ion-item>
           <ion-note slot="error" *ngIf="(tin.dirty || tin.touched) && tin.errors">Required</ion-note>
-
+<!-- 
 
           <ion-item>
             <ion-label position="stacked">Registration Certificate:</ion-label>
-            <ion-button expand="block" shape="round" (click)="changeImage2()" class="regcert">
-              <ion-icon name="image-outline" ></ion-icon> Change Registration Certificate
-            </ion-button>
+          </ion-item> -->
   
-          </ion-item>
           
           <ion-item>
             <ion-label position="stacked">Company Size (number of employees):</ion-label>
@@ -69,9 +70,17 @@
           <ion-note slot="error" *ngIf="(csize.dirty || csize.touched) && csize.errors">Required</ion-note>
           
           <ion-label position="stacked">Average Processing Time:</ion-label>
-          <div class="process">
-            <div>
-              <h2>Select Duration:</h2>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <h2>Select Duration:</h2>
+              </ion-col>
+              <ion-col>
+                <h2>Input Amount:</h2>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
               <ion-item class="drop custominput">
                 <ion-select formControlName="cprocessingtime1" [value]="company.cprocessingtime1" interface="popover" placeholder="Select" expand="block">
                   <ion-select-option value="day/s">Day/s</ion-select-option>
@@ -81,18 +90,15 @@
                 </ion-select>
               </ion-item>
               <ion-note slot="error" *ngIf="(cprocessingtime1.dirty || cprocessingtime1.touched) && cprocessingtime1.errors">Required</ion-note>
-            </div>
-            
-            <div>
-              <h2>Input Amount:</h2>
+              </ion-col>
+              <ion-col>
                 <ion-item class="custominput">
                   <ion-input type="number" formControlName="cprocessingtime2" [value]="company.cprocessingtime2" class=" drop"></ion-input>  
                 </ion-item>
                 <ion-note slot="error" *ngIf="(cprocessingtime2.dirty || cprocessingtime2.touched) && cprocessingtime2.errors">Required</ion-note>
-            </div> 
-          </div>
-
-            <br>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
 
             <ion-label position="stacked">Benefits:</ion-label>
             <ion-textarea  autoGrow="true" formControlName="cbenefits" [value]="company.cbenefits" autogrow="true" class="custominput"></ion-textarea>
@@ -110,10 +116,9 @@
 
         <div class="map" #map></div>
         <P  style="color: red; text-align: center;">(Adjust the Marker if not accurate!)</P>
-
-        
-            <ion-input [readonly]="true" formControlName="companyaddress" [value]="company.companyaddress" position="stacked" type="text" class="custominput"></ion-input>
-      
+        <ion-item>
+          <ion-input class="custominput" [readonly]="true" formControlName="companyaddress" [value]="company.companyaddress" position="stacked" type="text" ></ion-input>
+        </ion-item>
       </ion-card-content>
     </ion-card>
     <ion-card>
