@@ -6,16 +6,15 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> 
-      <ion-card >
-        <ion-card-header>
+<ion-content > 
+      <ion-card *ngFor="let app of app" >
+        <ion-card-header >
            <div class="header">
               <div class="profile">
                 <ion-thumbnail slot="start">
-                  <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                  <img *ngIf="app.application?.profileimg; " [src]="app.application.profileimg" />
                 </ion-thumbnail>
-                <ion-label>John Doe</ion-label>
-                
+                <ion-label>{{app.application.fname}} {{app.application.mname}} {{app.application.lname}}</ion-label>
               </div>            
             <!-- <div style="display: flex; justify-content: flex-end; margin: 5% 5% 0 0;"> -->
               <div class="messagebutton" style="float: right;">
@@ -26,8 +25,8 @@
            </div>
         </ion-card-header>
         <ion-card-content>
-          <ion-grid>
-            <ion-row>
+          <!-- <ion-grid> -->
+            <!-- <ion-row>
               <ion-col>Job Position</ion-col>
               <ion-col><ion-badge class="positionbadges" color="tertiary">Web Designer</ion-badge></ion-col>
             </ion-row>
@@ -37,7 +36,7 @@
                 <ion-badge class="positionbadges" color="warning">Unassigned</ion-badge>
                 <ion-badge class="positionbadges" color="success">Assigned</ion-badge>
               </ion-col>
-            </ion-row>
+            </ion-row> -->
             <!-- <ion-row>
               <ion-label>Work Duration:</ion-label>
             </ion-row>
@@ -49,7 +48,7 @@
                 <ion-label>Ends on: DD/MM/YYYY</ion-label>
               </ion-col>
             </ion-row> -->
-          </ion-grid>
+          <!-- </ion-grid> -->
           <ion-button class="review" type="Submit"  expand="block" fill="solid" shape="round" [routerLink]="['/viewemployee']">View Employee</ion-button>
         </ion-card-content>
       </ion-card>
