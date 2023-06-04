@@ -15,36 +15,35 @@
       <ion-button expand="block" shape="round" color="danger">Terminate Employee's Term</ion-button>
     </ng-template>
   </ion-modal>
-  <ion-card class="cardcontainer">
+  <ion-card class="cardcontainer"  *ngIf="appl" >
     <ion-card-header>
       <div style="display: flex; align-items: center;">
         <ion-thumbnail slot="start">
-          <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-        </ion-thumbnail>
-        <ion-card-title>John Doe</ion-card-title>
+          <img *ngIf="appl?.profileimg; " [src]="appl.profileimg" /></ion-thumbnail>
+        <ion-card-title>{{appl.fname}} {{appl.mname}} {{appl.lname}} </ion-card-title>
       </div>
     </ion-card-header>
     <ion-card-content>
           <ion-label position="stacked" class="cardsubtitle">Age: </ion-label>
-          <ion-input position="stacked" placeholder="22" class="custominput"[readonly]="true"></ion-input>
+          <ion-input position="stacked" placeholder="22" class="custominput"[readonly]="true" value="{{appl.age}}"></ion-input>
 
           <ion-label position="stacked" class="cardsubtitle">Sex:</ion-label>
-          <ion-input position="stacked" placeholder="Male" class="custominput"[readonly]="true"></ion-input>
+          <ion-input position="stacked" placeholder="Male" class="custominput"[readonly]="true" value="{{appl.sex}}"></ion-input>
 
-          <ion-label position="stacked" class="cardsubtitle">Address:</ion-label>
-          <ion-input position="stacked" placeholder="address" class="custominput"[readonly]="true"></ion-input>
+          <!-- <ion-label position="stacked" class="cardsubtitle">Address:</ion-label>
+          <ion-input position="stacked" placeholder="address" class="custominput"[readonly]="true" value="{{appl.address}}"></ion-input> -->
 
           <ion-label position="stacked" class="cardsubtitle">Contact No:</ion-label>
-          <ion-input position="stacked" placeholder="09125685456" class="custominput"[readonly]="true"></ion-input>
+          <ion-input position="stacked" placeholder="09125685456" class="custominput"[readonly]="true"  value="{{appl.contact}}"></ion-input>
 
           <ion-label position="stacked" class="cardsubtitle">Email:</ion-label>
-          <ion-input position="stacked" placeholder="sample@gmail.com" class="custominput"[readonly]="true"></ion-input>
+          <ion-input position="stacked" placeholder="sample@gmail.com" class="custominput"[readonly]="true"  value="{{appl.email}}"></ion-input>
 
           <!-- <ion-label position="stacked" class="cardsubtitle">Job Specialization:</ion-label>
           <ion-input position="stacked" placeholder="IT" [readonly]="true" class="custominput"></ion-input>  -->
           
-          <ion-label position="stacked" class="cardsubtitle">Job Position:</ion-label>
-          <ion-input position="stacked" placeholder="Select the employee's Job Position" class="custominput"></ion-input>
+          <!-- <ion-label position="stacked" class="cardsubtitle">Job Position:</ion-label>
+          <ion-input position="stacked" placeholder="Select the employee's Job Position" class="custominput"></ion-input> -->
 
           <!-- <ion-label position="stacked" class="cardsubtitle">Job Order:</ion-label> -->
           <!-- <ion-grid>

@@ -39,4 +39,11 @@ export class EmployeesPage implements OnInit {
   ngOnInit() {
   }
 
+  view(app:any){
+    const id = app.application.uid
+
+  
+    this.router.navigate(['viewemployee'], {queryParams:{appid:id,}});
+  }
+
 }

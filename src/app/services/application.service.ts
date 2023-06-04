@@ -322,9 +322,18 @@ export class ApplicationService {
   
   getallapply(id: any): Observable<User[]>{
     const cakesRef = collection(this.firestore, 'application/')
-    const q = query(cakesRef, where("application.cid", "==", id, ))
+    const q = query(cakesRef, where("application.cid", "==", id),  where("status", "==", "Accepted"))
     return collectionData(q, {idField: 'id'}) as Observable<[User]> 
   }
+
+  getallprof(id: any): Observable<User[]>{
+    const cakesRef = doc(this.firestore, `users/${id}/profile/${id}/`)
+    return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
+  }
+
+  
+
+  
 
 
   
