@@ -80,12 +80,32 @@ export class AdminService {
 
   getaccepted(id:any){
 
+    
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
+
+    const applicationRefx = doc(this.firestore, `notifications/${id}`)
+    const passx =  setDoc (applicationRefx, {timeStamp, time: date2, reason: "", status: "Accepted"})
+
     const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
     const comp = "Accepted"
+
     return updateDoc (cakeRef, {status: comp } )
+
+    
   }
 
   getdeclined(id:any, reasonr: any){
+
+    // const timeStamp = Date.now();
+    // const date: Date = new Date(timeStamp);
+
+    // const date2 = date.toLocaleString();
+
+    // const applicationRefx = doc(this.firestore, `notifications/${id}`)
+    // const passx =  setDoc (applicationRefx, {timeStamp, time: date2, reason: reasonr, status: "Declined"})
 
     const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
     const comp = "Declined"
@@ -227,4 +247,12 @@ export class AdminService {
     return deleteDoc(cakeRef);
       
   }
+
+  // getnotif(): Observable<Company[]>{
+  //   const uid = this.auth.currentUser.uid ;
+  //    console.log(uid);
+  //   const cakesRef = collection(this.firestore, `notifications`);
+  //   const q = query(cakesRef, where("company.uid", "==",uid ))
+  //   return collectionData(q, {idField: 'id'}) as Observable<[Company]>
+  // }
 }
