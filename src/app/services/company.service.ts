@@ -503,5 +503,13 @@ export class CompanyService {
     return deleteDoc(cakeRef)
   }
 
+  getreapply(id:any){
+
+    const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    const comp = "Pending"
+    return updateDoc (cakeRef, {status: comp } )
+  }
+
+
 
 }

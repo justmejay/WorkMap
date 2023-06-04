@@ -126,9 +126,9 @@ export class ViewnotificationPage implements OnInit {
       inputs: [
         {
           name: 'reason',
-          type: 'text',
+          type: 'textarea',
           value: '',
-          placeholder: 'Reason for rejection'
+          placeholder: 'Reason'
         }
       ],
       buttons: [

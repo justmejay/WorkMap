@@ -106,8 +106,8 @@ export class AuthService {
 
  
   async signupc({fname, mname, lname, contact, citizenship,tin,
-    cname, ccontact, companyaddress, currentPlaceID, currentcoordss, cemail, brnumber, imageUrl,}: 
-    {fname: any, mname: any, lname: any, contact: any, citizenship:any,tin: any, email:any, cname: any, ccontact: any, companyaddress: any, currentPlaceID: any, currentcoordss: any , cemail: any, brnumber: any, imageUrl: any }, email: any, 
+    cname, ccontact, companyaddress, currentPlaceID, currentcoordss, cemail, brnumber, imageUrl, reason}: 
+    {fname: any, mname: any, lname: any, contact: any, citizenship:any,tin: any, email:any, cname: any, ccontact: any, companyaddress: any, currentPlaceID: any, currentcoordss: any , cemail: any, brnumber: any, imageUrl: any, reason: any }, email: any, 
     password: any, cameraFile: Photo, ){
 
     try {
@@ -140,7 +140,7 @@ export class AuthService {
 
       const userDocRef2 = doc(this.firestore, `employers/${userget}/company/${userget}`);
       await setDoc(userDocRef2, {cname, ccontact, currentPlaceID,lat: currentcoordss.lat,lng: currentcoordss.lng,
-      companyaddress, brnumber,tin, status: "Pending",  imageurl: "", 
+      companyaddress, brnumber,tin, status: "Pending", reason: "", imageurl: "", 
       cemail, csize: "", cdetails: "", cprocessingtime1: "", cprocessingtime2: "", cbenefits: "", timeStamp: date2, uid: userget,});
 
       await sendEmailVerification(this.auth.currentUser);
