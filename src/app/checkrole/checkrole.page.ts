@@ -36,6 +36,9 @@ export class CheckrolePage implements OnInit {
           if(this.storage === 1){
             // this.router.navigate(['homecompany']);
             this.nc.navigateRoot('dashboardcompany');
+          }else{
+            this.nc.navigateRoot('dashboardadmin');
+
           }
           data2.unsubscribe();
         });

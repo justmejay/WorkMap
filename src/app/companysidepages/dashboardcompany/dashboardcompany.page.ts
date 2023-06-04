@@ -134,6 +134,8 @@ export class DashboardcompanyPage implements OnInit {
   async checked(event: any, job: any){
     const a = event.currentTarget.checked;
     const b = job.listid;
+    console.log(a)
+    console.log(b)
     const user = await this.firestore.editstatus(b, a);
   }
 
