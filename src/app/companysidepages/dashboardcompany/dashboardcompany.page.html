@@ -77,14 +77,14 @@
     <ion-label  [hidden]="!button" *ngIf="company.status == 'Declined'" >Account is declined!</ion-label>
   </div>
 
-  <ion-button *ngIf="company.status == 'Declined'" id="open-modal" shape="round" slot="end">View Reason</ion-button>
+  <ion-button *ngIf="company.status == 'Declined'" id="open-modal" shape="round" slot="end" (click)="setOpen(true)">View Reason</ion-button>
   <!-- <ion-button id="open-modal" expand="block" shape="round">View</ion-button> -->
-  <ion-modal trigger="open-modal" class="ion-padding">
+  <ion-modal trigger="open-modal" [isOpen]="isModalOpen" class="ion-padding">
     <ng-template>
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="end">
-            <ion-button>Close</ion-button>
+            <ion-button (click)="setOpen(false)">Close</ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
