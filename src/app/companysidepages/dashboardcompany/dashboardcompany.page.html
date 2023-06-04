@@ -79,11 +79,21 @@
 
   <ion-button *ngIf="company.status == 'Declined'" id="open-modal" shape="round" slot="end">View Reason</ion-button>
   <!-- <ion-button id="open-modal" expand="block" shape="round">View</ion-button> -->
-  <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+  <ion-modal trigger="open-modal" class="ion-padding">
     <ng-template>
-      <div class="block">
-        <p>{{company.reason}}</p>
-      </div>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-button>Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <div class="block">
+          <!-- <ion-textarea autoGrow="true" value="{{company.reason}}" autosize  [readonly]="true"></ion-textarea> -->
+          <p>{{company.reason}}</p>
+        </div>
+      </ion-content>
     </ng-template>
   </ion-modal>
 

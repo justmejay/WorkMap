@@ -112,6 +112,37 @@ ion-card.joblisting {
     margin-bottom: 1rem;
     // border: solid 3px  rgb(53, 66, 125);
 }
+
+ion-modal{
+    --height: 50%;
+    --border-radius: 15px;
+    
+    ion-content{
+        --background:#fff;
+        .block{
+            display: flex;
+            align-items: center;
+            text-align: justify;
+    }
+}
+}
+// ion-modal::part(backdrop) {
+//     background: rgba(209, 213, 219);
+//     opacity: 1;
+// }
+  
+ion-modal ion-toolbar{
+    --color:#ffffff;
+    --background:#2F7EF5;
+
+    ion-button{
+        text-transform: initial;
+        font-size: 18px;
+    }
+    
+
+}
+
 ion-card-header{
     --background: #5e2ee4;
     color: whitesmoke;
@@ -125,6 +156,14 @@ ion-card-subtitle{
 ion-card-content{
     color: black;
     padding: 1rem;
+}
+ion-textarea{
+    border: solid 2px rgb(53, 66, 125);
+    border-radius: 15px;
+    --background: rgb(242, 237, 245);
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
 .hamburgcard{
     --background: #ffffff;
