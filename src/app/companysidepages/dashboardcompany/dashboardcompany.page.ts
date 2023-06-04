@@ -33,6 +33,11 @@ export class DashboardcompanyPage implements OnInit {
 
   companyid: any = [];
 
+  isModalOpen = false;
+
+
+  
+
   constructor(
     private firestore: CompanyService,
     private fb: FormBuilder,
@@ -45,6 +50,7 @@ export class DashboardcompanyPage implements OnInit {
     private app: ApplicationService,
     private toastController: ToastController,
   ) {
+    
 
     this.firestore.getemployer().subscribe(res=>{
 
@@ -128,6 +134,11 @@ export class DashboardcompanyPage implements OnInit {
 
     
   }
+
+    setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
 
   
 
