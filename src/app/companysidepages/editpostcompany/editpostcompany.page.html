@@ -13,8 +13,7 @@
       <ion-card *ngIf="post">
         <ion-card-header>
           <ion-card-title>What's to post?</ion-card-title>
-          <ion-icon style="font-size: 20px;" name="trash-outline" (click)="undoimage()"></ion-icon>
-        </ion-card-header>
+          </ion-card-header>
         <ion-card-content>
           <ion-input formControlName="ptitle" value="{{post.ptitle}}" placeholder="Insert post title"></ion-input>
           <ion-textarea formControlName="pdescription" value="{{post.pdescription}}" placeholder="lorem ipsum"></ion-textarea>
