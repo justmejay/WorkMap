@@ -80,6 +80,7 @@ export interface User{
 
 
 export interface Application{
+  cid: any;
   //id is optional and not required
   id?: string,
   profiledetails: any,
@@ -194,6 +195,8 @@ export class ApplicationService {
   async addApplication(application:Application, list: any){
     console.log(list);
     console.log(application);
+    console.log(this.auth.currentUser.uid);
+
     const timeStamp = Date.now();
     const date: Date = new Date(timeStamp);
 
@@ -202,11 +205,11 @@ export class ApplicationService {
     const pass = await addDoc (applicationRef, {application, timeStamp, time: date2, reason: "", status: "Pending"});
 
 
-     const applicationRef1 = doc(this.firestore, `joblist/${application.jobid}/`)
+     const applicationRef1 = doc(this.firestore, `joblist/${application.jobid}`)
       const pass1 =  updateDoc (applicationRef1, {exception: list});
 
-    const applicationRefx = doc(this.firestore, `notifications/${pass.id}`)
-    const passx =  setDoc (applicationRefx, {application, timeStamp, time: date2, reason: "", status: "Pending"})
+    const applicationRefx = collection(this.firestore, `notifications/`)
+    const passx =  addDoc (applicationRefx, { timeStamp, time: date2, notifype: "application", applyid: pass.id, uid: application.cid})
 
 
 
@@ -280,7 +283,7 @@ export class ApplicationService {
     const uid = this.auth.currentUser.uid ;
      console.log(uid);
     const cakesRef = collection(this.firestore, `notifications`);
-    const q = query(cakesRef, where("application.cid", "==",uid ))
+    const q = query(cakesRef, where("uid", "==",uid ))
     return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 

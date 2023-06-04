@@ -79,7 +79,7 @@
 
   <ion-button *ngIf="company.status == 'Declined'" id="open-modal" shape="round" slot="end" (click)="setOpen(true)">View Reason</ion-button>
   <!-- <ion-button id="open-modal" expand="block" shape="round">View</ion-button> -->
-  <ion-modal trigger="open-modal" [isOpen]="isModalOpen" class="ion-padding">
+  <ion-modal trigger="open-modal"  [isOpen]="isModalOpen" class="ion-padding">
     <ng-template>
       <ion-header>
         <ion-toolbar>
@@ -170,7 +170,7 @@
       <ion-buttons fill="solid" class="btns">
         
         <ion-button (click)="applicant(job)" class="save" type="Submit" size="large" expand="block" fill="solid" shape="round" [routerLink]="['/applicantlist']">
-          <ion-badge color="tertiary">10</ion-badge> Applicants
+          Applicants
         </ion-button>
 
       </ion-buttons>

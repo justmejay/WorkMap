@@ -41,6 +41,7 @@ export class DashboardPage implements OnInit {
   sortedarray: any = []; 
   finalbook: any = [];
   verdict: boolean = false;
+  countmsg: any;
   
 
   constructor(
@@ -57,6 +58,11 @@ export class DashboardPage implements OnInit {
     private maps: GmapService,
     private app: ApplicationService,
   ) {
+
+    
+    this.firestore.getinbox().subscribe(res=>{
+      this.countmsg = res.length;
+    });
 
     this.profile.getprofile().subscribe(res => {
       this.profiles = res;
@@ -221,12 +227,8 @@ export class DashboardPage implements OnInit {
                       this.earray = this.earray;
                       console.log(this.earray)
             
-                  this.firestore.getjobs(this.userspec, this.earray.ea).subscribe(async res=>{
-
-
-  
-  
-            
+                    this.firestore.getjobs(this.userspec, this.earray.ea).subscribe(async res=>{
+                      this.finalbook = [];
                       this.job = res;
                       console.log(this.job);
 
@@ -251,24 +253,22 @@ export class DashboardPage implements OnInit {
 
                       }
                    
-                     
-                      
-  
-                        for (let i=0; i< res.length; i++){
+                      console.log(this.finalbook)
+                        for (let i=0; i< this.finalbook.length; i++){
                       
                             this.profile.getcoords().subscribe(res=>{
                               this.fpdata = res;
                               console.log(this.fpdata)
                       
-                              this.maps.distancecompute(this.job[i].lat,this.job[i].lng, this.fpdata.clat, this.fpdata.clng).subscribe(res=>{
+                              this.maps.distancecompute(this.finalbook[i].lat,this.finalbook[i].lng, this.fpdata.clat, this.fpdata.clng).subscribe(res=>{
                                   console.log(res);
-                                this.job[i].distance = res.rows[0].elements[0].distance.text;
-                                this.job[i].distancesort = res.rows[0].elements[0].distance.value;
+                                this.finalbook[i].distance = res.rows[0].elements[0].distance.text;
+                                this.finalbook[i].distancesort = res.rows[0].elements[0].distance.value;
 
 
                             if(this.term == "recent"){
                               timer(100).subscribe(x => { 
-                                this.job.sort((a, b) => {
+                                this.finalbook.sort((a, b) => {
                                   
                                return b.timesort - b.timesort;
                                 });                    
@@ -276,7 +276,7 @@ export class DashboardPage implements OnInit {
 
                             }else if( this.term == "distance"){
                               timer(100).subscribe(x => { 
-                                this.job.sort((a, b) => {
+                                this.finalbook.sort((a, b) => {
                                   
                                return a.distancesort - b.distancesort;
                                 });                    
@@ -284,7 +284,7 @@ export class DashboardPage implements OnInit {
 
                             }
                         
-                        console.log(this.job);
+                        console.log(this.finalbook);
 
 
 
@@ -295,20 +295,20 @@ export class DashboardPage implements OnInit {
   
   
             
-                          if (this.job[i].attainment == '0'){
-                          this.job[i].attainment = 'No Minimum Education Required';
-                          }else if (this.job[i].attainment == '1'){
-                            this.job[i].attainment = 'High School Diploma';
-                          }else  if (this.job[i].attainment == '2'){
-                            this.job[i].attainment = 'Vocational Diploma/Short Course Certificate';
-                          }else if (this.job[i].attainment == '3'){
-                            this.job[i].attainment = 'Bachelors/College Degree';
-                          }else if (this.job[i].attainment == 'Post Graduate Diploma/Masters Degree'){
-                            this.job[i].attainment = 'Vocational Diploma/Short Course Certificate';
-                          }else if (this.job[i].attainment == '5'){
-                            this.job[i].attainment = 'Professional License (Passed Board/Professional/License Exams)';
-                          }else if (this.job[i].attainment == '6'){
-                            this.job[i].attainment = 'Doctorate Degree';
+                          if (this.finalbook[i].attainment == '0'){
+                          this.finalbook[i].attainment = 'No Minimum Education Required';
+                          }else if (this.finalbook[i].attainment == '1'){
+                            this.finalbook[i].attainment = 'High School Diploma';
+                          }else  if (this.finalbook[i].attainment == '2'){
+                            this.finalbook[i].attainment = 'Vocational Diploma/Short Course Certificate';
+                          }else if (this.finalbook[i].attainment == '3'){
+                            this.finalbook[i].attainment = 'Bachelors/College Degree';
+                          }else if (this.finalbook[i].attainment == 'Post Graduate Diploma/Masters Degree'){
+                            this.finalbook[i].attainment = 'Vocational Diploma/Short Course Certificate';
+                          }else if (this.finalbook[i].attainment == '5'){
+                            this.finalbook[i].attainment = 'Professional License (Passed Board/Professional/License Exams)';
+                          }else if (this.finalbook[i].attainment == '6'){
+                            this.finalbook[i].attainment = 'Doctorate Degree';
                           }
 
 

@@ -28,11 +28,10 @@
 
           <!-- <ion-input [hidden]="determine" [readonly]="true" [value]="credentials.value.jposition"  formControlName="jposition" placeholder="Senior Developer" position="stacked" type="text" ></ion-input> -->
           <ion-item>
-          <ion-input [hidden]="!determine" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [ngModelOptions]="{standalone: true}"
+          <ion-input [clearInput]="true" [hidden]="!determine" [disabled]="checkeds == 5" debounce=500 (ionChange)="search($event)" [ngModelOptions]="{standalone: true}"
         [(ngModel)]="term" placeholder="Senior Developer" position="stacked" type="text" style="border:none;">
           </ion-input>
           <!-- <ion-icon name="close-outline"></ion-icon>-->
-            <ion-icon name="backspace-outline" class="reset"></ion-icon>
             <ion-icon name="arrow-undo-outline" class="reset" (click)="reset()"></ion-icon>          
           </ion-item>
           

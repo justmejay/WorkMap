@@ -64,6 +64,16 @@
         </ion-button>
       </ion-buttons>
     </ion-toolbar>
+    <div class="sort">
+      <ion-item lines="none">
+        <ion-label>Sort by:</ion-label>
+        <ion-select  [(ngModel)]="term" (ionChange)="filter()">
+          <ion-select-option value="recent">Recent</ion-select-option>
+          <ion-select-option value="distance">Distance</ion-select-option>
+          <!-- <ion-select-option>Closest Match</ion-select-option> -->
+        </ion-select>
+      </ion-item>
+    </div>
   </ion-header>
 
   <ion-content>
@@ -75,16 +85,7 @@
           refreshingText="Refreshing...">
         </ion-refresher-content>
       </ion-refresher> -->
-      <div class="sort">
-        <ion-item lines="none">
-          <ion-label>Sort by:</ion-label>
-          <ion-select  [(ngModel)]="term" (ionChange)="filter()">
-            <ion-select-option value="recent">Recent</ion-select-option>
-            <ion-select-option value="distance">Distance</ion-select-option>
-            <!-- <ion-select-option>Closest Match</ion-select-option> -->
-          </ion-select>
-        </ion-item>
-      </div>
+     
 
       <div class="alert" [hidden]="!button" style="color: black;text-align: center;">
         <ion-label [hidden]="!button"  class="alert">Complete your resume before applying!</ion-label>
@@ -197,7 +198,7 @@
           </ion-tab-button>
 
           <ion-tab-button [routerLink]="['/messagespage']" >
-            <ion-badge color="danger">1000</ion-badge>
+            <ion-badge color="danger">{{countmsg}}</ion-badge>
             <ion-icon class="tabicon" name="chatbubble"></ion-icon>Messages
           </ion-tab-button>
 

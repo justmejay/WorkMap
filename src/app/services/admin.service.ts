@@ -86,8 +86,8 @@ export class AdminService {
 
     const date2 = date.toLocaleString();
 
-    const applicationRefx = doc(this.firestore, `notifications/${id}`)
-    const passx =  setDoc (applicationRefx, {timeStamp, time: date2, reason: "", status: "Accepted"})
+    const applicationRefx = collection(this.firestore, `notifications/`)
+    const passx =  addDoc (applicationRefx, {timeStamp, time: date2, notiftype: "adminaccept", uid: id})
 
     const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
     const comp = "Accepted"

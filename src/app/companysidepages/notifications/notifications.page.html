@@ -17,42 +17,36 @@
       </ng-template>
     </ion-modal>
     
-      <ion-item  (click)="viewapply(n)" *ngFor="let n of notifications" class="clickable"  button detail="true" [routerLink]="['/viewnotification']">
+    <div *ngFor="let n of notifications">
+
+     
+
+
+      <ion-item *ngIf="n.notiftype == 'adminaccept'" class="static">
         <ion-avatar slot="start">
-       
-          <img class="profilepicimage" *ngIf="n.application?.profileimg; else ph" src="{{n.application.profileimg}}" />
-          <ng-template #ph>
-            <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-          </ng-template>        </ion-avatar>
+          <ion-icon style="width: 30px;height: 30px;" name="alert-circle-outline"></ion-icon>
+        </ion-avatar>
         <ion-label>
-          <ion-label>{{n.application.fname}} {{n.application.lname}}</ion-label>
-          <ion-label class="ion-text-wrap"> has applied to your "{{n.application.mname}}" listing.</ion-label>
+          <ion-label class="ion-text-wrap">Your Company registration has been approved. Happy hiring!</ion-label>
           <ion-label class="time">{{n.time}}</ion-label>
         </ion-label>
       </ion-item>
-      <ion-item class="static">
+
+      <ion-item (click)="viewapply(n)"  *ngIf="n.notifype == 'application'" class="static">
         <ion-avatar slot="start">
-          <img class="profilepicimage" src=""/>
-          <ng-template #ph>
-            <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-          </ng-template>        </ion-avatar>
+          <ion-icon style="width: 30px;height: 30px;" name="alert-circle-outline"></ion-icon>
+        </ion-avatar>
         <ion-label>
-          <ion-label class="ion-text-wrap">Your CompanyName registration has been accepted.</ion-label>
-          <!-- <ion-label class="time">{{n.time}}</ion-label> -->
+          <ion-label class="ion-text-wrap">Someone applied to your listing.Check it out!!</ion-label>
+          <ion-label class="time">{{n.time}}</ion-label>
         </ion-label>
       </ion-item>
-      <ion-item class="staticred">
-        <ion-avatar slot="start">
-          <img class="profilepicimage" src=""/>
-          <ng-template #ph>
-            <img class="profilepicimage" alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
-          </ng-template>        </ion-avatar>
-        <ion-label>
-          <ion-label class="ion-text-wrap">Your CompanyName registration has been declined.</ion-label>
-          <!-- <ion-label class="time">{{n.time}}</ion-label> -->
-        </ion-label>
-      </ion-item>
+   
   
+
+
+    </div>
+
     
   </ion-content>
 
