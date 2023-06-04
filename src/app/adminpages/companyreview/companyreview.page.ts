@@ -66,18 +66,36 @@ export class CompanyreviewPage implements OnInit {
   async decline(company){
     const id = company.uid
 
-
-    const loading = await this.loadingController.create({
-      message: 'Declining Registration...',
-
-      duration: 1000,
-      spinner: 'dots',
-  
+    const prompt = await this.alertController.create({
+      header: 'Decline Registration?',
+      inputs: [
+        {
+          name: 'reason',
+          type: 'textarea',
+          value: '',
+          placeholder: 'Reason'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            // Handle cancel button action if needed
+          }
+        },
+        {
+          text: 'Decline',
+          handler: (company) => {
+            this.firestore.getdeclined(id, company.reason);
+            this.showAlert('Success', 'Registration Declined!')
+            this.router.navigate(['companyregister']);
+          }
+        }
+      ]
     });
-    await loading.present();
-    await this.firestore.getdeclined(id)
-    this.showAlert('Success', 'Registration Declined!')
-
+  
+    await prompt.present();
   }
 
   async showAlert(header, message) {

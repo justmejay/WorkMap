@@ -85,11 +85,11 @@ export class AdminService {
     return updateDoc (cakeRef, {status: comp } )
   }
 
-  getdeclined(id:any){
+  getdeclined(id:any, reasonr: any){
 
     const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
     const comp = "Declined"
-    return updateDoc (cakeRef, {status: comp } )
+    return updateDoc (cakeRef, {status: comp, reason: reasonr  } )
   }
 
   getallusers(): Observable<Company[]>{
