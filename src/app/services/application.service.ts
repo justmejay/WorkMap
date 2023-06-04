@@ -172,10 +172,23 @@ export class ApplicationService {
       console.log(e);
       return null;
     }
+
+    
    
 
   }
 
+  getjoblistall(): Observable<User[]>{
+  
+    try{
+      const cakesRefe = collection(this.firestore, `joblist`)
+      return collectionData(cakesRefe, {idField: 'id'}) as Observable<User[]>
+
+    }catch(e){
+      console.log(e);
+      return null;
+    }
+  }
 
  
   async addApplication(application:Application, list: any){

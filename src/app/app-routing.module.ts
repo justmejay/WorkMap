@@ -336,6 +336,10 @@ const routes: Routes = [
     path: 'editworkordersingle',
     loadChildren: () => import('./companysidepages/editworkordersingle/editworkordersingle.module').then( m => m.EditworkordersinglePageModule)
   },
+  {
+    path: 'sepublic',
+    loadChildren: () => import('./pages/sepublic/sepublic.module').then( m => m.SepublicPageModule)
+  },
 
 
 

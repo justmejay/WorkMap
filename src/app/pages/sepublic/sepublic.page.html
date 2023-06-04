@@ -47,14 +47,14 @@
             <ion-select-option value="1">Recent</ion-select-option>
             <!-- <ion-select-option value="2">Nearest distance</ion-select-option>  BUGGY-->
             <!-- <ion-select-option disabled value="closest">Closest Match</ion-select-option>  DISABLED-->
-            <ion-select-option value="3">Highest Pay</ion-select-option>
-            <ion-select-option value="4">Lowest Pay</ion-select-option>
+            <!-- <ion-select-option value="3">Highest Pay</ion-select-option>
+            <ion-select-option value="4">Lowest Pay</ion-select-option> -->
           </ion-select>
         </ion-item>
       </div>
     </ion-row>
     <ion-row>
-      <div class="sortsalary">
+      <!-- <div class="sortsalary">
         <ion-item lines="none">
           <ion-icon name="wallet-outline"></ion-icon>
           <ion-select class="selectsalaryrange" [(ngModel)]="sr" placeholder="Sort Salary Range by:" interface="action-sheet">
@@ -68,7 +68,7 @@
 
           </ion-select>
         </ion-item>
-      </div>
+      </div> -->
     </ion-row>
   </ion-grid>
   <div class="searchengine">
@@ -82,16 +82,16 @@
             <ion-card-title>
               {{x.jtitle}}
             </ion-card-title>
-            <ion-button (click)="gocdata(x)" class="viewmore" fill="clear">
+            <!-- <ion-button (click)="gocdata(x)" class="viewmore" fill="clear">
               <ion-icon  name="information-circle" class="edit" ></ion-icon>
-            </ion-button>
+            </ion-button> -->
           </ion-row>
 
           <ion-row class="jobtitle">
             <ion-card-subtitle>
               <ion-badge class="distance" color="primary">
                 <ion-icon name="location-outline"></ion-icon>
-                <ion-label>{{x.distance}} from you</ion-label>
+                <ion-label>Signup or Signin to view</ion-label>
               </ion-badge>
             </ion-card-subtitle>
           </ion-row>
@@ -106,10 +106,10 @@
           </ion-row>
           <ion-row class="companydetails">
             <ion-col class="labelheader">Starting Salary:</ion-col>
-              <ion-col *ngIf="x?.jsalary; else placeholder_avatar;">{{x.jsalary}} peso/s</ion-col>
+              <ion-col *ngIf="x?.jsalary; else placeholder_avatar;">Signup or Signin to view</ion-col>
   
               <ng-template #placeholder_avatar>
-                <ion-col>Company did not specified</ion-col>
+                <ion-col>Signup or Signin to view</ion-col>
               </ng-template>
             
           </ion-row>
@@ -144,7 +144,7 @@
         <ion-label class="timeposted">Date Posted: {{x.timestamp}}</ion-label>
       </ion-card-content>
         
-        <ion-button size="large" (click)="apply(x)" class="jobcardinfo" >Apply Now</ion-button>
+        <ion-button size="large" [routerLink]="['/authentication']" class="jobcardinfo" >Apply Now</ion-button>
 
     </ion-card>
   </div>
