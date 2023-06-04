@@ -82,6 +82,29 @@ ion-tab-button{
     color: #2855A1;
 }
 
+
+ion-item.staticred {
+    display: block;
+    margin-top: 0.5rem;
+    // margin-left: 0.5rem;
+    // margin-right: 0.5rem;
+    --background: rgb(240, 154, 154);
+    --color: #151515;
+    --border-radius: 45px;
+
+    ion-label{
+        font-size: 16px;
+        --color: #151515;
+        margin-right: 0.5rem;
+        font-weight: bold;
+
+    }
+    ion-button{
+        text-transform: initial;
+        margin-left: 0;
+    }
+  }
+
 ion-card.joblisting {
     --background: #eee8ff;
     // box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
@@ -173,6 +196,7 @@ ion-icon{
     // padding-left: 1rem;
 
     ion-badge{
+
      margin-right:1rem;
         
     }

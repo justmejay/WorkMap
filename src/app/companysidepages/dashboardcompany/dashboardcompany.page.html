@@ -66,15 +66,18 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content   class="ion-padding ">
+<ion-content   class="ion-padding ">
   <div class="alert" [hidden]="!button" *ngIf="company.status == 'Pending'" style="color: black;text-align: center;">
     <ion-label  [hidden]="!button" *ngIf="company.status == 'Pending'" class="alert">Account is pending for approval!</ion-label>
   </div>
 
-  <div class="alert"  *ngIf="company.status == 'Declined'" [hidden]="!button" style="color: black;text-align: center;">
-  <ion-label  [hidden]="!button" *ngIf="company.status == 'Declined'" class="alert">Account is declined!</ion-label>
-   </div>
-   <ion-button *ngIf="company.status == 'Declined'" id="open-modal" expand="block" shape="round">View Reason</ion-button>
+
+<ion-item class="staticred">
+  <div *ngIf="company.status == 'Declined'" [hidden]="!button" style="color: black;text-align: center;">
+    <ion-label  [hidden]="!button" *ngIf="company.status == 'Declined'" >Account is declined!</ion-label>
+  </div>
+
+  <ion-button *ngIf="company.status == 'Declined'" id="open-modal" shape="round" slot="end">View Reason</ion-button>
   <!-- <ion-button id="open-modal" expand="block" shape="round">View</ion-button> -->
   <ion-modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
     <ng-template>
@@ -82,11 +85,12 @@
         <p>{{company.reason}}</p>
       </div>
     </ng-template>
-
   </ion-modal>
-  <ion-button *ngIf="company.status == 'Declined'" (click)="reapply(company)">Reapply</ion-button>
- 
-  
+
+  <ion-button shape="round" *ngIf="company.status == 'Declined'" (click)="reapply(company)" slot="end">Reapply</ion-button>
+</ion-item>
+
+
     <ion-card *ngFor="let job of job" class="joblisting">
       <ion-card-header>
         <ion-icon name="trash-outline" style="float: right; height: 25px; width: 25px" (click)="delete(job)"></ion-icon>
