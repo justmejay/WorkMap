@@ -16,12 +16,12 @@
         <ion-icon slot="start" name="shield-half-outline" style="color: #42505d;"></ion-icon>
         Privacy Policy
       </ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/employees']">
+      <ion-button fill="clear" class="card1menu" expand="block" (click)="view(company)">
         <ion-icon slot="start" name="person" style="color: #42505d;" ></ion-icon>
          Employees</ion-button>
-       <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/workorderlist']">
+       <!-- <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/workorderlist']">
            <ion-icon slot="start" name="folder-open" style="color: #42505d;" ></ion-icon>
-            Work Order</ion-button>
+            Work Order</ion-button> -->
       <ion-button fill="clear" class="card1menu" expand="block" (click)="posts(employer)">
         <ion-icon slot="start" name="archive" style="color: #42505d;"></ion-icon>
         My Post</ion-button>

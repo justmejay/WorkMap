@@ -314,8 +314,16 @@ export class ApplicationService {
       console.log(e);
       return null;
     }
+
    
 
+  }
+
+  
+  getallapply(id: any): Observable<User[]>{
+    const cakesRef = collection(this.firestore, 'application/')
+    const q = query(cakesRef, where("application.cid", "==", id, ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]> 
   }
 
 

@@ -260,4 +260,11 @@ export class DashboardcompanyPage implements OnInit {
     await alert.present();
   }
 
+  view(company:any){
+    const id = company.uid
+
+  
+    this.router.navigate(['employees'], {queryParams:{comid:id,}});
+  }
+
 }
