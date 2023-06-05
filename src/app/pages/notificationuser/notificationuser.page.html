@@ -8,16 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+  <!-- <ion-modal trigger="open-modal" [initialBreakpoint]="0.25" [breakpoints]="[0, 0.25, 0.5, 0.75]">
     <ng-template>
       <div class="block">
         <ion-button expand="block" color="danger" shape="round">Delete Notification</ion-button>
         <ion-button expand="block" color="primary" shape="round">Cancel</ion-button>
       </div>
     </ng-template>
-  </ion-modal>
+  </ion-modal> -->
   
-    <ion-item class="clickable"  button detail="true" [routerLink]="['/']">
+    <!-- <ion-item class="clickable"  button detail="true" [routerLink]="['/']">
       <ion-avatar slot="start">
      
         <img class="profilepicimage" src="" />
@@ -29,7 +29,33 @@
         <ion-label class="ion-text-wrap"></ion-label>
         <ion-label class="time"></ion-label>
       </ion-label>
+    </ion-item> -->
+    <div *ngFor="let n of notifications">
+
+
+    <ion-item  *ngIf="n.notifype == 'applicationreject'" class="static">
+      <ion-avatar slot="start">
+        <ion-icon style="width: 30px;height: 30px;" name="alert-circle-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <ion-label class="ion-text-wrap">Your application has been rejected!!</ion-label>
+        <ion-label class="time">{{n.time}}</ion-label>
+      </ion-label>
     </ion-item>
+
+    
+    <ion-item  *ngIf="n.notiftype == 'applicationaccept'" class="static">
+      <ion-avatar slot="start">
+        <ion-icon style="width: 30px;height: 30px;" name="alert-circle-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <ion-label class="ion-text-wrap">Your application have been approved!!</ion-label>
+        <ion-label class="time">{{n.time}}</ion-label>
+      </ion-label>
+    </ion-item>
+ 
+
+</div>
 
   
 </ion-content>

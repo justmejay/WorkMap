@@ -286,20 +286,46 @@ export class ApplicationService {
     const q = query(cakesRef, where("uid", "==",uid ))
     return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
-
-  getaccepted(id:any){
-
-    const cakeRef = doc(this.firestore, `application/${id}`)
-    const comp = "Accepted"
-    return updateDoc (cakeRef, {status: comp } )
+  getnotifu(): Observable<User[]>{
+    const uid = this.auth.currentUser.uid ;
+     console.log(uid);
+    const cakesRef = collection(this.firestore, `notificationuser`);
+    const q = query(cakesRef, where("uid", "==",uid ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
 
-  getrejected(id:any, reasonr: any){
+
+  getaccepted(id:any, data: any){
+
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
+
+    console.log(data)
+    const cakeRef = doc(this.firestore, `application/${id}`)
+    const comp = "Accepted"
+     updateDoc (cakeRef, {status: comp } )
+
+    const cakeRef2 = collection(this.firestore, `notificationuser/`)
+    return addDoc (cakeRef2, {uid: data.application.uid,listid: data.id , date2, timeStamp, notiftype: "applicationaccept" } )
+  }
+  
+
+  getrejected(id:any, reasonr: any, data: any){
+
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
 
     const cakeRef = doc(this.firestore, `application/${id}`)
     const comp = "Rejected"
-    return updateDoc (cakeRef, {status: comp, reason: reasonr } )
-  }
+     updateDoc (cakeRef, {status: comp, reason: reasonr } )
+
+     const cakeRef2 = collection(this.firestore, `notificationuser/`)
+     return addDoc (cakeRef2, {uid: data.application.uid,listid: data.id , date2, timeStamp, notiftype: "applicationreject" } )
+    }
 
 
   getqjoblist(jparray: any): Observable<User[]>{
