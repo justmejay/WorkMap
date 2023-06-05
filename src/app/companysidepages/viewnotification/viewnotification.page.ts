@@ -113,8 +113,10 @@ export class ViewnotificationPage implements OnInit {
   
     });
     await loading.present();
-    await this.firestore.getaccepted(id)
-    this.showAlert('Success', 'Application Accepted!')
+    await this.firestore.getaccepted(id,jobdata)
+    this.showAlert('Success', 'Application Accepted!');
+    this.router.navigate(['dashboardcompany']);
+
 
   }
 
@@ -142,8 +144,10 @@ export class ViewnotificationPage implements OnInit {
         {
           text: 'Reject',
           handler: (jobdata) => {
-            this.firestore.getrejected(id, jobdata.reason);
+            this.firestore.getrejected(id, jobdata.reason, jobdata);
             this.showAlert('Success', 'Application Rejected!')
+            this.router.navigate(['dashboardcompany']);
+
           }
         }
       ]

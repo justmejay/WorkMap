@@ -25,17 +25,6 @@ export class NotificationsPage implements OnInit {
         return b.timeStamp - a.timeStamp;
       });
 
-      // for (let i =0; i< res.length; i++){
-      //   this.app.getjtitle(this.notifications[i].application.jobid).subscribe(res=>{
-      //     this.listing = res;
-      //      console.log(this.listing);
-         
-      // this.notifications[i].application.mname = this.listing[0].jtitle
-
-      // });
-        
-      // }
-
 
 
       

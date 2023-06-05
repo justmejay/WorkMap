@@ -42,6 +42,7 @@ export class DashboardPage implements OnInit {
   finalbook: any = [];
   verdict: boolean = false;
   countmsg: any;
+  countnotif: any;
   
 
   constructor(
@@ -62,6 +63,10 @@ export class DashboardPage implements OnInit {
     
     this.firestore.getinbox().subscribe(res=>{
       this.countmsg = res.length;
+    });
+
+    this.app.getnotifu().subscribe(res=>{
+      this.countnotif = res.length;
     });
 
     this.profile.getprofile().subscribe(res => {
