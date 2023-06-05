@@ -17,11 +17,11 @@
         <ion-card-title>{{appl.fname}} {{appl.mname}} {{appl.lname}}</ion-card-title>
       </div>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content *ngIf="rates">
         <!--Ratings -->
           <ion-label position="stacked" class="cardsubtitle">Customer Satisfaction: </ion-label>
           <ion-item>
-            <ion-select [(ngModel)]="cs"  justify="space-between" interface="popover" placeholder="Very Satisfactory">
+            <ion-select value="{{rates.cs}}" [(ngModel)]="cs"  justify="space-between" interface="popover" placeholder="Very Satisfactory">
               <ion-select-option value="Very Satisfactory">Very Satisfactory</ion-select-option>
               <ion-select-option value="Satisfactory">Satisfactory</ion-select-option>
               <ion-select-option value="Fair">Fair</ion-select-option>
@@ -31,7 +31,7 @@
         
           <ion-label position="stacked" class="cardsubtitle">Work Quality: </ion-label>
           <ion-item>
-            <ion-select [(ngModel)]="wq" justify="space-between" interface="popover" placeholder="Very Satisfactory">
+            <ion-select value="{{rates.wq}}" [(ngModel)]="wq" justify="space-between" interface="popover" placeholder="Very Satisfactory">
               <ion-select-option value="Very Satisfactory">Very Satisfactory</ion-select-option>
               <ion-select-option value="Satisfactory">Satisfactory</ion-select-option>
               <ion-select-option value="Fair">Fair</ion-select-option>
@@ -41,7 +41,7 @@
 
           <ion-label position="stacked" class="cardsubtitle">Professionalism: </ion-label>
           <ion-item>
-            <ion-select [(ngModel)]="pr" justify="space-between" interface="popover" placeholder="Very Satisfactory">
+            <ion-select value="{{rates.pr}}" [(ngModel)]="pr" justify="space-between" interface="popover" placeholder="Very Satisfactory">
               <ion-select-option value="Very Satisfactory">Very Satisfactory</ion-select-option>
               <ion-select-option value="Satisfactory">Satisfactory</ion-select-option>
               <ion-select-option value="Fair">Fair</ion-select-option>
@@ -51,7 +51,7 @@
 
           <ion-label position="stacked" class="cardsubtitle">Technical Skills: </ion-label>
           <ion-item>
-            <ion-select [(ngModel)]="ts" justify="space-between" interface="popover" placeholder="Very Satisfactory">
+            <ion-select value="{{rates.ts}}" [(ngModel)]="ts" justify="space-between" interface="popover" placeholder="Very Satisfactory">
               <ion-select-option value="Very Satisfactory">Very Satisfactory</ion-select-option>
               <ion-select-option value="Satisfactory">Satisfactory</ion-select-option>
               <ion-select-option value="Fair">Fair</ion-select-option>
@@ -60,7 +60,7 @@
           </ion-item>
 
           <ion-label position="stacked" class="cardsubtitle">Comments:</ion-label>
-          <ion-textarea [(ngModel)]="co" autoGrow="true" type="textarea autosize" class="custominput" placeholder="Enter Comments"></ion-textarea>
+          <ion-textarea value="{{rates.co}}" [(ngModel)]="co" autoGrow="true" type="textarea autosize" class="custominput" placeholder="Enter Comments"></ion-textarea>
         
 
         <!-- <ion-buttons fill="solid" class="btns"> -->

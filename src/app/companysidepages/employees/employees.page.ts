@@ -43,7 +43,7 @@ export class EmployeesPage implements OnInit {
     const id = app.application.uid
 
   
-    this.router.navigate(['viewemployee'], {queryParams:{appid:id,}});
+    this.router.navigate(['viewemployee'], {queryParams:{appid:id,comid: this.company.comid}});
   }
 
 }

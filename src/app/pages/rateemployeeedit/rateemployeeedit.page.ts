@@ -4,19 +4,26 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertController, LoadingController, ToastController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-viewemployee',
-  templateUrl: './viewemployee.page.html',
-  styleUrls: ['./viewemployee.page.scss'],
+  selector: 'app-rateemployeeedit',
+  templateUrl: './rateemployeeedit.page.html',
+  styleUrls: ['./rateemployeeedit.page.scss'],
 })
-export class ViewemployeePage implements OnInit {
+export class RateemployeeeditPage implements OnInit {
 
   app: any = [];
-  appl: any = [];
-  rates: any = [];
+  appl: any =[];
+  cs: any ="";
+  wq: any="";
+  pr:any="";
+  ts: any="";
+  co: any="";
+
+  rates: any =[];
   ratescount: any;
 
-  constructor(
 
+
+  constructor(
     private firestore: ApplicationService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -49,29 +56,32 @@ export class ViewemployeePage implements OnInit {
   ngOnInit() {
   }
 
-  view(app:any){
-    const id = app.application.uid
+  back(){
+    
+    this.router.navigate(['viewemployee'], {queryParams:{appid:this.app.appid, comid: this.app.comid}});
 
   
-    this.router.navigate(['viewemployee'], {queryParams:{appid:id,}});
-  }
+}
 
+rate(){
 
-  back(){
+  this.firestore.rate2(this.app.appid, this.app.comid,this.cs,this.wq,this.ts,this.pr,this.co,this.rates.id)
 
-    this.router.navigate(['employees'], {queryParams:{comid: this.app.comid}});
+  this.showAlert('Rate success', '');
+  this.back();
 
-    
-  }
-
-  rate(){
-    this.router.navigate(['rateemployee'], {queryParams:{appid:this.app.appid, comid: this.app.comid}});
-
-  }
-
-  rate2(){
-    this.router.navigate(['rateemployeeedit'], {queryParams:{appid:this.app.appid, comid: this.app.comid}});
-
-  }
 
 }
+
+async showAlert(header: any, message: any) {
+  const alert = await this.alertController.create({
+    header,
+    message,
+    buttons: ['OK'],
+  });
+  await alert.present();
+}
+
+
+}
+
