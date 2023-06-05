@@ -11,9 +11,9 @@
         <ion-card-header >
            <div class="header">
               <div class="profile">
-                <ion-thumbnail slot="start">
+                <ion-avatar slot="start">
                   <img *ngIf="app.application?.profileimg; " [src]="app.application.profileimg" />
-                </ion-thumbnail>
+                </ion-avatar>
                 <ion-label>{{app.application.fname}} {{app.application.mname}} {{app.application.lname}}</ion-label>
               </div>            
             <!-- <div style="display: flex; justify-content: flex-end; margin: 5% 5% 0 0;"> -->

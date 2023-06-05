@@ -18,8 +18,9 @@
   <ion-card class="cardcontainer"  *ngIf="appl" >
     <ion-card-header>
       <div style="display: flex; align-items: center;">
-        <ion-thumbnail slot="start">
-          <img *ngIf="appl?.profileimg; " [src]="appl.profileimg" /></ion-thumbnail>
+        <ion-avatar slot="start">
+          <img *ngIf="appl?.profileimg; " [src]="appl.profileimg" />
+        </ion-avatar>
         <ion-card-title>{{appl.fname}} {{appl.mname}} {{appl.lname}} </ion-card-title>
       </div>
     </ion-card-header>
