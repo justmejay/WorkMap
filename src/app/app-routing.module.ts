@@ -340,6 +340,10 @@ const routes: Routes = [
     path: 'sepublic',
     loadChildren: () => import('./pages/sepublic/sepublic.module').then( m => m.SepublicPageModule)
   },
+  {
+    path: 'rateemployeeedit',
+    loadChildren: () => import('./pages/rateemployeeedit/rateemployeeedit.module').then( m => m.RateemployeeeditPageModule)
+  },
 
 
 

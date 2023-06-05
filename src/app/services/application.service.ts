@@ -357,6 +357,42 @@ export class ApplicationService {
     return docData(cakesRef, {idField: 'id'}) as Observable<[User]>
   }
 
+
+  rate(uid: any, comid: any, cs,wq,ts,pr,co){
+
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
+
+
+
+    const cakeRef2 = collection(this.firestore, `rating/`)
+    return addDoc (cakeRef2, {uid, comid, cs,wq,ts,pr,co} )
+  }
+
+
+  rate2(uid: any, comid: any, cs,wq,ts,pr,co,id){
+
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
+    console.log(id);
+
+
+
+    const cakeRef3 = doc(this.firestore, `rating/${id}`)
+    return updateDoc (cakeRef3, {cs,wq,ts,pr,co} )
+  }
+
+  getrating(id: any, cid): Observable<User[]>{
+    const cakesRef = collection(this.firestore, `rating`)
+    const q = query(cakesRef, where("uid", "==",id ), where("comid", "==",cid ))
+    return collectionData(q, {idField: 'id'}) as Observable<[User]>
+  }
+  
+
   
 
   
