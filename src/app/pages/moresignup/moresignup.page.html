@@ -16,25 +16,38 @@
         <ion-card-title>Personal Information</ion-card-title>
       </ion-card-header>
       <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
             <ion-label position="stacked">First Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="fname" class="custominput"></ion-input>
             <div>
               <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
             </div>
-                      
+            </ion-col>
+            
+            <ion-col>
             <ion-label position="stacked">Middle Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="mname" class="custominput"></ion-input>
-            
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
             <ion-label position="stacked">Last Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="lname" class="custominput"></ion-input>
             <div>
               <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
             </div>
-          
-            <ion-label position="stacked">Suffix (optional):</ion-label>
-            <ion-item >
+            </ion-col>
+            
+            <ion-col>
+              <ion-label position="stacked">Suffix (optional):</ion-label>
+              <ion-item class="dropdown">
                 <ion-select formControlName="suffix" interface="action-sheet" placeholder="Select suffix" expand="block" >
-                  <ion-select-option value="">Not Applicable</ion-select-option>
+                  <ion-select-option value="">N/A</ion-select-option>
                   <ion-select-option value="Jr">Jr.</ion-select-option>
                   <ion-select-option value="Sr">Sr.</ion-select-option>
                   <ion-select-option value="I">I</ion-select-option>
@@ -42,62 +55,88 @@
                   <ion-select-option value="III">III</ion-select-option>
                 </ion-select>
               </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-            <ion-label position="stacked">Civil Status:</ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label position="stacked">Civil Status:</ion-label>
               <ion-item>
-                <ion-select formControlName="cs" interface="action-sheet"placeholder="Select Status" expand="block">
-                  <ion-select-option value="Single">Single</ion-select-option>
-                  <ion-select-option value="Married">Married</ion-select-option>
-                  <ion-select-option value="Separated">Separated</ion-select-option>
-                  <ion-select-option value="Widowed">Widowed</ion-select-option>
-                </ion-select>
+                  <ion-select formControlName="cs" interface="action-sheet"placeholder="Select Status" expand="block">
+                    <ion-select-option value="Single">Single</ion-select-option>
+                    <ion-select-option value="Married">Married</ion-select-option>
+                    <ion-select-option value="Separated">Separated</ion-select-option>
+                    <ion-select-option value="Widowed">Widowed</ion-select-option>
+                  </ion-select>
               </ion-item>    
-         <div>
-          <ion-note slot="error" *ngIf="(cs.dirty || cs.touched) && cs.errors">Required</ion-note>
-         </div>
-          
-            <ion-label position="stacked">Religion:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="religion" class="custominput"></ion-input>
               <div>
-                <ion-note slot="error" *ngIf="(religion.dirty || religion.touched) && religion.errors">Required</ion-note>
+                <ion-note slot="error" *ngIf="(cs.dirty || cs.touched) && cs.errors">Required</ion-note>
               </div>
-          
-            <ion-label  position="stacked">Sex:</ion-label>
+            </ion-col>
+
+            <ion-col>
+              <ion-label position="stacked">Religion:</ion-label>
+              <ion-input position="stacked" type="text" formControlName="religion" class="custominput"></ion-input>
+                <div>
+                  <ion-note slot="error" *ngIf="(religion.dirty || religion.touched) && religion.errors">Required</ion-note>
+                </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label  position="stacked">Sex:</ion-label>
               <ion-item>
                 <ion-select formControlName="sex" interface="action-sheet" placeholder="Select" expand="block">
                   <ion-select-option value="Male">Male</ion-select-option>
                   <ion-select-option value="Female">Female</ion-select-option> 
                 </ion-select>
               </ion-item>
-         <div>
-          <ion-note slot="error" *ngIf="(sex.dirty || sex.touched) && sex.errors">Required</ion-note>
-         </div>
+              <div>
+                <ion-note slot="error" *ngIf="(sex.dirty || sex.touched) && sex.errors">Required</ion-note>
+               </div>
+            </ion-col>
+            
+            <ion-col>
+              <ion-label position="stacked">Birthdate:</ion-label>
+              <ion-input position="stacked" type="date" formControlName="bday" class="custominput"></ion-input>
+                <ion-modal [keepContentsMounted]="true">
+                  <ng-template>
+                    <ion-icon name="calendar-number-outline"></ion-icon>
+                    <ion-datetime id="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
+                  </ng-template>
+                </ion-modal>
+                <div>
+                  <ion-note slot="error" *ngIf="(bday.dirty || bday.touched) && bday.errors">Required</ion-note>
+                </div>
+            </ion-col>
 
-            <ion-label position="fixed">Birthdate:</ion-label>
-            <ion-input position="stacked" type="date" formControlName="bday" class="custominput"></ion-input>
-              <ion-modal [keepContentsMounted]="true">
-                <ng-template>
-                  <ion-icon name="calendar-number-outline"></ion-icon>
-                  <ion-datetime id="date" presentation="date" [showDefaultButtons]="true" doneText="Confirm" canceltext="Cancel"></ion-datetime>
-                </ng-template>
-              </ion-modal>
-        <div>
-          <ion-note slot="error" *ngIf="(bday.dirty || bday.touched) && bday.errors">Required</ion-note>
-        </div>
+            <ion-col>
+              <ion-label position="stacked">Age:</ion-label>
+              <ion-input position="stacked" formControlName="age" type="Number"  class="custominput"></ion-input>
+              <div>
+                <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-          <ion-label position="stacked">Age:</ion-label>
-          <ion-input position="stacked" formControlName="age" type="Number"  class="custominput"></ion-input>
-        <div>
-          <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
-        </div>
+        <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-label position="stacked">Contact:</ion-label>
+            <ion-input position="stacked" formControlName="contact" type="Number" class="custominput"></ion-input>
+            <div>
+              <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+            </div>
+          </ion-col>
 
-          <ion-label position="stacked">Contact:</ion-label>
-          <ion-input position="stacked" formControlName="contact" type="Number" class="custominput"></ion-input>
-        <div>
-          <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
-        </div>
-        
-        <ion-label position="stacked">Citizenship:</ion-label>
+          <ion-col>
+            <ion-label position="stacked">Citizenship:</ion-label>
             <!-- <ion-input position="stacked" type="text" formControlName="citizenship" class="custominput"></ion-input> -->
               <ion-item>
                 <ion-select formControlName="citizenship" placeholder="" interface="action-sheet">
@@ -297,25 +336,28 @@
                   
                 </ion-select>
               </ion-item>
-          <div>
-            <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
-          </div>
-          
-        <ion-label  position="stacked">Educational Attainment:</ion-label> 
-          <ion-item>
-            <ion-select formControlName="ea" interface="action-sheet" placeholder="Select suffix" expand="block">
-              <ion-select-option class="popoverselect" value="1">High School Diploma</ion-select-option>
-              <ion-select-option class="popoverselect" value="2">Vocational Diploma/Short Course Certificate</ion-select-option>
-              <ion-select-option class="popoverselect" value="3">Bachelor's/College Degree</ion-select-option>
-              <ion-select-option class="popoverselect" value="4">Post Graduate Diploma/Master's Degree</ion-select-option>
-              <ion-select-option class="popoverselect" value="5">Professional License (Passed Board/Professional/License Exams)</ion-select-option>
-              <ion-select-option class="popoverselect" value="6">Doctorate Degree</ion-select-option>
-            </ion-select>
-          </ion-item>    
+              <div>
+                <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
+              </div>
+          </ion-col>
+        </ion-row>
+        </ion-grid>
+
+            <ion-label  position="stacked">Educational Attainment:</ion-label> 
+            <ion-item>
+              <ion-select formControlName="ea" interface="action-sheet" placeholder="Select suffix" expand="block">
+                <ion-select-option class="popoverselect" value="1">High School Diploma</ion-select-option>
+                <ion-select-option class="popoverselect" value="2">Vocational Diploma/Short Course Certificate</ion-select-option>
+                <ion-select-option class="popoverselect" value="3">Bachelor's/College Degree</ion-select-option>
+                <ion-select-option class="popoverselect" value="4">Post Graduate Diploma/Master's Degree</ion-select-option>
+                <ion-select-option class="popoverselect" value="5">Professional License (Passed Board/Professional/License Exams)</ion-select-option>
+                <ion-select-option class="popoverselect" value="6">Doctorate Degree</ion-select-option>
+              </ion-select>
+            </ion-item>    
       <!-- <ion-note slot="error" *ngIf="(cs.dirty || cs.touched) && cs.errors">Required</ion-note> -->
       </ion-card-content>
     </ion-card>
-    </div>
+  </div>
 
   
 
