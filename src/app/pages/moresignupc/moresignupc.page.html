@@ -18,30 +18,72 @@
         <ion-card-title>Employer Information</ion-card-title>
       </ion-card-header>      
       <ion-card-content>
-            <ion-label position="stacked">First Name:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="fname" class="custominput"></ion-input>
-         <div>
-          <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
-         </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label position="stacked">First Name:</ion-label>
+              <ion-input position="stacked" type="text" formControlName="fname" class="custominput"></ion-input>
+              <div>
+                <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
+               </div>
+            </ion-col>
+            
+            <ion-col>
+              <ion-label position="stacked">Middle Name:</ion-label>
+              <ion-input position="stacked" type="text" formControlName="mname" class="custominput"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
 
-            <ion-label position="stacked">Middle Name:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="mname" class="custominput"></ion-input>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label position="stacked">Last Name:</ion-label>
+              <ion-input position="stacked" type="text" formControlName="lname" class="custominput"></ion-input>
+             <div>
+              <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
+             </div>
+            </ion-col>
 
-            <ion-label position="stacked">Last Name:</ion-label>
-            <ion-input position="stacked" type="text" formControlName="lname" class="custominput"></ion-input>
-           <div>
-            <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
-           </div>
+            <ion-col>
+              <ion-label position="stacked">Suffix (optional):</ion-label>
+              <ion-item class="custominput">
+                <ion-select interface="action-sheet" placeholder="Select suffix" expand="block" >
+                  <ion-select-option value="">N/A</ion-select-option>
+                  <ion-select-option value="Jr">Jr.</ion-select-option>
+                  <ion-select-option value="Sr">Sr.</ion-select-option>
+                  <ion-select-option value="I">I</ion-select-option>
+                  <ion-select-option value="II">II</ion-select-option>
+                  <ion-select-option value="III">III</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>   
 
-            <ion-label position="stacked">Contact Number:</ion-label>
-            <ion-input position="stacked" type="number" formControlName="contact" class="custominput"></ion-input>
-            <div>
-              <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
-            </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label position="stacked">Contact Number:</ion-label>
+              <ion-input position="stacked" type="number" formControlName="contact" class="custominput"></ion-input>
+              <div>
+                <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+              </div>
+            </ion-col>
 
+            <ion-col>
+              <ion-label position="stacked">TIN Number:</ion-label>
+              <ion-input position="stacked" type="number" formControlName="tin" class="custominput"></ion-input>
+              <div>
+                <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+            
             <ion-label position="stacked">Citizenship:</ion-label>
             <ion-item class="custominput">
-              <ion-select interface="action-sheet" formControlName="citizenship" aria-label="fruit" placeholder="Select fruit">
+              <ion-select interface="action-sheet" formControlName="citizenship" placeholder="Select">
                 <ion-select-option value="">-- select one --</ion-select-option>
                 <ion-select-option value="filipino">Filipino</ion-select-option>
                 <ion-select-option value="afghan">Afghan</ion-select-option>
@@ -242,11 +284,7 @@
               <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
             </div>
 
-            <ion-label position="stacked">TIN Number:</ion-label>
-            <ion-input position="stacked" type="number" formControlName="tin" class="custominput"></ion-input>
-            <div>
-              <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
-            </div>
+            
       </ion-card-content>
     </ion-card>
 
@@ -272,11 +310,9 @@
             <ion-toggle style="float:left" (click)="samemail($event)"></ion-toggle> <ion-label style="float: left;">Same with login</ion-label>
           </div>
           <ion-input position="stacked" type="email" [readonly]="isToggled" [value]="credentials.value.cemail" formControlName="cemail" class="custominput"></ion-input>
-         
           <div>
             <ion-note slot="error" *ngIf="(cemail.dirty || cemail.touched) && cemail.errors">Required</ion-note>
           </div>
-          
 
           <ion-label position="stacked">Company Address:</ion-label>
           <ion-input [hidden]="true"  position="stacked" [value]="currentPlaceID" formControlName="currentPlaceID" type="text" class="custominput"></ion-input>
