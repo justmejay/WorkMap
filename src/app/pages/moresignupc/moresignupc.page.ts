@@ -34,7 +34,7 @@ export class MoresignupcPage implements OnInit {
   isToggled: boolean = false;
 
   public camera: any;
-  public base64Image: any;
+  public base64Image: any = null;
   public image: Photo;
 
 
@@ -117,9 +117,9 @@ export class MoresignupcPage implements OnInit {
       fname: ['', [Validators.required]],
       mname: ['', []],
       lname: ['', [Validators.required]],
-      contact: ['', [Validators.required]],
+      contact: ['', [Validators.required, Validators.pattern('^09\\d{9}$')]],
       citizenship: ['', [Validators.required]],
-      ccontact: ['', [Validators.required]],
+      ccontact: ['', [Validators.required, Validators.pattern('^09\\d{9}$')]],
       cname: ['', [Validators.required]],
       companyaddress: ['', []],
       cemail: ['', [Validators.required]],

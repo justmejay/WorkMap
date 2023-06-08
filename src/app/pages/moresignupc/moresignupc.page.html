@@ -65,17 +65,24 @@
           <ion-row>
             <ion-col>
               <ion-label position="stacked">Contact Number:</ion-label>
-              <ion-input position="stacked" type="number" formControlName="contact" class="custominput"></ion-input>
+              <ion-input position="stacked" type="tel" formControlName="contact" class="custominput"></ion-input>
               <div>
-                <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
-              </div>
+                <ion-note slot="error" *ngIf="contact.invalid && (contact.dirty || contact.touched)">
+                  <ng-container *ngIf="contact.errors['required']">
+                    Required!
+                  </ng-container>
+                  <ng-container *ngIf="contact.errors['pattern']">
+                    Phone number should start with 09 and have 11 digits
+                  </ng-container>
+                </ion-note>             
+               </div>
             </ion-col>
 
             <ion-col>
               <ion-label position="stacked">TIN Number:</ion-label>
               <ion-input position="stacked" type="number" formControlName="tin" class="custominput"></ion-input>
               <div>
-                <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+                <!-- <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note> -->
               </div>
             </ion-col>
           </ion-row>
@@ -300,10 +307,16 @@
           </div>
 
           <ion-label position="stacked">Company Contact:</ion-label>
-          <ion-input position="stacked" type="number" formControlName="ccontact" class="custominput"></ion-input>
+          <ion-input position="stacked" type="tel" formControlName="ccontact" class="custominput"></ion-input>
           <div>
-            <ion-note slot="error" *ngIf="(ccontact.dirty || ccontact.touched) && ccontact.errors">Required</ion-note>
-          </div>
+            <ion-note slot="error" *ngIf="ccontact.invalid && (ccontact.dirty || ccontact.touched)">
+              <ng-container *ngIf="ccontact.errors['required']">
+                Required!
+              </ng-container>
+              <ng-container *ngIf="ccontact.errors['pattern']">
+                Phone number should start with 09 and have 11 digits
+              </ng-container>
+            </ion-note>          </div>
 
           <ion-label position="stacked">Company Email:</ion-label>
           <div class="toggle">
@@ -351,7 +364,7 @@
       </ion-card-content>
     </ion-card>
     </div>
-    <ion-button type="submit" [disabled]="!credentials.valid" expand="block" class="btnreg" shape="round" size="large">Finish</ion-button>
+    <ion-button type="submit" [disabled]="!(credentials.valid && base64Image != null)" expand="block" class="btnreg" shape="round" size="large">Finish</ion-button>
   </form>
 </div>
 
