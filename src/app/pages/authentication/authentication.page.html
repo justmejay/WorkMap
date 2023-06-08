@@ -31,8 +31,13 @@
               <br>
               <ion-label position="stacked"> Password</ion-label>
               <ion-input formControlName="password" type="password"></ion-input>
-              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">At least 6 characters required</ion-note>
-                <ion-button shape="round" [disabled]="!credentials.valid" type="submit" class="btnlog" expand="block">
+              <ion-note *ngIf="credentials.get('password').hasError('required') && credentials.get('password').touched" color="danger">
+                Required!
+              </ion-note>
+              <ion-note *ngIf="credentials.get('password').hasError('pattern') && credentials.get('password').touched" color="danger">
+                Password must contain numbers and special characters.
+              </ion-note>             
+                 <ion-button shape="round" [disabled]="!credentials.valid" type="submit" class="btnlog" expand="block">
                   Log In
                 </ion-button>
                 <ion-button fill="clear" [routerLink]="['/forgot']" expand="block">
@@ -56,8 +61,12 @@
               <br>
               <ion-label position="stacked"> Password</ion-label>
               <ion-input formControlName="password" type="password"></ion-input>
-              <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">At least 6 characters required</ion-note>
-
+              <ion-note *ngIf="credentials.get('password').hasError('required') && credentials.get('password').touched" color="danger">
+                Required!
+              </ion-note>
+              <ion-note *ngIf="credentials.get('password').hasError('pattern') && credentials.get('password').touched" color="danger">
+                Password must contain numbers and special characters.
+              </ion-note> 
               <ion-button type="button" shape="round" [disabled]="!credentials.valid" (click)="signup()" expand="block" class="btnreg">
                 Register as User
               </ion-button>

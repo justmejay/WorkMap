@@ -39,7 +39,7 @@ export class AuthenticationPage implements OnInit {
   ngOnInit() {
     this.credentials = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.pattern('^(?=.*[0-9])(?=.*[!@#$%^&:;`~,*])[a-zA-Z0-9!@#$%^&:;`~,*]+$')]],
       
     });
   }
