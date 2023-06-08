@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, LoadingController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { GmapService } from 'src/app/services/gmap.service';
 import { Geolocation } from '@capacitor/geolocation';
 import { ProfilingService } from 'src/app/services/profiling.service';
+
 
 
 
@@ -19,6 +20,7 @@ export class MoresignupPage implements OnInit {
   isInput2Enabled = false;
   authdetails: any = [];
   credentials: FormGroup;
+  agecompute: any;
   // credshome: FormGroup;
   // addresses: any = [];
   // selectedHome: any;
@@ -124,10 +126,10 @@ export class MoresignupPage implements OnInit {
       cs: ['', [Validators.required]],
       religion: ['', [Validators.required]],
       sex: ['', [Validators.required]],
-      bday: ['', [Validators.required]],
+      bday: ['', [Validators.required, this.ageValidator]],
       age: ['', [Validators.required]],
       ea: ['', [Validators.required]],
-      contact: ['', [Validators.required]],
+      contact: ['', [Validators.required, Validators.pattern('^09\\d{9}$')]],
       citizenship: ['', [Validators.required]],
       // currentcoords: [this.currentcoords, ],
       
@@ -146,6 +148,29 @@ export class MoresignupPage implements OnInit {
     //   currentaddress: ['', [Validators.required]],
     // });
 
+  }
+
+  ageValidator(control: AbstractControl): ValidationErrors | null {
+    const bday = new Date(control.value);
+    const today = new Date();
+    const ageDiff = today.getTime() - bday.getTime();
+    const ageDate = new Date(ageDiff);
+    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+ 
+  
+    return age >= 18 ? null : { 'underAge': true };
+  }
+
+  computeAge(){
+    const bday = new Date(this.credentials.value.bday);
+    const today = new Date();
+    const ageDiff = today.getTime() - bday.getTime();
+    const ageDate = new Date(ageDiff);
+    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+  
+    console.log(age);
+    this.agecompute = age;
+  
   }
 
 
@@ -339,7 +364,7 @@ export class MoresignupPage implements OnInit {
 //   else{
 //     this.selectedHome = [];
 //   }
-// }
+// }z
   
 
 }

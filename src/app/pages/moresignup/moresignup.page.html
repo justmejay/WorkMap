@@ -103,7 +103,7 @@
             
             <ion-col>
               <ion-label position="stacked">Birthdate:</ion-label>
-              <ion-input position="stacked" type="date" formControlName="bday" class="custominput"></ion-input>
+              <ion-input (ionChange)="computeAge()" position="stacked" type="date" formControlName="bday" class="custominput"></ion-input>
                 <ion-modal [keepContentsMounted]="true">
                   <ng-template>
                     <ion-icon name="calendar-number-outline"></ion-icon>
@@ -111,13 +111,14 @@
                   </ng-template>
                 </ion-modal>
                 <div>
-                  <ion-note slot="error" *ngIf="(bday.dirty || bday.touched) && bday.errors">Required</ion-note>
-                </div>
+                  <ion-text class="under" color="danger" *ngIf="credentials.get('bday').hasError('underAge') && (credentials.get('bday').dirty || credentials.get('bday').touched)">
+                    You must be at least 18 years old.
+                  </ion-text>                </div>
             </ion-col>
 
             <ion-col>
               <ion-label position="stacked">Age:</ion-label>
-              <ion-input position="stacked" formControlName="age" type="Number"  class="custominput"></ion-input>
+              <ion-input [readonly]="true" position="stacked" value="{{agecompute}}"   formControlName="age" type="Number"  class="custominput"></ion-input>
               <div>
                 <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
               </div>
@@ -129,10 +130,18 @@
         <ion-row>
           <ion-col>
             <ion-label position="stacked">Contact:</ion-label>
-            <ion-input position="stacked" formControlName="contact" type="Number" class="custominput"></ion-input>
+            <ion-input position="stacked" formControlName="contact" type="tel" class="custominput"></ion-input>
             <div>
-              <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
-            </div>
+              <ion-note slot="error" *ngIf="contact.invalid && (contact.dirty || contact.touched)">
+                <ng-container *ngIf="contact.errors['required']">
+                  Required!
+                </ng-container>
+                <ng-container *ngIf="contact.errors['pattern']">
+                  Phone number should start with 09 and have 11 digits
+                </ng-container>
+                
+              </ion-note>           
+             </div>
           </ion-col>
 
           <ion-col>
