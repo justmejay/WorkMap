@@ -42,10 +42,10 @@ ion-input{
 ion-input.custominput{
 //   --background: #fff;
   --color: black;
-  --padding-bottom: 10px;
-  --padding-end: 10px;
+//   --padding-bottom: 10px;
+//   --padding-end: 10px;
   --padding-start: 10px;
-  --padding-top: 10px;
+//   --padding-top: 10px;
 }
 
 ion-select{
@@ -125,7 +125,8 @@ ion-card-title{
 }
 
 ion-note{
-    color: red;
+    margin-left: 6%;
+    --color: rgb(255, 74, 74);
 }
 
 ion-card-header{

@@ -22,6 +22,13 @@
           <ion-row>
             <ion-col>
               <ion-label position="stacked">First Name:</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="stacked">Middle Name:</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
               <ion-input position="stacked" type="text" formControlName="fname" class="custominput"></ion-input>
               <div>
                 <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
@@ -29,7 +36,6 @@
             </ion-col>
             
             <ion-col>
-              <ion-label position="stacked">Middle Name:</ion-label>
               <ion-input position="stacked" type="text" formControlName="mname" class="custominput"></ion-input>
             </ion-col>
           </ion-row>
@@ -39,6 +45,14 @@
           <ion-row>
             <ion-col>
               <ion-label position="stacked">Last Name:</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="stacked">Suffix (optional):</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
               <ion-input position="stacked" type="text" formControlName="lname" class="custominput"></ion-input>
              <div>
               <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
@@ -46,7 +60,6 @@
             </ion-col>
 
             <ion-col>
-              <ion-label position="stacked">Suffix (optional):</ion-label>
               <ion-item class="custominput">
                 <ion-select interface="action-sheet" placeholder="Select suffix" expand="block" >
                   <ion-select-option value="">N/A</ion-select-option>
@@ -65,6 +78,14 @@
           <ion-row>
             <ion-col>
               <ion-label position="stacked">Contact Number:</ion-label>
+            </ion-col>
+            <ion-col>
+            <ion-label position="stacked">Citizenship:</ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
               <ion-input position="stacked" type="tel" formControlName="contact" class="custominput"></ion-input>
               <div>
                 <ion-note slot="error" *ngIf="contact.invalid && (contact.dirty || contact.touched)">
@@ -79,16 +100,7 @@
             </ion-col>
 
             <ion-col>
-              <ion-label position="stacked">TIN Number:</ion-label>
-              <ion-input position="stacked" type="number" formControlName="tin" class="custominput"></ion-input>
-              <div>
-                <!-- <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note> -->
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
             
-            <ion-label position="stacked">Citizenship:</ion-label>
             <ion-item class="custominput">
               <ion-select interface="action-sheet" formControlName="citizenship" placeholder="Select">
                 <ion-select-option value="">-- select one --</ion-select-option>
@@ -290,8 +302,18 @@
             <div>
               <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
             </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+            <ion-label position="stacked">TIN Number:</ion-label>
+              <ion-input position="stacked" type="number" formControlName="tin" class="custominput"></ion-input>
+              <div>
+                <!-- <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note> -->
+              </div>
 
-            
+              <ion-button class="urc" expand="block" shape="round">
+                <ion-icon name="image-outline" ></ion-icon>Upload</ion-button>
+              <img [src]="base64Image"/>
       </ion-card-content>
     </ion-card>
 
