@@ -348,6 +348,10 @@ const routes: Routes = [
     path: 'myapplications',
     loadChildren: () => import('./pages/myapplications/myapplications.module').then( m => m.MyapplicationsPageModule)
   },
+  {
+    path: 'archived',
+    loadChildren: () => import('./adminpages/archived/archived.module').then( m => m.ArchivedPageModule)
+  },
 
 
 

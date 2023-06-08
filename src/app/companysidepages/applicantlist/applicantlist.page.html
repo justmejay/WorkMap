@@ -17,7 +17,17 @@
 </ion-header>
 
 <ion-content >
-
+  <ion-segment value="default">
+    <ion-segment-button value="applicants">
+      <ion-label>Applicants</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="review">
+      <ion-label>To review</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="declined">
+      <ion-label>Declined</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 <ion-item button detail="true" (click)="profiledetails(jobs)" *ngFor="let jobs of jobs" >
   <ion-avatar slot="start">
     <img alt="Profile piture" *ngIf="jobs.application?.profileimg; else alt" src="{{jobs.application.profileimg}}" />

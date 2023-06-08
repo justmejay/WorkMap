@@ -110,7 +110,20 @@
             <ion-textarea autoGrow="true" value="{{company.cdetails}}" autosize  [readonly]="true"></ion-textarea>
 
         </ion-card-content>
-      </ion-card>     
+      </ion-card>   
+      
+      <ion-card>
+        <ion-card-header>
+          <div style="display: flex; justify-content: space-between;">
+            <ion-card-title>Number of Applicants</ion-card-title>
+            <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editcompanydetails']"></ion-icon> -->
+          </div>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- <ion-label class="cardsubtitle">Total: </ion-label> -->
+            <ion-input value="" [readonly]="true">50</ion-input>
+        </ion-card-content>
+      </ion-card>
       
 
     </div> 

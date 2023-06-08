@@ -49,7 +49,7 @@
           <ion-label position="stacked" class="cardsubtitle">Home Address: </ion-label>
           <ion-input position="stacked" [readonly]="true" class="custominput" value="{{addressdetails.homeaddress}}"></ion-input>
         
-          <ion-label position="stacked" class="cardsubtitle">Current Address: </ion-label>
+          <ion-label position="stacked" class="cardsubtitle">Present Address: </ion-label>
           <ion-input position="stacked" [readonly]="true" class="custominput" value="{{addressdetails.currentaddress}}"></ion-input>
           
       </ion-card-content>
@@ -63,16 +63,16 @@
         </div>
       </ion-card-header>
       <ion-card-content>
-          <ion-label position="stacked" class="cardsubtitle">Name of Mother: </ion-label>
+          <ion-label position="stacked" class="cardsubtitle">Name: </ion-label>
           <ion-input position="stacked" [readonly]="true" class="custominput" value="{{resumedetails.mo}}"></ion-input>
         
           <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
           <ion-input position="stacked" [readonly]="true" class="custominput" value="{{resumedetails.moc}}"></ion-input>
         
-          <ion-label position="stacked" class="cardsubtitle">Name of Father: </ion-label>
+          <ion-label position="stacked" class="cardsubtitle">Relationship with person: </ion-label>
           <ion-input position="stacked" [readonly]="true" class="custominput" value="{{resumedetails.fa}}"></ion-input>
         
-          <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
+          <ion-label position="stacked" class="cardsubtitle">Email: </ion-label>
           <ion-input position="stacked" [readonly]="true" class="custominput" value="{{resumedetails.fac}}"></ion-input>
       </ion-card-content>
     </ion-card>
@@ -87,7 +87,7 @@
             </ion-card-header>
             <ion-card-content *ngFor="let s of schooldetails" class="ion-padding" >
   
-              <div style="margin-top: 5%;"> 
+              <div> 
                   <ion-label position="stacked" class="cardsubtitle">School Name: </ion-label>
                   <ion-input position="stacked" [readonly]="true" class="custominput" value="{{s.schoolname}}"></ion-input>
                 
@@ -179,7 +179,7 @@
 
     <ion-card *ngIf="reas">
       <ion-card-header>
-        <ion-card-title>Reason for Applying Job</ion-card-title>
+        <ion-card-title>Why do you want the job?</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         
