@@ -158,7 +158,7 @@ export class MoresignupPage implements OnInit {
     const age = Math.abs(ageDate.getUTCFullYear() - 1970);
  
   
-    return age >= 18 ? null : { 'underAge': true };
+    return age >= 18 && age<=65 ? null : { 'underAge': true };
   }
 
   computeAge(){
