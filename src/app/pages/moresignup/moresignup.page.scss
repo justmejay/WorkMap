@@ -40,12 +40,15 @@ ion-list{
     --background: #E5EBEE;
 }
 ion-item{
-    margin-top: 3px;
-    margin-bottom: 5px;
+    // margin-top: 3px;
+    // margin-bottom: 5px;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
     border: solid 2px  rgb(53, 66, 125);
     border-radius: 15px;
     --background: #cddbf1;
     color: black;
+    height: 50px;
 
 }
 
@@ -56,18 +59,10 @@ ion-input.custominput{
     color: black;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    height: 50px;
 
 
 }
-// ion-select{
-//     border: solid 2px  rgb(53, 66, 125);
-//     border-radius: 15px;
-//     --background: #cddbf1;
-//     color: black;
-//     ion-select-option{
-//         --background: #cddbf1;
-//     }
-// }
 
 .btnreg{
     width: 100%;
@@ -90,16 +85,14 @@ ion-note{
     --color: rgb(255, 74, 74);
 }
 
-.dropdown{
-    width: 75%;
-    margin-top: 2%;
-}
 
-ion-item.dropdown{
-    border: none;
-    flex-direction: row;
-}
-
+// ion-item{
+//     // border: none;
+//     flex-direction: row;
+//     --width: 75%;
+//     margin-top: 2%;
+//     border: solid 2px  rgb(53, 66, 125);
+// }
 
   
 
