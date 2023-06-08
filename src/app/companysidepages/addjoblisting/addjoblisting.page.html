@@ -52,9 +52,9 @@
             
           </ng-container>
           <ion-label>{{c}}</ion-label>
-          <!-- <ion-button class="uncheck" fill="clear">
+          <ion-button class="uncheck" fill="clear">
             <ion-icon name="close-circle-outline"></ion-icon>
-          </ion-button> -->
+          </ion-button>
 
         </ion-item>
 
@@ -89,6 +89,9 @@
         </ion-item>
         <ion-input formControlName="lat" [hidden]="true"  [value]="job.lat"></ion-input>
         <ion-input formControlName="lng"  [hidden]="true" [value]="job.lng"></ion-input> 
+
+        <ion-label>Set amount of slots:</ion-label>
+        <ion-input></ion-input>
 
         <ion-label  style="font-style: italic;" >Note: All inputs with asterisk are required.</ion-label>
         </ion-card-content>

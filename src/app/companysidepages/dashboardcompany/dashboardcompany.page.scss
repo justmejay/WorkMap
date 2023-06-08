@@ -267,3 +267,18 @@ ion-badge {
         margin-bottom: 10px;
     }
 }
+
+.primary{
+    display: block;
+    background: rgb(175, 203, 255);
+    width: 80%;
+    border-radius: 45px;
+    margin: auto;
+    ion-label{
+        padding: 0.2rem;
+        text-align: center;
+    }
+    ion-img{
+        margin-bottom: 10px;
+    }
+}

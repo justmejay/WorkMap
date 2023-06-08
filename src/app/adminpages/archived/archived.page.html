@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar> 
+      <ion-buttons [routerLink]="['/dashboardadmin']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label>Archived Accounts</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment value="default">
+    <ion-segment-button value="default">
+      <ion-label>Users</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="segment">
+      <ion-label>Employers</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-card>
+    <ion-item>
+      <ion-avatar slot="start">
+         <img [src]=""/>
+      </ion-avatar>
+      <ion-label>John Doe</ion-label>
+      
+      <ion-button slot="end" shape="round">View</ion-button>
+      <ion-button slot="end" shape="round" color="success" >Reactivate</ion-button>
+    </ion-item>
+  </ion-card>
+
+</ion-content>

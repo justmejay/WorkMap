@@ -7,6 +7,9 @@
 
   <ion-content class="ion-padding">
     <ion-card class="hamburgcard">
+      <ion-button  fill="clear" class="card1menu" expand="block" [routerLink]="['/archived']">
+        <ion-icon slot="start" name="archive-outline" style="color:#42505d;"></ion-icon>
+        Archive</ion-button>
       <ion-button  (click)="logout()" fill="clear" class="card1menu" expand="block">
         <ion-icon slot="start" name="log-out-outline" style="color:#42505d;"></ion-icon>
         Logout</ion-button>
