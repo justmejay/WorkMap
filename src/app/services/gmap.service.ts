@@ -63,7 +63,7 @@ export class GmapService {
 
   search_map(query: string):Observable<MapboxOutput> {
     console.log(query);
-    const url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input=';
+    const url = 'https://api-gmap-cors.onrender.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?input=';
     return this.http.get(url + query + '&types=geocode|establishment&components=country:ph&key='
     + environment.google_maps_api_key) as Observable<MapboxOutput>
     
@@ -71,14 +71,14 @@ export class GmapService {
 
   geocode(query: string):Observable<MapboxOutput> {
     console.log(query);
-    const url = 'https://maps.googleapis.com/maps/api/geocode/json?place_id=';
+    const url = 'https://api-gmap-cors.onrender.com/https://maps.googleapis.com/maps/api/geocode/json?place_id=';
     return this.http.get(url + query + '&key='
     + environment.google_maps_api_key) as Observable<MapboxOutput>
     
   }
 
   rgeocode(lat: any, lng: any):Observable<MapboxOutput> {
-    const url = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=';
+    const url = 'https://api-gmap-cors.onrender.com/https://maps.googleapis.com/maps/api/geocode/json?latlng=';
     return this.http.get(url + `${lat},${lng}` + '&key='
     + environment.google_maps_api_key) as Observable<MapboxOutput>
     
@@ -86,14 +86,14 @@ export class GmapService {
 
   geocodeinput(query: any):Observable<MapboxOutput> {
     console.log(query)
-    const url = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
+    const url = 'https://api-gmap-cors.onrender.com/https://maps.googleapis.com/maps/api/geocode/json?address=';
     return this.http.get(url + query.input + '&components=country:PH&key='
     + environment.google_maps_api_key) as Observable<MapboxOutput>
     
   }
 
   distancecompute(lat: any, lng: any, olat: any, olng: any):Observable<MapboxOutput> {
-    const url = 'https://maps.googleapis.com/maps/api/distancematrix/json?destinations=';
+    const url = 'https://api-gmap-cors.onrender.com/https://maps.googleapis.com/maps/api/distancematrix/json?destinations=';
     return this.http.get(url + `${lat},${lng}`+`&origins=`+  `${olat},${olng}` + '&key='
     + environment.google_maps_api_key) as Observable<MapboxOutput>
   }
