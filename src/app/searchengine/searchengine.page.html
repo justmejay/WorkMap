@@ -33,7 +33,9 @@
           <ion-badge *ngFor="let c of checkeditems" class="bchecked">
             <div class="checked">
               <ion-label>{{c}}</ion-label>
-              <!-- <ion-icon name="close-circle-outline"></ion-icon> -->
+              <ion-button class="uncheck" fill="clear">
+                <ion-icon name="close-circle-outline"></ion-icon>
+              </ion-button>
             </div>
           </ion-badge>
       </ion-row>
