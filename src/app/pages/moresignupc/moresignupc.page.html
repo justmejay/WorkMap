@@ -308,7 +308,7 @@
             <ion-label position="stacked">TIN Number:</ion-label>
               <ion-input position="stacked" type="number" formControlName="tin" class="custominput"></ion-input>
               <div>
-                <!-- <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note> -->
+                <ion-note slot="error" *ngIf="(tin.dirty || tin.touched) && tin.errors">Required</ion-note>
               </div>
 
               <ion-button class="urc" expand="block" shape="round">
