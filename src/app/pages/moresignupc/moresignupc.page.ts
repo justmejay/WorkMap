@@ -81,21 +81,10 @@ export class MoresignupcPage implements OnInit {
   get ccontact() {
     return this.credentials.get('ccontact');
   }
-  // get street() {
-  //   return this.credentials.get('street');
-  // }
-  // get barangay() {
-  //   return this.credentials.get('barangay');
-  // }
-  // get town() {
-  //   return this.credentials.get('town');
-  // }
-  // get province() {
-  //   return this.credentials.get('town');
-  // }
-  // get country() {
-  //   return this.credentials.get('town');
-  // }
+  get tin() {
+    return this.credentials.get('tin'); 
+  }
+ 
   get cemail() {
     return this.credentials.get('cemail');
   }
