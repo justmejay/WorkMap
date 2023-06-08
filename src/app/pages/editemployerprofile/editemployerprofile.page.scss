@@ -34,20 +34,21 @@ ion-list{
 //     border: solid 1px #044DA3;
 // }
 
-// ion-input.custominput{
-//     border: solid 2px  rgb(53, 66, 125);
-//     border-radius: 15px;
-//     // --background: #cddbf1;
-//     color: black;
-//     margin-bottom: 0.5rem;
-//     margin-top: 0.5rem;
+ion-input.custom{
+    border: solid 2px  rgb(53, 66, 125);
+    border-radius: 15px;
+    // --background: #cddbf1;
+    color: black;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    --background:#ffffff;
 
-// }
+}
 
 ion-item{
     border: solid 2px #136cd2;
     border-radius: 15px; 
-    margin-bottom: 0.5rem;
+    // margin-bottom: 0.5rem;
     
 }
 ion-input{
@@ -56,10 +57,10 @@ ion-input{
 ion-input.custominput{
 //   --background: #fff;
   --color: black;
-  --padding-bottom: 10px;
-  --padding-end: 10px;
+//   --padding-bottom: 10px;
+//   --padding-end: 10px;
   --padding-start: 10px;
-  --padding-top: 10px;
+//   --padding-top: 10px;
 }
 
 
@@ -78,6 +79,11 @@ ion-button{
 }
 ion-card-title{
     color: white;
+}
+
+ion-note{
+    margin-left: 6%;
+    --color: rgb(255, 74, 74);
 }
 
 

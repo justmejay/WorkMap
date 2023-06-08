@@ -16,14 +16,15 @@
           <ion-card-title>Job Listing Details</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-label>Job Titles <h6 style="color: red;font-size: smaller;">*required</h6> </ion-label>
+          <ion-label>Job Title *</ion-label>
           <ion-input placeholder="Webdeveloper" position="stacked" type="text" formControlName="jtitle" value="{{jobs.jtitle}}" ></ion-input>
-          <ion-label>Starting Salary: <h6 style="color: red;font-size: smaller;">*required</h6> </ion-label>
+          
+          <ion-label>Starting Salary *</ion-label>
           <ion-input placeholder="35,000" position="stacked" type="number" formControlName="jsalary" value="{{jobs.jsalary}}"></ion-input>
           
 
           <div class="jobposition">
-            <ion-label>Job Position <ion-label style="color: red;font-size: smaller;">*required. 5 MAX</ion-label></ion-label>
+            <ion-label>Job Position *5 max</ion-label>
           </div>
 
           <!-- <ion-input [hidden]="determine" [readonly]="true" [value]="credentials.value.jposition"  formControlName="jposition" placeholder="Senior Developer" position="stacked" type="text" ></ion-input> -->
@@ -63,12 +64,12 @@
     
        
 
-        <ion-label>Job Description <h6 style="color: red;font-size: smaller;">*required</h6></ion-label>
+        <ion-label>Job Description *</ion-label>
         <ion-item>
           <ion-textarea placeholder="Description" position="stacked" type="textarea" formControlName="jdescription" value="{{jobs.jdescription}}"></ion-textarea>
         </ion-item>
 
-        <ion-label>Job Type <h6 style="color: red;font-size: smaller;">*required</h6></ion-label>
+        <ion-label>Job Type *</ion-label>
         <ion-item lines="none">
           <ion-select label="Default label" interface="action-sheet" placeholder="Select job type" class="jobtype" formControlName="jtype" value="{{jobs.jtype}}">
             <ion-select-option value="Full Time">Full Time</ion-select-option>
@@ -77,10 +78,10 @@
           </ion-select>
         </ion-item>
 
-        <ion-label>Minimum Experience: <h6 style="color: red;font-size: smaller;">*blank if not applicable</h6> </ion-label>
+        <ion-label>Minimum Experience</ion-label>
         <ion-input formControlName="jexperience" value="{{jobs.jexperience}}" placeholder="Experience in Years" type="number" ></ion-input>
           
-        <ion-label>Educational Attainment <h6 style="color: red;font-size: smaller;">*leave blank if not applicable</h6></ion-label>
+        <ion-label>Educational Attainment</ion-label>
         <ion-item lines="none" >
           <ion-select label="Default label" formControlName="attainment" value="{{jobs.attainment}}" interface="action-sheet" placeholder="Select Educational Attainment">
             <ion-select-option class="popoverselect" value="">No Minimum Education Required</ion-select-option>
@@ -92,6 +93,8 @@
             <ion-select-option class="popoverselect" value="6">Doctorate Degree</ion-select-option>
           </ion-select>
         </ion-item>
+
+        <ion-label  style="font-style: italic;" >Note: All inputs with asterisk are required.</ion-label>
 
         </ion-card-content>
       </ion-card>
