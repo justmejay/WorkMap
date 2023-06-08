@@ -69,6 +69,10 @@
 <ion-content   class="ion-padding ">
   <div class="alert" [hidden]="!button" *ngIf="company.status == 'Pending'" style="color: black;text-align: center;">
     <ion-label  [hidden]="!button" *ngIf="company.status == 'Pending'" class="alert">Account is pending for approval!</ion-label>
+    <ion-img 
+    src="assets/approval-removebg-preview.png"
+    >
+    </ion-img>
   </div>
 
 
