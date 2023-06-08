@@ -30,25 +30,25 @@ ion-card-content{
 
 ion-label{
     padding-left: 3%;
-    font-size: 8px;
+    font-size: medium;
+    color: white;
 }
 ion-item{
     border: solid 2px #136cd2;
-    border-radius: 15px; 
-    margin-bottom: 0.5rem;
-    
+    border-radius: 15px;
+    // margin-bottom: 0.5rem;   
 }
+
 ion-input{
     border-radius: 15px;
 }
 ion-input.custominput{
 //   --background: #fff;
   --color: black;
-  --padding-bottom: 10px;
-  --padding-end: 10px;
+//   --padding-bottom: 10px;
+//   --padding-end: 10px;
   --padding-start: 10px;
-  --padding-top: 10px;
-
+//   --padding-top: 10px;
 }
 
 
@@ -72,9 +72,6 @@ ion-note{
     display: block;
     width: auto;
 }
-.selectitem{
-    border: none;
-}
 .changepfp{
     display: block;
     flex-direction: row;
@@ -87,4 +84,8 @@ ion-button{
 
 ion-button.btnreg{
     text-transform: initial;
+}
+ion-note{
+    margin-left: 6%;
+    --color: rgb(255, 74, 74);
 }
