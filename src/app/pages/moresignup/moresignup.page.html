@@ -20,6 +20,14 @@
           <ion-row>
             <ion-col>
             <ion-label position="stacked">First Name:</ion-label>
+            </ion-col>
+            <ion-col>
+            <ion-label position="stacked">Middle Name:</ion-label>
+
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
             <ion-input position="stacked" type="text" formControlName="fname" class="custominput"></ion-input>
             <div>
               <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
@@ -27,7 +35,6 @@
             </ion-col>
             
             <ion-col>
-            <ion-label position="stacked">Middle Name:</ion-label>
             <ion-input position="stacked" type="text" formControlName="mname" class="custominput"></ion-input>
             </ion-col>
           </ion-row>
@@ -37,6 +44,13 @@
           <ion-row>
             <ion-col>
             <ion-label position="stacked">Last Name:</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="stacked">Suffix (optional):</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
             <ion-input position="stacked" type="text" formControlName="lname" class="custominput"></ion-input>
             <div>
               <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
@@ -44,7 +58,6 @@
             </ion-col>
             
             <ion-col>
-              <ion-label position="stacked">Suffix (optional):</ion-label>
               <ion-item class="dropdown">
                 <ion-select formControlName="suffix" interface="action-sheet" placeholder="Select suffix" expand="block" >
                   <ion-select-option value="">N/A</ion-select-option>
@@ -63,6 +76,14 @@
           <ion-row>
             <ion-col>
               <ion-label position="stacked">Civil Status:</ion-label>
+            </ion-col>
+
+            <ion-col>
+              <ion-label position="stacked">Religion:</ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
               <ion-item>
                   <ion-select formControlName="cs" interface="action-sheet"placeholder="Select Status" expand="block">
                     <ion-select-option value="Single">Single</ion-select-option>
@@ -77,7 +98,6 @@
             </ion-col>
 
             <ion-col>
-              <ion-label position="stacked">Religion:</ion-label>
               <ion-input position="stacked" type="text" formControlName="religion" class="custominput"></ion-input>
                 <div>
                   <ion-note slot="error" *ngIf="(religion.dirty || religion.touched) && religion.errors">Required</ion-note>
@@ -90,6 +110,17 @@
           <ion-row>
             <ion-col>
               <ion-label  position="stacked">Sex:</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="stacked">Birthdate:</ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="stacked">Age:</ion-label>
+            </ion-col>
+
+          </ion-row>
+          <ion-row>
+            <ion-col>
               <ion-item>
                 <ion-select formControlName="sex" interface="action-sheet" placeholder="Select" expand="block">
                   <ion-select-option value="Male">Male</ion-select-option>
@@ -102,7 +133,6 @@
             </ion-col>
             
             <ion-col>
-              <ion-label position="stacked">Birthdate:</ion-label>
               <ion-input (ionChange)="computeAge()" position="stacked" type="date" formControlName="bday" class="custominput"></ion-input>
                 <ion-modal [keepContentsMounted]="true">
                   <ng-template>
@@ -113,11 +143,11 @@
                 <div>
                   <ion-text class="under" color="danger" *ngIf="credentials.get('bday').hasError('underAge') && (credentials.get('bday').dirty || credentials.get('bday').touched)">
                     You must be at least 18 years old or less than 65 years old.
-                  </ion-text>                </div>
+                  </ion-text>                
+                </div>
             </ion-col>
 
             <ion-col>
-              <ion-label position="stacked">Age:</ion-label>
               <ion-input [readonly]="true" position="stacked" value="{{agecompute}}"   formControlName="age" type="Number"  class="custominput"></ion-input>
               <div>
                 <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
@@ -127,9 +157,19 @@
         </ion-grid>
 
         <ion-grid>
+          <ion-row>
+            <ion-col>
+            <ion-label position="stacked">Contact:</ion-label>
+
+            </ion-col>
+            <ion-col>
+            <ion-label position="stacked">Citizenship:</ion-label>
+
+            </ion-col>
+
+          </ion-row>
         <ion-row>
           <ion-col>
-            <ion-label position="stacked">Contact:</ion-label>
             <ion-input position="stacked" formControlName="contact" type="tel" class="custominput"></ion-input>
             <div>
               <ion-note slot="error" *ngIf="contact.invalid && (contact.dirty || contact.touched)">
@@ -145,7 +185,6 @@
           </ion-col>
 
           <ion-col>
-            <ion-label position="stacked">Citizenship:</ion-label>
             <!-- <ion-input position="stacked" type="text" formControlName="citizenship" class="custominput"></ion-input> -->
               <ion-item>
                 <ion-select formControlName="citizenship" placeholder="" interface="action-sheet">
