@@ -35,11 +35,11 @@
         <ion-icon slot="start"  name="diamond-outline" style="color: #42505d;"></ion-icon>
         Get Premium</ion-button>
     </ion-card>
-    <!-- <ion-card class="hamburgcard">
-      <ion-button fill="clear" class="card1menu" expand="block">
-        <ion-icon slot="start" name="settings" style="color: #42505d;"></ion-icon>
-        Settings</ion-button>
-    </ion-card> -->
+    <ion-card class="hamburgcard">
+      <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/myapplications']">
+        <ion-icon slot="start" name="business-outline" style="color: #42505d;"></ion-icon>
+        Job Applications</ion-button>
+    </ion-card>
     <ion-card class="hamburgcard">
       <ion-button fill="clear" class="card1menu" expand="block" (click)="logout()">
         <ion-icon slot="start" name="log-out-outline" style="color:#42505d;"></ion-icon>
@@ -89,6 +89,10 @@
 
       <div class="alert" [hidden]="!button" style="color: black;text-align: center;">
         <ion-label [hidden]="!button"  class="alert">Complete your resume before applying!</ion-label>
+        <ion-img
+          src="assets/fill_up_resume-removebg-preview.png"
+          alt="Resume builder fill up">
+        </ion-img>
       </div>
       
 

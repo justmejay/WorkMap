@@ -344,6 +344,10 @@ const routes: Routes = [
     path: 'rateemployeeedit',
     loadChildren: () => import('./pages/rateemployeeedit/rateemployeeedit.module').then( m => m.RateemployeeeditPageModule)
   },
+  {
+    path: 'myapplications',
+    loadChildren: () => import('./pages/myapplications/myapplications.module').then( m => m.MyapplicationsPageModule)
+  },
 
 
 

@@ -1,21 +1,3 @@
-
-
-.alert{
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    background: rgb(240, 154, 154);
-    width: 80%;
-    border-radius: 45px;
-   
-    ion-label{
-        padding: 0.2rem;
-        text-align: center;
-    }
-}
-
-
 ion-header{
     display: block;
     position: relative;
@@ -24,80 +6,10 @@ ion-header{
     width: 100%;
     z-index: 10;
 }
-ion-menu::part(backdrop) {
-    background-color: rgba(18, 102, 237, 0.5);
-  }
-  ion-menu::part(container) {
-    border-radius: 0 20px 20px 0;
-    box-shadow: 5px 8px 5px rgba(1, 31, 105, 0.18);
-  }
-  .hamburgtitle{
-    font-size: larger;
-  }
-.hamburger{
-    --background:#E5EBEE;
-}
-.hamburgcard{
-    border-radius: 15px;
-    box-shadow: 4px 5px 16px;
-    margin-bottom: 3%;
-    --background: #FFFFFF;
-}
-.card1menu{
-    --background: #FFFFFF;
-    color: #000000;
-    text-transform: initial;
-}
-.uppertool{
-    --background:#2855A1;
-}
 
-.lowertool{
-    --background:#ffffff;
-}
-
-ion-content{
-    --background:#E5EBEE;
-} 
-
-// .btnheader{
-//     width: auto;
-//     font-size: 40px;
-//     color: #ffffff; 
-//     padding: 0%; 
-// }
-.btn{
-    color: #ffffff; 
-}
-.activetoggle{
-    display: flex;
-    flex-direction: row;
-}
-ion-tabs{
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    contain: layout size style;
-    flex-direction: column;
-    align-items: stretch;
-}
-
-ion-tab-bar{
-    display: flex;
-    position: relative;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: nowrap;
-    align-items: stretch;
-}
-
-ion-tab-button{
-    color: #2855A1;
+ion-toolbar{
+    --background:  #2855A1;
+    --color: white;
 }
 
 ion-card.joblisting {
@@ -126,36 +38,13 @@ ion-card-content{
     color: black;
     padding: 1rem;
 }
-.hamburgcard{
-    --background: #ffffff;
-    box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-}
-// .companydetails{
-//     display: flex;
-//     flex-direction: row;
-// }
-// .jobdetails{
-//     display: flex;
-//     flex-direction: column;
-// }
-// .jobtype{
-//     display: flex;
-//     flex-direction: column;
-// }
-// .jobspecialization{
-//     display: flex;
-//     flex-direction: column;
-// }
-// .jobdescription{
-//     display: flex;
-//     flex-direction: column;
-// }
+
 .timeposted{
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: #2F7EF5;
 }
+
 .jobcardinfo{
     // display: block;
     // width: 100%;
@@ -173,9 +62,7 @@ ion-card-content{
         margin-top: 1rem;
         margin-bottom: 1rem;
 }
-.togglestatus{
-    padding-top: 0.6rem;
-}
+
 ion-label{
     padding-left: 0.5rem;
 }
@@ -226,6 +113,7 @@ ion-badge {
     // margin-right: 0;
   }
 
+  
   ion-row{
     margin-top: 0.5rem;
     padding-bottom: 0.2rem;
@@ -248,11 +136,4 @@ ion-badge {
     --padding-bottom: 10px;
     font-size: 13px;
     border: solid 3px  rgb(53, 66, 125);
-  }
-
-  .sort{
-    position: -webkit-sticky;
-    position: static;
-    width: 100%;
-    margin-bottom: 0.8rem;
   }

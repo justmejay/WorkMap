@@ -109,11 +109,11 @@ ion-icon{
     display: flex;
     flex-direction: row;
     ion-label{
-        padding-top: 7px;
+        margin: auto;
     }
-    ion-icon{
-        margin-left: 4px;
-        margin-right: 0px;
+    ion-button{
+      padding: 0;
+      margin-right: 0;
     }
   }
   .checkbox{
@@ -156,4 +156,9 @@ ion-icon{
 }
 .position{
   padding-left: 3px;
+}
+.uncheck{
+  margin-left: auto;
+  margin-right: 0;
+  color: white;
 }

@@ -1,0 +1,103 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/dashboard']" slot="start">
+      <ion-icon style="width: 50px; color: white;" name="arrow-back-outline"> </ion-icon>
+      </ion-buttons> 
+      <ion-label>
+        Job Listing Applications
+      </ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment value="default">
+    <ion-segment-button value="pending">
+      <ion-label>Pending</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="rejected">
+      <ion-label>Rejected</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="inprocess">
+      <ion-label>In Process</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-card class="joblisting">
+    <ion-card-header>
+      <ion-grid>
+        <ion-row class="jobtitle">
+          <ion-card-title>
+            Looking for web developer
+          </ion-card-title>
+          <ion-button class="viewmore" fill="clear">
+            <ion-icon  name="information-circle" class="edit" ></ion-icon>
+          </ion-button>
+        </ion-row>
+        <ion-row>
+          <ion-card-subtitle>
+            <ion-badge class="success" color="primary">
+              <ion-icon name="location-outline"></ion-icon>
+              69,420km from your location
+            </ion-badge>
+          </ion-card-subtitle>
+        </ion-row>
+      </ion-grid>
+
+      
+      <!-- <ion-card-subtitle>
+        {{job.cname}}
+         Company Name, Company Address  Not Working. NO NEED FOR COMPANY DETAILS HERE
+      </ion-card-subtitle> -->
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row class="jobposition">
+          <ion-badge class="positionbadges" color="tertiary">Web Developer</ion-badge>
+        </ion-row>
+        <ion-row class="companydetails">
+          <ion-col class="labelheader">Starting Salary:</ion-col>
+          <ion-col>100,000 peso/s</ion-col>
+
+          <ng-template #placeholder_avatar>
+            <ion-col>Company did not specified</ion-col>
+          </ng-template>
+          
+        </ion-row>
+        <div class="jobdetails">
+
+          <!-- <ion-row class="jobposition">
+            <ion-col class="labelheader">Job Position:</ion-col>
+            <ion-col placeholder="">Senior Developer</ion-col>
+          </ion-row> -->
+          
+          <ion-row class="jobtype">
+            <ion-col class="labelheader">Job type:</ion-col>
+            <ion-col>Full time</ion-col>
+          </ion-row>
+          <ion-row class="minimum">
+            <ion-col class="labelheader">Minimum experience required:</ion-col>
+            <ion-col>15 year/s</ion-col>
+
+          <ng-template #placeholder_avatar1>
+            <ion-col>No experience required</ion-col> 
+          </ng-template>
+          </ion-row>
+          <ion-row class="education">
+            <ion-col class="labelheader">Educational Attainment:</ion-col>
+            <ion-col placeholder="">Bachelor's Degree</ion-col>
+            <ng-template #placeholder_avatar3>
+              <ion-col>No minimum education required</ion-col> 
+            </ng-template>
+          </ion-row>
+          <ion-row class="jobdescription">
+            <ion-col class="labelheader">Job description:</ion-col>
+            <ion-col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem nobis praesentium a, suscipit ratione cupiditate quod ut? Quod unde quam, vel tenetur nam, rerum, ipsam quos ab sapiente quas dolorem?</ion-col>
+          </ion-row>
+        </div>
+      </ion-grid>
+      <ion-label class="timeposted">Date Posted: MM/DD/YYYY</ion-label>
+    </ion-card-content>
+      
+    <!-- <ion-button size="large" [disabled]="true" class="jobcardinfo">Pending</ion-button> -->
+  </ion-card>
+
+</ion-content>
