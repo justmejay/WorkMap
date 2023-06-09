@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-segment value="default">
+  <ion-segment value="default" [(ngModel)]="selectTabs">
     <ion-segment-button value="pending">
       <ion-label>Pending</ion-label>
     </ion-segment-button>
@@ -100,10 +100,42 @@
     <!-- <ion-button size="large" [disabled]="true" class="jobcardinfo">Pending</ion-button> -->
   <!-- </ion-card> -->
 
-  <ion-card *ngFor="let appl of appl">
-    <ion-label>{{appl.jtitle}}</ion-label>
-    <ion-label>{{appl.status}}</ion-label>
-    <ion-button>View Application Details</ion-button>
-  </ion-card>
+  <div *ngIf="selectTabs === 'pending'" >
+    <ion-card *ngFor="let appl of appl">
+      <ion-item>
+        <ion-label>Job Title: {{appl.application.jtitle}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Status: {{appl.status}}</ion-label>
+      </ion-item>
+      <ion-button (click)="view(appl)">View Application Details</ion-button>
+    </ion-card>
+  </div>
+
+  <div *ngIf="selectTabs === 'rejected'" >
+    <ion-card *ngFor="let appl of appl">
+      <ion-item>
+        <ion-label>Job Title: {{appl.application.jtitle}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Status: {{appl.status}}</ion-label>
+      </ion-item>
+      <ion-button (click)="view(appl)">View Application Details</ion-button>
+    </ion-card>
+  </div>
+
+  <div *ngIf="selectTabs === 'inprocess'" >
+    <ion-card *ngFor="let appl of appl">
+      <ion-item>
+        <ion-label>Job Title: {{appl.application.jtitle}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Status: {{appl.status}}</ion-label>
+      </ion-item>
+      <ion-button (click)="view(appl)">View Application Details</ion-button>
+    </ion-card>
+  </div>
+
+  
 
 </ion-content>

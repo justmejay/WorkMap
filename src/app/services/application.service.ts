@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 import { HttpUserEvent } from '@angular/common/http';
 import { AnyARecord } from 'dns';
+import { idTokenResult } from '@angular/fire/auth-guard';
 
 export interface User{
   //id is optional and not required
@@ -401,6 +402,15 @@ export class ApplicationService {
       const cakesRef = collection(this.firestore, 'application/')
       const q = query(cakesRef, where("application.uid", "==", id));
       return collectionData(q, {idField: 'userget'}) as Observable<[User]> 
+  
+      
+    }
+
+    getjobid(id: any): Observable<User[]>{
+      
+      const cakesRef = doc(this.firestore, `joblist/${id}`)
+      // const q = query(cakesRef, where("application.uid", "==", id));
+      return docData(cakesRef, {idField: 'userget'}) as Observable<[User]> 
   
       
     }

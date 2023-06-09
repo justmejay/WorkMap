@@ -1,0 +1,139 @@
+ion-header{
+    display: block;
+    position: relative;
+    -ms-flex-order: -1;
+    order: -1;
+    width: 100%;
+    z-index: 10;
+}
+
+ion-toolbar{
+    --background:  #2855A1;
+    --color: white;
+}
+
+ion-card.joblisting {
+    --background: #eee8ff;
+    // box-shadow: 5px 8px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    // border: solid 3px  rgb(53, 66, 125);
+}
+ion-card-header{
+    --background: #5e2ee4;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ion-card-title{
+    color: whitesmoke;
+    // padding-top: 0.8rem;
+    font-size: 30px;
+}
+ion-card-subtitle{
+    color: whitesmoke;
+}
+ion-card-content{
+    color: black;
+    padding: 1rem;
+}
+
+.timeposted{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #2F7EF5;
+}
+
+.jobcardinfo{
+    // display: block;
+    // width: 100%;
+    // --border-radius: 0px 0px 10px 10px;
+    // --background: #2F7EF5;
+    // margin: 0%;
+    // text-transform: initial;
+        display: block;
+        width: 80%;
+        --border-radius: 50px;
+        --background: #142680;
+        text-transform: initial;
+        -ms-transform: translate(50%, 50%);
+        transform: translate(10%, 0%);
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+}
+
+ion-label{
+    padding-left: 0.5rem;
+}
+// .labelheader{
+//     font-size: 20px;
+//     font-weight: 300;
+// }
+ion-icon{
+    --background:#ffffff;
+}
+.btns{
+    display: flex; 
+    flex-direction:column; 
+    align-items: stretch;
+    padding: 0 10%;
+    margin-bottom: 1rem;
+}
+.save{
+    --background: #182b8b;;
+    // --border-color: #2855A1;
+    // --border-style: solid;
+    // --border-width: 2px;
+    color: #FFFFFF;
+    margin-top: 4%;
+    text-transform: initial;
+    padding-left: 1rem;
+}
+ion-badge {
+    border-radius: 50px;
+    --color: white;
+    --padding-end: 20px;
+    --padding-start: 20px;
+  }
+
+  .positionbadges{
+    margin-bottom: 0.5rem;
+    margin-right: 0.3rem;
+  }
+
+  .viewmore{
+    color: white;
+    text-transform: initial;
+    margin:0;
+    // text-align: right;
+    // padding-left: 2rem;
+    // padding-top: 0.3rem;
+    // margin-left: auto;
+    // margin-right: 0;
+  }
+
+  
+  ion-row{
+    margin-top: 0.5rem;
+    padding-bottom: 0.2rem;
+  }
+  
+.jobtitle{
+    display: flex;
+    margin-top: 0.5rem;
+    padding-bottom: 0.2rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+  ion-badge.distance {
+    border-radius: 50px;
+    --color: white;
+    --padding-end: 20px;
+    --padding-start: 20px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    font-size: 13px;
+    border: solid 3px  rgb(53, 66, 125);
+  }
