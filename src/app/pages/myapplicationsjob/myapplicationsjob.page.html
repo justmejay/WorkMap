@@ -82,6 +82,14 @@
             <ion-col class="labelheader">Job description:</ion-col>
             <ion-col>{{job.jdescription}}</ion-col>
           </ion-row>
+          <ion-row>
+            <ion-col>
+              Vacant slots:
+            </ion-col>
+            <ion-col>
+              {{job.slots}}
+            </ion-col>
+          </ion-row>
         </div>
       </ion-grid>
       <ion-label class="timeposted">Date Posted: {{job.timestamp}}</ion-label>
