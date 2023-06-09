@@ -318,13 +318,13 @@ export class ProfilingService {
   }
 
 
-  async editref({mo, moc, fa, fac}: {mo: any, moc: any, fa: any, fac: any}){
+  async editref({mo, moc, fa, fac, mo1, moc1, fa1, fac1, mo2, moc2, fa2, fac2}: {mo: any, moc: any, fa: any, fac: any,mo1, moc1, fa1, fac1, mo2, moc2, fa2, fac2}){
 
     try {
       
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/resume/${userget}`);
-      const user = await updateDoc(userDocRef3, {mo, moc, fa, fac});
+      const user = await updateDoc(userDocRef3, {mo, moc, fa, fac, mo1, moc1, fa1, fac1, mo2, moc2, fa2, fac2});
      
       return true;
     } catch (e) {

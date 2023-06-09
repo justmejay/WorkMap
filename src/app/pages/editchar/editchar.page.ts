@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { ProfilingService } from 'src/app/services/profiling.service';
@@ -16,6 +16,7 @@ export class EditcharPage implements OnInit {
   get mo() {
     return this.credentials.get('mo');
   }
+  
   get moc() {
     return this.credentials.get('moc');
   }
@@ -23,6 +24,34 @@ export class EditcharPage implements OnInit {
     return this.credentials.get('fa');
   }
   get fac() {
+    return this.credentials.get('fac');
+  }
+
+  get mo1() {
+    return this.credentials.get('mo');
+  }
+  
+  get moc1() {
+    return this.credentials.get('moc');
+  }
+  get fa1() {
+    return this.credentials.get('fa');
+  }
+  get fac1() {
+    return this.credentials.get('fac');
+  }
+
+  get mo2() {
+    return this.credentials.get('mo');
+  }
+  
+  get moc2() {
+    return this.credentials.get('moc');
+  }
+  get fa2() {
+    return this.credentials.get('fa');
+  }
+  get fac2() {
     return this.credentials.get('fac');
   }
  
@@ -46,10 +75,18 @@ export class EditcharPage implements OnInit {
 
   ngOnInit() {
     this.credentials = this.fb.group({
-      mo: ['', [Validators.required]],
-      moc: ['', [Validators.required]],
+      mo: ['', [Validators.required, Validators.pattern('^[A-Z][a-z]*(?: [A-Z][a-z]*)*$')]],
+      moc: ['', [Validators.required, Validators.pattern('^09\\d{9}$')]],
       fa: ['', [Validators.required]],
-      fac: ['', [Validators.required]],
+      fac: ['', [Validators.required,Validators.email]],
+      mo1: ['', []],
+      moc1: ['', []],
+      fa1: ['', []],
+      fac1: ['', []],
+      mo2: ['', []],
+      moc2: ['', []],
+      fa2: ['', []],
+      fac2: ['', []],
       });
   }
 

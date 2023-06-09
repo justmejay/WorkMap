@@ -137,6 +137,34 @@
 
         <ion-label position="stacked" class="cardsubtitle">Email: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{resume.fac}}" [readonly]="true"></ion-input>
+
+
+        
+        <ion-label position="stacked" *ngIf="resume?.mo1" class="cardsubtitle">Name: </ion-label>
+        <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.mo1" value="{{resume.mo1}}"></ion-input>
+      
+        <ion-label position="stacked" *ngIf="resume?.moc1" class="cardsubtitle">Contact No: </ion-label>
+        <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.moc1" value="{{resume.moc1}}"></ion-input>
+      
+        <ion-label position="stacked" *ngIf="resume?.fa1" class="cardsubtitle">Relationship with person: </ion-label>
+        <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.fa1" value="{{resume.fa1}}"></ion-input>
+      
+        <ion-label position="stacked" *ngIf="resume?.fac1" class="cardsubtitle">Email: </ion-label>
+        <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.fac1" value="{{resume.fac1}}"></ion-input>
+   
+
+        <ion-label position="stacked" *ngIf="resume?.mo2" class="cardsubtitle">Name: </ion-label>
+        <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.mo2" value="{{resume.mo2}}"></ion-input>
+      
+        <ion-label position="stacked" *ngIf="resume?.moc2" class="cardsubtitle">Contact No: </ion-label>
+        <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.moc2" value="{{resume.moc2}}"></ion-input>
+      
+        <ion-label position="stacked"  *ngIf="resume?.fa2" class="cardsubtitle">Relationship with person: </ion-label>
+        <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.fa2" value="{{resume.fa2}}"></ion-input>
+      
+        <ion-label position="stacked" *ngIf="resume?.fac2"  class="cardsubtitle">Email: </ion-label>
+        <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.fac2" value="{{resume.fac2}}"></ion-input>
+   
     </ion-card-content>
   </ion-card>
 

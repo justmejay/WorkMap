@@ -36,17 +36,91 @@
               <ion-label position="stacked">Name: </ion-label>
               <ion-input position="stacked" class="custominput" formControlName="mo" value="{{resume.mo}} "></ion-input>
             </ion-item>
+            <ion-note slot="error" *ngIf="mo.invalid && (mo.dirty || mo.touched)">
+              <ng-container *ngIf="mo.errors['required']">
+                Required!
+              </ng-container>
+              <ng-container *ngIf="mo.errors['pattern']">
+               Name should be capitalized on first letter.
+              </ng-container>
+              
+            </ion-note>   
             <ion-item>
               <ion-label position="stacked">Contact No: </ion-label>
-              <ion-input type="number" position="stacked" class="custominput" formControlName="moc" value="{{resume.moc}}"></ion-input>
+              <ion-input type="tel" position="stacked" class="custominput" formControlName="moc" value="{{resume.moc}}"></ion-input>
             </ion-item>
+            <ion-note slot="error" *ngIf="moc.invalid && (moc.dirty || moc.touched)">
+              <ng-container *ngIf="moc.errors['required']">
+                Required!
+              </ng-container>
+              <ng-container *ngIf="moc.errors['pattern']">
+                Phone number should start with 09 and have 11 digits
+              </ng-container>
+              
+            </ion-note>     
+
             <ion-item>
               <ion-label position="stacked">Relationship with person: </ion-label>
               <ion-input position="stacked" class="custominput" formControlName="fa" value="{{resume.fa}}" ></ion-input>
             </ion-item>
+
+            <ion-note slot="error" *ngIf="fa.invalid && (fa.dirty || fa.touched)">
+              <ng-container *ngIf="fa.errors['required']">
+                Required!
+                </ng-container>
+            </ion-note>  
+
+
             <ion-item>
               <ion-label position="stacked">Email: </ion-label>
               <ion-input type="text" position="stacked" class="custominput" formControlName="fac" value="{{resume.fac}}"></ion-input>
+            </ion-item>
+            <ion-note slot="error" *ngIf="fac.invalid && (fac.dirty || fac.touched)">
+              <ng-container *ngIf="fac.errors['required']">
+                Required!
+                </ng-container>
+                <ng-container *ngIf="fac.errors['email']">
+                  Invalid email!  
+                 </ng-container>
+            </ion-note>  
+
+            <b><h6>Reference #2 (OPTIONAL)</h6></b>
+            
+            <ion-item >
+              <ion-label position="stacked">Name: </ion-label>
+              <ion-input position="stacked" class="custominput" formControlName="mo1" value="{{resume.mo1}} "></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Contact No: </ion-label>
+              <ion-input type="number" position="stacked" class="custominput" formControlName="moc1" value="{{resume.moc1}}"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Relationship with person: </ion-label>
+              <ion-input position="stacked" class="custominput" formControlName="fa1" value="{{resume.fa1}}" ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Email: </ion-label>
+              <ion-input type="text" position="stacked" class="custominput" formControlName="fac1" value="{{resume.fac1}}"></ion-input>
+            </ion-item>
+            <b><h6>Reference #3 (OPTIONAL)</h6></b>
+
+
+            <ion-item >
+              <ion-label position="stacked">Name: </ion-label>
+              <ion-input position="stacked" class="custominput" formControlName="mo2" value="{{resume.mo2}} "></ion-input>
+            
+            </ion-item> 
+            <ion-item>
+              <ion-label position="stacked">Contact No: </ion-label>
+              <ion-input type="number" position="stacked" class="custominput" formControlName="moc2" value="{{resume.moc2}}"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Relationship with person: </ion-label>
+              <ion-input position="stacked" class="custominput" formControlName="fa2" value="{{resume.fa2}}" ></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">Email: </ion-label>
+              <ion-input type="text" position="stacked" class="custominput" formControlName="fac" value="{{resume.fac2}}"></ion-input>
             </ion-item>
           </ion-card-content>
         </ion-card>

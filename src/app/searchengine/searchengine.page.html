@@ -74,7 +74,7 @@
     </ion-row>
   </ion-grid>
   <div class="searchengine">
-    <ion-button shape="round" (click)="searchse()" expand="block" class="searchbutton">Search Job Listing</ion-button>
+    <ion-button shape="round" [disabled]="!(checkeditems.length > 0)" (click)="searchse()" expand="block" class="searchbutton">Search Job Listing</ion-button>
   </div>
   <div class="results">
     <ion-card *ngFor="let x of finaldata" class="joblisting">
