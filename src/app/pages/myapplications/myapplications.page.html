@@ -21,7 +21,7 @@
       <ion-label>In Process</ion-label>
     </ion-segment-button>
   </ion-segment>
-  <ion-card class="joblisting">
+  <!-- <ion-card class="joblisting">
     <ion-card-header>
       <ion-grid>
         <ion-row class="jobtitle">
@@ -40,14 +40,14 @@
             </ion-badge>
           </ion-card-subtitle>
         </ion-row>
-      </ion-grid>
+      </ion-grid> -->
 
       
       <!-- <ion-card-subtitle>
         {{job.cname}}
          Company Name, Company Address  Not Working. NO NEED FOR COMPANY DETAILS HERE
       </ion-card-subtitle> -->
-    </ion-card-header>
+    <!-- </ion-card-header>
     <ion-card-content>
       <ion-grid>
         <ion-row class="jobposition">
@@ -62,14 +62,14 @@
           </ng-template>
           
         </ion-row>
-        <div class="jobdetails">
+        <div class="jobdetails"> -->
 
           <!-- <ion-row class="jobposition">
             <ion-col class="labelheader">Job Position:</ion-col>
             <ion-col placeholder="">Senior Developer</ion-col>
           </ion-row> -->
           
-          <ion-row class="jobtype">
+          <!-- <ion-row class="jobtype">
             <ion-col class="labelheader">Job type:</ion-col>
             <ion-col>Full time</ion-col>
           </ion-row>
@@ -96,8 +96,14 @@
       </ion-grid>
       <ion-label class="timeposted">Date Posted: MM/DD/YYYY</ion-label>
     </ion-card-content>
-      
+       -->
     <!-- <ion-button size="large" [disabled]="true" class="jobcardinfo">Pending</ion-button> -->
+  <!-- </ion-card> -->
+
+  <ion-card *ngFor="let appl of appl">
+    <ion-label>{{appl.jtitle}}</ion-label>
+    <ion-label>{{appl.status}}</ion-label>
+    <ion-button>View Application Details</ion-button>
   </ion-card>
 
 </ion-content>

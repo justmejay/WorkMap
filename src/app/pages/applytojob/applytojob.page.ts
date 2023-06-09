@@ -103,6 +103,7 @@ export class ApplytojobPage implements OnInit {
   job: any =[];
   jobid: any;
   cid: any;
+  jtitle: any;
 
  
 
@@ -161,6 +162,8 @@ export class ApplytojobPage implements OnInit {
     console.log(this.job)
     this.cid = params;
     console.log(this.cid)
+    this.jtitle = params;
+    console.log(this.jtitle)
 
     
     this.firestore.getjoblist(this.job.jobid).subscribe(res=>{
@@ -218,6 +221,7 @@ export class ApplytojobPage implements OnInit {
     const id = {
       jobid: this.job.jobid,
       cid: this.job.cid,
+      jtitle: this.job.jtitle,
     }
     const get = await this.firestore.addApplication({
       ...application, 

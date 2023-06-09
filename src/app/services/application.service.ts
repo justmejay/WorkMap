@@ -391,7 +391,19 @@ export class ApplicationService {
     const q = query(cakesRef, where("uid", "==",id ), where("comid", "==",cid ))
     return collectionData(q, {idField: 'id'}) as Observable<[User]>
   }
+
+
+
+  getappid(): Observable<User[]>{
+    
+      const id = this.auth.currentUser.uid;
+      
+      const cakesRef = collection(this.firestore, 'application/')
+      const q = query(cakesRef, where("application.uid", "==", id));
+      return collectionData(q, {idField: 'userget'}) as Observable<[User]> 
   
+      
+    }
 
   
 
