@@ -40,14 +40,29 @@
             <ion-label class="cardsubtitle">Citizenship: </ion-label>
             <ion-input value="{{employer.citizenship}}" [readonly]="true"></ion-input>
 
-            <ion-label class="cardsubtitle">Contact Number: </ion-label>
-            <ion-input  value="{{employer.contact}}" [readonly]="true"></ion-input>
-
             <ion-label class="cardsubtitle">Email Address: </ion-label>
             <ion-input  value="{{employer.email}}" [readonly]="true"></ion-input>
 
-            <ion-label class="cardsubtitle">TIN Number: </ion-label>
-            <ion-input  value="{{employer.contact}}" [readonly]="true"></ion-input>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-label class="cardsubtitle">Contact Number: </ion-label>
+                </ion-col>
+                <ion-col>
+                  <ion-label class="cardsubtitle">TIN Number: </ion-label>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col>
+                  <ion-input  value="{{employer.contact}}" [readonly]="true"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-input  value="{{employer.contact}}" [readonly]="true"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
         </ion-card-content>
       </ion-card> 
 
@@ -97,11 +112,28 @@
               </ng-template>
             </ion-modal>
 
-            <ion-label class="cardsubtitle">Company Size: </ion-label>
-            <ion-input value="{{company.csize}}" [readonly]="true"></ion-input>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-label class="cardsubtitle">Company Size: </ion-label>
 
-            <ion-label class="cardsubtitle">Average Processing Time: </ion-label>
-            <ion-input value="{{company.cprocessingtime2}} {{company.cprocessingtime1}}" [readonly]="true"></ion-input>
+                </ion-col>
+                <ion-col>
+                  <ion-label class="cardsubtitle">Average Processing Time: </ion-label>
+                  
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-input value="{{company.csize}}" [readonly]="true"></ion-input>
+
+                </ion-col>
+                <ion-col>
+                  <ion-input value="{{company.cprocessingtime2}} {{company.cprocessingtime1}}" [readonly]="true"></ion-input>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
 
             <ion-label class="cardsubtitle">Benefits: </ion-label>
             <ion-textarea value="{{company.cbenefits}}" autosize  [readonly]="true"></ion-textarea>

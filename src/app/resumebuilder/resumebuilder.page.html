@@ -18,34 +18,77 @@
         <ion-label position="stacked" class="cardsubtitle">Name: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{profile.fname}} {{profile.mname}} {{profile.lname}}" [readonly]="true"></ion-input>
 
-
-        <ion-label position="stacked" class="cardsubtitle">Date of Birth: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{profile.bday}}" [readonly]="true"></ion-input>
-
-
-        <ion-label position="stacked" class="cardsubtitle">Age: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{profile.age}}" [readonly]="true"></ion-input>
-
         <ion-label position="stacked" class="cardsubtitle">Home Address: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{address.homeaddress}}" [readonly]="true"></ion-input>
 
-        <ion-label position="stacked" class="cardsubtitle">Current Address: </ion-label>
+        <ion-label position="stacked" class="cardsubtitle">Present Address: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{address.currentaddress}}" [readonly]="true"></ion-input>
-
-        <ion-label position="stacked" class="cardsubtitle">Religion: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{profile.religion}}" [readonly]="true"></ion-input>
-
-        <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{profile.cs}}" [readonly]="true"></ion-input>
-      
-        <ion-label position="stacked" class="cardsubtitle">Contact: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{profile.contact}}" [readonly]="true"></ion-input>
-
-        <ion-label position="stacked" class="cardsubtitle">Citizenship: </ion-label>
-        <ion-input position="stacked" class="custominput" value=" {{profile.citizenship}}" [readonly]="true"></ion-input>
 
         <ion-label position="stacked" class="cardsubtitle">Highest Educational Attainment: </ion-label>
         <ion-input position="stacked" class="custominput" value=" {{profile.ea}}" [readonly]="true"></ion-input>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label position="stacked" class="cardsubtitle">Date of Birth: </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="stacked" class="cardsubtitle">Age: </ion-label>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <ion-input position="stacked" class="custominput" value=" {{profile.bday}}" [readonly]="true"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input position="stacked" class="custominput" value=" {{profile.age}}" [readonly]="true"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label position="stacked" class="cardsubtitle">Religion: </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="stacked" class="cardsubtitle">Civil Status: </ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input position="stacked" class="custominput" value=" {{profile.religion}}" [readonly]="true"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input position="stacked" class="custominput" value=" {{profile.cs}}" [readonly]="true"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label position="stacked" class="cardsubtitle">Contact: </ion-label>
+            </ion-col>
+            <ion-col>
+              <ion-label position="stacked" class="cardsubtitle">Citizenship: </ion-label>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-input position="stacked" class="custominput" value=" {{profile.contact}}" [readonly]="true"></ion-input>
+            </ion-col>
+            <ion-col>
+              <ion-input position="stacked" class="custominput" value=" {{profile.citizenship}}" [readonly]="true"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      
+
+
+        
         </ion-card-content>
   </ion-card>
 
@@ -113,12 +156,26 @@
 
                 <ion-label position="stacked" class="cardsubtitle">Course: </ion-label>
                 <ion-input position="stacked" class="custominput" value=" {{s.course}}" [readonly]="true"></ion-input>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    <ion-label position="stacked" class="cardsubtitle">Level: </ion-label>
+                  </ion-col>
+                  <ion-col>
+                    <ion-label position="stacked" class="cardsubtitle">Year Graduated: </ion-label>
+                  </ion-col>
+                </ion-row>
 
-                <ion-label position="stacked" class="cardsubtitle">Level: </ion-label>
-                <ion-input position="stacked" class="custominput" value=" {{s.level}}" [readonly]="true"></ion-input>
+                <ion-row>
+                  <ion-col>
+                    <ion-input position="stacked" class="custominput" value=" {{s.level}}" [readonly]="true"></ion-input>
+                  </ion-col>
+                  <ion-col>
+                    <ion-input position="stacked" class="custominput" value=" {{s.yearg}}" [readonly]="true"></ion-input>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
 
-                <ion-label position="stacked" class="cardsubtitle">Year Graduated: </ion-label>
-                <ion-input position="stacked" class="custominput" value=" {{s.yearg}}" [readonly]="true"></ion-input>
             </div>
             
           </ion-card-content>
