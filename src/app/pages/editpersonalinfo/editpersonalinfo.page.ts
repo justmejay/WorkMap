@@ -1,5 +1,5 @@
 import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
@@ -33,6 +33,7 @@ export class EditpersonalinfoPage implements OnInit {
   filename:any
   filesize:any
   fileevent:any
+  agecompute: number;
 
 
 
@@ -97,12 +98,12 @@ export class EditpersonalinfoPage implements OnInit {
 
   ngOnInit() {
     this.credentials = this.fb.group({
-      fname: ['', [Validators.required]],
-      contact: ['', [Validators.required]],
+      fname: ['', [Validators.required, Validators.pattern('^[A-Z][a-z]*(?: [A-Z][a-z]*)*$')]],
+      contact: ['', [Validators.required, Validators.pattern('^09\\d{9}$')]],
       mname: ['', []],
-      lname: ['', [Validators.required]],
+      lname: ['', [Validators.required, Validators.pattern('^[A-Z][a-z]*(?: [A-Z][a-z]*)*$')]],
       suffix: ['', []],
-      bday: ['', [Validators.required]],
+      bday: ['', [Validators.required, this.ageValidator]],
       age: ['', [Validators.required]],
       sex: ['', [Validators.required]],
       cs: ['', [Validators.required]],
@@ -165,6 +166,28 @@ export class EditpersonalinfoPage implements OnInit {
 
 
 
+  ageValidator(control: AbstractControl): ValidationErrors | null {
+    const bday = new Date(control.value);
+    const today = new Date();
+    const ageDiff = today.getTime() - bday.getTime();
+    const ageDate = new Date(ageDiff);
+    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+ 
+  
+    return age >= 18 && age<=65 ? null : { 'underAge': true };
+  }
+
+  computeAge(){
+    const bday = new Date(this.credentials.value.bday);
+    const today = new Date();
+    const ageDiff = today.getTime() - bday.getTime();
+    const ageDate = new Date(ageDiff);
+    const age = Math.abs(ageDate.getUTCFullYear() - 1970);
+  
+    console.log(age);
+    this.agecompute = age;
+  
+  }
 
 
 

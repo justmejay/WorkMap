@@ -202,12 +202,12 @@
           </ion-tab-button>
 
           <ion-tab-button [routerLink]="['/messagespage']" >
-            <ion-badge color="danger">{{countmsg}}</ion-badge>
+            <ion-badge color="danger" *ngIf="countmsg > 0">{{countmsg}}</ion-badge>
             <ion-icon class="tabicon" name="chatbubble"></ion-icon>Messages
           </ion-tab-button>
 
           <ion-tab-button [routerLink]="['/notificationuser']">
-            <ion-badge color="danger">{{countnotif}}</ion-badge>
+            <ion-badge color="danger" *ngIf="countnotif > 0">{{countnotif}}</ion-badge>
             <ion-icon class="tabicon" name="notifications"></ion-icon>Notification
           </ion-tab-button>
           

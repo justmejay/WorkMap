@@ -39,8 +39,15 @@
                 <ion-input position="stacked" type="text" formControlName="fname" value="{{profile.fname}}" class="custominput"></ion-input>
               </ion-item>
               <div>
-              <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
-              </div>
+                <ion-note slot="error" *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+                  <ng-container *ngIf="fname.errors['required']">
+                    Required!
+                  </ng-container>
+                  <ng-container *ngIf="fname.errors['pattern']">
+                   Name should be capitalized on first letter.
+                  </ng-container>
+                  
+                </ion-note>                </div>
             </ion-col>
 
             <ion-col>
@@ -66,8 +73,15 @@
                 <ion-input position="stacked" type="text" formControlName="lname" value="{{profile.lname}}" class="custominput"></ion-input>
               </ion-item>
               <div>
-                <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
-              </div>
+                <ion-note slot="error" *ngIf="lname.invalid && (lname.dirty || lname.touched)">
+                  <ng-container *ngIf="lname.errors['required']">
+                    Required!
+                  </ng-container>
+                  <ng-container *ngIf="lname.errors['pattern']">
+                   Name should be capitalized on first letter.
+                  </ng-container>
+                  
+                </ion-note>                </div>
             </ion-col>
 
             <ion-col>
@@ -132,7 +146,7 @@
           <ion-row>
             <ion-col>
               <ion-item >
-                <ion-input formControlName="bday" value="{{profile.bday}}" type="date"></ion-input>
+                <ion-input (ionChange)="computeAge()"  formControlName="bday" value="{{profile.bday}}" type="date"></ion-input>
                   <ion-modal [keepContentsMounted]="true">
                     <ng-template>
                       <ion-icon name="calendar-number-outline"></ion-icon>
@@ -147,11 +161,13 @@
 
             <ion-col>
               <ion-item>
-                <ion-input formControlName="age" value="{{profile.age}}" type="Number"></ion-input>
+                <ion-input formControlName="age"  value="{{agecompute}}" type="Number"></ion-input>
               </ion-item>
               <div>
-              <ion-note slot="error" *ngIf="(age.dirty || age.touched) && age.errors">Required</ion-note>
-              </div>
+                <ion-text class="under" color="danger" *ngIf="credentials.get('bday').hasError('underAge') && (credentials.get('bday').dirty || credentials.get('bday').touched)">
+                  You must be at least 18 years old or less than 65 years old.
+                </ion-text>           
+                 </div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -178,12 +194,20 @@
               </div>
             </ion-col>
 
-            <ion-col>
+            <ion-col> 
               <ion-item>
-                <ion-input position="stacked" formControlName="contact" value="{{profile.contact}}" type="Number"></ion-input>
+                <ion-input position="stacked" formControlName="contact" value="{{profile.contact}}" type="tel"></ion-input>
               </ion-item>
               <div>
-              <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
+                <ion-note slot="error" *ngIf="contact.invalid && (contact.dirty || contact.touched)">
+                  <ng-container *ngIf="contact.errors['required']">
+                    Required!
+                  </ng-container>
+                  <ng-container *ngIf="contact.errors['pattern']">
+                   Phone number should be 11 numbers long and start with 09.
+                  </ng-container>
+                  
+                </ion-note>                
               </div>
             </ion-col>
           </ion-row>
@@ -414,7 +438,7 @@
     </ion-card>
     </div>
 
-    <ion-button expand="block" type="submit" class="btnreg" shape="round" size="large">Save</ion-button>
+    <ion-button expand="block" [disabled]="!credentials.valid" type="submit" class="btnreg" shape="round" size="large">Save</ion-button>
   </form>
 </div>
 
