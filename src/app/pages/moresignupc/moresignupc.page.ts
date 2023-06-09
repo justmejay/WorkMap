@@ -103,9 +103,9 @@ export class MoresignupcPage implements OnInit {
 
   ngOnInit() {
     this.credentials = this.fb.group({
-      fname: ['', [Validators.required]],
+      fname: ['', [Validators.required, Validators.pattern('^[A-Z][a-z]*(?: [A-Z][a-z]*)*$')]],
       mname: ['', []],
-      lname: ['', [Validators.required]],
+      lname: ['', [Validators.required, Validators.pattern('^[A-Z][a-z]*(?: [A-Z][a-z]*)*$')]],
       contact: ['', [Validators.required, Validators.pattern('^09\\d{9}$')]],
       citizenship: ['', [Validators.required]],
       ccontact: ['', [Validators.required, Validators.pattern('^09\\d{9}$')]],

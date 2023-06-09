@@ -30,8 +30,16 @@
             <ion-col>
             <ion-input position="stacked" type="text" formControlName="fname" class="custominput"></ion-input>
             <div>
-              <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
-            </div>
+              <ion-note slot="error" *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+                <ng-container *ngIf="fname.errors['required']">
+                  Required!
+                </ng-container>
+                <ng-container *ngIf="fname.errors['pattern']">
+                 Name should be capitalized on first letter.
+                </ng-container>
+                
+              </ion-note>            
+             </div>
             </ion-col>
             
             <ion-col>
@@ -53,8 +61,15 @@
             <ion-col>
             <ion-input position="stacked" type="text" formControlName="lname" class="custominput"></ion-input>
             <div>
-              <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
-            </div>
+              <ion-note slot="error" *ngIf="lname.invalid && (lname.dirty || lname.touched)">
+                <ng-container *ngIf="lname.errors['required']">
+                  Required!
+                </ng-container>
+                <ng-container *ngIf="lname.errors['pattern']">
+                 Name should be capitalized on first letter.
+                </ng-container>
+                
+              </ion-note></div>
             </ion-col>
             
             <ion-col>
