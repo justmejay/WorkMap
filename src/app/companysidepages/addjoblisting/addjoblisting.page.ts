@@ -3062,6 +3062,10 @@ export class AddjoblistingPage implements OnInit {
     return this.credentials.get('cbenefits');
   }
 
+  get slots() {
+    return this.credentials.get('slots');
+  }
+
   constructor(
     private firestore: CompanyService,
     private fb: FormBuilder,
@@ -3089,6 +3093,7 @@ export class AddjoblistingPage implements OnInit {
       attainment: ['', []],
       lat: ['', []],
       lng: ['', []],
+      slots: ['', [Validators.required]],
 
 
 

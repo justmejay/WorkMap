@@ -214,8 +214,8 @@ export class CompanyService {
   }
 
 
-  async addjoblisting({jdescription, jtitle, jsalary, lat, lng,jposition, jtype, jexperience, attainment}: 
-    { jtitle: any, jsalary: any, jposition: any,lat:any, lng: any, jtype: any, jdescription: any, jexperience: any, attainment: any } ){
+  async addjoblisting({jdescription, jtitle, jsalary, lat, lng,jposition, jtype, jexperience, attainment, slots}: 
+    { jtitle: any, jsalary: any, jposition: any,lat:any, lng: any, jtype: any, jdescription: any, jexperience: any, attainment: any, slots: any } ){
 
     try {
 
@@ -227,7 +227,7 @@ export class CompanyService {
       const userget = this.auth.currentUser?.uid;
  
       const userDocRef3 = collection(this.firestore, `joblist/`);
-      const user = await addDoc(userDocRef3, {uid: userget, jtitle,lat,lng, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true, attainment, jexperience, timesort: timeStamp, distance: "", distancesort: 0,exception: [] });
+      const user = await addDoc(userDocRef3, {uid: userget, jtitle,lat,lng, jsalary, jposition, jtype, jdescription, timestamp: date2, listid: "",state: true, attainment, jexperience, slots, timesort: timeStamp, distance: "", distancesort: 0,exception: [] });
 
       const id = user.id;
 
@@ -510,6 +510,17 @@ export class CompanyService {
     return updateDoc (cakeRef, {status: comp } )
   }
 
+
+  // getjobsid(): Observable<Company[]>{
+
+  // const uid = this.auth.currentUser.uid;
+  // console.log(uid);
+  //   const cakesRef = collection(this.firestore, 'joblist')
+  //   const q = query(cakesRef, where("state", "==", true), where("jposition", "array-contains-any", spec), where("attainment", "<=", ea));
+  //   return collectionData(q, {idField: 'userget'}) as Observable<[Company]> 
+
+    
+  // }
 
 
 }

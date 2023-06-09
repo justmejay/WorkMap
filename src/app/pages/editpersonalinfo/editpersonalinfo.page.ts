@@ -212,4 +212,24 @@ export class EditpersonalinfoPage implements OnInit {
 
   }
 
+  async parse(){
+
+  
+    
+    if (this.profile.ea == '1'){
+      this.profile.ea = 'High School Diploma';
+    }else  if (this.profile.ea == '2'){
+      this.profile.ea = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.profile.ea == '3'){
+      this.profile.ea = 'Bachelors/College Degree';
+    }else if (this.profile.ea == 'Post Graduate Diploma/Masters Degree'){
+      this.profile.ea = 'Vocational Diploma/Short Course Certificate';
+    }else if (this.profile.ea == '5'){
+      this.profile.ea = 'Professional License (Passed Board/Professional/License Exams)';
+    }else if (this.profile.ea == '6'){
+      this.profile.ea = 'Doctorate Degree';
+    }
+
+  }
+
 }

@@ -98,9 +98,10 @@ export class DashboardPage implements OnInit {
   apply(job:any){
     const any = job.listid
     const id = job.uid
+    const title = job.jtitle
 
   
-    this.router.navigate(['applytojob'], {queryParams:{jobid:any, cid:id}});
+    this.router.navigate(['applytojob'], {queryParams:{jobid:any, cid:id, jtitle: title}});
   }
 
   posts(profiles:any){
