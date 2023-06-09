@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./searchengine.page.scss'],
 })
 export class SearchenginePage implements OnInit {
+    finalbook: any = [];
   filteredquery: any = [
     {
         "position": "Territory Manager",
@@ -3007,6 +3008,7 @@ originalquery: any = [];
   finaldata: any = [];
   sr: any = 0;
   fpdata: any = [];
+    verdict: boolean;
 
   constructor(
     private app: ApplicationService,
@@ -3095,49 +3097,74 @@ originalquery: any = [];
 
     
     this.app.getqjoblist(this.checkeditems).pipe(first()).subscribe(res =>{
-      this.listdata = res;
-      console.log(this.listdata);
 
-      for (let v = 0; v<res.length; v++){
+      this.listdata = res;
+     
+      for (var i = 0;i<res.length;i++){
+
+        if(this.listdata[i].exception.length == 0){
+         this.finalbook.push(this.listdata[i]);
+        }else{
+         for (var j = 0; j<this.listdata[i].exception.length ; j++){
+
+             if (this.listdata[i].exception[j] == this.listdata.uid){
+               this.verdict = true;
+             }
+
+             if (this.verdict == false){
+               this.finalbook.push(this.listdata[i]);
+             }
+          }
+        }
+
+       }
+
+
+
+
+
+
+
+      for (let v = 0; v<this.finalbook.length; v++){
 
         if(this.sr == 0){
-              this.finaldata.push(this.listdata[v]);
+              this.finaldata.push(this.finalbook[v]);
             
           }else if(this.sr == 1){
 
-        if (this.listdata[v].jsalary > 0 && this.listdata[v].jsalary <= 10000){
-          this.finaldata.push(this.listdata[v]);
+        if (this.finalbook[v].jsalary > 0 && this.finalbook[v].jsalary <= 10000){
+          this.finaldata.push(this.finalbook[v]);
         }
 
       }else if(this.sr == 2){
 
-        if (this.listdata[v].jsalary > 10000 && this.listdata[v].jsalary <= 20000){
-          this.finaldata.push(this.listdata[v]);
+        if (this.finalbook[v].jsalary > 10000 && this.finalbook[v].jsalary <= 20000){
+          this.finaldata.push(this.finalbook[v]);
         }
 
       }else if(this.sr == 3){
 
-        if (this.listdata[v].jsalary > 20000 && this.listdata[v].jsalary <= 30000){
-          this.finaldata.push(this.listdata[v]);
+        if (this.finalbook[v].jsalary > 20000 && this.finalbook[v].jsalary <= 30000){
+          this.finaldata.push(this.finalbook[v]);
         }
 
       }else if(this.sr == 4){
 
-        if (this.listdata[v].jsalary > 30000 && this.listdata[v].jsalary <= 50000){
-          this.finaldata.push(this.listdata[v]);
+        if (this.finalbook[v].jsalary > 30000 && this.finalbook[v].jsalary <= 50000){
+          this.finaldata.push(this.finalbook[v]);
         }
 
       }else if(this.sr == 5){
 
-        if (this.listdata[v].jsalary > 50000 && this.listdata[v].jsalary <= 100000){
-          this.finaldata.push(this.listdata[v]);
+        if (this.finalbook[v].jsalary > 50000 && this.finalbook[v].jsalary <= 100000){
+          this.finaldata.push(this.finalbook[v]);
         }
 
       }
       else if(this.sr == 6){
 
-        if (this.listdata[v].jsalary > 100000 ){
-          this.finaldata.push(this.listdata[v]);
+        if (this.finalbook[v].jsalary > 100000 ){
+          this.finaldata.push(this.finalbook[v]);
         }
 
       }

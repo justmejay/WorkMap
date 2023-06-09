@@ -62,7 +62,7 @@ export class DashboardPage implements OnInit {
 
     
     this.firestore.getinbox().subscribe(res=>{
-      this.countmsg = res.length;
+      this.countmsg = res.length; 
     });
 
     this.app.getnotifu().subscribe(res=>{
