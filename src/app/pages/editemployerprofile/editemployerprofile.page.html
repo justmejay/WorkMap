@@ -37,8 +37,15 @@
                 <ion-input position="stacked" type="text" formControlName="fname" value="{{employer.fname}}" class="custominput"></ion-input>
               </ion-item>
               <div>
-              <ion-note slot="error" *ngIf="(fname.dirty || fname.touched) && fname.errors">Required</ion-note>
-              </div>
+                <ion-note slot="error" *ngIf="fname.invalid && (fname.dirty || fname.touched)">
+                  <ng-container *ngIf="fname.errors['required']">
+                    Required!
+                  </ng-container>
+                  <ng-container *ngIf="fname.errors['pattern']">
+                   Name should be capitalized on first letter.
+                  </ng-container>
+                  
+                </ion-note>                </div>
             </ion-col>
 
             <ion-col>
@@ -65,8 +72,15 @@
                 <ion-input position="stacked" type="text" formControlName="lname" value="{{employer.lname}}" class="custominput"></ion-input>
               </ion-item>
               <div>
-              <ion-note slot="error" *ngIf="(lname.dirty || lname.touched) && lname.errors">Required</ion-note>
-              </div>
+                <ion-note slot="error" *ngIf="lname.invalid && (lname.dirty || lname.touched)">
+                  <ng-container *ngIf="lname.errors['required']">
+                    Required!
+                  </ng-container>
+                  <ng-container *ngIf="lname.errors['pattern']">
+                   Name should be capitalized on first letter.
+                  </ng-container>
+                  
+                </ion-note>                </div>
             </ion-col>
             
             <ion-col>
@@ -301,11 +315,18 @@
 
             <ion-col>
               <ion-item>
-                <ion-input position="stacked" type="number" formControlName="contact" value="{{employer.contact}}" class="custominput"></ion-input>
+                <ion-input position="stacked" type="tel" formControlName="contact" value="{{employer.contact}}" class="custominput"></ion-input>
                 </ion-item>
                 <div>
-                <ion-note slot="error" *ngIf="(contact.dirty || contact.touched) && contact.errors">Required</ion-note>
-                </div>
+                  <ion-note slot="error" *ngIf="contact.invalid && (contact.dirty || contact.touched)">
+                    <ng-container *ngIf="contact.errors['required']">
+                      Required!
+                    </ng-container>
+                    <ng-container *ngIf="contact.errors['pattern']">
+                     Phone number should start with "09" with 11 numbers.
+                    </ng-container>
+                    
+                  </ion-note>                  </div>
             </ion-col>
           </ion-row>
         </ion-grid>
@@ -320,7 +341,7 @@
       </ion-card-content>
     </ion-card> 
     </div>
-    <ion-button type="submit" size="large" class="btnreg">Save</ion-button>
+    <ion-button [disabled]="!credentials.valid" type="submit" size="large" class="btnreg">Save</ion-button>
   </form>
   <!-- <ion-button type="" (click)="testsub()" size="large" class="btnreg">Save</ion-button> -->
 

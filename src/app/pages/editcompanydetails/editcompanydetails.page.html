@@ -36,10 +36,17 @@
 
           <ion-item>
             <ion-label position="stacked">Company Contact Number:</ion-label>
-            <ion-input position="stacked" type="number" formControlName="ccontact" [value]="company.ccontact" class="custominput"></ion-input>
+            <ion-input position="stacked" type="tel" formControlName="ccontact" [value]="company.ccontact" class="custominput"></ion-input>
           </ion-item>
-          <ion-note slot="error" *ngIf="(ccontact.dirty || ccontact.touched) && ccontact.errors">Required</ion-note>
-
+          <ion-note slot="error" *ngIf="ccontact.invalid && (ccontact.dirty || ccontact.touched)">
+            <ng-container *ngIf="ccontact.errors['required']">
+              Required!
+            </ng-container>
+            <ng-container *ngIf="ccontact.errors['pattern']">
+             Contact Number should be 11 numbers long and start with 09
+            </ng-container>
+            
+          </ion-note>  
           <ion-item>
             <ion-label position="stacked">Company Email Address:</ion-label>
             <ion-input position="stacked" type="text" formControlName="cemail" [value]="company.cemail" class="custominput"></ion-input>

@@ -82,11 +82,11 @@ export class EditemployerprofilePage implements OnInit {
 
   ngOnInit() {
     this.credentials = this.fb.group({
-      fname: ['', [Validators.required]],
-      mname: ['', [Validators.required]],
-      lname: ['', [Validators.required]],
+      fname: ['', [Validators.required, Validators.pattern('^[A-Z][a-z]*(?: [A-Z][a-z]*)*$')]],
+      mname: ['', []],
+      lname: ['', [Validators.required, Validators.pattern('^[A-Z][a-z]*(?: [A-Z][a-z]*)*$')]],
       citizenship: ['', [Validators.required]],
-      contact: ['', [Validators.required]],
+      contact: ['', [Validators.required, Validators.pattern('^09\\d{9}$')]],
       email: ['', [Validators.required]],
     });
   }

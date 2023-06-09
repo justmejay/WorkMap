@@ -26,6 +26,7 @@ export class DashboardcompanyPage implements OnInit {
   company: any = [];
   isCheck: boolean;
   notifcount: any;
+  msgcount: any;
 
   employer: any = [];
 
@@ -34,6 +35,8 @@ export class DashboardcompanyPage implements OnInit {
   companyid: any = [];
 
   isModalOpen = false;
+
+
 
 
   
@@ -122,6 +125,10 @@ export class DashboardcompanyPage implements OnInit {
 
 
     })
+
+    this.firestore.getinboxc().subscribe(res=>{
+      this.msgcount = res.length;
+    });
    }
 
   ngOnInit() {

@@ -132,7 +132,7 @@ export class EditcompanydetailsPage implements OnInit {
   ngOnInit() {
     this.credentials = this.fb.group({
       cname: ['', [Validators.required]],
-      ccontact: ['', [Validators.required]],
+      ccontact: ['', [Validators.required, Validators.pattern('^09\\d{9}$')]],
       newmarker: [this.newmarker, []],
       cemail: ['', []],
       brnumber: ['', [Validators.required]],
