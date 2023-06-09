@@ -16,15 +16,15 @@
           <ion-card-title>Job Listing Details</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <ion-label>Job Title *</ion-label>
+          <ion-label style="display: flex;" >Job Title <p style="color:red">*</p> </ion-label>
           <ion-input placeholder="Webdeveloper" position="stacked" type="text" formControlName="jtitle" value="{{jobs.jtitle}}" ></ion-input>
           
-          <ion-label>Starting Salary *</ion-label>
+          <ion-label style="display: flex;" >Starting Salary <p style="color:red">*</p> </ion-label>
           <ion-input placeholder="35,000" position="stacked" type="number" formControlName="jsalary" value="{{jobs.jsalary}}"></ion-input>
           
 
           <div class="jobposition">
-            <ion-label>Job Position *5 max</ion-label>
+            <ion-label style="display: flex;" >Job Position <p style="color:red">*5 max</p></ion-label>
           </div>
 
           <!-- <ion-input [hidden]="determine" [readonly]="true" [value]="credentials.value.jposition"  formControlName="jposition" placeholder="Senior Developer" position="stacked" type="text" ></ion-input> -->
@@ -64,12 +64,12 @@
     
        
 
-        <ion-label>Job Description *</ion-label>
+        <ion-label style="display: flex;" >Job Description <p style="color:red">*</p> </ion-label>
         <ion-item>
           <ion-textarea placeholder="Description" position="stacked" type="textarea" formControlName="jdescription" value="{{jobs.jdescription}}"></ion-textarea>
         </ion-item>
 
-        <ion-label>Job Type *</ion-label>
+        <ion-label style="display: flex;" >Job Type <p style="color:red">*</p> </ion-label>
         <ion-item lines="none">
           <ion-select label="Default label" interface="action-sheet" placeholder="Select job type" class="jobtype" formControlName="jtype" value="{{jobs.jtype}}">
             <ion-select-option value="Full Time">Full Time</ion-select-option>
@@ -94,7 +94,7 @@
           </ion-select>
         </ion-item>
 
-        <ion-label  style="font-style: italic;" >Note: All inputs with asterisk are required.</ion-label>
+        <ion-label  style="font-style: italic; color:rgb(255, 74, 74);" >Note: All inputs with asterisk are required.</ion-label>
 
         </ion-card-content>
       </ion-card>
