@@ -15,6 +15,8 @@ export class MyapplicationsPage implements OnInit {
   profiles: any = [];
   appl: any = [];
 
+  selectTabs: any = "pending";
+
   constructor(
     private firestore: CompanyService,
     private router: Router,
@@ -46,6 +48,14 @@ export class MyapplicationsPage implements OnInit {
    }
 
   ngOnInit() {
+  }
+
+  view(appl:any){
+    const id = appl.application.jobid
+    console.log(appl.application.jobid)
+
+  
+    this.router.navigate(['myapplicationsjob'], {queryParams:{jobid:id}});
   }
 
 }
