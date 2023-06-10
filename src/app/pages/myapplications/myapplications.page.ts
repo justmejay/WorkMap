@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CompanyService } from 'src/app/services/company.service';
 import { ApplicationService } from 'src/app/services/application.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlertController, LoadingController, ToastController} from '@ionic/angular';
+import { ProfilingService } from 'src/app/services/profiling.service';
+import { GmapService } from 'src/app/services/gmap.service';
 
 @Component({
   selector: 'app-myapplications',
@@ -15,6 +17,7 @@ export class MyapplicationsPage implements OnInit {
   profiles: any = [];
   appl: any = [];
 
+
   selectTabs: any = "pending";
 
   constructor(
@@ -25,6 +28,8 @@ export class MyapplicationsPage implements OnInit {
     private alertController: AlertController,
     private toastController: ToastController,
     private app: ApplicationService,
+    private profile: ProfilingService,
+    private maps: GmapService
   ) {
 
     // this.activatedRoute.queryParams.subscribe((params) =>{
@@ -35,6 +40,7 @@ export class MyapplicationsPage implements OnInit {
       this.app.getappid().subscribe(res=>{
       this.appl = res;
       console.log(this.appl)
+
 
       
 
@@ -49,6 +55,12 @@ export class MyapplicationsPage implements OnInit {
 
   ngOnInit() {
   }
+
+
+
+
+
+ 
 
   view(appl:any){
     const id = appl.application.jobid
