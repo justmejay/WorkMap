@@ -238,12 +238,13 @@ export class DashboardPage implements OnInit {
                       this.job = res;
                       console.log(this.job);
 
-                      for (var i = 0;i<res.length;i++){
+                      for (let i = 0;i<res.length;i++){
 
                        if(this.job[i].exception.length == 0){
                         this.finalbook.push(this.job[i]);
                        }else{
-                        for (var j = 0; j<this.job[i].exception.length ; j++){
+                        this.verdict = false;
+                        for (let j = 0; j<this.job[i].exception.length ; j++){
                           console.log(this.job[i].exception[j]);
                           console.log(this.earray)
   
@@ -251,15 +252,19 @@ export class DashboardPage implements OnInit {
                               this.verdict = true;
                             }
   
-                            if (this.verdict == false){
-                              this.finalbook.push(this.job[i]);
-                            }
-                         }
+                           
                        }
+                       if (this.verdict == false){
+                        this.finalbook.push(this.job[i]);
+                      }
+                   }
 
                       }
                    
                       console.log(this.finalbook)
+
+
+
                         for (let i=0; i< this.finalbook.length; i++){
                       
                             this.profile.getcoords().subscribe(res=>{
