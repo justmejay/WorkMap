@@ -17,24 +17,78 @@
 </ion-header>
 
 <ion-content >
-  <ion-segment value="default">
+  <ion-segment value="buttons" [(ngModel)]="selectTabs">
     <ion-segment-button value="applicants">
       <ion-label>Applicants</ion-label>
     </ion-segment-button>
     <ion-segment-button value="review">
       <ion-label>To review</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="declined">
-      <ion-label>Declined</ion-label>
+    <ion-segment-button value="rejected">
+      <ion-label>Rejected</ion-label>
+    </ion-segment-button>
+     <ion-segment-button value="accepted">
+      <ion-label>Accepted</ion-label>
     </ion-segment-button>
   </ion-segment>
-<ion-item button detail="true" (click)="profiledetails(jobs)" *ngFor="let jobs of jobs" >
-  <ion-avatar slot="start">
-    <img alt="Profile piture" *ngIf="jobs.application?.profileimg; else alt" src="{{jobs.application.profileimg}}" />
-    <ng-template #alt>
-      <img alt="Profile piture" src="assets/header.png" />
-    </ng-template>
-  </ion-avatar>
-    <ion-label class="ion-text-wrap" *ngFor="let title of title">{{jobs.application.fname}} {{jobs.application.mname}} {{jobs.application.lname}} has applied in your "{{title.jtitle}}" Listing</ion-label>
-</ion-item>
+
+  
+  <div *ngIf="selectTabs === 'applicants'">
+    <div *ngFor="let jobs of jobs" >
+      <ion-item button detail="true" (click)="profiledetails(jobs)" *ngIf="jobs.status == 'Pending'" >
+          <ion-avatar slot="start">
+            <img alt="Profile piture" *ngIf="jobs.application?.profileimg; else alt" src="{{jobs.application.profileimg}}" />
+            <ng-template #alt>
+              <img alt="Profile piture" src="assets/header.png" />
+            </ng-template>
+          </ion-avatar>
+            <ion-label class="ion-text-wrap" *ngFor="let title of title">{{jobs.application.fname}} {{jobs.application.mname}} {{jobs.application.lname}} has applied in your "{{title.jtitle}}" Listing</ion-label>
+      </ion-item>
+    </div>  
+  </div>
+
+  <div *ngIf="selectTabs === 'review'">
+    <div *ngFor="let jobs of jobs" >
+      <ion-item button detail="true" (click)="profiledetails(jobs)" *ngIf="jobs.status == 'Inprocess'" >
+          <ion-avatar slot="start">
+            <img alt="Profile piture" *ngIf="jobs.application?.profileimg; else alt" src="{{jobs.application.profileimg}}" />
+            <ng-template #alt>
+              <img alt="Profile piture" src="assets/header.png" />
+            </ng-template>
+          </ion-avatar>
+            <ion-label class="ion-text-wrap" *ngFor="let title of title">{{jobs.application.fname}} {{jobs.application.mname}} {{jobs.application.lname}} has applied in your "{{title.jtitle}}" Listing</ion-label>
+      </ion-item>
+    </div>  
+  </div>
+
+  <div *ngIf="selectTabs === 'accepted'">
+    <div *ngFor="let jobs of jobs" >
+      <ion-item button detail="true" (click)="profiledetails(jobs)" *ngIf="jobs.status == 'Accepted'" >
+          <ion-avatar slot="start">
+            <img alt="Profile piture" *ngIf="jobs.application?.profileimg; else alt" src="{{jobs.application.profileimg}}" />
+            <ng-template #alt>
+              <img alt="Profile piture" src="assets/header.png" />
+            </ng-template>
+          </ion-avatar>
+            <ion-label class="ion-text-wrap" *ngFor="let title of title">{{jobs.application.fname}} {{jobs.application.mname}} {{jobs.application.lname}} has applied in your "{{title.jtitle}}" Listing</ion-label>
+      </ion-item>
+    </div>  
+  </div>
+
+  <div *ngIf="selectTabs === 'rejected'">
+    <div *ngFor="let jobs of jobs" >
+      <ion-item button detail="true" (click)="profiledetails(jobs)" *ngIf="jobs.status == 'Rejected'" >
+          <ion-avatar slot="start">
+            <img alt="Profile piture" *ngIf="jobs.application?.profileimg; else alt" src="{{jobs.application.profileimg}}" />
+            <ng-template #alt>
+              <img alt="Profile piture" src="assets/header.png" />
+            </ng-template>
+          </ion-avatar>
+            <ion-label class="ion-text-wrap" *ngFor="let title of title">{{jobs.application.fname}} {{jobs.application.mname}} {{jobs.application.lname}} has applied in your "{{title.jtitle}}" Listing</ion-label>
+      </ion-item>
+    </div>  
+  </div>
+
+  
+
 </ion-content>

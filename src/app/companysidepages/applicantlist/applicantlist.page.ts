@@ -29,6 +29,9 @@ export class ApplicantlistPage implements OnInit {
 
   title: any = [];
 
+
+  selectTabs: any = "applicants";
+
  
 
   
