@@ -1,0 +1,123 @@
+<ion-header >
+  <ion-toolbar>
+      <ion-buttons [routerLink]="['/myapplicationsjob']" slot="start">
+        <ion-icon style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
+      </ion-buttons> 
+      <ion-label>About Company</ion-label>
+      <ion-buttons slot="end">
+        <!-- <ion-button  (click)="message(cdata.id)" type="">
+          <ion-icon class="btn" name="chatbubble-ellipses-outline" slot="icon-only"></ion-icon>
+        </ion-button> -->
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-avatar class="companylogo">
+      <img *ngIf="cdetails?.imageurl; " [src]="cdetails.imageurl" />
+
+    </ion-avatar>
+  <ion-card class="cardcontainer" *ngIf="cdetails">
+    <ion-card-header>
+        <ion-card-title>Company Details</ion-card-title>
+      </ion-card-header>
+    <ion-card-content>
+        <ion-label position="stacked" class="cardsubtitle">Company Name: </ion-label>
+        <ion-input  position="stacked" class="custominput" value="{{cdetails.cname}}" placeholder="Apple, Inc." [readonly]="true"></ion-input>
+     
+      
+        <!--       
+        <ion-label position="stacked" class="cardsubtitle">Company Address: </ion-label>
+        <ion-input position="stacked" class="custominput" placeholder="Specified Address" [readonly]="true"></ion-input>
+
+          <div class="map" #map></div> -->
+      
+        <ion-label position="stacked" class="cardsubtitle">Company Contact Number: </ion-label>
+        <ion-input position="stacked" class="custominput" value="{{cdetails.ccontact}}" placeholder="09010203040" [readonly]="true"></ion-input>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company Email Address: </ion-label>
+        <ion-input position="stacked" class="custominput" value="{{cdetails.cemail}}" placeholder="appleinc@icloud.com" [readonly]="true"></ion-input>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Company Address</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+        <div class="map" #map></div>
+        <ion-input position="stacked" class="custominput" value="{{cdetails.companyaddress}}" placeholder="Specified Address" [readonly]="true"></ion-input>
+    </ion-card-content>
+  </ion-card>
+
+<!-- About Company -->
+  <!-- <ion-card class="cardcontainer">
+    <ion-card-header>
+        <ion-card-title>About Company</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-label position="stacked" class="cardsubtitle">Vision:</ion-label>
+      <ion-textarea autosize [readonly]="true" class="custominput"></ion-textarea>
+      
+      <ion-label position="stacked" class="cardsubtitle">Mission:</ion-label>
+      <ion-textarea autosize [readonly]="true" class="custominput"></ion-textarea>
+    </ion-card-content>
+  </ion-card> -->
+  <ion-card class="cardcontainer">
+    <ion-card-header>
+        <ion-card-title>About Company</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-textarea *ngIf="cdetails?.cdetails; else ph" autoGrow="true" value="{{cdetails.cdetails}}" autosize [readonly]="true" class="custominput"></ion-textarea>
+      <ng-template #ph>
+        <ion-textarea  autoGrow="true" value="Company Didn't Specify" autosize [readonly]="true" class="custominput"></ion-textarea>
+      </ng-template>
+    </ion-card-content>
+  </ion-card>
+
+<!-- Additional Info -->
+  <ion-card class="cardcontainer">
+    <ion-card-header>
+        <ion-card-title>Additional Information</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      
+        <ion-label position="stacked" class="cardsubtitle">Company size: </ion-label>
+        <ion-input position="stacked" *ngIf="cdetails?.csize;else ph2" class="custominput" value="{{cdetails.csize}}" placeholder="1000 employees"></ion-input>
+        <ng-template #ph2>
+          <ion-input position="stacked"  class="custominput" value="Company didn't specify" ></ion-input>
+
+        </ng-template>
+
+        <ion-label position="stacked" class="cardsubtitle">Average Processing Time: </ion-label>
+        <ion-input position="stacked" *ngIf="cdetails?.cprocessingtime1;else ph3" class="custominput" value="{{cdetails.cprocessingtime2}} {{cdetails.cprocessingtime1}}"  placeholder="1-2 Working Days"></ion-input>
+        <ng-template #ph3>
+          <ion-input position="stacked"  class="custominput" value="Company didn't specify" ></ion-input>
+        </ng-template>
+        <!-- <ion-label position="stacked" class="cardsubtitle">Industry Type: </ion-label>
+        <ion-input position="stacked" class="custominput" placeholder="Computer Information Technology"></ion-input>
+       -->
+    </ion-card-content>
+  </ion-card>
+
+<!-- Benefits -->
+  <ion-card class="cardcontainer">
+    <ion-card-header>
+        <ion-card-title>Benefits</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-textarea autoGrow="true" *ngIf="cdetails?.cbenefits;else ph4" value="{{cdetails.cbenefits}}" autosize [readonly]="true" class="custominput"></ion-textarea>
+      <ng-template #ph4>
+
+      <ion-textarea autoGrow="true" value="Company didn't specify" autosize [readonly]="true" class="custominput"></ion-textarea>
+
+      </ng-template>
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>
+
+
+
