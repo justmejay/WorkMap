@@ -415,6 +415,15 @@ export class ApplicationService {
       
     }
 
+    getcompanyid(id: any): Observable<User[]>{
+      
+      const cakesRef = doc(this.firestore, `employers/${id}/company/${id}`)
+      // const q = query(cakesRef, where("application.uid", "==", id));
+      return docData(cakesRef, {idField: 'userget'}) as Observable<[User]> 
+  
+      
+    }
+
   
 
   

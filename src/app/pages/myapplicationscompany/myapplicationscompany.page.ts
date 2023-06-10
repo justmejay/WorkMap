@@ -5,15 +5,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AlertController, LoadingController, ToastController} from '@ionic/angular';
 
 @Component({
-  selector: 'app-myapplicationsjob',
-  templateUrl: './myapplicationsjob.page.html',
-  styleUrls: ['./myapplicationsjob.page.scss'],
+  selector: 'app-myapplicationscompany',
+  templateUrl: './myapplicationscompany.page.html',
+  styleUrls: ['./myapplicationscompany.page.scss'],
 })
-export class MyapplicationsjobPage implements OnInit {
+export class MyapplicationscompanyPage implements OnInit {
 
-  appl: any = [];
   job: any = [];
-  
+  cdetails: any = [];
 
   constructor(
     private firestore: CompanyService,
@@ -25,14 +24,15 @@ export class MyapplicationsjobPage implements OnInit {
     private app: ApplicationService,
   ) { 
 
-     this.activatedRoute.queryParams.subscribe((params) =>{
+    this.activatedRoute.queryParams.subscribe((params) =>{
 
-      this.appl = params;
-      console.log(this.appl.jobid)
+      this.job = params;
+      console.log(this.job.uid)
 
-      this.app.getjobid(this.appl.jobid).subscribe(res=>{
-        this.job = res;
-        console.log(this.job)
+      this.app.getcompanyid(this.job.uid).subscribe(res=>{
+        this.cdetails = res;
+        console.log(this.cdetails)
+        
   
   
         
@@ -44,13 +44,7 @@ export class MyapplicationsjobPage implements OnInit {
 
   ngOnInit() {
   }
-
-  view(job:any){
-    const id = job.uid
-    console.log(job.uid)
-
   
-    this.router.navigate(['myapplicationscompany'], {queryParams:{uid:id}});
-  }
+  
 
 }
