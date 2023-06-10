@@ -48,6 +48,7 @@ export class AboutcompanyPage implements OnInit {
 
       this.app.getcompanydata(this.cdata.id).subscribe(res=>{
         this.cdetails = res;
+        console.log(this.cdetails);
         // console.log(this.fcdata)
 
         this.profile.getcoords().subscribe(res=>{

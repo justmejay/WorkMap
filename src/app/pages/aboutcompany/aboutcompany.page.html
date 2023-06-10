@@ -14,8 +14,8 @@
 
 <ion-content>
     <ion-avatar class="companylogo">
-      <img *ngIf="cdetails?.imageurl; " [src]="cdetails.imageurl" />
-
+  
+        <img *ngIf="cdetails?.imageurl; " src="{{cdetails.imageurl}}" alt="">
     </ion-avatar>
   <ion-card class="cardcontainer" *ngIf="cdetails">
     <ion-card-header>
