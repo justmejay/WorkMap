@@ -56,10 +56,10 @@ export class EditpersonalinfoPage implements OnInit {
     return this.credentials.get('age');
   }
   get sex() {
-    return this.credentials.get('bday');
+    return this.credentials.get('sex');
   }
   get contact() {
-    return this.credentials.get('age');
+    return this.credentials.get('contact');
   }
 
   get cs() {
