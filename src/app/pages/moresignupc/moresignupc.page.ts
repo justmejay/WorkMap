@@ -114,8 +114,8 @@ export class MoresignupcPage implements OnInit {
       cemail: ['', [Validators.required]],
      currentcoordss: [this.currentcoords, []],
      currentPlaceID: ['', []],
-     brnumber: ['', [Validators.required]],
-     tin: ['', [Validators.required]],
+     brnumber: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+     tin: ['', [Validators.required,Validators.maxLength(12), Validators.minLength(9)]],
 
 
 

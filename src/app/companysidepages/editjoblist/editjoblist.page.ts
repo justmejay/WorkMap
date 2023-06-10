@@ -3071,13 +3071,14 @@ term: any = "";
 
   ngOnInit() {
     this.credentials = this.fb.group({
-      jtitle: ['', [Validators.required]],
-      jsalary: ['', []],
-      jposition: ['', []],
-      jtype: ['', [Validators.required]],
-      jdescription: ['', [Validators.required]],
-      jexperience: ['', []],
-      attainment: ['', []],
+        jtitle: ['', [Validators.required]],
+        jsalary: ['', [Validators.required, Validators.min(1)]],
+        jposition: [this.checkeditems, []],
+        jtype: ['', [Validators.required]],
+        jdescription: ['', [Validators.required]],
+        jexperience: [, []],
+        attainment: ['', []],
+        slots: ['', [Validators.required]],
 
     });
   }

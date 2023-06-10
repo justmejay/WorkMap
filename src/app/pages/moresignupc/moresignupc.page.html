@@ -320,9 +320,9 @@
         </ion-row>
       </ion-grid>
             <ion-label position="stacked">TIN Number:</ion-label>
-              <ion-input position="stacked" type="number" formControlName="tin" class="custominput"></ion-input>
+              <ion-input position="stacked" type="tel" formControlName="tin" class="custominput"></ion-input>
               <div>
-                <ion-note slot="error" *ngIf="(tin.dirty || tin.touched) && tin.errors">Required</ion-note>
+                <ion-note slot="error" *ngIf="(tin.dirty || tin.touched) && tin.errors">Required. Must between 9-12 numbers</ion-note>
               </div>
 
               <!-- <ion-button class="urc" expand="block" shape="round">
@@ -389,9 +389,9 @@
       </ion-card-header>
       <ion-card-content>
         <ion-label position="stacked">Business Registration Number:</ion-label>
-        <ion-input position="stacked" type="number" formControlName="brnumber" class="custominput"></ion-input>
+        <ion-input position="stacked" type="tel" formControlName="brnumber" class="custominput"></ion-input>
         <div>
-          <ion-note slot="error" *ngIf="(cemail.dirty || cemail.touched) && cemail.errors">Required</ion-note>
+          <ion-note slot="error" *ngIf="(brnumber.dirty || brnumber.touched) && brnumber.errors">Required. Must be 8 numbers length</ion-note>
         </div>
 
         <ion-button class="urc" expand="block" shape="round" (click)="addbrcert()">

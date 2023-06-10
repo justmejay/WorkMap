@@ -73,7 +73,7 @@
         </ion-item>
 
         <ion-label>Minimum Experience</ion-label>
-        <ion-input formControlName="jexperience" placeholder="Experience in Years" type="number" ></ion-input>
+        <ion-input  type="number" formControlName="jexperience" placeholder="Experience in Years" ></ion-input>
           
         <ion-label>Educational Attainment</ion-label>
         <ion-item lines="none" >
@@ -90,14 +90,14 @@
         <ion-input formControlName="lat" [hidden]="true"  [value]="job.lat"></ion-input>
         <ion-input formControlName="lng"  [hidden]="true" [value]="job.lng"></ion-input> 
 
-        <ion-label>Set amount of slots:</ion-label>
+        <ion-label>Set amount of slots: <p style="color:red">*</p></ion-label>
         <ion-input formControlName="slots" ></ion-input>
 
         <ion-label  style="font-style: italic; color: rgb(255, 74, 74);" >Note: All inputs with asterisk are required.</ion-label>
         </ion-card-content>
       </ion-card>
 
-      <ion-button class="uploadjoblisting" [disabled]="!(credentials.valid && checkeditems != '') " type="submit" expand="block" size="large" shape="round">Submit</ion-button>
+      <ion-button class="uploadjoblisting" [disabled]="!(credentials.valid && checkeditems != '' && credentials.value.slots != 0 && credentials.value.jexperience >= 0 ) " type="submit" expand="block" size="large" shape="round">Submit</ion-button>
 
     </form>
   </div>

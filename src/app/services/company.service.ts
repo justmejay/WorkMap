@@ -295,12 +295,12 @@ export class CompanyService {
     return docData(cakesRef, {idField: 'id'}) as Observable<[Company]> 
   }
 
-  async editjoblisting({jtitle, jsalary, jtype, jdescription, jexperience, attainment, jposition}: 
-    {jtitle: any, jsalary: any, jtype: any, jdescription:any, jexperience, attainment: any, jposition: any}, id: any){
+  async editjoblisting({jtitle, jsalary, jtype, jdescription, jexperience, attainment, jposition, slots}: 
+    {jtitle: any, jsalary: any, jtype: any, jdescription:any, jexperience,slots, attainment: any, jposition: any}, id: any){
 
     try {
       const userDocRef3 = doc(this.firestore, `joblist/${id}`);
-      const user = await updateDoc(userDocRef3, {jtitle, jsalary, jtype, jdescription, jexperience, attainment, jposition,});
+      const user = await updateDoc(userDocRef3, {jtitle, jsalary, jtype, jdescription, jexperience, attainment, jposition,slots});
      
       return true;
     } catch (e) {

@@ -1,7 +1,7 @@
 import { Component, OnInit,ElementRef,ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController, LoadingController, ToastController } from '@ionic/angular';
+import { AlertController, IonInput, LoadingController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { CompanyService } from 'src/app/services/company.service'; 
 
@@ -28,6 +28,9 @@ export class AddjoblistingPage implements OnInit {
   checkeditems: any = [];
   checkeds: number = 0;
   textbox: any = "test";
+  inputModel: any = 0;
+
+
   filteredquery: any = [
     {
         "position": "Territory Manager",
@@ -3085,11 +3088,11 @@ export class AddjoblistingPage implements OnInit {
   ngOnInit() {
     this.credentials = this.fb.group({
       jtitle: ['', [Validators.required]],
-      jsalary: ['', [Validators.required]],
+      jsalary: ['', [Validators.required, Validators.min(1)]],
       jposition: [this.checkeditems, []],
       jtype: ['', [Validators.required]],
       jdescription: ['', [Validators.required]],
-      jexperience: ['', []],
+      jexperience: [, []],
       attainment: ['', []],
       lat: ['', []],
       lng: ['', []],
@@ -3143,6 +3146,9 @@ export class AddjoblistingPage implements OnInit {
     await toast.present();
 
   }
+
+  
+
 
 
   clear(){
