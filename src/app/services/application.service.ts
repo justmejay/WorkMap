@@ -313,6 +313,23 @@ export class ApplicationService {
   }
   
 
+  getreviewed(id:any, data: any){
+
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
+
+    console.log(data)
+    const cakeRef = doc(this.firestore, `application/${id}`)
+    const comp = "Inprocess"
+     updateDoc (cakeRef, {status: comp } )
+
+    const cakeRef2 = collection(this.firestore, `notificationuser/`)
+    return addDoc (cakeRef2, {uid: data.application.uid,listid: data.id , date2, timeStamp, notiftype: "applicationreview" } )
+  }
+  
+
   getrejected(id:any, reasonr: any, data: any){
 
     const timeStamp = Date.now();

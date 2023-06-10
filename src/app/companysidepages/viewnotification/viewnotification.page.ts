@@ -120,6 +120,25 @@ export class ViewnotificationPage implements OnInit {
 
   }
 
+  async review(jobdata){
+    const id = jobdata.id
+
+
+    const loading = await this.loadingController.create({
+      message: 'Reviewing Application...',
+
+      duration: 1000,
+      spinner: 'dots',
+  
+    });
+    await loading.present();
+    await this.firestore.getreviewed(id,jobdata)
+    this.showAlert('Success', 'Application Reviewed!');
+    this.router.navigate(['dashboardcompany']);
+
+
+  }
+
   async reject(jobdata){
     const id = jobdata.id
 
