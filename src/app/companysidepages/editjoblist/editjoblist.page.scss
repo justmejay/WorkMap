@@ -22,6 +22,8 @@ ion-item{
     --background: rgb(242, 237, 245);
     color: black;
     margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
 }
 ion-input{
     border: solid 2px  rgb(53, 66, 125);
@@ -30,6 +32,7 @@ ion-input{
     color: black;
     margin-bottom: 0.5rem;
     margin-top: 0.5rem;
+    height: 50px;
 }
 ion-select{
     // border: solid 2px  rgb(53, 66, 125);
@@ -46,7 +49,7 @@ ion-label{
     // padding-top: 0.5rem;
 }
 ion-textarea{
-    // border: solid 2px rgb(53, 66, 125);
+    border: solid 2px rgb(53, 66, 125);
     border-radius: 15px;
     --background: rgb(242, 237, 245);
     color: black;
