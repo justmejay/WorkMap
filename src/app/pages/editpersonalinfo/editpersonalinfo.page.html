@@ -422,15 +422,15 @@
 
           <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
       
-        <ion-item>
+        <ion-item> 
           <ion-label>Educational Attainment:</ion-label>
               <ion-select formControlName="ea" value="{{profile.ea}}" interface="action-sheet" placeholder="Select">
-                <ion-select-option class="popoverselect" value="High School Diploma">High School Diploma</ion-select-option>
-                <ion-select-option class="popoverselect" value="Vocational Diploma/Short Course Certificate">Vocational Diploma/Short Course Certificate</ion-select-option>
-                <ion-select-option class="popoverselect" value="Bachelor's/College Degree">Bachelor's/College Degree</ion-select-option>
-                <ion-select-option class="popoverselect" value="Post Graduate Diploma/Master's Degree">Post Graduate Diploma/Master's Degree</ion-select-option>
-                <ion-select-option class="popoverselect" value="Professional License (Passed Board/Professional/License Exams)">Professional License (Passed Board/Professional/License Exams)</ion-select-option>
-                <ion-select-option class="popoverselect" value="Doctorate Degree">Doctorate Degree</ion-select-option>
+                <ion-select-option class="popoverselect" value="1">High School Diploma</ion-select-option>
+                <ion-select-option class="popoverselect" value="2">Vocational Diploma/Short Course Certificate</ion-select-option>
+                <ion-select-option class="popoverselect" value="3">Bachelor's/College Degree</ion-select-option>
+                <ion-select-option class="popoverselect" value="4">Post Graduate Diploma/Master's Degree</ion-select-option>
+                <ion-select-option class="popoverselect" value="5">Professional License (Passed Board/Professional/License Exams)</ion-select-option>
+                <ion-select-option class="popoverselect" value="6">Doctorate Degree</ion-select-option>
               </ion-select>
         </ion-item>
 
