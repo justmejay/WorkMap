@@ -86,7 +86,7 @@
 
             <ion-col>
                   <ion-item lines="none" class="custominput">
-                    <ion-select justify="space-between" label="Space Between" formControlName="suffix" value="{{profile.suffix}}" interface="action-sheet" placeholder="Select suffix">
+                    <ion-select justify="space-between" label="Space Between" formControlName="suffix" value="{{profile.suffix}}" interface="action-sheet" placeholder="Select">
                       <ion-select-option value="Jr">Jr.</ion-select-option>
                       <ion-select-option value="Sr">Sr.</ion-select-option>
                       <ion-select-option value="I">I</ion-select-option>
@@ -164,7 +164,7 @@
                 <ion-input formControlName="age"  value="{{agecompute}}" type="Number"></ion-input>
               </ion-item>
               <div>
-                <ion-text class="under" color="danger" *ngIf="credentials.get('bday').hasError('underAge') && (credentials.get('bday').dirty || credentials.get('bday').touched)">
+                <ion-text class="under" *ngIf="credentials.get('bday').hasError('underAge') && (credentials.get('bday').dirty || credentials.get('bday').touched)">
                   You must be at least 18 years old or less than 65 years old.
                 </ion-text>           
                  </div>
@@ -196,7 +196,7 @@
 
             <ion-col> 
               <ion-item>
-                <ion-input position="stacked" formControlName="contact" value="{{profile.contact}}" type="tel"></ion-input>
+                <ion-input position="stacked" formControlName="contact" value="{{profile.contact}}" type="tel" class="custominput"></ion-input>
               </ion-item>
               <div>
                 <ion-note slot="error" *ngIf="contact.invalid && (contact.dirty || contact.touched)">
