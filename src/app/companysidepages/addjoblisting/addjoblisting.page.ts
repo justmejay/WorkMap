@@ -3104,6 +3104,21 @@ export class AddjoblistingPage implements OnInit {
     
   }
 
+
+  remove(data){
+    console.log(data)
+    for( var i = 0; i<=4; i++ ){
+
+        if (this.checkeditems[i] == data){
+            this.checkeditems.splice([i],1);
+            this.checkeds = this.checkeds -1;
+
+        }
+
+        console.log(this.checkeditems);
+    }
+ }
+
   async addjoblisting() {
 
     const loading = await this.loadingController.create({

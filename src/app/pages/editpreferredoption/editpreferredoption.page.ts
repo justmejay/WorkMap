@@ -3017,6 +3017,7 @@ export class EditpreferredoptionPage implements OnInit {
     this.profile.getpref().subscribe(res =>{
       this.checkeditems = res;
       this.checkeditems = this.checkeditems.specialization;
+      this.checkeds = this.checkeditems.specialization.length;
 
       console.log(this.checkeditems)
 
@@ -3143,5 +3144,19 @@ export class EditpreferredoptionPage implements OnInit {
     this.term = ""
     this.queryinit = [];
   }
+
+  remove(data){
+    console.log(data)
+    for( var i = 0; i<=4; i++ ){
+
+        if (this.checkeditems[i] == data){
+            this.checkeditems.splice([i],1);
+            this.checkeds = this.checkeds -1;
+
+        }
+
+        console.log(this.checkeditems);
+    }
+ }
 
 }
