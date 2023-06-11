@@ -64,6 +64,11 @@ export class MyapplicationscompanyPage implements OnInit {
   ngOnInit() {
   }
 
+  back(){
+    this.router.navigate(['myapplicationsjob'], {queryParams:{ jobid: this.job.jobid }});
+
+  }
+
   async loadMap(){
 
     try {
