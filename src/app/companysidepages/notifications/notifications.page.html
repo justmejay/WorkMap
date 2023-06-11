@@ -22,9 +22,9 @@
      
 
 
-      <ion-item *ngIf="n.notiftype == 'adminaccept'" class="static">
+      <ion-item *ngIf="n.notiftype == 'adminaccept'" class="approved">
         <ion-avatar slot="start">
-          <ion-icon style="width: 30px;height: 30px;" name="notifications-outline"></ion-icon>
+          <ion-icon style="width: 30px;height: 30px;" name="briefcase-outline"></ion-icon>
         </ion-avatar>
         <ion-label>
           <ion-label class="ion-text-wrap">Your Company registration has been approved. Happy hiring!</ion-label>
@@ -32,18 +32,15 @@
         </ion-label>
       </ion-item>
 
-      <ion-item (click)="viewapply(n)"  *ngIf="n.notifype == 'application'" class="static">
+      <ion-item button detail="true" (click)="viewapply(n)"  *ngIf="n.notifype == 'application'" class="static">
         <ion-avatar slot="start">
-          <ion-icon style="width: 30px;height: 30px;" name="briefcase-outline"></ion-icon>
+          <ion-icon style="width: 30px;height: 30px;" name="person-outline"></ion-icon>
         </ion-avatar>
         <ion-label>
           <ion-label class="ion-text-wrap">Someone applied to your listing.Check it out!!</ion-label>
           <ion-label class="time">{{n.time}}</ion-label>
         </ion-label>
       </ion-item>
-   
-  
-
 
     </div>
 
