@@ -10,7 +10,7 @@ import {
 } from '@angular/fire/storage';
 import { Photo } from '@capacitor/camera';
 import { collectionGroup, CollectionReference, query, Query, queryEqual, updateDoc, WhereFilterOp } from 'firebase/firestore';
-import { Observable } from 'rxjs';
+import { Observable, first } from 'rxjs';
 import { AuthService } from './auth.service';
 import { HttpUserEvent } from '@angular/common/http';
 import { AnyARecord } from 'dns';
@@ -71,11 +71,6 @@ export interface User{
 
   status: string;
   reason: string;
-
-
-
-
-
   
 }
 
@@ -102,6 +97,7 @@ export interface Application{
   providedIn: 'root'
 })
 export class ApplicationService {
+  jobslots: any = [];
 
   constructor(
     private firestore: Firestore,
@@ -298,18 +294,34 @@ export class ApplicationService {
 
   getaccepted(id:any, data: any){
 
+
     const timeStamp = Date.now();
     const date: Date = new Date(timeStamp);
 
     const date2 = date.toLocaleString();
 
     console.log(data)
+
+    this.getjoblist(data.application.jobid).pipe(first()).subscribe(res=>{
+
+      this.jobslots = res;
+      const cslots = this.jobslots.slots;
+      console.log(this.jobslots)
+      console.log(cslots)
+
+      const cakeRef = doc(this.firestore, `joblist/${data.application.jobid}`)
+      updateDoc (cakeRef, {slots: cslots - 1 } )
+
+    });
+
     const cakeRef = doc(this.firestore, `application/${id}`)
     const comp = "Accepted"
      updateDoc (cakeRef, {status: comp } )
 
+
     const cakeRef2 = collection(this.firestore, `notificationuser/`)
     return addDoc (cakeRef2, {uid: data.application.uid,listid: data.id , date2, timeStamp, notiftype: "applicationaccept" } )
+  
   }
   
 
@@ -331,6 +343,10 @@ export class ApplicationService {
   
 
   getrejected(id:any, reasonr: any, data: any){
+    console.log(id)
+    console.log(reasonr)
+    console.log(data)
+
 
     const timeStamp = Date.now();
     const date: Date = new Date(timeStamp);
@@ -342,7 +358,7 @@ export class ApplicationService {
      updateDoc (cakeRef, {status: comp, reason: reasonr } )
 
      const cakeRef2 = collection(this.firestore, `notificationuser/`)
-     return addDoc (cakeRef2, {uid: data.application.uid,listid: data.id , date2, timeStamp, notiftype: "applicationreject" } )
+     return addDoc (cakeRef2, {uid: data.application.uid, listid: data.id , date2, timeStamp, notiftype: "applicationreject" } )
     }
 
 

@@ -141,6 +141,7 @@ export class ViewnotificationPage implements OnInit {
 
   async reject(jobdata){
     const id = jobdata.id
+    console.log(jobdata)
 
     const prompt = await this.alertController.create({
       header: 'Reject Application?',
@@ -162,7 +163,8 @@ export class ViewnotificationPage implements OnInit {
         },
         {
           text: 'Reject',
-          handler: (jobdata) => {
+          handler: () => {
+            console.log(jobdata)
             this.firestore.getrejected(id, jobdata.reason, jobdata);
             this.showAlert('Success', 'Application Rejected!')
             this.router.navigate(['dashboardcompany']);
