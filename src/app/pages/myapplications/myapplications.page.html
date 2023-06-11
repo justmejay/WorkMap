@@ -121,7 +121,7 @@
 
     <ion-item button detail="true" *ngIf="appl.status == 'Pending'" (click)="view(appl)" class="applicants">
       <ion-avatar slot="start">
-        <img alt="Company piture"  src= />
+        <img *ngIf="appl?.application.profileimg;" [src]="appl.application.profileimg" />
         <ng-template #alt>
           <img alt="Company piture" src="assets/header.png" />
         </ng-template>
@@ -154,7 +154,7 @@
 
     <ion-item button detail="true" *ngIf="appl.status == 'Rejected'" (click)="view(appl)" class="rejected">
       <ion-avatar slot="start">
-        <img alt="Company piture"  src= />
+        <img *ngIf="appl?.application.profileimg;" [src]="appl.application.profileimg" />
         <ng-template #alt>
           <img alt="Company piture" src="assets/header.png" />
         </ng-template>
@@ -164,7 +164,7 @@
         </ion-label>
         <!-- <ion-label>List ID: {{appl.userget}}</ion-label> -->
         <!-- <ion-label>Status: {{appl.status}}</ion-label> -->
-        <ion-label>Result: (include company reasoning while rejected) </ion-label>
+        <ion-label>Result: {{appl.reason}} </ion-label>
         <ion-label>{{appl.time}}</ion-label>
       </p>
     </ion-item>
@@ -187,7 +187,7 @@
 
     <ion-item button detail="true" *ngIf="appl.status == 'Inprocess'" (click)="view(appl)" class="inprocess">
       <ion-avatar slot="start">
-        <img alt="Company piture"  src= />
+        <img *ngIf="appl?.application.profileimg;" [src]="appl.application.profileimg" />
         <ng-template #alt>
           <img alt="Company piture" src="assets/header.png" />
         </ng-template>
@@ -219,7 +219,7 @@
     </ion-card> -->
     <ion-item button detail="true" *ngIf="appl.status == 'Accepted'" (click)="view(appl)" class="accepted">
       <ion-avatar slot="start">
-        <img alt="Company piture"  src= />
+        <img *ngIf="appl?.application.profileimg;" [src]="appl.application.profileimg" />
         <ng-template #alt>
           <img alt="Company piture" src="assets/header.png" />
         </ng-template>
