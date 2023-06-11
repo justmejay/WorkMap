@@ -11,7 +11,7 @@
 
 <ion-item (click)="view(i)" *ngFor="let i of inbox" button detail="true" >
   <ion-avatar slot="start">
-    <img *ngIf="i?.imageurl; else temp " alt="Profile piture" src="{{i.imageurl}}" />
+    <img *ngIf="i?.cimage; else temp " alt="Profile piture" src="{{i.cimage}}" />
 
     <ng-template #temp>
       <img alt="Profile piture" src="assets/header.png" />
