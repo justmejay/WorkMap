@@ -164,9 +164,9 @@ export class ViewnotificationPage implements OnInit {
         },
         {
           text: 'Reject',
-          handler: () => {
+          handler: (res) => {
             console.log(jobdata)
-            this.firestore.getrejected(id, jobdata.reason, jobdata);
+            this.firestore.getrejected(id, res.reason, jobdata);
             this.showAlert('Success', 'Application Rejected!')
             this.router.navigate(['dashboardcompany']);
 
