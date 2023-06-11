@@ -3,7 +3,7 @@
       <ion-buttons [routerLink]="['/moresignup']" slot="start">
       <ion-icon  style="width: 50px; color: white;" name="arrow-back-outline">  </ion-icon>
       </ion-buttons> 
-      <ion-title>Choose your preferred job positions</ion-title> 
+      <ion-title>Preferred Job Positions</ion-title> 
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +15,7 @@
         <ion-icon name="arrow-undo-outline"></ion-icon>
       </ion-button> -->
       <ion-card-header>
-        <ion-card-title>Select up to 5</ion-card-title> 
+        <ion-card-title>Select up to 5 preferred Job Positions</ion-card-title> 
         
       </ion-card-header>
       <ion-card-content>
@@ -47,7 +47,34 @@
 
       </ion-card-content>
     </ion-card>
-
+    <!-- <ion-card class="custom-card">
+      <ion-card-header>
+        <ion-card-title>
+          Select Job Position with your experience:
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item class="customitem">
+          <ion-input [clearInput]="true" value="Show on Focus"  placeholder="Job Positions" position="stacked" type="text"></ion-input>
+          <ion-icon name="arrow-undo-outline" class="reset" (click)="reset()" ></ion-icon>          
+        </ion-item>
+        <ion-item>
+          <ion-checkbox>
+          </ion-checkbox>
+          <ion-label>Job Position</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card> -->
+    <ion-card class="custom-card">
+      <ion-card-header>
+        <ion-card-title>Select amount of work experience:</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item class="customitem">
+          <ion-input [clearInput]="true" placeholder="experience in years" position="stacked" type=""></ion-input>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
     <ion-button (click)="signup()" [disabled]="checkeditems.length == 0" shape="round "expand="block" class="btnreg" size="large">Next</ion-button>
 </div>
 
