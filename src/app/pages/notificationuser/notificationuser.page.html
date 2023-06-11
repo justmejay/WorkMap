@@ -64,12 +64,22 @@
       </ion-label>
     </ion-item> -->
 
-    <ion-item  *ngIf="n.notiftype == 'applicationreview'" class="inreview">
+    <ion-item  *ngIf="n.notiftype == 'enabledlisting'" class="inreview">
       <ion-avatar slot="start">
         <ion-icon style="width: 30px;height: 30px;" name="briefcase-outline"></ion-icon>
       </ion-avatar>
       <ion-label>
-        <ion-label class="ion-text-wrap">Your application is under review!</ion-label>
+        <ion-label class="ion-text-wrap">Job Listing "{{n.listname}}" has been reactivated!</ion-label>
+        <ion-label class="time">{{n.date2}}</ion-label>
+      </ion-label>
+    </ion-item>
+
+    <ion-item  *ngIf="n.notiftype == 'disabledlisting'" class="inreview">
+      <ion-avatar slot="start">
+        <ion-icon style="width: 30px;height: 30px;" name="briefcase-outline"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <ion-label class="ion-text-wrap">Job Listing "{{n.listname}}" has been disabled. Submitted application will continue to be processed!</ion-label>
         <ion-label class="time">{{n.date2}}</ion-label>
       </ion-label>
     </ion-item>

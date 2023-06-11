@@ -119,6 +119,7 @@ export class CompanyService {
   inboxid: any = [];
   profiledata: any = [];
   data: any=[];
+  appldata: any = [];
 
   constructor(
     private firestore: Firestore,
@@ -263,6 +264,16 @@ export class CompanyService {
     return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
   }
 
+  getappl(data: any): Observable<Company[]>{
+    console.log(data)
+  
+    const cakesRef = collection(this.firestore, `application/`)
+    const q = query(cakesRef, where("application.jobid", "==", `${data}` ))
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]>
+  }
+
+  
+
   getjobs(spec: any, ea: any): Observable<Company[]>{
     console.log(spec);
     console.log(ea);
@@ -279,7 +290,50 @@ export class CompanyService {
   async editstatus(state: any, value: boolean){
 
     try {
+
+      const timeStamp = Date.now();
+      const date: Date = new Date(timeStamp);
+  
+      const date2 = date.toLocaleString();
+
       const userget = this.auth.currentUser?.uid;
+
+      if (value == false){
+        this.getappl(state).pipe(first()).subscribe( async res=>{
+          this.appldata = res;
+          console.log(this.appldata)
+          for ( let i = 0; i<res.length;i++){
+
+            if (this.appldata[i].application.status  == "Pending" || this.appldata[i].application.status  == "Inprocess"){
+              const userDocRef3 = collection(this.firestore, `notificationuser/`);
+              await addDoc(userDocRef3, {uid: this.appldata[i].application.uid, notiftype: "disabledlisting", date2, timeStamp, listid: state, listname: ""});
+    
+            }
+            
+       
+          }
+  
+  
+        });
+      }else{
+
+        this.getappl(state).pipe(first()).subscribe( async res=>{
+          this.appldata = res;
+          for ( let i = 0; i<res.length;i++){
+            
+            if (this.appldata[i].application.status  == "Pending" || this.appldata[i].application.status  == "Inprocess"){
+              const userDocRef3 = collection(this.firestore, `notificationuser/`);
+              await addDoc(userDocRef3, {uid: this.appldata[i].application.uid, notiftype: "enabledlisting", date2, timeStamp, listid: state, listname: ""});
+    
+            }
+          }
+  
+  
+        });
+
+      }
+     
+
       const userDocRef3 = doc(this.firestore, `joblist/${state}`);
       const user = await updateDoc(userDocRef3, {state: value});
      

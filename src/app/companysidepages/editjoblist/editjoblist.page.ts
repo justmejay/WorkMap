@@ -3083,6 +3083,20 @@ term: any = "";
     });
   }
 
+  remove(data){
+    console.log(data)
+    for( var i = 0; i<=4; i++ ){
+
+        if (this.checkeditems[i] == data){
+            this.checkeditems.splice([i],1);
+            this.checkeds = this.checkeds -1;
+
+        }
+
+        console.log(this.checkeditems);
+    }
+ }
+
   async editjoblisting() {
 
     const loading = await this.loadingController.create({

@@ -148,32 +148,32 @@
               <ion-label position="stacked" class="cardsubtitle">Email Address: </ion-label>
               <ion-input position="stacked" class="custominput" value="{{loopdata.fac}}"></ion-input>
 
-              <div style=" margin-top: 50px;"> 
-                <ion-label position="stacked" class="cardsubtitle">Name: </ion-label>
-                <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+              <div *ngIf="loopdata?.mo1" style="  margin-top: 50px;"> 
+                <ion-label position="stacked"  class="cardsubtitle">Name: </ion-label>
+                <ion-input position="stacked" value="{{loopdata.mo1}}" [readonly]="true" class="custominput"></ion-input>
               
                 <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
-                <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+                <ion-input position="stacked" value="{{loopdata.moc1}}" [readonly]="true" class="custominput"></ion-input>
               
                 <ion-label position="stacked" class="cardsubtitle">Relationship with person: </ion-label>
-                <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+                <ion-input position="stacked" value="{{loopdata.fa1}}" [readonly]="true" class="custominput"></ion-input>
               
                 <ion-label position="stacked" class="cardsubtitle">Email Address: </ion-label>
-                <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+                <ion-input position="stacked" value="{{loopdata.fac1}}" [readonly]="true" class="custominput"></ion-input>
                 </div>
       
-                <div style=" margin-top: 50px;"> 
+                <div  *ngIf="loopdata?.mo2" style=" margin-top: 50px;"> 
                 <ion-label position="stacked" class="cardsubtitle">Name: </ion-label>
-                <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+                <ion-input position="stacked" value="{{loopdata.mo2}}" [readonly]="true" class="custominput"></ion-input>
               
                 <ion-label position="stacked" class="cardsubtitle">Contact No: </ion-label>
-                <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+                <ion-input position="stacked" value="{{loopdata.moc2}}" [readonly]="true" class="custominput"></ion-input>
               
                 <ion-label position="stacked" class="cardsubtitle">Relationship with person: </ion-label>
-                <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+                <ion-input position="stacked" value="{{loopdata.fa2}}" [readonly]="true" class="custominput"></ion-input>
               
                 <ion-label position="stacked" class="cardsubtitle">Email Address: </ion-label>
-                <ion-input position="stacked" [readonly]="true" class="custominput"></ion-input>
+                <ion-input position="stacked" value="{{loopdata.fac2}}" [readonly]="true" class="custominput"></ion-input>
                 </div>
 
           </ion-card-content>

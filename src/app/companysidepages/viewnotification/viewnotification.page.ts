@@ -64,6 +64,7 @@ export class ViewnotificationPage implements OnInit {
         this.jobdata = res;
         this.bdetails = this.jobdata.application.addressdetails;
         this.loopdata = this.jobdata.application.resumedetails;
+        console.log(this.loopdata)
         this.expdata =  this.jobdata.application.experiencedetails;
         this.educdata =  this.jobdata.application.schooldetails;
         this.certdata =  this.jobdata.application.certificationsdetails;

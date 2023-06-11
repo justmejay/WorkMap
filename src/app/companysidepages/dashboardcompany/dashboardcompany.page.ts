@@ -14,6 +14,7 @@ import {
 } from '@angular/fire/storage';
 import { Auth } from '@angular/fire/auth';
 import { ApplicationService } from 'src/app/services/application.service';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-dashboardcompany',
@@ -35,6 +36,8 @@ export class DashboardcompanyPage implements OnInit {
   companyid: any = [];
 
   isModalOpen = false;
+  once: boolean = false;
+  toggleCheck:boolean;
 
 
 
@@ -97,8 +100,21 @@ export class DashboardcompanyPage implements OnInit {
         return b.timesort - a.timesort;
       });
 
+
    
         for (var i=0; i< res.length; i++){
+
+          if (this.job[i].state == true && this.job[i].slots !=0){
+            this.toggleCheck = true;
+          }else{
+            this.toggleCheck = false;
+
+          }
+
+          
+
+       
+        
           
           if (this.job[i].attainment == '0'){
           this.job[i].attainment = 'No Minimum Education Required';
@@ -151,11 +167,40 @@ export class DashboardcompanyPage implements OnInit {
 
   async checked(event: any, job: any){
     const a = event.currentTarget.checked;
-    const b = job.listid;
+    if (a == true){
+      if(job.slots == 0 ){
+        this.toggleCheck = false;
+
+        this.presentToast('Vacancies for this listing is zero. Please add vacancies to make it active')
+
+      }
+      else{
+
+        const b = job.listid;
+        console.log(a)
+        console.log(b)
+        const user = await this.firestore.editstatus(b, a);
+
+      }
+    }else{
+
+      const b = job.listid;
+      console.log(a)
+      console.log(b)
+      const user = await this.firestore.editstatus(b, a);
+    }
+  
+  }
+
+  async initchecked(event: any, job: any){
+    const a = event;
+    const b = job;
     console.log(a)
     console.log(b)
     const user = await this.firestore.editstatus(b, a);
   }
+
+
 
   applicant(job:any){
     const any = job.listid
