@@ -16,7 +16,18 @@ ion-header{
 }
 
 
-ion-item {
+// ion-item {
+//     margin-top: 0.5rem;
+//     margin-left: 0.5rem;
+//     margin-right: 0.5rem;
+//     --background: #88b7fc;
+//     --color: #151515;
+//     --border-radius: 45px;
+//     ion-label{
+//         --color: #151515;
+//     }
+//   }
+  ion-item.applicants {
     margin-top: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -28,6 +39,41 @@ ion-item {
     }
   }
 
+  ion-item.rejected {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    --background: #fc8888;
+    --color: #151515;
+    --border-radius: 45px;
+    ion-label{
+        --color: #151515;
+    }
+  }
+
+  ion-item.inprocess {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    --background: #2F7EF5;
+    --color: white;
+    --border-radius: 45px;
+    ion-label{
+        --color: white;
+    }
+  }
+
+  ion-item.accepted {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    --background: #6c4ebf;
+    --color: white;
+    --border-radius: 45px;
+    ion-label{
+        --color: white;
+    }
+  }
   .sortby{
     margin-left: 0;
   }

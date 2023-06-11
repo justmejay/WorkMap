@@ -105,33 +105,43 @@
 
 <div *ngIf="selectTabs === 'pending'" >
   <div *ngFor="let appl of appl" >
-    <ion-card *ngIf="appl.status == 'Pending'">
+    <!-- <ion-card *ngIf="appl.status == 'Pending'">
       <ion-card-content>
-      <!-- <ion-item>
+      <ion-item>
         <ion-label>Status: {{appl.status}}</ion-label>
-      </ion-item> -->
+      </ion-item>
 
       <ion-list lines="none">
         <ion-item>{{appl.application.jtitle}} ({{appl.time}})
         </ion-item>
       </ion-list>
-
-
-
-
       <ion-button expand="block" shape="round" fill="solid" class="view" (click)="view(appl)">View Listing Details</ion-button>
     </ion-card-content>
-    </ion-card>
+    </ion-card> -->
+
+    <ion-item button detail="true" *ngIf="appl.status == 'Pending'" (click)="view(appl)" class="applicants">
+      <ion-avatar slot="start">
+        <img alt="Company piture"  src= />
+        <ng-template #alt>
+          <img alt="Company piture" src="assets/header.png" />
+        </ng-template>
+      </ion-avatar>
+        <p>
+          <ion-label class="ion-text-wrap">{{appl.application.jtitle}}</ion-label>
+          <ion-label class="ion-text-wrap">({{appl.time}})</ion-label>
+        </p>
+    </ion-item>
+
   </div>
 </div>
  
 <div *ngIf="selectTabs === 'rejected'" >
   <div *ngFor="let appl of appl" >
-    <ion-card *ngIf="appl.status == 'Rejected'">
+    <!-- <ion-card *ngIf="appl.status == 'Rejected'">
       <ion-card-content>
-      <!-- <ion-item>
+      <ion-item>
         <ion-label>Status: {{appl.status}}</ion-label>
-      </ion-item> -->
+      </ion-item>
       <ion-list lines="none">
         <ion-item> Job Title: {{appl.application.jtitle}}
         </ion-item>
@@ -140,13 +150,30 @@
         <ion-item>Date: {{appl.time}}</ion-item>
       </ion-list>
     </ion-card-content>
-    </ion-card>
+    </ion-card> -->
+
+    <ion-item button detail="true" *ngIf="appl.status == 'Rejected'" (click)="view(appl)" class="rejected">
+      <ion-avatar slot="start">
+        <img alt="Company piture"  src= />
+        <ng-template #alt>
+          <img alt="Company piture" src="assets/header.png" />
+        </ng-template>
+      </ion-avatar>
+      <p>
+        <ion-label> Job Title: {{appl.application.jtitle}}
+        </ion-label>
+        <!-- <ion-label>List ID: {{appl.userget}}</ion-label> -->
+        <!-- <ion-label>Status: {{appl.status}}</ion-label> -->
+        <ion-label>Result: (include company reasoning while rejected) </ion-label>
+        <ion-label>{{appl.time}}</ion-label>
+      </p>
+    </ion-item>
   </div>
 </div>
 
 <div *ngIf="selectTabs === 'inprocess'" >
   <div *ngFor="let appl of appl" >
-    <ion-card *ngIf="appl.status == 'Inprocess'">
+    <!-- <ion-card *ngIf="appl.status == 'Inprocess'">
       <ion-card-content>
         <ion-list lines="none">
           <ion-item> Job Title: {{appl.application.jtitle}}
@@ -156,13 +183,30 @@
           <ion-item>Date: {{appl.time}}</ion-item>
         </ion-list>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
+
+    <ion-item button detail="true" *ngIf="appl.status == 'Inprocess'" (click)="view(appl)" class="inprocess">
+      <ion-avatar slot="start">
+        <img alt="Company piture"  src= />
+        <ng-template #alt>
+          <img alt="Company piture" src="assets/header.png" />
+        </ng-template>
+      </ion-avatar>
+      <p>
+        <ion-label> Job Title: {{appl.application.jtitle}}
+        </ion-label>
+        <!-- <ion-label>List ID: {{appl.userget}}</ion-label> -->
+        <!-- <ion-label>Status: {{appl.status}}</ion-label> -->
+        <ion-label>Waiting for final review </ion-label>
+        <ion-label>{{appl.time}}</ion-label>
+      </p>
+    </ion-item>
   </div>
 </div>
 
 <div *ngIf="selectTabs === 'accepted'" >
   <div *ngFor="let appl of appl" >
-    <ion-card *ngIf="appl.status == 'Accepted'">
+    <!-- <ion-card *ngIf="appl.status == 'Accepted'">
       <ion-card-content>
         <ion-list lines="none">
           <ion-item> Job Title: {{appl.application.jtitle}}
@@ -172,7 +216,23 @@
           <ion-item>Date: {{appl.time}}</ion-item>
         </ion-list>
        </ion-card-content>
-    </ion-card>
+    </ion-card> -->
+    <ion-item button detail="true" *ngIf="appl.status == 'Accepted'" (click)="view(appl)" class="accepted">
+      <ion-avatar slot="start">
+        <img alt="Company piture"  src= />
+        <ng-template #alt>
+          <img alt="Company piture" src="assets/header.png" />
+        </ng-template>
+      </ion-avatar>
+      <p>
+        <ion-label> Job Title: {{appl.application.jtitle}}
+        </ion-label>
+        <!-- <ion-label>List ID: {{appl.userget}}</ion-label> -->
+        <!-- <ion-label>Status: {{appl.status}}</ion-label> -->
+        <ion-label>Application accepted </ion-label>
+        <ion-label>{{appl.time}}</ion-label>
+      </p>
+    </ion-item>
   </div>
 </div>
 
