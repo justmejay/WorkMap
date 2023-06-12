@@ -139,7 +139,7 @@
         <ion-input position="stacked" class="custominput" value=" {{resume.fac}}" [readonly]="true"></ion-input>
 
 
-        <div style=" margin-top: 50px;"> 
+        <div> 
         <ion-label position="stacked" *ngIf="resume?.mo1" class="cardsubtitle">Name: </ion-label>
         <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.mo1" value="{{resume.mo1}}"></ion-input>
       
@@ -153,7 +153,7 @@
         <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.fac1" value="{{resume.fac1}}"></ion-input>
         </div>
 
-        <div style=" margin-top: 50px;"> 
+        <div> 
         <ion-label position="stacked" *ngIf="resume?.mo2" class="cardsubtitle">Name: </ion-label>
         <ion-input position="stacked" [readonly]="true" class="custominput" *ngIf="resume?.mo2" value="{{resume.mo2}}"></ion-input>
       
@@ -217,7 +217,7 @@
         <ion-card>
           <ion-card-header>
             <div style="display: flex; justify-content: space-between;">
-              <ion-card-title>Work Experience</ion-card-title>
+              <ion-card-title>Work History</ion-card-title>
               <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/experience']"></ion-icon>
             </div >
           </ion-card-header>
