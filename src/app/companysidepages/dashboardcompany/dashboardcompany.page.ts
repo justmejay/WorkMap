@@ -104,12 +104,7 @@ export class DashboardcompanyPage implements OnInit {
    
         for (var i=0; i< res.length; i++){
 
-          if (this.job[i].state == true && this.job[i].slots !=0){
-            this.toggleCheck = true;
-          }else{
-            this.toggleCheck = false;
-
-          }
+        
 
           
 
@@ -169,9 +164,9 @@ export class DashboardcompanyPage implements OnInit {
     const a = event.currentTarget.checked;
     if (a == true){
       if(job.slots == 0 ){
-        this.toggleCheck = false;
 
         this.presentToast('Vacancies for this listing is zero. Please add vacancies to make it active')
+        const user = await this.firestore.editstatus(job.listid, false);
 
       }
       else{

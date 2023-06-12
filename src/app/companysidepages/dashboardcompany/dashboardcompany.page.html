@@ -141,7 +141,7 @@
         </ion-button> -->
         <ion-icon class="edit" name="create-outline" style="float: right; height: 25px; width: 25px" (click)="edit(job)"></ion-icon>
         <div class="activetoggle">
-          <ion-toggle  (ionChange)="checked($event, job)" [checked]="toggleCheck" style="float: right;"></ion-toggle>
+          <ion-toggle  (ionChange)="checked($event, job)" [checked]="job.state" style="float: right;"></ion-toggle>
           <ion-label class="togglestatus">Active</ion-label>
         </div> 
         <ion-card-title>
