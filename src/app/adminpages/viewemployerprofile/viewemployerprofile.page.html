@@ -147,19 +147,23 @@
       <ion-card>
         <ion-card-header>
           <div style="display: flex; justify-content: space-between;">
-            <ion-card-title>Number of Applicants</ion-card-title>
+            <ion-card-title>Number of Applicants (Pending)</ion-card-title>
             <!-- <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editcompanydetails']"></ion-icon> -->
           </div>
         </ion-card-header>
         <ion-card-content>
           <!-- <ion-label class="cardsubtitle">Total: </ion-label> -->
-            <ion-input value="" [readonly]="true">50</ion-input>
+            <ion-input value="{{count}}" ></ion-input>
         </ion-card-content>
       </ion-card>
+      <ion-button *ngIf="count == '0'" slot="end" shape="round" color="danger" (click)="archive(employer)">Archive</ion-button>
+      <ion-button *ngIf="company.status == 'Archived'"  slot="end" shape="round" color="danger" (click)="reactivate(employer)">Reactivate</ion-button>
       
 
     </div> 
 </div>
+
+     
 </ion-content>
 
 

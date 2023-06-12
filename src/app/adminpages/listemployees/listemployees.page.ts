@@ -17,6 +17,10 @@ export class ListemployeesPage implements OnInit {
   employerdata: any = [];
   employerdetails: any = [];
 
+  selectTabs: any = "accepted";
+
+  company: any = [];
+
 
   constructor(
     private firestore: AdminService,
@@ -47,6 +51,7 @@ export class ListemployeesPage implements OnInit {
 
     this.firestore.getallcompany().subscribe(res=>{
       this.count = res.length;
+      this.company = res;
     });
    }
 

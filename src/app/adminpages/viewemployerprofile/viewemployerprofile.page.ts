@@ -14,6 +14,9 @@ export class ViewemployerprofilePage implements OnInit {
   company: any = [];
   employer: any =  [];
 
+  appl: any = [];
+  count: any;
+
   constructor(
     private firestore: AdminService,
     private router: Router,
@@ -40,12 +43,65 @@ export class ViewemployerprofilePage implements OnInit {
   
       })
 
+      this.firestore.getcomapp(this.employers.uid).subscribe(res=>{
+        this.appl = res;
+        this.count = res.length;
+        console.log(this.count)
+  
+      })
+
       
 
     })
    }
 
   ngOnInit() {
+  }
+
+  async archive(employer){
+    const id = employer.uid
+
+
+    const loading = await this.loadingController.create({
+      message: 'Archiving Account...',
+
+      duration: 1000,
+      spinner: 'dots',
+  
+    });
+    await loading.present();
+    await this.firestore.getarchived(id)
+    this.showAlert('Success', 'Account Archived!')
+    this.router.navigate(['listemployees']);
+
+
+  }
+
+  async reactivate(employer){
+    const id = employer.uid
+
+
+    const loading = await this.loadingController.create({
+      message: 'Reactivating Account...',
+
+      duration: 1000,
+      spinner: 'dots',
+  
+    });
+    await loading.present();
+    await this.firestore.getreactivated(id)
+    this.showAlert('Success', 'Account Reactivated!')
+    this.router.navigate(['listemployees']);
+
+  }
+
+  async showAlert(header, message) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
 }

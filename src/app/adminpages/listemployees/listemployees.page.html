@@ -27,18 +27,73 @@
     </ion-toolbar>
   </ion-header>
 
+  <div class="segment-container">
+    <ion-segment value="buttons" [(ngModel)]="selectTabs">
+      <ion-segment-button value="accepted" class="confirmed">
+        <ion-label>Accepted</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="reactivated" class="completed">
+        <ion-label>Reactivated</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="archived" class="all">
+        <ion-label>Archived</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
   <ion-content>
-    <ion-card *ngFor="let employers of employerdetails">
-      <ion-item>
-        <ion-avatar slot="start">
-           <img *ngIf="employers?.profileimg; " [src]="employers.profileimg" />
-        </ion-avatar>
-        <ion-label>{{employers.fname}} {{employers.mname}} {{employers.lname}}</ion-label>
-        
-        <ion-button slot="end" shape="round" (click)="view(employers)">View</ion-button>
-        <ion-button slot="end" shape="round" color="danger" (click)="delete(employers)">Archive</ion-button>
-      </ion-item>
-    </ion-card>
+
+    <div *ngIf="selectTabs === 'accepted'">
+      <div *ngFor="let employers of employerdetails">
+        <ion-card *ngIf="employers.status == 'Accepted'">
+          <ion-item>
+            <ion-avatar slot="start">
+               <img *ngIf="employers?.profileimg; " [src]="employers.profileimg" />
+            </ion-avatar>
+            <ion-label>{{employers.fname}} {{employers.mname}} {{employers.lname}}</ion-label>
+            
+            <ion-button slot="end" shape="round" (click)="view(employers)">View</ion-button>
+            <!-- <ion-button slot="end" shape="round" color="danger" (click)="delete(employers)">Archive</ion-button>
+           -->
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngIf="selectTabs === 'reactivated'">
+      <div *ngFor="let employers of employerdetails">
+        <ion-card *ngIf="employers.status == 'Reactivated'">
+          <ion-item>
+            <ion-avatar slot="start">
+               <img *ngIf="employers?.profileimg; " [src]="employers.profileimg" />
+            </ion-avatar>
+            <ion-label>{{employers.fname}} {{employers.mname}} {{employers.lname}}</ion-label>
+            
+            <ion-button slot="end" shape="round" (click)="view(employers)">View</ion-button>
+            <!-- <ion-button slot="end" shape="round" color="danger" (click)="delete(employers)">Archive</ion-button>
+           -->
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngIf="selectTabs === 'archived'">
+      <div *ngFor="let employers of employerdetails">
+        <ion-card *ngIf="employers.status == 'Archived'">
+          <ion-item>
+            <ion-avatar slot="start">
+               <img *ngIf="employers?.profileimg; " [src]="employers.profileimg" />
+            </ion-avatar>
+            <ion-label>{{employers.fname}} {{employers.mname}} {{employers.lname}}</ion-label>
+            
+            <ion-button slot="end" shape="round" (click)="view(employers)">View</ion-button>
+            <!-- <ion-button slot="end" shape="round" color="danger" (click)="delete(employers)">Archive</ion-button>
+           -->
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+    
   </ion-content>
 
   <ion-footer>

@@ -92,10 +92,69 @@ export class AdminService {
     const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
     const comp = "Accepted"
 
-    return updateDoc (cakeRef, {status: comp } )
+    const up = updateDoc (cakeRef, {status: comp })
+
+    const cakeRef2 = doc(this.firestore, `employers/${id}/profile/${id}`)
+
+    const comp2 = "Accepted"
+
+    const up2 = updateDoc (cakeRef2, {status: comp2} )
+
 
     
   }
+
+  getarchived(id:any){
+
+    
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
+
+    const applicationRefx = collection(this.firestore, `notifications/`)
+    const passx =  addDoc (applicationRefx, {timeStamp, time: date2, notiftype: "adminarchive", uid: id})
+
+    const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    const comp = "Archived"
+
+    const up = updateDoc (cakeRef, {status: comp })
+
+    const cakeRef2 = doc(this.firestore, `employers/${id}/profile/${id}`)
+
+    const comp2 = "Archived"
+
+    const up2 = updateDoc (cakeRef2, {status: comp })
+
+  }
+
+
+  getreactivated(id:any){
+
+    
+    const timeStamp = Date.now();
+    const date: Date = new Date(timeStamp);
+
+    const date2 = date.toLocaleString();
+
+    const applicationRefx = collection(this.firestore, `notifications/`)
+    const passx =  addDoc (applicationRefx, {timeStamp, time: date2, notiftype: "adminreactivate", uid: id})
+
+    const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
+    const comp = "Reactivated"
+
+    const up = updateDoc (cakeRef, {status: comp })
+
+    const cakeRef2 = doc(this.firestore, `employers/${id}/profile/${id}`)
+
+    const comp2 = "Reactivated"
+
+    const up2 = updateDoc (cakeRef2, {status: comp2} )
+
+
+    
+  }
+
 
   getdeclined(id:any, reasonr: any){
 
@@ -109,7 +168,14 @@ export class AdminService {
 
     const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
     const comp = "Declined"
-    return updateDoc (cakeRef, {status: comp, reason: reasonr  } )
+
+    const up = updateDoc (cakeRef, {status: comp })
+
+    const cakeRef2 = doc(this.firestore, `employers/${id}/profile/${id}`)
+
+    const comp2 = "Declined"
+
+    const up2 = updateDoc (cakeRef2, {status: comp2} )
   }
 
   getallusers(): Observable<Company[]>{
@@ -255,4 +321,10 @@ export class AdminService {
   //   const q = query(cakesRef, where("company.uid", "==",uid ))
   //   return collectionData(q, {idField: 'id'}) as Observable<[Company]>
   // }
+
+  getcomapp(id: any): Observable<Company[]>{
+    const cakesRef = collection(this.firestore, `application`)
+    const q = query(cakesRef, where("application.cid", "==", id ), where("status", "==", "Pending" ))
+    return collectionData(q, {idField: 'userget'}) as Observable<[Company]> 
+  }
 }

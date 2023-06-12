@@ -75,12 +75,16 @@
     </ion-img>
   </div>
 
-  <div *ngIf="job.length == 0" class="primary" style="color: black;text-align: center;">
-    <ion-label  class="primary">You may now post job listings!</ion-label>
-    <ion-img 
-    src="assets/addjoblist.png">
-    </ion-img>
+  <div *ngIf="company.status == 'Accepted'">
+    <div *ngIf="job.length == 0" class="primary" style="color: black;text-align: center;">
+      <ion-label  class="primary">You may now post job listings!</ion-label>
+      <ion-img 
+      src="assets/addjoblist.png">
+      </ion-img>
+    </div>
+
   </div>
+ 
 
 
 <ion-item class="staticred"  [hidden]="!button" *ngIf="company.status == 'Declined'">
