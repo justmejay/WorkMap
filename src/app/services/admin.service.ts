@@ -324,7 +324,7 @@ export class AdminService {
 
   getcomapp(id: any): Observable<Company[]>{
     const cakesRef = collection(this.firestore, `application`)
-    const q = query(cakesRef, where("application.cid", "==", id ), where("status", "==", "Pending" ))
+    const q = query(cakesRef, where("application.cid", "==", id ), where('status', 'in', ['Pending', 'Inprocess']))
     return collectionData(q, {idField: 'userget'}) as Observable<[Company]> 
   }
 }
