@@ -423,7 +423,7 @@
           <ion-note slot="error" *ngIf="(citizenship.dirty || citizenship.touched) && citizenship.errors">Required</ion-note>
       
         <ion-item> 
-          <ion-label>Educational Attainment:</ion-label>
+          <ion-label position="stacked">Educational Attainment:</ion-label>
               <ion-select formControlName="ea" value="{{profile.ea}}" interface="action-sheet" placeholder="Select">
                 <ion-select-option class="popoverselect" value="1">High School Diploma</ion-select-option>
                 <ion-select-option class="popoverselect" value="2">Vocational Diploma/Short Course Certificate</ion-select-option>
