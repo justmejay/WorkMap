@@ -16,7 +16,7 @@
         <ion-icon slot="start" name="shield-half-outline" style="color: #42505d;"></ion-icon>
         Privacy Policy
       </ion-button>
-      <ion-button fill="clear" class="card1menu" expand="block" (click)="view(company)">
+      <ion-button [disabled]="button" fill="clear" class="card1menu" expand="block" (click)="view(company)">
         <ion-icon slot="start" name="person" style="color: #42505d;" ></ion-icon>
          Employees</ion-button>
        <!-- <ion-button fill="clear" class="card1menu" expand="block" [routerLink]="['/workorderlist']">

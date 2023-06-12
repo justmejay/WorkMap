@@ -52,6 +52,7 @@ export interface Company{
 })
 export class AdminService {
   certs: any = [];
+  data: any = [];
 
   constructor(
     private firestore: Firestore,
@@ -104,6 +105,14 @@ export class AdminService {
     
   }
 
+  getappl(data: any): Observable<Company[]>{
+    console.log(data)
+  
+    const cakesRef = collection(this.firestore, `joblist/`)
+    const q = query(cakesRef, where("uid", "==", `${data}` ))
+    return collectionData(q, {idField: 'id'}) as Observable<[Company]>
+  }
+
   getarchived(id:any){
 
     
@@ -124,7 +133,19 @@ export class AdminService {
 
     const comp2 = "Archived"
 
-    const up2 = updateDoc (cakeRef2, {status: comp })
+    const up2 = updateDoc (cakeRef2, {status: comp});
+
+    this.getappl(id).pipe(first()).subscribe(res=>{
+
+      this.data = res;
+
+      for(let i  = 0;i<res.length;i++){
+        const cakeRef = doc(this.firestore, `joblist/${this.data[i].id}`)
+        const up = updateDoc (cakeRef, {state: false });
+      }
+    });
+
+    
 
   }
 
