@@ -45,8 +45,8 @@ export class AuthService {
   ) { }
 
 
-  async signup({fname, mname, lname, suffix, cs, religion, sex, bday, age, contact,ea, citizenship, specialization, homeaddress, currentaddress, currentcoords, }: 
-    {fname: any, mname: any, lname: any, suffix: any, cs: any, religion: any,ea: any, sex : any , bday: any, age: any, contact:any, citizenship:any, specialization: any, selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
+  async signup({fname, mname, lname, suffix, exp, cs, religion, sex, bday, age, contact,ea, citizenship, specialization, homeaddress, currentaddress, currentcoords, }: 
+    {fname: any, mname: any, lname: any,exp: number, suffix: any, cs: any, religion: any,ea: any, sex : any , bday: any, age: any, contact:any, citizenship:any, specialization: any, selectedCurrent: any,currentaddress:any, homeaddress:any, currentcoords: any, homecoords: any, homePlaceID: any, selectedHome: any,
      }, email: any, 
     password: any,
     
@@ -94,7 +94,7 @@ export class AuthService {
 
 
       const userDocRef7 = doc(this.firestore, `users/${userget}/preferred/${userget}`);
-      await setDoc(userDocRef7, {specialization});
+      await setDoc(userDocRef7, {specialization, exp});
       
 
       await sendEmailVerification(this.auth.currentUser);

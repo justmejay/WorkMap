@@ -25,6 +25,7 @@ export class MoresignupspecializationPage implements OnInit {
   checkeditems: any = [];
   checkeds: number = 0;
   textbox: any = "test";
+  exp: number = 0;
   filteredquery: any = [
     {
         "position": "Territory Manager",
@@ -3098,7 +3099,8 @@ export class MoresignupspecializationPage implements OnInit {
       citizenship: this.authdetails.citizenship, 
       email: this.authdetails.email,
       password: this.authdetails.password,
-      ea: this.authdetails.ea} });
+      ea: this.authdetails.ea,
+     exp: this.exp} });
 
 
 

@@ -626,12 +626,12 @@ export class ProfilingService {
     }
   }
 
-  async updatepref(specialization: any){
+  async updatepref(specialization: any, exp: any){
 
     try {
       const userget = this.auth.currentUser?.uid;
       const userDocRef3 = doc(this.firestore, `users/${userget}/preferred/${userget}`);
-      const user = await updateDoc(userDocRef3, {specialization});
+      const user = await updateDoc(userDocRef3, {specialization, exp});
      
       return true;
     } catch (e) {

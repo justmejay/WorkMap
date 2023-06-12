@@ -274,7 +274,7 @@ export class CompanyService {
 
   
 
-  getjobs(spec: any, ea: any): Observable<Company[]>{
+  getjobs(spec: any, ea: any, exp: any): Observable<Company[]>{
     console.log(spec);
     console.log(ea);
   const uid = this.auth.currentUser.uid;

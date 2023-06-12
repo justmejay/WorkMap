@@ -67,15 +67,15 @@
     </ion-card> -->
     <ion-card class="custom-card">
       <ion-card-header>
-        <ion-card-title>Input amount of work experience:</ion-card-title>
+        <ion-card-title>In General, how much experience you have in connection with this/these job position/s:</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ion-item class="customitem">
-          <ion-input [clearInput]="true" placeholder="experience in years" position="stacked" type=""></ion-input>
+          <ion-input  [(ngModel)]="exp" [clearInput]="true" placeholder="Experience in years" position="stacked" type="number"></ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
-    <ion-button (click)="signup()" [disabled]="checkeditems.length == 0" shape="round "expand="block" class="btnreg" size="large">Next</ion-button>
+    <ion-button (click)="signup()" [disabled]="checkeditems.length == 0 || exp < 0" shape="round "expand="block" class="btnreg" size="large">Next</ion-button>
 </div>
 
 

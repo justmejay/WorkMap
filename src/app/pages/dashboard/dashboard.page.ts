@@ -138,7 +138,7 @@ export class DashboardPage implements OnInit {
           
                     console.log(this.earray)
           
-                    this.firestore.getjobs(this.userspec, this.earray.ea).subscribe(res=>{
+                    this.firestore.getjobs(this.userspec, this.earray.ea, this.userarray.exp).subscribe(res=>{
           
                     this.job = res;
                     
@@ -233,7 +233,7 @@ export class DashboardPage implements OnInit {
                       this.earray = this.earray;
                       console.log(this.earray)
             
-                    this.firestore.getjobs(this.userspec, this.earray.ea).subscribe(async res=>{
+                    this.firestore.getjobs(this.userspec, this.earray.ea, this.userarray.exp).subscribe(async res=>{
                       this.finalbook = [];
                       this.job = res;
                       console.log(this.job);
@@ -241,7 +241,10 @@ export class DashboardPage implements OnInit {
                       for (let i = 0;i<res.length;i++){
 
                        if(this.job[i].exception.length == 0){
-                        this.finalbook.push(this.job[i]);
+                        if (this.job[i].jexperience <= this.userarray.exp){
+                          this.finalbook.push(this.job[i]);
+
+                        }
                        }else{
                         this.verdict = false;
                         for (let j = 0; j<this.job[i].exception.length ; j++){
@@ -255,7 +258,10 @@ export class DashboardPage implements OnInit {
                            
                        }
                        if (this.verdict == false){
-                        this.finalbook.push(this.job[i]);
+                        if (this.job[i].jexperience <= this.userarray.exp){
+                          this.finalbook.push(this.job[i]);
+
+                        }
                       }
                    }
 

@@ -19,6 +19,7 @@ export class EditpreferredoptionPage implements OnInit {
   checkeds: number = 0;
   textbox: any = "test";
   term: any;
+  exp: any;
   filteredquery: any = [
     {
         "position": "Territory Manager",
@@ -3003,6 +3004,7 @@ export class EditpreferredoptionPage implements OnInit {
         "id": "zxqDQB0bZODvKCzz4yme"
     }
 ];
+expdata: any = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -3016,6 +3018,7 @@ export class EditpreferredoptionPage implements OnInit {
   ) {
     this.profile.getpref().subscribe(res =>{
       this.checkeditems = res;
+      this.expdata = res;
       this.checkeditems = this.checkeditems.specialization;
       this.checkeds = this.checkeditems.specialization.length;
 
@@ -3072,7 +3075,7 @@ export class EditpreferredoptionPage implements OnInit {
 
     await loading.present();
 
-    const user =  this.profile.updatepref(this.checkeditems);
+    const user =  this.profile.updatepref(this.checkeditems, this.exp);
     if (user){
 
       this.presentToast('Data Updated!');

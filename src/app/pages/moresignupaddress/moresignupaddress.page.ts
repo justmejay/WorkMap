@@ -141,6 +141,7 @@ export class MoresignupaddressPage implements OnInit {
       citizenship: [this.authdetails.citizenship],
       specialization: [this.authdetails.specialization],
       ea: [this.authdetails.ea],
+      exp: [this.authdetails.exp]
 
       
 
