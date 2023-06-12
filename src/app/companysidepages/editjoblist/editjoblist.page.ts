@@ -3058,18 +3058,26 @@ term: any = "";
 
       this.job = params;
       console.log(this.job.jobid)
-  
-      this.firestore.getjobe(this.job.jobid).subscribe(res => {
+
+      setTimeout(() => 
+{
+    this.firestore.getjobe(this.job.jobid).subscribe(res => {
         this.jobs = res;
         // console.log(this.jobs.jtitle);
         // console.log(this.jobs.jposition.length)
         this.checkeditems = this.jobs.jposition
       });
+    },
+100);
+  
+     
 
     })
    }
 
   ngOnInit() {
+
+    
     this.credentials = this.fb.group({
         jtitle: ['', [Validators.required]],
         jsalary: ['', [Validators.required, Validators.min(1)]],

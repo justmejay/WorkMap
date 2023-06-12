@@ -43,8 +43,8 @@ export class PostService {
     private storage: Storage,
   ) { }
 
-  async addpost({ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp}: 
-    { ptitle: any, pdescription: any, fname: any, mname: any, lname: any, cname: any, profileimg: any, timeStamp: any} ){
+  async addpost({ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp, pfsuffix}: 
+    { ptitle: any, pdescription: any, fname: any, mname: any, lname: any,pfsuffix: any, cname: any, profileimg: any, timeStamp: any} ){
 
     try {
 
@@ -55,7 +55,7 @@ export class PostService {
       const userget = this.auth.currentUser?.uid;
  
       const userDocRef3 = collection(this.firestore, `post/`);
-      const user = await addDoc(userDocRef3, {uid: userget, ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp: date2, listid: "", timesort: timeStamp,});
+      const user = await addDoc(userDocRef3, {uid: userget,pfsuffix, ptitle, pdescription, fname, mname, lname, cname, profileimg, timeStamp: date2, listid: "", timesort: timeStamp,});
 
       const id = user.id;
 

@@ -25,7 +25,7 @@
           </ion-avatar>
           <div class="label">
             <ion-label class="cardsubtitle">
-              {{ post.fname }} {{ post.mname }} {{ post.lname }}
+              {{ post.fname }} {{ post.mname }} {{ post.lname }} {{post.pfsuffix}}
               <ng-container *ngIf="post.cname; else cname">
                 of <b>{{ post.cname }}</b> posted an update
               </ng-container>
