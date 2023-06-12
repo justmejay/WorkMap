@@ -157,8 +157,7 @@
         </ion-card-content>
       </ion-card>
       <div *ngIf="company.status !== 'Archived'">
-        <ion-button expand="block" *ngIf="count == '0'" slot="end" shape="round" color="danger" (click)="archive(employer)">Archive</ion-button>
-      
+        <ion-button expand="block" [disabled]="count != '0'" slot="end" shape="round" color="danger" (click)="archive(employer)">Archive</ion-button>
       </div>
       <ion-button expand="block" *ngIf="company.status == 'Archived'"  slot="end" shape="round" color="danger" (click)="reactivate(employer)">Reactivate</ion-button>
       
