@@ -38,7 +38,11 @@
       <ion-segment-button value="archived" class="all">
         <ion-label>Archived</ion-label>
       </ion-segment-button>
+      <ion-segment-button value="request" class="all">
+        <ion-label>Request for Reactivation</ion-label>
+      </ion-segment-button>
     </ion-segment>
+    
   </div>
 
   <ion-content>
@@ -80,6 +84,23 @@
     <div *ngIf="selectTabs === 'archived'">
       <div *ngFor="let employers of employerdetails">
         <ion-card *ngIf="employers.status == 'Archived'">
+          <ion-item>
+            <ion-avatar slot="start">
+               <img *ngIf="employers?.profileimg; " [src]="employers.profileimg" />
+            </ion-avatar>
+            <ion-label>{{employers.fname}} {{employers.mname}} {{employers.lname}}</ion-label>
+            
+            <ion-button slot="end" shape="round" (click)="view(employers)">View</ion-button>
+            <!-- <ion-button slot="end" shape="round" color="danger" (click)="delete(employers)">Archive</ion-button>
+           -->
+          </ion-item>
+        </ion-card>
+      </div>
+    </div>
+
+    <div *ngIf="selectTabs === 'request'">
+      <div *ngFor="let employers of employerdetails">
+        <ion-card *ngIf="employers.status == 'Request'">
           <ion-item>
             <ion-avatar slot="start">
                <img *ngIf="employers?.profileimg; " [src]="employers.profileimg" />
