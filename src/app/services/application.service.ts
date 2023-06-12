@@ -338,7 +338,7 @@ export class ApplicationService {
      updateDoc (cakeRef, {status: comp } )
 
     const cakeRef2 = collection(this.firestore, `notificationuser/`)
-    return addDoc (cakeRef2, {uid: data.application.uid,listid: data.id , date2, timeStamp, notiftype: "applicationreview" } )
+    return addDoc (cakeRef2, {uid: data.application.uid, listid: data.id , date2, timeStamp, notiftype: "applicationreview" } )
   }
   
 
