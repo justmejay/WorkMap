@@ -564,6 +564,13 @@ export class CompanyService {
     return updateDoc (cakeRef, {status: comp } )
   }
 
+  getreactivate(id:any){
+
+    const cakeRef = doc(this.firestore, `employers/${id}/profile/${id}`)
+    const comp = "Request"
+    return updateDoc (cakeRef, {status: comp } )
+  }
+
 
   // getjobsid(): Observable<Company[]>{
 

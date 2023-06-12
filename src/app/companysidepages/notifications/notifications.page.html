@@ -42,6 +42,26 @@
         </ion-label>
       </ion-item>
 
+      <ion-item *ngIf="n.notiftype == 'adminarchive'" class="approved">
+        <ion-avatar slot="start">
+          <ion-icon style="width: 30px;height: 30px;" name="briefcase-outline"></ion-icon>
+        </ion-avatar>
+        <ion-label>
+          <ion-label class="ion-text-wrap">Your Company account has been archived!</ion-label>
+          <ion-label class="time">{{n.time}}</ion-label>
+        </ion-label>
+      </ion-item>
+
+      <ion-item *ngIf="n.notiftype == 'adminreactivate'" class="approved">
+        <ion-avatar slot="start">
+          <ion-icon style="width: 30px;height: 30px;" name="briefcase-outline"></ion-icon>
+        </ion-avatar>
+        <ion-label>
+          <ion-label class="ion-text-wrap">Your Company account has been reactivated!</ion-label>
+          <ion-label class="time">{{n.time}}</ion-label>
+        </ion-label>
+      </ion-item>
+
     </div>
 
     

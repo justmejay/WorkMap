@@ -302,6 +302,41 @@ export class DashboardcompanyPage implements OnInit {
     await prompt.present();
   }
 
+  async reactivate(company){
+    const id = company.uid
+
+    const prompt = await this.alertController.create({
+      header: 'Request for reactivation again?',
+      // inputs: [
+      //   {
+      //     name: 'reason',
+      //     type: 'text',
+      //     value: '',
+      //     placeholder: 'Reason'
+      //   }
+      // ],
+      buttons: [
+        {
+          text: 'No',
+          role: 'cancel',
+          handler: () => {
+            // Handle cancel button action if needed
+          }
+        },
+        {
+          text: 'Yes',
+          handler: (company) => {
+            this.firestore.getreactivate(id);
+            this.showAlert('Success', 'Request sent!')
+            this.router.navigate(['dashboardcompany']);
+          }
+        }
+      ]
+    });
+  
+    await prompt.present();
+  }
+
 
   async showAlert(header, message) {
     const alert = await this.alertController.create({
