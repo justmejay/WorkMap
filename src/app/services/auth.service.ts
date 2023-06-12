@@ -134,7 +134,7 @@ export class AuthService {
           await setDoc(userDocRef12, {data: ""});
 
       const userDocRef1 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
-      await setDoc(userDocRef1, {fname, mname, lname, contact, citizenship, email, uid: userget, profileimg: ""});
+      await setDoc(userDocRef1, {fname, mname, lname, contact, citizenship, email, uid: userget, profileimg: "", status: "Pending",});
       
       // const userDocRef3 = doc(this.firestore, `employers/${userget}/namee/${userget}`);
       // await setDoc(userDocRef3, {fname, mname, lname, uid: userget, profileimg: ""});
@@ -159,7 +159,7 @@ export class AuthService {
           await setDoc(userDocRef12, {data: ""});
 
       const userDocRef1 = doc(this.firestore, `employers/${userget}/profile/${userget}`);
-      await setDoc(userDocRef1, {fname, mname, lname, contact, citizenship, email, uid: userget, profileimg: ""});
+      await setDoc(userDocRef1, {fname, mname, lname, contact, citizenship, email, uid: userget, profileimg: "", status: "Pending",});
       
       // const userDocRef3 = doc(this.firestore, `employers/${userget}/namee/${userget}`);
       // await setDoc(userDocRef3, {fname, mname, lname, uid: userget, profileimg: ""});
