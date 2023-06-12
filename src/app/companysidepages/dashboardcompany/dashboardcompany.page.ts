@@ -80,7 +80,7 @@ export class DashboardcompanyPage implements OnInit {
       console.log(this.company.uid)
       console.log(this.company.status)
 
-      if (this.company.status == 'Pending') {
+      if (this.company.status == 'Pending' || this.company.status == 'Archived') {
         this.button = true;
       } else if (this.company.status == 'Declined') {
         this.button = true;

@@ -76,9 +76,9 @@
   </div>
 
   
-<ion-item class="staticred"  [hidden]="!button" *ngIf="company.status == 'Archived'">
-  <div *ngIf="company.status == 'Archived'" [hidden]="!button" style="color: black;text-align: center;">
-    <ion-label  [hidden]="!button" *ngIf="company.status == 'Archived'" >Account is archived!</ion-label>
+<ion-item class="staticred"  *ngIf="company.status == 'Archived'">
+  <div *ngIf="company.status == 'Archived'"  style="color: black;text-align: center;">
+    <ion-label   *ngIf="company.status == 'Archived'" >Account is archived!</ion-label>
   </div>
 
   <ion-button shape="round" *ngIf="company.status == 'Archived'" (click)="reactivate(company)" slot="end">Request for reactivation</ion-button>
@@ -133,7 +133,7 @@
 
 
 
-    <ion-card *ngFor="let job of job" class="joblisting">
+    <ion-card [hidden]="button" *ngFor="let job of job" class="joblisting">
       <ion-card-header >
         <!-- <ion-button [disabled]="!(job.state != true && job.slots == 0)  ">
           <ion-icon  name="trash-outline" style="float: right; height: 25px; width: 25px" (click)="delete(job)"></ion-icon>
