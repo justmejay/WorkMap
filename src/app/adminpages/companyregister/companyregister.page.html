@@ -47,6 +47,12 @@
           <ion-segment-button value="declined" class="completed">
             <ion-label>Declined</ion-label>
           </ion-segment-button>
+          <ion-segment-button value="archived" class="completed">
+            <ion-label>Archived</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="reactivated" class="confirmed">
+            <ion-label>Reactivated</ion-label>
+          </ion-segment-button>
         </ion-segment>
       </div>
 
@@ -119,7 +125,7 @@
                 {{company.cname}}
               </ion-col>
               <ion-col>
-                <ion-badge color="danger">
+                <ion-badge color="success">
                 {{company.status}}
                 </ion-badge>
               </ion-col>
@@ -164,6 +170,98 @@
               </ion-col>
               <ion-col>
                 <ion-badge color="danger">
+                {{company.status}}
+                </ion-badge>
+              </ion-col>
+              <ion-col >
+                {{company.timeStamp}}
+              </ion-col>
+              <ion-col>
+                <ion-button shape="round" (click)="view(company)">View</ion-button>
+              </ion-col>
+            </ion-row >
+          </ion-grid>
+  
+          
+        </div>
+       
+
+      </div>
+
+
+      <div *ngIf="selectTabs === 'archived'" >
+
+        <ion-grid >
+          <ion-row>
+            <ion-col>
+              Company Name
+            </ion-col>
+            <ion-col>
+              Status
+            </ion-col>
+            <ion-col>
+              Date
+            </ion-col>
+            <ion-col>
+              Action
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div *ngFor="let company of company">
+
+          <ion-grid *ngIf="company.status == 'Archived'">
+            <ion-row class="detail">
+              <ion-col>
+                {{company.cname}}
+              </ion-col>
+              <ion-col>
+                <ion-badge color="primary">
+                {{company.status}}
+                </ion-badge>
+              </ion-col>
+              <ion-col >
+                {{company.timeStamp}}
+              </ion-col>
+              <ion-col>
+                <ion-button shape="round" (click)="view(company)">View</ion-button>
+              </ion-col>
+            </ion-row >
+          </ion-grid>
+  
+          
+        </div>
+       
+
+      </div>
+
+
+      <div *ngIf="selectTabs === 'reactivated'" >
+
+        <ion-grid >
+          <ion-row>
+            <ion-col>
+              Company Name
+            </ion-col>
+            <ion-col>
+              Status
+            </ion-col>
+            <ion-col>
+              Date
+            </ion-col>
+            <ion-col>
+              Action
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div *ngFor="let company of company">
+
+          <ion-grid *ngIf="company.status == 'Reactivated'">
+            <ion-row class="detail">
+              <ion-col>
+                {{company.cname}}
+              </ion-col>
+              <ion-col>
+                <ion-badge color="success">
                 {{company.status}}
                 </ion-badge>
               </ion-col>
