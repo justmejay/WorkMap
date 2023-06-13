@@ -77,8 +77,8 @@ export class DashboardcompanyPage implements OnInit {
     this.firestore.getcompany().subscribe(res=>{
 
       this.company = res;
-      console.log(this.company.uid)
-      console.log(this.company.status)
+      console.log(this.company)
+
 
       if (this.company.status == 'Pending' || this.company.status == 'Archived' || this.company.status == 'Request') {
         this.button = true;
@@ -285,23 +285,10 @@ export class DashboardcompanyPage implements OnInit {
         },
         {
           text: 'Yes',
-          handler: (company) => {
+          handler: () => {
             this.firestore.getreapply(id);
             this.showAlert('Success', 'Request sent!')
-            this.router.navigate(['dashboardcompany'])
-            .then(async () => {
-              const loading = await this.loadingController.create({
-                message: 'Validating',
-                spinner: 'dots',
-              });
-              await loading.present();
-          
-              window.location.reload();
-          
-              await loading.dismiss();
-          
-          
-            });
+            this.router.navigate(['dashboardcompany']);
             
           }
         }

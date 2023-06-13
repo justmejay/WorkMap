@@ -190,7 +190,7 @@ export class AdminService {
     const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
     const comp = "Declined"
 
-    const up = updateDoc (cakeRef, {status: comp })
+    const up = updateDoc (cakeRef, {status: comp, reason: reasonr })
 
     const cakeRef2 = doc(this.firestore, `employers/${id}/profile/${id}`)
 
