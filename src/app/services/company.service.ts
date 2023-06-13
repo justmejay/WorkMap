@@ -566,9 +566,31 @@ export class CompanyService {
 
   getreactivate(id:any){
 
-    const cakeRef = doc(this.firestore, `employers/${id}/profile/${id}`)
+    // const cakeRef = doc(this.firestore, `employers/${id}/profile/${id}`)
+    // const comp = "Request"
+    // return updateDoc (cakeRef, {status: comp } )
+
+    const cakeRef = doc(this.firestore, `employers/${id}/company/${id}`)
     const comp = "Request"
-    return updateDoc (cakeRef, {status: comp } )
+
+    const up = updateDoc (cakeRef, {status: comp })
+
+    const cakeRef2 = doc(this.firestore, `employers/${id}/profile/${id}`)
+
+    const comp2 = "Request"
+
+    const up2 = updateDoc (cakeRef2, {status: comp});
+
+    this.getappl(id).pipe(first()).subscribe(res=>{
+
+      this.data = res;
+
+      for(let i  = 0;i<res.length;i++){
+        const cakeRef = doc(this.firestore, `joblist/${this.data[i].id}`)
+        const up = updateDoc (cakeRef, {state: false });
+      }
+    });
+
   }
 
 

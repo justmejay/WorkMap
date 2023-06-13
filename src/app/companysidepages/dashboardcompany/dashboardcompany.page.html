@@ -83,6 +83,12 @@
 
   <ion-button shape="round" *ngIf="company.status == 'Archived'" (click)="reactivate(company)" slot="end">Request for reactivation</ion-button>
 </ion-item>
+
+<ion-item class="staticred"  *ngIf="company.status == 'Request'">
+  <div *ngIf="company.status == 'Request'"  style="color: black;text-align: center;">
+    <ion-label   *ngIf="company.status == 'Request'" >Request for account reactivation has been sent!</ion-label>
+  </div>
+</ion-item>
   
 
   <div *ngIf="company.status == 'Accepted'">

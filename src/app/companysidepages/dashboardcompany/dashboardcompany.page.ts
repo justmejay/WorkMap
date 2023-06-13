@@ -80,7 +80,7 @@ export class DashboardcompanyPage implements OnInit {
       console.log(this.company.uid)
       console.log(this.company.status)
 
-      if (this.company.status == 'Pending' || this.company.status == 'Archived') {
+      if (this.company.status == 'Pending' || this.company.status == 'Archived' || this.company.status == 'Request') {
         this.button = true;
       } else if (this.company.status == 'Declined') {
         this.button = true;
@@ -288,7 +288,21 @@ export class DashboardcompanyPage implements OnInit {
           handler: (company) => {
             this.firestore.getreapply(id);
             this.showAlert('Success', 'Request sent!')
-            this.router.navigate(['dashboardcompany']);
+            this.router.navigate(['dashboardcompany'])
+            .then(async () => {
+              const loading = await this.loadingController.create({
+                message: 'Validating',
+                spinner: 'dots',
+              });
+              await loading.present();
+          
+              window.location.reload();
+          
+              await loading.dismiss();
+          
+          
+            });
+            
           }
         }
       ]
