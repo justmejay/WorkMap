@@ -74,7 +74,6 @@ export class DashboardPage implements OnInit {
       console.log(this.profiles);
     });
 
-    this.filter();
      
 
      
