@@ -71,19 +71,6 @@ export class ResumebuilderPage implements OnInit {
 
    routes(){
     this.router.navigate(['/dashboard'])
-  .then(async () => {
-    const loading = await this.loadingCtrl.create({
-      message: 'Validating',
-      spinner: 'dots',
-    });
-    await loading.present();
-
-    window.location.reload();
-
-    await loading.dismiss();
-
-
-  });
   }
 
   async parse(){

@@ -70,22 +70,10 @@ export class ViewemployerprofilePage implements OnInit {
   
     });
     await loading.present();
-    await this.firestore.getarchived(id)
+    await this.firestore.getarchived(id);
 
     this.router.navigate(['/listemployees'])
-    .then(async () => {
-      const loading = await this.loadingController.create({
-        message: 'Validating',
-        spinner: 'dots',
-      });
-      await loading.present();
   
-      window.location.reload();
-  
-      await loading.dismiss();
-  
-  
-    });
 
 
   }
@@ -104,19 +92,7 @@ export class ViewemployerprofilePage implements OnInit {
     await loading.present();
     await this.firestore.getreactivated(id)
     this.router.navigate(['/listemployees'])
-    .then(async () => {
-      const loading = await this.loadingController.create({
-        message: 'Validating',
-        spinner: 'dots',
-      });
-      await loading.present();
   
-      window.location.reload();
-  
-      await loading.dismiss();
-  
-  
-    });
 
   }
 

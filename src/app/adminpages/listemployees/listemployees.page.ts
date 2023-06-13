@@ -3,6 +3,7 @@ import { AdminService } from 'src/app/services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router'
 import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
+import { first } from 'rxjs';
 
 
 @Component({
@@ -33,16 +34,26 @@ export class ListemployeesPage implements OnInit {
     private auth: AuthService
 
   ) {
-    this.firestore.getallemployers().subscribe(res=>{
+  
+   }
+
+
+   ionViewDidEnter(){
+    this.employerdetails = [];
+
+    this.firestore.getallemployers().pipe(first()).subscribe(res=>{
       this.employers = res;
       console.log(res)
 
       for(let v=0;v<res.length;v++){
-        this.employerdata = [];
+        console.log(this.employerdetails.length);
+        
 
-        this.firestore.getallemployersd(this.employers[v].userget).subscribe(res=>{
+        this.firestore.getallemployersd(this.employers[v].userget).pipe(first()).subscribe(res=>{
           this.employerdetails.push(res);
           console.log(this.employerdetails);
+
+         
         });
 
       }
@@ -53,6 +64,7 @@ export class ListemployeesPage implements OnInit {
       this.count = res.length;
       this.company = res;
     });
+
    }
 
   ngOnInit() {

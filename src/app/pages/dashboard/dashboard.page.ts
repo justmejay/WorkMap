@@ -90,6 +90,11 @@ export class DashboardPage implements OnInit {
 
   }
 
+  ionViewDidEnter(){
+    this.finalbook = [];
+    this.filter;
+  }
+
   logout(){
     this.auth.logout();
     this.nc.navigateRoot('authentication');

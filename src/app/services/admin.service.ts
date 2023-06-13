@@ -221,6 +221,8 @@ export class AdminService {
     return collectionData(cakesRef, {idField: 'userget'}) as Observable<[Company]> 
   }
 
+  
+
   getallemployersd(id): Observable<Company[]>{
     console.log(id)
     const cakesRef = doc(this.firestore, `employers/${id}/profile/${id}`)
