@@ -17,7 +17,7 @@ export class ResumebuilderPage implements OnInit {
   school: any = [];
   experience: any = [];
   pref: any = [];
-
+exp:any;
 
   constructor(
     private firestore: ProfilingService,
@@ -39,6 +39,7 @@ export class ResumebuilderPage implements OnInit {
 
     this.firestore.getpref().subscribe(res=>{
       this.pref = res;
+      this.exp = this.pref.exp;
       this.pref = this.pref.specialization;
       console.log(this.pref)
 

@@ -104,6 +104,17 @@
         <ion-input *ngFor="let a of pref" position="stacked" class="custominput" value="{{a}}" [readonly]="true"></ion-input>
     </ion-card-content>
   </ion-card>
+  <ion-card *ngIf="resume">
+    <ion-card-header>
+      <div style="display: flex; justify-content: space-between;">
+        <ion-card-title>Work Experience:</ion-card-title>
+        <ion-icon style="float: right;" name="create" class="edit" [routerLink]="['/editpreferredoption']"></ion-icon>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-input  value="{{exp}} year/s" position="stacked" class="custominput"  [readonly]="true"></ion-input>
+    </ion-card-content>
+  </ion-card>
 
 <!-- Character Reference -->
   <ion-card *ngIf="resume">
