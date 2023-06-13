@@ -80,10 +80,6 @@ export class DashboardPage implements OnInit {
    }
 
   async ngOnInit() {
- 
-
-
-    
 
 
 
@@ -91,7 +87,7 @@ export class DashboardPage implements OnInit {
 
   ionViewDidEnter(){
     this.finalbook = [];
-    this.filter;
+    this.filter();
   }
 
   logout(){

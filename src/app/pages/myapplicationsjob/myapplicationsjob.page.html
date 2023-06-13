@@ -86,9 +86,11 @@
         </div>
       </ion-grid>
       <ion-label class="timeposted">Date Posted: {{job.timestamp}}</ion-label>
+
+      <ion-button size="large" *ngIf="data.status == 'Rejected'" (click)="reapply(job)" class="jobcardinfo"  >Reapply this Job</ion-button>
+
     </ion-card-content>
       
-      <!-- <ion-button size="large" [disabled]="button" class="jobcardinfo" (click)="apply(job)" >Apply Now</ion-button> -->
 
   </ion-card>
 </ion-content>

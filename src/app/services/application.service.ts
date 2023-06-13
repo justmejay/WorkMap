@@ -439,6 +439,16 @@ export class ApplicationService {
       
     }
 
+    getappbyid(id: any): Observable<User[]>{
+    
+      
+      const cakesRef = doc(this.firestore, `application/${id}`);
+      return docData(cakesRef, {idField: 'userget'}) as Observable<[User]> 
+  
+      
+    }
+
+
     getjobid(id: any): Observable<User[]>{
       
       const cakesRef = doc(this.firestore, `joblist/${id}`)

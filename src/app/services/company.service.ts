@@ -214,6 +214,19 @@ export class CompanyService {
     }
   }
 
+  async reapply(data: any){
+
+    try {
+      const userDocRef3 = doc(this.firestore, `application/${data}`);
+      const user = await updateDoc(userDocRef3, {status: "Pending"});
+     
+      return true;
+    } catch (e) {
+ 
+      return null;
+    }
+  }
+
 
   async addjoblisting({jdescription, jtitle, jsalary, lat, lng,jposition, jtype, jexperience, attainment, slots}: 
     { jtitle: any, jsalary: any, jposition: any,lat:any, lng: any, jtype: any, jdescription: any, jexperience: any, attainment: any, slots: any } ){

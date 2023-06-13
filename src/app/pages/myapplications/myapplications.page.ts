@@ -67,7 +67,7 @@ export class MyapplicationsPage implements OnInit {
     console.log(appl.application.jobid)
 
   
-    this.router.navigate(['myapplicationsjob'], {queryParams:{jobid:id}});
+    this.router.navigate(['myapplicationsjob'], {queryParams:{jobid:id, applid: appl.userget}});
   }
 
 }
