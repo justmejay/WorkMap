@@ -79,7 +79,6 @@ export class AddpostPage implements OnInit {
       lname: [this.post.plname],
       cname: [this.post.pcname],
       profileimg: [this.post.pprofileimg],
-      pfsuffix: [this.post.pfsuffix]
     });
   }
 

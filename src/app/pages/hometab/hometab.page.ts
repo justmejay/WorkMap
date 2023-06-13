@@ -71,7 +71,7 @@ export class HometabPage implements OnInit {
     const cname = null
 
   
-    this.router.navigate(['addpost'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname, pprofileimg: profileimg, pcname: cname,pfsuffix: profile.suffix}});
+    this.router.navigate(['addpost'], {queryParams:{puid:uid, pfname:fname, pmname: mname, plname: lname, pprofileimg: profileimg, pcname: cname,}});
   }
 
   

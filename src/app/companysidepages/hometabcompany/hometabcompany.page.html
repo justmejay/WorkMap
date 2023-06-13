@@ -19,9 +19,8 @@
               <img *ngIf="post?.profileimg; else placeholder_avatar;" [src]="post.profileimg" />
       
               <ng-template #placeholder_avatar>
-              <!-- <div class="fallback">
-                <p>Select Image</p>
-              </div> -->
+                <img src="assets/header.png" />
+  
               </ng-template>
             </ion-avatar>
             <div class="label">
