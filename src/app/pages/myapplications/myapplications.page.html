@@ -120,15 +120,15 @@
     </ion-card> -->
 
     <ion-item button detail="true" *ngIf="appl.status == 'Pending'" (click)="view(appl)" class="applicants">
-      <ion-avatar slot="start">
+      <!-- <ion-avatar slot="start">
         <img *ngIf="appl?.application.profileimg;" [src]="appl.application.profileimg" />
         <ng-template #alt>
           <img alt="Company piture" src="assets/header.png" />
         </ng-template>
-      </ion-avatar>
+      </ion-avatar> -->
         <p>
           <ion-label class="ion-text-wrap">{{appl.application.jtitle}}</ion-label>
-          <ion-label class="ion-text-wrap">({{appl.time}})</ion-label>
+          <ion-label class="ion-text-wrap">{{appl.time}}</ion-label>
         </p>
     </ion-item>
 
@@ -153,12 +153,12 @@
     </ion-card> -->
 
     <ion-item button detail="true" *ngIf="appl.status == 'Rejected'" (click)="view(appl)" class="rejected">
-      <ion-avatar slot="start">
+      <!-- <ion-avatar slot="start">
         <img *ngIf="appl?.application.profileimg;" [src]="appl.application.profileimg" />
         <ng-template #alt>
           <img alt="Company piture" src="assets/header.png" />
         </ng-template>
-      </ion-avatar>
+      </ion-avatar> -->
       <p>
         <ion-label> Job Title: {{appl.application.jtitle}}
         </ion-label>
@@ -186,12 +186,12 @@
     </ion-card> -->
 
     <ion-item button detail="true" *ngIf="appl.status == 'Inprocess'" (click)="view(appl)" class="inprocess">
-      <ion-avatar slot="start">
+      <!-- <ion-avatar slot="start">
         <img *ngIf="appl?.application.profileimg;" [src]="appl.application.profileimg" />
         <ng-template #alt>
           <img alt="Company piture" src="assets/header.png" />
         </ng-template>
-      </ion-avatar>
+      </ion-avatar> -->
       <p>
         <ion-label> Job Title: {{appl.application.jtitle}}
         </ion-label>
@@ -218,12 +218,12 @@
        </ion-card-content>
     </ion-card> -->
     <ion-item button detail="true" *ngIf="appl.status == 'Accepted'" (click)="view(appl)" class="accepted">
-      <ion-avatar slot="start">
+      <!-- <ion-avatar slot="start">
         <img *ngIf="appl?.application.profileimg;" [src]="appl.application.profileimg" />
         <ng-template #alt>
           <img alt="Company piture" src="assets/header.png" />
         </ng-template>
-      </ion-avatar>
+      </ion-avatar> -->
       <p>
         <ion-label> Job Title: {{appl.application.jtitle}}
         </ion-label>
