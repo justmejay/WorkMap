@@ -3068,10 +3068,8 @@ export class MoresignupspecializationPage implements OnInit {
   ngOnInit() {
 
     this.credentials = this.fb.group({
-     
       
-      
-      specialization: ['', [Validators.required]],
+      exp: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
 
       
     });
@@ -3100,7 +3098,7 @@ export class MoresignupspecializationPage implements OnInit {
       email: this.authdetails.email,
       password: this.authdetails.password,
       ea: this.authdetails.ea,
-     exp: this.exp} });
+     exp: this.credentials.value.exp} });
 
 
 
@@ -3190,7 +3188,7 @@ export class MoresignupspecializationPage implements OnInit {
 
   clear(){
     this.term = "";
-  }
+  } 
 
 
 }
