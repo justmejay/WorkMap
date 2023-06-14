@@ -87,7 +87,7 @@ export class AddpostPage implements OnInit {
       quality: 90,
       allowEditing: false,
       resultType: CameraResultType.Base64,
-      source: CameraSource.Camera, // Camera, Photos or Prompt!
+      source: CameraSource.Prompt, // Camera, Photos or Prompt!
     });
 
     this.base64Image = "data:image/jpeg;base64, " + image.base64String;

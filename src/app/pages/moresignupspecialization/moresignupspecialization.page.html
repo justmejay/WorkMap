@@ -65,19 +65,22 @@
         </ion-item>
       </ion-card-content>
     </ion-card> -->
+
+    <form action=""  [formGroup]="credentials" (ngSubmit)="signup()">
     <ion-card class="custom-card">
       <ion-card-header>
-        <ion-card-title>In general, how much many years of work experience do you have?</ion-card-title>
+        <ion-card-title>In general, how many years of work experience do you have?</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ion-item class="customitem">
-          <ion-input  [(ngModel)]="exp" [clearInput]="true" placeholder="Experience in years" position="stacked" type="number"></ion-input>
+          <ion-input formControlName="exp" [clearInput]="true" placeholder="Experience in years" position="stacked" type="tel"></ion-input>
         </ion-item>
       </ion-card-content>
     </ion-card>
-    <ion-button (click)="signup()" [disabled]="checkeditems.length == 0 || exp < 0" shape="round "expand="block" class="btnreg" size="large">Next</ion-button>
-</div>
+    <ion-button [disabled]="checkeditems.length == 0 || credentials.value.exp < 0 || !credentials.valid" type="submit" shape="round "expand="block" class="btnreg" size="large">Next</ion-button>
+  </form>
 
+  </div>
 
 </ion-content>
 
