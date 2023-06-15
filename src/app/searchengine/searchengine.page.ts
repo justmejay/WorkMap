@@ -3216,7 +3216,7 @@ originalquery: any = [];
   apply(job:any){
     const any = job.listid
     const id = job.uid
-    this.router.navigate(['applytojob'], {queryParams:{jobid:any, cid:id}});
+    this.router.navigate(['applytojob'], {queryParams:{jobid:any, cid:id,jtitle: job.jtitle }});
   }
 
   gocdata(data: any){
