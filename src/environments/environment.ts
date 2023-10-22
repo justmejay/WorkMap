@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  google: "AIzaSyALpfIu1v6INFmCf8GYJSRY9iteqqq2Fbc",
+  google: "", //add google api
 
 };
 
